@@ -2,7 +2,7 @@
 ## Makefile generated for component 'colourSegmentation'. 
 ## 
 ## Makefile     : colourSegmentation_rtw.mk
-## Generated on : Wed Nov 04 14:57:55 2020
+## Generated on : Wed Nov 04 15:13:10 2020
 ## Final product: ./colourSegmentation.a
 ## Product type : static-library
 ## 
@@ -170,7 +170,7 @@ DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(MATLAB_WORKSPACE)/ImreconstructCuda_mw_ptx.cu $(MATLAB_WORKSPACE)/MWPtxUtils.cpp $(START_DIR)/colourSegmentation_data.cu $(START_DIR)/colourSegmentation_initialize.cu $(START_DIR)/colourSegmentation_terminate.cu $(START_DIR)/colourSegmentation.cu
+SRCS = $(START_DIR)/colourSegmentation_data.cu $(START_DIR)/colourSegmentation_initialize.cu $(START_DIR)/colourSegmentation_terminate.cu $(START_DIR)/colourSegmentation.cu
 
 ALL_SRCS = $(SRCS)
 
@@ -178,7 +178,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = ImreconstructCuda_mw_ptx.o MWPtxUtils.o colourSegmentation_data.o colourSegmentation_initialize.o colourSegmentation_terminate.o colourSegmentation.o
+OBJS = colourSegmentation_data.o colourSegmentation_initialize.o colourSegmentation_terminate.o colourSegmentation.o
 
 ALL_OBJS = $(OBJS)
 

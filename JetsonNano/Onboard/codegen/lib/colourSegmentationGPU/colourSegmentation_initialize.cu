@@ -5,7 +5,7 @@
 // File: colourSegmentation_initialize.cu
 //
 // GPU Coder version                    : 2.0
-// CUDA/C/C++ source code generated on  : 04-Nov-2020 14:57:40
+// CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
 //
 
 // Include Files
