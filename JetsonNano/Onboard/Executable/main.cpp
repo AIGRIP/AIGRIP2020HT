@@ -15,11 +15,12 @@
 int main(void)
 {
 	int width,height,channels;
-	unsigned char segIM[94710];
+	//unsigned char segIM[94710];
+	bool segIM[728160];
 
 	//unsigned char colourBalancedImage[14745600];
 
-	unsigned char *img = stbi_load("table205x154.jpg",&width,&height,&channels,0);
+	unsigned char *img = stbi_load("CUDATEST.jpg",&width,&height,&channels,0);
 
 	if(img == NULL){
 		printf("Error loading the image");
@@ -32,8 +33,9 @@ int main(void)
 	t = clock();
 
 	//colourBalance( img, colourBalancedImage);
+	//testFuncHardwareGPU( img, segIM);
 
-	testFuncHardwareGPU( img, segIM);
+	colourSegmentation( img, 369, 423, segIM);
 
 	t = clock()-t;
 	double time_taken = ((double) t)/CLOCKS_PER_SEC;
