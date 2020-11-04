@@ -5,7 +5,7 @@
  * File: _coder_colourSegmentation_api.h
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 11:21:24
+ * CUDA/C/C++ source code generated on  : 04-Nov-2020 14:57:40
  */
 
 #ifndef _CODER_COLOURSEGMENTATION_API_H
