@@ -5,7 +5,9 @@
 
 //extern "cBalance"
 
-#include "testFuncHardwareGPU.h"
+//#include "testFuncHardwareGPU.h"
+#include "colourSegmentation.h"
+#include "colourBalance.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
