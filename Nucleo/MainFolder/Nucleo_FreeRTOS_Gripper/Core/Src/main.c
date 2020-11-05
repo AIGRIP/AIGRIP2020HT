@@ -33,6 +33,16 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
+// Is the second I2C port on Jetson Nano
+#define FILENAME_I2C "/dev/i2c-2"
+// Adress to nucleo board
+#define NUCLEO_ADDRESS "0x5"
+
+// The numbers of sensors
+#define NUMBER_OF_MOTORS 8
+#define NUMBER_OF_PROXIMITY_SENSORS 7
+#define NUMBER_OF_MOUSE_SESNORS 4
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -422,6 +432,9 @@ struct sensValue{
     int16_t mouse_D_Y;
 
 }typedef sensValue;
+
+
+
 
 
 // Read memory registers from SPI on channel E
@@ -1248,9 +1261,9 @@ void StartCommBoard(void *argument)
   for(;;)
   {
 
-	  hi2c1
 
-	  HAL_I2C_Master_Receive(hi2c, DevAddress, pData, Size, Timeout)
+
+	  HAL_I2C_Master_Receive(hi2c1, DevAddress, pData, Size, Timeout)
 
 	HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
 	osDelay(1000);
