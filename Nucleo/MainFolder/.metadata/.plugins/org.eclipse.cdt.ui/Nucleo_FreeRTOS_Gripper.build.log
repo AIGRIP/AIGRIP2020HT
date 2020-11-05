@@ -1,0 +1,27 @@
+08:19:07 **** Incremental Build of configuration Debug for project Nucleo_FreeRTOS_Gripper ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32H743xx -DDEBUG -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'plotSensorData':
+../Core/Src/main.c:1111:7: warning: unused variable 'TB' [-Wunused-variable]
+  char TB = '\t';
+       ^~
+../Core/Src/main.c:1110:7: warning: unused variable 'NL' [-Wunused-variable]
+  char NL = '\n';
+       ^~
+arm-none-eabi-gcc -o "Nucleo_FreeRTOS_Gripper.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\AutoBike01\Documents\GitHub\AIGRIP2020HT\Nucleo\MainFolder\Nucleo_FreeRTOS_Gripper\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo_FreeRTOS_Gripper.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo_FreeRTOS_Gripper.elf
+ 
+arm-none-eabi-objdump -h -S  Nucleo_FreeRTOS_Gripper.elf  > "Nucleo_FreeRTOS_Gripper.list"
+arm-none-eabi-objcopy  -O binary  Nucleo_FreeRTOS_Gripper.elf  "Nucleo_FreeRTOS_Gripper.bin"
+arm-none-eabi-size   Nucleo_FreeRTOS_Gripper.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50744	    320	  22192	  73256	  11e28	Nucleo_FreeRTOS_Gripper.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo_FreeRTOS_Gripper.bin
+ 
+Finished building: Nucleo_FreeRTOS_Gripper.list
+ 
+
+08:19:09 Build Finished. 0 errors, 2 warnings. (took 2s.149ms)
+

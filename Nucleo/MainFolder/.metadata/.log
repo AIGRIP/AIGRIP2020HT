@@ -1,0 +1,18 @@
+!SESSION 2020-11-05 08:08:24.862 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-11-05 08:08:45.324
+!MESSAGE Log4j initialized with config file C:\Users\AutoBike01\Documents\GitHub\AIGRIP2020HT\Nucleo\MainFolder\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-11-05 08:08:46.640
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-11-05 08:08:47.213
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-11-05 08:10:26.680
+!MESSAGE Indexed 'Nucleo_FreeRTOS_Gripper' (45 sources, 137 headers) in 5.87 sec: 16,829 declarations; 109,821 references; 9 unresolved inclusions; 474 syntax errors; 3,126 unresolved names (2.4%)
