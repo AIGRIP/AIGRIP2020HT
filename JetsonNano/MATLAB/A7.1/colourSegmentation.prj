@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="645076075" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\colourSegmentation.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" name="colourSegmentation" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="3451857343" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\colourSegmentation.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" name="colourSegmentation" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -854,7 +854,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>1398118688</param.AnnotationChecksum>
+    <param.AnnotationChecksum>2384656798</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -863,12 +863,12 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen\lib\colourSegmentation</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>2452347475</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>2045241223</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen\mex\colourSegmentation</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>2619461428</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>2012082912</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>testMain</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\colourSegmentation.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;450089873&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\colourSegmentation.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1194869413&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\colourSegmentation.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -1080,7 +1080,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\colourSegmentation.m">
-        <Marker>1604561743633</Marker>
+        <Marker>1604564353210</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>

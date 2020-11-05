@@ -5,7 +5,7 @@
 // File: colourSegmentation_initialize.h
 //
 // GPU Coder version                    : 2.0
-// CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
+// CUDA/C/C++ source code generated on  : 05-Nov-2020 09:20:00
 //
 #ifndef COLOURSEGMENTATION_INITIALIZE_H
 #define COLOURSEGMENTATION_INITIALIZE_H

@@ -2,7 +2,7 @@
 ## Makefile generated for component 'colourSegmentation'. 
 ## 
 ## Makefile     : colourSegmentation_rtw.mk
-## Generated on : Thu Nov 05 08:36:56 2020
+## Generated on : Thu Nov 05 09:20:12 2020
 ## Final product: ./colourSegmentation.a
 ## Product type : static-library
 ## 
