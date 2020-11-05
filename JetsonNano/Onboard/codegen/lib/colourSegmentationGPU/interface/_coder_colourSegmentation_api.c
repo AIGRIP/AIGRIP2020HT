@@ -5,7 +5,7 @@
  * File: _coder_colourSegmentation_api.c
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+ * CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
  */
 
 /* Include Files */
@@ -177,9 +177,10 @@ void colourSegmentation_api(const mxArray * const prhs[3], const mxArray *plhs[1
   real_T centerOfObjectX;
   real_T centerOfObjectY;
   uint8_T (*colourBalancedImage)[2184480];
-  boolean_T (*SegmentationMask)[728160];
+  boolean_T (*colourSegmentationMask)[728160];
   st.tls = emlrtRootTLSGlobal;
-  SegmentationMask = (boolean_T (*)[728160])mxMalloc(sizeof(boolean_T [728160]));
+  colourSegmentationMask = (boolean_T (*)[728160])mxMalloc(sizeof(boolean_T
+    [728160]));
 
   /* Marshall function inputs */
   colourBalancedImage = emlrt_marshallIn(&st, emlrtAlias(prhs[0]),
@@ -191,10 +192,10 @@ void colourSegmentation_api(const mxArray * const prhs[3], const mxArray *plhs[1
 
   /* Invoke the target function */
   colourSegmentation(*colourBalancedImage, centerOfObjectX, centerOfObjectY,
-                     *SegmentationMask);
+                     *colourSegmentationMask);
 
   /* Marshall function outputs */
-  plhs[0] = emlrt_marshallOut(*SegmentationMask);
+  plhs[0] = emlrt_marshallOut(*colourSegmentationMask);
 }
 
 /*

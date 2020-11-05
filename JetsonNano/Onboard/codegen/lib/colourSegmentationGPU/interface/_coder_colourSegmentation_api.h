@@ -5,7 +5,7 @@
  * File: _coder_colourSegmentation_api.h
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+ * CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
  */
 
 #ifndef _CODER_COLOURSEGMENTATION_API_H
@@ -28,7 +28,8 @@ extern "C" {
 
   /* Function Declarations */
   void colourSegmentation(uint8_T colourBalancedImage[2184480], real_T
-    centerOfObjectX, real_T centerOfObjectY, boolean_T SegmentationMask[728160]);
+    centerOfObjectX, real_T centerOfObjectY, boolean_T colourSegmentationMask
+    [728160]);
   void colourSegmentation_api(const mxArray * const prhs[3], const mxArray *
     plhs[1]);
   void colourSegmentation_atexit(void);

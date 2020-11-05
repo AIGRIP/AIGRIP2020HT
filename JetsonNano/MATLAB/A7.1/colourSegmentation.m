@@ -1,4 +1,4 @@
-function [segmentationMask] = colourSegmentation(colourBalancedImage, centerOfObjectX, centerOfObjectY)
+function [colourSegmentationMask] = colourSegmentation(colourBalancedImage, centerOfObjectX, centerOfObjectY)
 
 %The function takes in a image and a rough postion of the object in the
 %image that should be segmented. and it outputs a a bitmask of the the
@@ -10,7 +10,7 @@ function [segmentationMask] = colourSegmentation(colourBalancedImage, centerOfOb
 %centerOfObjectY = Objects center postion in the y-axis
 
 %Output:
-%SegmentationMask = bitmask of the segmented object
+%colourSegmentationMask = bitmask of the segmented object
 
 
 %Transform the Image into the HSV colour space
@@ -97,14 +97,6 @@ elseif indexBiggest == 9
 else
     disp('error');
 end
-
-%Fill up the hole in the binary image.
-%maskFill =imfill(colourSegmentationMask,'holes');
-
-
-% 
-% SegmentationMask = bwselect(maskFill,centerOfObjectY,centerOfObjectX);
-segmentationMask = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
 
 
 end

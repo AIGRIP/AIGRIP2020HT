@@ -5,7 +5,7 @@
  * File: _coder_colourSegmentation_info.c
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+ * CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
  */
 
 /* Include Files */
@@ -59,7 +59,7 @@ mxArray *emlrtMexFcnProperties(void)
   emlrtSetField(xEntryPoints, 0, "FullPath", emlrtMxCreateString(
     "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A7.1\\colourSegmentation.m"));
   emlrtSetField(xEntryPoints, 0, "TimeStamp", emlrtMxCreateDoubleScalar
-                (738099.632962963));
+                (738100.35753472219));
   xResult = emlrtCreateStructMatrix(1, 1, 4, propFieldName);
   emlrtSetField(xResult, 0, "Version", emlrtMxCreateString(
     "9.9.0.1495850 (R2020b) Update 1"));

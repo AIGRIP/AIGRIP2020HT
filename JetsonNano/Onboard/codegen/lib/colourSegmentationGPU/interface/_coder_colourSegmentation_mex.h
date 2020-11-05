@@ -5,7 +5,7 @@
  * File: _coder_colourSegmentation_mex.h
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+ * CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
  */
 
 #ifndef _CODER_COLOURSEGMENTATION_MEX_H

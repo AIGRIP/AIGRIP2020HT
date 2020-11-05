@@ -5,7 +5,7 @@
 // File: main.cu
 //
 // GPU Coder version                    : 2.0
-// CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+// CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
 //
 
 //***********************************************************************
@@ -88,13 +88,14 @@ static unsigned char argInit_uint8_T()
 static void main_colourSegmentation()
 {
   static unsigned char b[2184480];
-  static bool SegmentationMask[728160];
+  static bool colourSegmentationMask[728160];
 
   // Initialize function 'colourSegmentation' input arguments.
   // Initialize function input argument 'colourBalancedImage'.
   // Call the entry-point 'colourSegmentation'.
   argInit_984x740x3_uint8_T(b);
-  colourSegmentation(b, argInit_real_T(), argInit_real_T(), SegmentationMask);
+  colourSegmentation(b, argInit_real_T(), argInit_real_T(),
+                     colourSegmentationMask);
 }
 
 //

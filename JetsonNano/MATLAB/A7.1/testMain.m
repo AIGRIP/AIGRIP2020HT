@@ -5,6 +5,8 @@ originalImage = imread('Test5.jpg');
 originalImage = imresize(originalImage,[3280,2464]);
 originalImage = imresize(originalImage,0.3);
 
+
+
 %% 
 clc
 
@@ -22,12 +24,13 @@ centerOfObjectY = round(roi.Position(1));
 
 tic
 
-fuzzyImage = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
+colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
+
+segmentationMask = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
 
 toc
 
 figure;
-imshow(fuzzyImage)
+imshow(segmentationMask)
 title('Colour balanced image');
-
 

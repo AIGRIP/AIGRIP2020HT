@@ -5,7 +5,7 @@
 // File: colourSegmentation.cu
 //
 // GPU Coder version                    : 2.0
-// CUDA/C/C++ source code generated on  : 04-Nov-2020 15:12:57
+// CUDA/C/C++ source code generated on  : 05-Nov-2020 08:36:44
 //
 
 // Include Files
@@ -59,24 +59,24 @@ static __global__ void colourSegmentation_kernel22(const bool HSVImage_data
 static __global__ void colourSegmentation_kernel23(const bool centerColourMask
   [23409], cell_wrap_7 outputs[1]);
 static __global__ void colourSegmentation_kernel24(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel25(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel26(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel27(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel28(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel29(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel3(double HSVImage[2184480]);
 static __global__ void colourSegmentation_kernel30(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel31(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel32(const double HSVImage[2184480],
-  bool SegmentationMask[728160]);
+  bool colourSegmentationMask[728160]);
 static __global__ void colourSegmentation_kernel4(bool centerColourMask[23409]);
 static __global__ void colourSegmentation_kernel5(const double HSVImage[2184480],
   const int i2, const int i, const int HSVImage_size[2], const int b_i, const
@@ -111,7 +111,7 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel1(
     // centerOfObjectX = Objects center postion in the x-axis
     // centerOfObjectY = Objects center postion in the y-axis
     // Output:
-    // SegmentationMask = bitmask of the segmented object
+    // colourSegmentationMask = bitmask of the segmented object
     // Transform the Image into the HSV colour space
     Xin[ix] = static_cast<double>(colourBalancedImage[ix]) / 255.0;
   }
@@ -644,11 +644,11 @@ static __global__ __launch_bounds__(32, 1) void colourSegmentation_kernel23(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel24(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -662,10 +662,10 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel24(
     double d1;
     d = HSVImage[(xpageoffset + 984 * ix) + 1456320];
     d1 = HSVImage[(xpageoffset + 984 * ix) + 728160];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>(d < 0.3)) || (static_cast<int>(d == 0.3)))) || (static_cast<int>((
-      static_cast<int>(d < 0.6)) && (static_cast<int>((static_cast<int>(d1 < 0.2))
-      || (static_cast<int>(d1 == 0.2)))))));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>(d < 0.3)) || (static_cast<int>(d == 0.3)))) || (
+      static_cast<int>((static_cast<int>(d < 0.6)) && (static_cast<int>((
+      static_cast<int>(d1 < 0.2)) || (static_cast<int>(d1 == 0.2)))))));
   }
 }
 
@@ -673,11 +673,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel24(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel25(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -691,9 +691,10 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel25(
     double d1;
     d = HSVImage[(xpageoffset + 984 * ix) + 1456320];
     d1 = HSVImage[(xpageoffset + 984 * ix) + 728160];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>(d > 0.6)) || (static_cast<int>(d == 0.6)))) && (static_cast<int>((
-      static_cast<int>(d1 < 0.2)) || (static_cast<int>(d1 == 0.2)))));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>(d > 0.6)) || (static_cast<int>(d == 0.6)))) && (
+      static_cast<int>((static_cast<int>(d1 < 0.2)) || (static_cast<int>(d1 ==
+      0.2)))));
   }
 }
 
@@ -701,11 +702,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel25(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel26(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -717,11 +718,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel26(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 260.0)) && (static_cast<int>
-      (d < 315.0)))) || (static_cast<int>(d == 260.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 260.0)) && (
+      static_cast<int>(d < 315.0)))) || (static_cast<int>(d == 260.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -729,11 +730,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel26(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel27(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -745,11 +746,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel27(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 205.0)) && (static_cast<int>
-      (d < 260.0)))) || (static_cast<int>(d == 205.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 205.0)) && (
+      static_cast<int>(d < 260.0)))) || (static_cast<int>(d == 205.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -757,11 +758,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel27(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel28(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -773,11 +774,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel28(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 155.0)) && (static_cast<int>
-      (d < 205.0)))) || (static_cast<int>(d == 155.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 155.0)) && (
+      static_cast<int>(d < 205.0)))) || (static_cast<int>(d == 155.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -785,11 +786,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel28(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel29(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -801,11 +802,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel29(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 70.0)) && (static_cast<int>(d
-      < 155.0)))) || (static_cast<int>(d == 70.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 70.0)) && (
+      static_cast<int>(d < 155.0)))) || (static_cast<int>(d == 70.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -834,11 +835,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel3
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel30(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -850,11 +851,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel30(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 50.0)) && (static_cast<int>(d
-      < 70.0)))) || (static_cast<int>(d == 50.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 50.0)) && (
+      static_cast<int>(d < 70.0)))) || (static_cast<int>(d == 50.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -862,11 +863,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel30(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel31(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -878,11 +879,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel31(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d > 15.0)) && (static_cast<int>(d
-      < 50.0)))) || (static_cast<int>(d == 15.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d > 15.0)) && (
+      static_cast<int>(d < 50.0)))) || (static_cast<int>(d == 15.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -890,11 +891,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel31(
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
 //                const double HSVImage[2184480]
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel32(
-  const double HSVImage[2184480], bool SegmentationMask[728160])
+  const double HSVImage[2184480], bool colourSegmentationMask[728160])
 {
   unsigned long threadId;
   int ix;
@@ -906,11 +907,11 @@ static __global__ __launch_bounds__(512, 1) void colourSegmentation_kernel32(
   if ((static_cast<int>(ix < 740)) && (static_cast<int>(xpageoffset < 984))) {
     double d;
     d = HSVImage[xpageoffset + 984 * ix];
-    SegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((static_cast<
-      int>((static_cast<int>((static_cast<int>(d < 15.0)) || (static_cast<int>(d
-      == 315.0)))) || (static_cast<int>(d > 315.0)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) && (static_cast<int>
-      (HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
+    colourSegmentationMask[xpageoffset + 984 * ix] = ((static_cast<int>((
+      static_cast<int>((static_cast<int>((static_cast<int>(d < 15.0)) || (
+      static_cast<int>(d == 315.0)))) || (static_cast<int>(d > 315.0)))) && (
+      static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 728160] > 0.2)))) &&
+      (static_cast<int>(HSVImage[(xpageoffset + 984 * ix) + 1456320] > 0.3)));
   }
 }
 
@@ -1106,11 +1107,11 @@ static __global__ __launch_bounds__(1024, 1) void colourSegmentation_kernel9(
 // Arguments    : const unsigned char colourBalancedImage[2184480]
 //                double centerOfObjectX
 //                double centerOfObjectY
-//                bool SegmentationMask[728160]
+//                bool colourSegmentationMask[728160]
 // Return Type  : void
 //
 void colourSegmentation(const unsigned char colourBalancedImage[2184480], double
-  centerOfObjectX, double centerOfObjectY, bool SegmentationMask[728160])
+  centerOfObjectX, double centerOfObjectY, bool colourSegmentationMask[728160])
 {
   cell_wrap_7 outputs[1];
   cell_wrap_7 (*gpu_outputs)[1];
@@ -1161,10 +1162,10 @@ void colourSegmentation(const unsigned char colourBalancedImage[2184480], double
   int i3;
   unsigned char (*gpu_colourBalancedImage)[2184480];
   bool (*gpu_HSVImage_data)[728160];
-  bool (*gpu_SegmentationMask)[728160];
+  bool (*gpu_colourSegmentationMask)[728160];
   bool (*gpu_centerColourMask)[23409];
   bool validLaunchParams;
-  cudaMalloc(&gpu_SegmentationMask, 728160UL);
+  cudaMalloc(&gpu_colourSegmentationMask, 728160UL);
   cudaMalloc(&gpu_outputs, 72UL);
   cudaMalloc(&i_gpu_HSVImage_size, 8UL);
   cudaMalloc(&h_gpu_HSVImage_size, 8UL);
@@ -1186,7 +1187,7 @@ void colourSegmentation(const unsigned char colourBalancedImage[2184480], double
   // centerOfObjectX = Objects center postion in the x-axis
   // centerOfObjectY = Objects center postion in the y-axis
   // Output:
-  // SegmentationMask = bitmask of the segmented object
+  // colourSegmentationMask = bitmask of the segmented object
   // Transform the Image into the HSV colour space
   cudaMemcpy(gpu_colourBalancedImage, (void *)&colourBalancedImage[0], 2184480UL,
              cudaMemcpyHostToDevice);
@@ -1400,46 +1401,42 @@ void colourSegmentation(const unsigned char colourBalancedImage[2184480], double
   if (i1 == 1) {
     // Red
     colourSegmentation_kernel32<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 2) {
     // Orange
     colourSegmentation_kernel31<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 3) {
     // Yellow
     colourSegmentation_kernel30<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 4) {
     // Green
     colourSegmentation_kernel29<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 5) {
     // Cyan
     colourSegmentation_kernel28<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 6) {
     // Blue
     colourSegmentation_kernel27<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 7) {
     // Purple
     colourSegmentation_kernel26<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else if (i1 == 8) {
     // White
     colourSegmentation_kernel25<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   } else {
     // Black
     colourSegmentation_kernel24<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-      (*gpu_HSVImage, *gpu_SegmentationMask);
+      (*gpu_HSVImage, *gpu_colourSegmentationMask);
   }
 
-  // Fill up the hole in the binary image.
-  // maskFill =imfill(colourSegmentationMask,'holes');
-  //
-  //  SegmentationMask = bwselect(maskFill,centerOfObjectY,centerOfObjectX);
-  cudaMemcpy(&SegmentationMask[0], gpu_SegmentationMask, 728160UL,
+  cudaMemcpy(&colourSegmentationMask[0], gpu_colourSegmentationMask, 728160UL,
              cudaMemcpyDeviceToHost);
   cudaFree(*gpu_colourBalancedImage);
   cudaFree(*gpu_Xin);
@@ -1456,7 +1453,7 @@ void colourSegmentation(const unsigned char colourBalancedImage[2184480], double
   cudaFree(*h_gpu_HSVImage_size);
   cudaFree(*i_gpu_HSVImage_size);
   cudaFree(*gpu_outputs);
-  cudaFree(*gpu_SegmentationMask);
+  cudaFree(*gpu_colourSegmentationMask);
 }
 
 //

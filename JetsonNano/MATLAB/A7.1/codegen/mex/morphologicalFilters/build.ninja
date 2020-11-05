@@ -1,0 +1,59 @@
+# CompilerName=mingw64
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/win64
+matlabdir = C:/Program Files/MATLAB/R2020b
+startdir = C:/Users/SW Team Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1
+
+# Toolchain information
+cc = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\gcc
+cxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\g++
+linker = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\gcc
+linkerxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\g++
+
+cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\morphologicalFilters" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\morphologicalFilters\interface" -I "." -DMODEL=morphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1  
+
+cxxflags =  -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\morphologicalFilters" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\morphologicalFilters\interface" -I "." -DMODEL=morphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1  
+
+ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2020b\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -o "morphologicalFilters_mex.mexw64" -llibemlrt -llibcovrt -llibut -llibmwmathutil  "$matlabdir\extern\lib\win64\mingw64\libmwbwlookup_tbb.lib" "$matlabdir\extern\lib\win64\mingw64\libmwippreconstruct.lib" -Wl,--version-script,morphologicalFilters_mex.map
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir/morphologicalFilters_data.o : cc $root/morphologicalFilters_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/morphologicalFilters_initialize.o : cc $root/morphologicalFilters_initialize.c
+build $builddir/morphologicalFilters_terminate.o : cc $root/morphologicalFilters_terminate.c
+build $builddir/morphologicalFilters.o : cc $root/morphologicalFilters.c
+build $builddir/imfill.o : cc $root/imfill.c
+build $builddir/eml_int_forloop_overflow_check.o : cc $root/eml_int_forloop_overflow_check.c
+build $builddir/regionprops.o : cc $root/regionprops.c
+build $builddir/bwconncomp.o : cc $root/bwconncomp.c
+build $builddir/assertValidSizeArg.o : cc $root/assertValidSizeArg.c
+build $builddir/horzcatStructList.o : cc $root/horzcatStructList.c
+build $builddir/sum.o : cc $root/sum.c
+build $builddir/_coder_morphologicalFilters_api.o : cc $root/interface/_coder_morphologicalFilters_api.c
+build $builddir/_coder_morphologicalFilters_mex.o : cc $root/interface/_coder_morphologicalFilters_mex.c
+build $builddir/useConstantDim.o : cc $root/useConstantDim.c
+build $builddir/morphologicalFilters_emxutil.o : cc $root/morphologicalFilters_emxutil.c
+build $builddir/_coder_morphologicalFilters_info.o : cc $root/interface/_coder_morphologicalFilters_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root\morphologicalFilters_mex.mexw64 : link $builddir/morphologicalFilters_data.o $builddir/rt_nonfinite.o $builddir/morphologicalFilters_initialize.o $builddir/morphologicalFilters_terminate.o $builddir/morphologicalFilters.o $builddir/imfill.o $builddir/eml_int_forloop_overflow_check.o $builddir/regionprops.o $builddir/bwconncomp.o $builddir/assertValidSizeArg.o $builddir/horzcatStructList.o $builddir/sum.o $builddir/_coder_morphologicalFilters_api.o $builddir/_coder_morphologicalFilters_mex.o $builddir/useConstantDim.o $builddir/morphologicalFilters_emxutil.o $builddir/_coder_morphologicalFilters_info.o $builddir/c_mexapi_version.o 
