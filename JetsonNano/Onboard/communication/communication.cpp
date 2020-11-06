@@ -4,6 +4,9 @@
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
+#include <unistd.h>
+
+#include "communication.h"
 
 // Is the second I2C port on Jetson Nano
 #define FILENAME_I2C "/dev/i2c-2"
@@ -74,15 +77,19 @@ void communicationHandler()
     messageStructFromNano messageFromNano;
     messageStructFromNucleo messageFromNucleo;
 
+    setupI2C();
+
     // Infinit communication
     while(1)
     {
 
-        writeI2C(messageStructFromNano *messageFromNano);
+        //writeI2C( &messageFromNano);
 
-        usleep(1000000);
+        //usleep(1000000);
 
-        readI2C(messageStructFromNucleo *messageFromNucleo);
+        readI2C( &messageFromNucleo);
+
+        printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
 
         usleep(1000000);
     }

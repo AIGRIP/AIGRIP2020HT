@@ -33,8 +33,6 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-// Is the second I2C port on Jetson Nano
-#define FILENAME_I2C "/dev/i2c-2"
 // Adress to nucleo board
 #define NUCLEO_ADDRESS "0x5"
 
@@ -434,7 +432,22 @@ struct sensValue{
 }typedef sensValue;
 
 
+typedef struct {
 
+	bool stopGripper = 1;
+	short motor[NUMBER_OF_MOTORS];
+
+} messageStructFromNano;
+
+typedef struct {
+
+	bool statusGripper = 1;
+	short motorStatus[NUMBER_OF_MOTORS];
+
+    unsigned char proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
+    unsigned char mouseSensor[NUMBER_OF_MOUSE_SESNORS];
+
+} messageStructFromNucleo;
 
 
 // Read memory registers from SPI on channel E
@@ -682,7 +695,7 @@ static void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
   hi2c1.Init.Timing = 0x00602173;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = 10;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -1258,12 +1271,29 @@ void StartCommBoard(void *argument)
 {
   /* USER CODE BEGIN StartCommBoard */
   /* Infinite loop */
+
+	messageStructFromNucleo messageFormNucleo;
+
+	messageStructFromNano messageFromNano;
+
+	messageFormNucleo.motorStatus[0] = 1;
+	messageFormNucleo.motorStatus[2] = 3;
+	messageFormNucleo.motorStatus[3] = 7;
+	messageFormNucleo.motorStatus[4] = 6;
+	messageFormNucleo.motorStatus[5] = 9;
+	messageFormNucleo.motorStatus[6] = 4;
+	messageFormNucleo.motorStatus[7] = 2;
+
+	messageFormNucleo.statusGripper = 1;
+
   for(;;)
   {
 
+	  // HAL_I2C_Master_Transmit(hi2c1, DevAddress, pData, sizeof(messageStructFromNucleo), 100);
 
+	  HAL_I2C_Slave_Transmit(hi2c1, &messageFormNucleo, sizeof(messageStructFromNucleo), 10000);
 
-	  HAL_I2C_Master_Receive(hi2c1, DevAddress, pData, Size, Timeout)
+	  // HAL_I2C_Master_Receive(hi2c1, DevAddress, pData, sizeof(messageStructFromNano), 100);
 
 	HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
 	osDelay(1000);
