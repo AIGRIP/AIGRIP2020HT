@@ -38,7 +38,7 @@ int main(void)
 	clock_t t;
 	t = clock();
 
-	//colourBalance( img, colourBalancedImage);
+	colourBalance( img, colourBalancedImage);
 
 	colourSegmentation( img,(double) round(width/2),(double) round(height/2) ,binIm1);
 
