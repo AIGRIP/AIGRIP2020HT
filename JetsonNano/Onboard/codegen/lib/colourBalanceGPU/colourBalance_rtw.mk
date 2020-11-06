@@ -2,7 +2,7 @@
 ## Makefile generated for component 'colourBalance'. 
 ## 
 ## Makefile     : colourBalance_rtw.mk
-## Generated on : Wed Nov 04 10:52:31 2020
+## Generated on : Fri Nov 06 10:03:01 2020
 ## Final product: ./colourBalance.a
 ## Product type : static-library
 ## 
@@ -22,7 +22,7 @@ MAKEFILE                  = colourBalance_rtw.mk
 MATLAB_ROOT               = $(MATLAB_WORKSPACE)/C/Program_Files/MATLAB/R2020b
 MATLAB_BIN                = $(MATLAB_WORKSPACE)/C/Program_Files/MATLAB/R2020b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/codegen/lib/colourBalance
+START_DIR                 = $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1/codegen/lib/colourBalance
 TGT_FCN_LIB               = ISO_C++
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -151,7 +151,7 @@ BUILD_TYPE = "Static Library"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB -I$(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/nvidia/include -I$(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/nvidia/sources/utils -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(MATLAB_ROOT)/extern/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1 -I$(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/nvidia/include -I$(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/nvidia/sources/utils -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(MATLAB_ROOT)/extern/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -364,19 +364,19 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o $@ $<
 
 
-%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/%.c
+%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1/%.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 
-%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/%.c
+%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1/%.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 
-%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/%.cpp
+%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1/%.cpp
 	$(CPP) $(CPPFLAGS) -o $@ $<
 
 
-%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/%.cu
+%.o : $(MATLAB_WORKSPACE)/C/Users/SW_Team_Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A7.1/%.cu
 	$(CPP) $(CPPFLAGS) -o $@ $<
 
 

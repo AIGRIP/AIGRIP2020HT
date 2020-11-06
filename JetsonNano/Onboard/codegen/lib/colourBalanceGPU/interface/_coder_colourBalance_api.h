@@ -5,7 +5,7 @@
  * File: _coder_colourBalance_api.h
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 04-Nov-2020 10:52:24
+ * CUDA/C/C++ source code generated on  : 06-Nov-2020 10:02:26
  */
 
 #ifndef _CODER_COLOURBALANCE_API_H

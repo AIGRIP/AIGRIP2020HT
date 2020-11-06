@@ -23,12 +23,17 @@ meanTotal = (meanRed + meanGreen + meanBlue) / 3;
 
 %Create a new image and use the mean value of the colours to calculate the
 %new colours
-colourBalancedImage = originalImage;
-colourBalancedImage(:,:,1) = meanTotal / meanRed * originalImage(:,:,1);
-colourBalancedImage(:,:,2) = meanTotal / meanGreen * originalImage(:,:,2);
-colourBalancedImage(:,:,3) = meanTotal / meanBlue * originalImage(:,:,3);
+
+oldRedLayer = originalImage(:,:,1);
+oldGreenLayer = originalImage(:,:,2);
+oldBlueLayer = originalImage(:,:,3);
 
 
+newRedLayer = oldRedLayer * (meanTotal / meanRed);
+newGreenLayer = oldGreenLayer * (meanTotal / meanGreen);
+newBlueLayer = oldBlueLayer * (meanTotal / meanBlue);
+
+colourBalancedImage = cat(3, newRedLayer, newGreenLayer, newBlueLayer);
 
 
 
