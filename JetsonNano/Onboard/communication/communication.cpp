@@ -6,6 +6,7 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <termios.h>
 
 #include "communication.h"
 
@@ -37,7 +38,7 @@ void readI2C(messageStructFromNucleo *messageFromNucleo)
 {
 
     if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
-        perror("Could not send i2c command.\n");
+        perror("Could not receive i2c message.\n");
     }else{
         read( i2cfd,messageFromNucleo,sizeof(messageStructFromNucleo) );
     }
