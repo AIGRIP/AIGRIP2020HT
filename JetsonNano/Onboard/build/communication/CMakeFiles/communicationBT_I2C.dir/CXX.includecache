@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.cpp
+errno.h
+-
+stdio.h
+-
+stdlib.h
+-
+linux/i2c-dev.h
+-
+sys/ioctl.h
+-
+fcntl.h
+-
+unistd.h
+-
+communication.h
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.h
+
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.h
+
