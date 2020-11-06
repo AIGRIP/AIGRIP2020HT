@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build
 
 # Include any dependencies generated for this target.
 include codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/depend.make
@@ -59,16 +59,16 @@ include codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/flags.make
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/flags.make
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o: ../codegen/lib/colourBalanceCPU/colourBalance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o -c /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o"
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o -c /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.i"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.i
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.s"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.s
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o.requires:
 
@@ -83,16 +83,16 @@ codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/flags.make
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o: ../codegen/lib/colourBalanceCPU/colourBalance_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o -c /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o"
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o -c /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.i"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.i
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.s"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_data.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.s
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o.requires:
 
@@ -107,16 +107,16 @@ codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_data.
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/flags.make
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o: ../codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o -c /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o"
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o -c /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.i"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.i
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.s"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_initialize.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.s
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o.requires:
 
@@ -131,16 +131,16 @@ codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_initi
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/flags.make
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o: ../codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o -c /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o"
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o -c /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.i"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp > CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.i
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.s"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU/colourBalance_terminate.cpp -o CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.s
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o.requires:
 
@@ -169,9 +169,9 @@ codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a: codegen/lib/colourBalanceCPU
 codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o
 codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build.make
 codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libcolourBalanceCPU.a"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -P CMakeFiles/colourBalanceCPU.dir/cmake_clean_target.cmake
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/colourBalanceCPU.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libcolourBalanceCPU.a"
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -P CMakeFiles/colourBalanceCPU.dir/cmake_clean_target.cmake
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/colourBalanceCPU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build: codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a
@@ -186,10 +186,10 @@ codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/requires: codegen/l
 .PHONY : codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/requires
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/clean:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -P CMakeFiles/colourBalanceCPU.dir/cmake_clean.cmake
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU && $(CMAKE_COMMAND) -P CMakeFiles/colourBalanceCPU.dir/cmake_clean.cmake
 .PHONY : codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/clean
 
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/depend:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceCPU /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/A7.1/JetsonNano/Onboard /home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourBalanceCPU /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/depend
 

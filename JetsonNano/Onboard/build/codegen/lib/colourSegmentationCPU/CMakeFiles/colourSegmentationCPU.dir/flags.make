@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC -fPIC   -std=gnu++11
 
 CXX_DEFINES = -DcolourSegmentationCPU_EXPORTS
 
-CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourSegmentationCPU 
+CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A7.1/JetsonNano/Onboard/codegen/lib/colourSegmentationCPU 
 

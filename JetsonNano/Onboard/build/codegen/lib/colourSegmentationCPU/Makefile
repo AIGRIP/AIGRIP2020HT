@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourSegmentationCPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourSegmentationCPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/clean
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/preinstall
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/preinstall
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule
 .PHONY : codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ colourSegmentationCPU: codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmen
 
 # fast build rule for target.
 colourSegmentationCPU/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build
 .PHONY : colourSegmentationCPU/fast
 
 applyToMultipleDims.o: applyToMultipleDims.cpp.o
@@ -131,7 +131,7 @@ applyToMultipleDims.o: applyToMultipleDims.cpp.o
 
 # target to build an object file
 applyToMultipleDims.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.o
 .PHONY : applyToMultipleDims.cpp.o
 
 applyToMultipleDims.i: applyToMultipleDims.cpp.i
@@ -140,7 +140,7 @@ applyToMultipleDims.i: applyToMultipleDims.cpp.i
 
 # target to preprocess a source file
 applyToMultipleDims.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.i
 .PHONY : applyToMultipleDims.cpp.i
 
 applyToMultipleDims.s: applyToMultipleDims.cpp.s
@@ -149,7 +149,7 @@ applyToMultipleDims.s: applyToMultipleDims.cpp.s
 
 # target to generate assembly for a file
 applyToMultipleDims.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/applyToMultipleDims.cpp.s
 .PHONY : applyToMultipleDims.cpp.s
 
 colourSegmentation.o: colourSegmentation.cpp.o
@@ -158,7 +158,7 @@ colourSegmentation.o: colourSegmentation.cpp.o
 
 # target to build an object file
 colourSegmentation.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.o
 .PHONY : colourSegmentation.cpp.o
 
 colourSegmentation.i: colourSegmentation.cpp.i
@@ -167,7 +167,7 @@ colourSegmentation.i: colourSegmentation.cpp.i
 
 # target to preprocess a source file
 colourSegmentation.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.i
 .PHONY : colourSegmentation.cpp.i
 
 colourSegmentation.s: colourSegmentation.cpp.s
@@ -176,7 +176,7 @@ colourSegmentation.s: colourSegmentation.cpp.s
 
 # target to generate assembly for a file
 colourSegmentation.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation.cpp.s
 .PHONY : colourSegmentation.cpp.s
 
 colourSegmentation_data.o: colourSegmentation_data.cpp.o
@@ -185,7 +185,7 @@ colourSegmentation_data.o: colourSegmentation_data.cpp.o
 
 # target to build an object file
 colourSegmentation_data.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.o
 .PHONY : colourSegmentation_data.cpp.o
 
 colourSegmentation_data.i: colourSegmentation_data.cpp.i
@@ -194,7 +194,7 @@ colourSegmentation_data.i: colourSegmentation_data.cpp.i
 
 # target to preprocess a source file
 colourSegmentation_data.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.i
 .PHONY : colourSegmentation_data.cpp.i
 
 colourSegmentation_data.s: colourSegmentation_data.cpp.s
@@ -203,7 +203,7 @@ colourSegmentation_data.s: colourSegmentation_data.cpp.s
 
 # target to generate assembly for a file
 colourSegmentation_data.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_data.cpp.s
 .PHONY : colourSegmentation_data.cpp.s
 
 colourSegmentation_initialize.o: colourSegmentation_initialize.cpp.o
@@ -212,7 +212,7 @@ colourSegmentation_initialize.o: colourSegmentation_initialize.cpp.o
 
 # target to build an object file
 colourSegmentation_initialize.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.o
 .PHONY : colourSegmentation_initialize.cpp.o
 
 colourSegmentation_initialize.i: colourSegmentation_initialize.cpp.i
@@ -221,7 +221,7 @@ colourSegmentation_initialize.i: colourSegmentation_initialize.cpp.i
 
 # target to preprocess a source file
 colourSegmentation_initialize.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.i
 .PHONY : colourSegmentation_initialize.cpp.i
 
 colourSegmentation_initialize.s: colourSegmentation_initialize.cpp.s
@@ -230,7 +230,7 @@ colourSegmentation_initialize.s: colourSegmentation_initialize.cpp.s
 
 # target to generate assembly for a file
 colourSegmentation_initialize.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_initialize.cpp.s
 .PHONY : colourSegmentation_initialize.cpp.s
 
 colourSegmentation_terminate.o: colourSegmentation_terminate.cpp.o
@@ -239,7 +239,7 @@ colourSegmentation_terminate.o: colourSegmentation_terminate.cpp.o
 
 # target to build an object file
 colourSegmentation_terminate.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.o
 .PHONY : colourSegmentation_terminate.cpp.o
 
 colourSegmentation_terminate.i: colourSegmentation_terminate.cpp.i
@@ -248,7 +248,7 @@ colourSegmentation_terminate.i: colourSegmentation_terminate.cpp.i
 
 # target to preprocess a source file
 colourSegmentation_terminate.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.i
 .PHONY : colourSegmentation_terminate.cpp.i
 
 colourSegmentation_terminate.s: colourSegmentation_terminate.cpp.s
@@ -257,7 +257,7 @@ colourSegmentation_terminate.s: colourSegmentation_terminate.cpp.s
 
 # target to generate assembly for a file
 colourSegmentation_terminate.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/colourSegmentation_terminate.cpp.s
 .PHONY : colourSegmentation_terminate.cpp.s
 
 rgb2hsv.o: rgb2hsv.cpp.o
@@ -266,7 +266,7 @@ rgb2hsv.o: rgb2hsv.cpp.o
 
 # target to build an object file
 rgb2hsv.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.o
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.o
 .PHONY : rgb2hsv.cpp.o
 
 rgb2hsv.i: rgb2hsv.cpp.i
@@ -275,7 +275,7 @@ rgb2hsv.i: rgb2hsv.cpp.i
 
 # target to preprocess a source file
 rgb2hsv.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.i
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.i
 .PHONY : rgb2hsv.cpp.i
 
 rgb2hsv.s: rgb2hsv.cpp.s
@@ -284,7 +284,7 @@ rgb2hsv.s: rgb2hsv.cpp.s
 
 # target to generate assembly for a file
 rgb2hsv.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.s
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rgb2hsv.cpp.s
 .PHONY : rgb2hsv.cpp.s
 
 # Help Target
@@ -325,6 +325,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

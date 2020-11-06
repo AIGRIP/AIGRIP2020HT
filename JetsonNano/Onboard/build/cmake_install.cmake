@@ -1,4 +1,4 @@
-# Install script for directory: /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+# Install script for directory: /home/aigrip/Documents/A7.1/JetsonNano/Onboard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU/cmake_install.cmake")
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU/cmake_install.cmake")
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourSegmentationCPU/cmake_install.cmake")
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/Executable/cmake_install.cmake")
+  include("/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/codegen/lib/colourSegmentationCPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/Executable/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

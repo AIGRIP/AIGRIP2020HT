@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build
 
 #=============================================================================
 # Directory level rules for directory codegen/lib/morphologicalFiltersCPU
@@ -84,7 +84,7 @@ codegen/lib/morphologicalFiltersCPU/preinstall:
 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all:
 	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/depend
 	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target morphologicalFiltersCPU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target morphologicalFiltersCPU"
 .PHONY : codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
 
 # Include target in all.
@@ -94,9 +94,9 @@ all: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/
 
 # Build rule for subdir invocation for target.
 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rule
 
 # Convenience name for target.
@@ -139,7 +139,7 @@ codegen/lib/colourBalanceCPU/preinstall:
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/all:
 	$(MAKE) -f codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build.make codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/depend
 	$(MAKE) -f codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build.make codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target colourBalanceCPU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target colourBalanceCPU"
 .PHONY : codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/all
 
 # Include target in all.
@@ -149,9 +149,9 @@ all: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/all
 
 # Build rule for subdir invocation for target.
 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/rule
 
 # Convenience name for target.
@@ -194,7 +194,7 @@ codegen/lib/colourSegmentationCPU/preinstall:
 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/all:
 	$(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/depend
 	$(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target colourSegmentationCPU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target colourSegmentationCPU"
 .PHONY : codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/all
 
 # Include target in all.
@@ -204,9 +204,9 @@ all: codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/all
 
 # Build rule for subdir invocation for target.
 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/rule
 
 # Convenience name for target.
@@ -251,7 +251,7 @@ Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/morphologicalFiltersC
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/all
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/depend
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Include target in all.
@@ -261,9 +261,9 @@ all: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Build rule for subdir invocation for target.
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 27
 	$(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 
 # Convenience name for target.
