@@ -1,27 +1,28 @@
-//
-//  Academic License - for use in teaching, academic research, and meeting
-//  course requirements at degree granting institutions only.  Not for
-//  government, commercial, or other organizational use.
-//
-//  colourSegmentation_terminate.h
-//
-//  Code generation for function 'colourSegmentation_terminate'
-//
-
+/*
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
+ * colourSegmentation_terminate.h
+ *
+ * Code generation for function 'colourSegmentation_terminate'
+ *
+ */
 
 #pragma once
 
-// Include files
+/* Include files */
 #include "rtwtypes.h"
+#include "covrt.h"
 #include "emlrt.h"
 #include "mex.h"
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// Function Declarations
-void colourSegmentation_atexit();
-void colourSegmentation_terminate();
+/* Function Declarations */
+void colourSegmentation_atexit(void);
+void colourSegmentation_terminate(void);
 
-// End of code generation (colourSegmentation_terminate.h)
+/* End of code generation (colourSegmentation_terminate.h) */

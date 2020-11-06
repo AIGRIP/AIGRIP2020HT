@@ -14,11 +14,11 @@ cxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrse
 linker = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\gcc
 linkerxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\g++
 
-cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation\interface" -I "." -DMODEL=colourSegmentation_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H  
+cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation\interface" -I "." -DMODEL=colourSegmentation_mex -D__USE_MINGW_ANSI_STDIO=1  
 
-cxxflags =  -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation\interface" -I "." -DMODEL=colourSegmentation_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H  
+cxxflags =  -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A7.1\codegen\mex\colourSegmentation\interface" -I "." -DMODEL=colourSegmentation_mex -D__USE_MINGW_ANSI_STDIO=1  
 
-ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2020b\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -llibMatlabDataArray -llibMatlabEngine  -o "colourSegmentation_mex.mexw64" -llibemlrt -llibcovrt -llibut -llibmwmathutil  "$matlabdir\extern\lib\win64\mingw64\libmwrgb2hsv_tbb.lib"
+ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2020b\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -o "colourSegmentation_mex.mexw64" -llibemlrt -llibcovrt -llibut -llibmwmathutil  "$matlabdir\extern\lib\win64\mingw64\libmwrgb2hsv_tbb.lib" -Wl,--version-script,colourSegmentation_mex.map
 
 # Build Rules
 rule cc
@@ -36,15 +36,17 @@ rule linkxx
     command = $linkerxx $in $ldflags
 
 # Build
-build $builddir/colourSegmentation_data.o : cxx $root/colourSegmentation_data.cpp
-build $builddir/rt_nonfinite.o : cxx $root/rt_nonfinite.cpp
-build $builddir/colourSegmentation_initialize.o : cxx $root/colourSegmentation_initialize.cpp
-build $builddir/colourSegmentation_terminate.o : cxx $root/colourSegmentation_terminate.cpp
-build $builddir/colourSegmentation.o : cxx $root/colourSegmentation.cpp
-build $builddir/_coder_colourSegmentation_api.o : cxx $root/interface/_coder_colourSegmentation_api.cpp
-build $builddir/_coder_colourSegmentation_mex.o : cxx $root/interface/_coder_colourSegmentation_mex.cpp
-build $builddir/_coder_colourSegmentation_info.o : cxx $root/interface/_coder_colourSegmentation_info.cpp
-build $builddir/cpp_mexapi_version.o : cxx $matlabdir/extern/version/cpp_mexapi_version.cpp
+build $builddir/colourSegmentation_data.o : cc $root/colourSegmentation_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/colourSegmentation_initialize.o : cc $root/colourSegmentation_initialize.c
+build $builddir/colourSegmentation_terminate.o : cc $root/colourSegmentation_terminate.c
+build $builddir/colourSegmentation.o : cc $root/colourSegmentation.c
+build $builddir/applyToMultipleDims.o : cc $root/applyToMultipleDims.c
+build $builddir/_coder_colourSegmentation_api.o : cc $root/interface/_coder_colourSegmentation_api.c
+build $builddir/_coder_colourSegmentation_mex.o : cc $root/interface/_coder_colourSegmentation_mex.c
+build $builddir/colourSegmentation_emxutil.o : cc $root/colourSegmentation_emxutil.c
+build $builddir/_coder_colourSegmentation_info.o : cc $root/interface/_coder_colourSegmentation_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
 
 # Link
-build $root\colourSegmentation_mex.mexw64 : linkxx $builddir/colourSegmentation_data.o $builddir/rt_nonfinite.o $builddir/colourSegmentation_initialize.o $builddir/colourSegmentation_terminate.o $builddir/colourSegmentation.o $builddir/_coder_colourSegmentation_api.o $builddir/_coder_colourSegmentation_mex.o $builddir/_coder_colourSegmentation_info.o $builddir/cpp_mexapi_version.o 
+build $root\colourSegmentation_mex.mexw64 : link $builddir/colourSegmentation_data.o $builddir/rt_nonfinite.o $builddir/colourSegmentation_initialize.o $builddir/colourSegmentation_terminate.o $builddir/colourSegmentation.o $builddir/applyToMultipleDims.o $builddir/_coder_colourSegmentation_api.o $builddir/_coder_colourSegmentation_mex.o $builddir/colourSegmentation_emxutil.o $builddir/_coder_colourSegmentation_info.o $builddir/c_mexapi_version.o 

@@ -33,7 +33,8 @@ startY = centerOfObjectY - squareHalfSize;
 endY = centerOfObjectY + squareHalfSize;
 
 %Take out the sqaure area from the image
-centerHSVImage = HSVImage(startX:endX , startY:endY ,:);
+centerHSVImage = zeros(squareSize , squareSize ,3);
+centerHSVImage(:,:,:) = HSVImage(startX:endX , startY:endY ,:);
 
 centerColourMask = zeros(squareSize , squareSize ,9,'logical');
 %Make mask in the square for every 9 colours. 

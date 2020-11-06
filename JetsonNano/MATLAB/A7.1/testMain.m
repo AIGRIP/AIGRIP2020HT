@@ -16,7 +16,7 @@ figure;
 imshow(colourBalancedImage)
 title('Colour balanced image');
 
-roi = drawcrosshair('Color','r');
+roi = drawcrosshair('Color','r'); 
 
 centerOfObjectX = round(roi.Position(2));
 centerOfObjectY = round(roi.Position(1));
