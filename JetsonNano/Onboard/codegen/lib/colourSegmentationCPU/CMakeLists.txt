@@ -14,13 +14,13 @@ file(GLOB cu *.c *.cpp)
 
 
 # Create a library and choose the name (linking name) for the library.
-CUDA_ADD_LIBRARY(colourSegmentationCPU STATIC ${cu})
+CUDA_ADD_LIBRARY(colourSegmentationCPU SHARED ${cu})
 
 # Make library public.
-target_compile_features(colourSegmentationCPUPUBLIC cxx_std_11)
+target_compile_features(colourSegmentationCPU PUBLIC cxx_std_11)
 
 # Make the current directory public.
-target_include_directories(colourSegmentationCPU PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(colourSegmentationCPU PUBLIC  "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # Link the library.
 target_link_libraries(colourSegmentationCPU)

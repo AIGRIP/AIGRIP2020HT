@@ -92,9 +92,9 @@ Executable/RUN_AIGRIP_NANO: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
 Executable/RUN_AIGRIP_NANO: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make
 Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudart_static.a
 Executable/RUN_AIGRIP_NANO: /usr/lib/aarch64-linux-gnu/librt.so
-Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
-Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
-Executable/RUN_AIGRIP_NANO: codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a
+Executable/RUN_AIGRIP_NANO: codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so
+Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceCPU/libcolourBalanceCPU.a
+Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationCPU/libcolourSegmentationCPU.so
 Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudart_static.a
 Executable/RUN_AIGRIP_NANO: /usr/lib/aarch64-linux-gnu/librt.so
 Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudadevrt.a

@@ -12,7 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/morphologicalFiltersCPU.dir/rtGetNaN.cpp.o"
   "CMakeFiles/morphologicalFiltersCPU.dir/rt_nonfinite.cpp.o"
   "libmorphologicalFiltersCPU.pdb"
-  "libmorphologicalFiltersCPU.a"
+  "libmorphologicalFiltersCPU.so"
 )
 
 # Per-language clean rules from dependency scanning.

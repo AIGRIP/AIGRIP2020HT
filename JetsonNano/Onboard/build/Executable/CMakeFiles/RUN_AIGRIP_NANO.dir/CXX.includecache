@@ -6,23 +6,25 @@
 
 #IncludeRegexTransform: 
 
-../codegen/lib/colourBalanceGPU/colourBalance.h
+../codegen/lib/colourBalanceCPU/colourBalance.h
 rtwtypes.h
-../codegen/lib/colourBalanceGPU/rtwtypes.h
+../codegen/lib/colourBalanceCPU/rtwtypes.h
 cstddef
 -
 cstdlib
 -
 
-../codegen/lib/colourSegmentationGPU/colourSegmentation.h
+../codegen/lib/colourSegmentationCPU/colourSegmentation.h
 rtwtypes.h
-../codegen/lib/colourSegmentationGPU/rtwtypes.h
+../codegen/lib/colourSegmentationCPU/rtwtypes.h
+omp.h
+../codegen/lib/colourSegmentationCPU/omp.h
 cstddef
 -
 cstdlib
 -
 
-../codegen/lib/colourSegmentationGPU/rtwtypes.h
+../codegen/lib/colourSegmentationCPU/rtwtypes.h
 stdbool.h
 -
 

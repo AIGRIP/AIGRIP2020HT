@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/cmake_install.cmake")
-  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourSegmentationGPU/cmake_install.cmake")
   include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceCPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourSegmentationCPU/cmake_install.cmake")
   include("/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/Executable/cmake_install.cmake")
 
 endif()

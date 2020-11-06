@@ -363,26 +363,28 @@ morphologicalFiltersCPU_OBJECTS = \
 # External object files for target morphologicalFiltersCPU
 morphologicalFiltersCPU_EXTERNAL_OBJECTS =
 
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/NeighborhoodProcessor.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/bwconncomp.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/imfill.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/imreconstruct.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/minOrMax.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_data.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_initialize.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_terminate.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rtGetInf.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rtGetNaN.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rt_nonfinite.cpp.o
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make
-codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX static library libmorphologicalFiltersCPU.a"
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU && $(CMAKE_COMMAND) -P CMakeFiles/morphologicalFiltersCPU.dir/cmake_clean_target.cmake
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/NeighborhoodProcessor.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/bwconncomp.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/imfill.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/imreconstruct.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/minOrMax.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_data.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_initialize.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/morphologicalFilters_terminate.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rtGetInf.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rtGetNaN.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rt_nonfinite.cpp.o
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: /usr/local/cuda/lib64/libcudart_static.a
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: /usr/lib/aarch64-linux-gnu/librt.so
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: /usr/local/cuda/lib64/libcudadevrt.a
+codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX shared library libmorphologicalFiltersCPU.so"
 	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/morphologicalFiltersCPU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build: codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.a
+codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build: codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so
 
 .PHONY : codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build
 

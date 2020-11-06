@@ -21,14 +21,13 @@ set(CUDA_SEPARABLE_COMPILATION ON)
 # The subdirectory should be in order of how they depend on each other.
 
 
-add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceGPU is a static library
+#add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceGPU is a static library
 
-add_subdirectory(codegen/lib/colourSegmentationGPU/) # colourSegmentationGPU is a static library
+#add_subdirectory(codegen/lib/colourSegmentationGPU/) # colourSegmentationGPU is a static library
 
 add_subdirectory(codegen/lib/morphologicalFiltersCPU/) # 
 
 add_subdirectory(codegen/lib/colourBalanceCPU/) # colourBalanceCPU is a static library
-
 
 add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 
