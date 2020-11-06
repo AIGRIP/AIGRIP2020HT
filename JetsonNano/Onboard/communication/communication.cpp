@@ -19,7 +19,9 @@ void setupI2C()
     if( (i2cfd = open( FILENAME_I2C, O_RDWR ) ) < 0){
         perror("Failed to open I2C file.\n");
         exit(1);
-	}
+    }else{
+	printf("Open I2C file successfully");
+    }
 }
 
 void writeI2C(messageStructFromNano *messageFromNano)
@@ -39,6 +41,8 @@ void readI2C(messageStructFromNucleo *messageFromNucleo)
 
     if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
         perror("Could not receive i2c message.\n");
+        read( i2cfd,messageFromNucleo,sizeof(messageStructFromNucleo) );
+
     }else{
         read( i2cfd,messageFromNucleo,sizeof(messageStructFromNucleo) );
     }

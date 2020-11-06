@@ -5,7 +5,7 @@
 // Is the second I2C port on Jetson Nano
 #define FILENAME_I2C "/dev/i2c-2"
 // Adress to nucleo board
-#define NUCLEO_ADDRESS "0x5"
+#define NUCLEO_ADDRESS "10"
 
 // The numbers of sensors
 #define NUMBER_OF_MOTORS 8
