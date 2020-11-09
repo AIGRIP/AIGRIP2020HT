@@ -5,36 +5,50 @@
 // Is the second I2C port on Jetson Nano
 #define FILENAME_I2C "/dev/i2c-1"
 // Adress to nucleo board
-#define NUCLEO_ADDRESS "0x05"
+#define NUCLEO_ADDRESS 0x05
 
 // The numbers of sensors
 #define NUMBER_OF_MOTORS 8
 #define NUMBER_OF_PROXIMITY_SENSORS 7
 #define NUMBER_OF_MOUSE_SESNORS 4
 
-typedef struct {
 
-	bool stopGripper = 1;
-	short motor[NUMBER_OF_MOTORS];
 
-} messageStructFromNano;
+struct structMessageStructHeaderFromNano {
 
-typedef struct {
+	unsigned char frameType;
+	unsigned char frameLength;
 
-	bool statusGripper = 1;
-	short motorStatus[NUMBER_OF_MOTORS];
+}typedef messageStructHeaderFromNano;
+
+
+struct structMouseSensorMessage {
+
+	short XMagnitud;
+	short YMagnitud;
+
+}typedef mouseSensorMessage;
+
+struct structMessageStructFromNucelo {
+
+    unsigned char statusOfNucelo;
+    short motorStatus[NUMBER_OF_MOTORS];
 
     unsigned char proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
-    unsigned char mouseSensor[NUMBER_OF_MOUSE_SESNORS];
+    mouseSensorMessage mouseSensor[NUMBER_OF_MOUSE_SESNORS];
 
-} messageStructFromNucleo;
+}typedef messageStructFromNucleo;
 
+// Setup of I2C on the Jetson Nano.
 void setupI2C();
 
-void writeI2C(messageStructFromNano *messageFromNano);
+// Write a message on I2C to the Nucleo.
+void writeI2C(char *messageToSend,int lengthOfMessage );
 
+// Receive a messafe from Nucleo to Nano.
 void readI2C(messageStructFromNucleo *messageFromNucleo);
 
+// Function that contol all I2C communication between the boards.
 void communicationHandler();
 
 

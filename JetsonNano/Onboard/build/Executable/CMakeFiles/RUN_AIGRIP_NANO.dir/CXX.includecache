@@ -8,7 +8,7 @@
 
 ../communication/communication.h
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/main.cpp
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/main.cpp
 time.h
 -
 stdio.h
@@ -18,15 +18,15 @@ stdlib.h
 math.h
 -
 communication.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/communication.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/communication.h
 stb/stb_image.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image.h
 stb/stb_image_write.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image_write.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image_write.h
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image.h
 stb_image.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image.h
 stdio.h
 -
 stdlib.h
@@ -56,7 +56,7 @@ intrin.h
 arm_neon.h
 -
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image_write.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image_write.h
 stdlib.h
 -
 stdio.h

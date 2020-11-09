@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication 
+CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/communication 
 

@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build
 
 #=============================================================================
 # Directory level rules for directory communication
@@ -84,7 +84,7 @@ communication/preinstall:
 communication/CMakeFiles/communicationBT_I2C.dir/all:
 	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/depend
 	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4 "Built target communicationBT_I2C"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4 "Built target communicationBT_I2C"
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/all
 
 # Include target in all.
@@ -94,9 +94,9 @@ all: communication/CMakeFiles/communicationBT_I2C.dir/all
 
 # Build rule for subdir invocation for target.
 communication/CMakeFiles/communicationBT_I2C.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/rule
 
 # Convenience name for target.
@@ -139,7 +139,7 @@ Executable/preinstall:
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: communication/CMakeFiles/communicationBT_I2C.dir/all
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/depend
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Include target in all.
@@ -149,9 +149,9 @@ all: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Build rule for subdir invocation for target.
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 
 # Convenience name for target.

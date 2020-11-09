@@ -3,6 +3,6 @@
 
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
  ../communication/communication.h
- /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/main.cpp
- /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image.h
- /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/stb/stb_image_write.h
+ /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/main.cpp
+ /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image.h
+ /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/Executable/stb/stb_image_write.h

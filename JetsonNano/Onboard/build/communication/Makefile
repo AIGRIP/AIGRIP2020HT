@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/communication/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/communication/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/clean
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 communication/CMakeFiles/communicationBT_I2C.dir/rule:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/rule
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/rule
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ communicationBT_I2C: communication/CMakeFiles/communicationBT_I2C.dir/rule
 
 # fast build rule for target.
 communicationBT_I2C/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
 .PHONY : communicationBT_I2C/fast
 
 communication.o: communication.cpp.o
@@ -131,7 +131,7 @@ communication.o: communication.cpp.o
 
 # target to build an object file
 communication.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o
 .PHONY : communication.cpp.o
 
 communication.i: communication.cpp.i
@@ -140,7 +140,7 @@ communication.i: communication.cpp.i
 
 # target to preprocess a source file
 communication.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.i
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.i
 .PHONY : communication.cpp.i
 
 communication.s: communication.cpp.s
@@ -149,7 +149,7 @@ communication.s: communication.cpp.s
 
 # target to generate assembly for a file
 communication.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.s
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.s
 .PHONY : communication.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -6,25 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.cpp
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/communication/communication.cpp
 errno.h
 -
 stdio.h
 -
 stdlib.h
 -
-linux/i2c-dev.h
+termios.h
 -
-sys/ioctl.h
+sys/stat.h
 -
 fcntl.h
 -
 unistd.h
 -
-termios.h
+linux/i2c.h
+-
+linux/i2c-dev.h
+-
+sys/ioctl.h
 -
 communication.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/communication/communication.h
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/communication/communication.h
+/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/communication/communication.h
 
