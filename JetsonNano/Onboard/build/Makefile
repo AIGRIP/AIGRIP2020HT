@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A7.1/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named colourBalanceGPU
+
+# Build rule for target.
+colourBalanceGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 colourBalanceGPU
+.PHONY : colourBalanceGPU
+
+# fast build rule for target.
+colourBalanceGPU/fast:
+	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build
+.PHONY : colourBalanceGPU/fast
+
+#=============================================================================
+# Target rules for targets named colourSegmentationGPU
+
+# Build rule for target.
+colourSegmentationGPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 colourSegmentationGPU
+.PHONY : colourSegmentationGPU
+
+# fast build rule for target.
+colourSegmentationGPU/fast:
+	$(MAKE) -f codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build.make codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build
+.PHONY : colourSegmentationGPU/fast
+
+#=============================================================================
 # Target rules for targets named morphologicalFiltersCPU
 
 # Build rule for target.
@@ -122,32 +148,6 @@ morphologicalFiltersCPU: cmake_check_build_system
 morphologicalFiltersCPU/fast:
 	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build
 .PHONY : morphologicalFiltersCPU/fast
-
-#=============================================================================
-# Target rules for targets named colourBalanceCPU
-
-# Build rule for target.
-colourBalanceCPU: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 colourBalanceCPU
-.PHONY : colourBalanceCPU
-
-# fast build rule for target.
-colourBalanceCPU/fast:
-	$(MAKE) -f codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build.make codegen/lib/colourBalanceCPU/CMakeFiles/colourBalanceCPU.dir/build
-.PHONY : colourBalanceCPU/fast
-
-#=============================================================================
-# Target rules for targets named colourSegmentationCPU
-
-# Build rule for target.
-colourSegmentationCPU: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 colourSegmentationCPU
-.PHONY : colourSegmentationCPU
-
-# fast build rule for target.
-colourSegmentationCPU/fast:
-	$(MAKE) -f codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build.make codegen/lib/colourSegmentationCPU/CMakeFiles/colourSegmentationCPU.dir/build
-.PHONY : colourSegmentationCPU/fast
 
 #=============================================================================
 # Target rules for targets named RUN_AIGRIP_NANO
@@ -170,9 +170,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... colourBalanceGPU"
+	@echo "... colourSegmentationGPU"
 	@echo "... morphologicalFiltersCPU"
-	@echo "... colourBalanceCPU"
-	@echo "... colourSegmentationCPU"
 	@echo "... RUN_AIGRIP_NANO"
 .PHONY : help
 

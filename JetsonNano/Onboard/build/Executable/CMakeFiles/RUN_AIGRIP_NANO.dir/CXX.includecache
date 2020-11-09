@@ -6,25 +6,23 @@
 
 #IncludeRegexTransform: 
 
-../codegen/lib/colourBalanceCPU/colourBalance.h
+../codegen/lib/colourBalanceGPU/colourBalance.h
 rtwtypes.h
-../codegen/lib/colourBalanceCPU/rtwtypes.h
+../codegen/lib/colourBalanceGPU/rtwtypes.h
 cstddef
 -
 cstdlib
 -
 
-../codegen/lib/colourSegmentationCPU/colourSegmentation.h
+../codegen/lib/colourSegmentationGPU/colourSegmentation.h
 rtwtypes.h
-../codegen/lib/colourSegmentationCPU/rtwtypes.h
-omp.h
-../codegen/lib/colourSegmentationCPU/omp.h
+../codegen/lib/colourSegmentationGPU/rtwtypes.h
 cstddef
 -
 cstdlib
 -
 
-../codegen/lib/colourSegmentationCPU/rtwtypes.h
+../codegen/lib/colourSegmentationGPU/rtwtypes.h
 stdbool.h
 -
 
@@ -38,7 +36,7 @@ cstddef
 cstdlib
 -
 
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/main.cpp
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/main.cpp
 time.h
 -
 stdio.h
@@ -48,61 +46,9 @@ stdlib.h
 math.h
 -
 colourSegmentation.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/colourSegmentation.h
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/colourSegmentation.h
 colourBalance.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/colourBalance.h
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/colourBalance.h
 morphologicalFilters.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/morphologicalFilters.h
-stb/stb_image.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/stb/stb_image.h
-stb/stb_image_write.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/stb/stb_image_write.h
-
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/stb/stb_image.h
-stb_image.h
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/stb/stb_image.h
-stdio.h
--
-stdlib.h
--
-stdarg.h
--
-stddef.h
--
-stdlib.h
--
-string.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-assert.h
--
-stdint.h
--
-emmintrin.h
--
-intrin.h
--
-arm_neon.h
--
-
-/home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable/stb/stb_image_write.h
-stdlib.h
--
-stdio.h
--
-stdarg.h
--
-stdlib.h
--
-string.h
--
-math.h
--
-assert.h
--
+/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/morphologicalFilters.h
 

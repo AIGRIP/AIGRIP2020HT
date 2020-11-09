@@ -1,4 +1,4 @@
-# Install script for directory: /home/aigrip/Documents/A7.1/JetsonNano/Onboard/Executable
+# Install script for directory: /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
