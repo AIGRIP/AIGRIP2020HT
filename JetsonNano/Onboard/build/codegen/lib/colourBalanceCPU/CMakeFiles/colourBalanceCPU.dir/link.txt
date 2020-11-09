@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcolourBalanceCPU.a  CMakeFiles/colourBalanceCPU.dir/colourBalance.cpp.o CMakeFiles/colourBalanceCPU.dir/colourBalance_data.cpp.o CMakeFiles/colourBalanceCPU.dir/colourBalance_initialize.cpp.o CMakeFiles/colourBalanceCPU.dir/colourBalance_terminate.cpp.o
-/usr/bin/ranlib libcolourBalanceCPU.a

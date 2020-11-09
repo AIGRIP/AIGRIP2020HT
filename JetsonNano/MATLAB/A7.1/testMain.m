@@ -1,9 +1,9 @@
 clc
 clear all
 close all
-originalImage = imread('Test5.jpg');   
-originalImage = imresize(originalImage,[3280,2464]);
-originalImage = imresize(originalImage,0.3);
+originalImage = imread('CUDATest.jpg');   
+% originalImage = imresize(originalImage,[3280,2464]);
+% originalImage = imresize(originalImage,0.3);
 
 
 
@@ -15,7 +15,7 @@ colourBalancedImage = colourBalance(originalImage);
 figure;
 imshow(colourBalancedImage)
 title('Colour balanced image');
-
+impixelinfo
 roi = drawcrosshair('Color','r'); 
 
 centerOfObjectX = round(roi.Position(2));
