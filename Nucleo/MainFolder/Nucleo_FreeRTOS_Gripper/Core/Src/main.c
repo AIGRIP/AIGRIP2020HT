@@ -432,22 +432,30 @@ struct sensValue{
 }typedef sensValue;
 
 
-typedef struct {
+struct structMessageStructHeaderFromNano {
 
-	bool stopGripper = 1;
-	short motor[NUMBER_OF_MOTORS];
+	unsigned char frameType;
+	unsigned char frameLength;
 
-} messageStructFromNano;
+}typedef messageStructHeaderFromNano;
 
-typedef struct {
 
-	bool statusGripper = 1;
-	short motorStatus[NUMBER_OF_MOTORS];
+struct structMouseSensorMessage {
+
+	short XMagnitud;
+	short YMagnitud;
+
+}typedef mouseSensorMessage;
+
+struct structMessageStructFromNucelo {
+
+    unsigned char statusOfNucelo;
+    short motorStatus[NUMBER_OF_MOTORS];
 
     unsigned char proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
-    unsigned char mouseSensor[NUMBER_OF_MOUSE_SESNORS];
+    mouseSensorMessage mouseSensor[NUMBER_OF_MOUSE_SESNORS];
 
-} messageStructFromNucleo;
+}typedef messageStructFromNucleo;
 
 
 // Read memory registers from SPI on channel E
@@ -464,6 +472,9 @@ void startUpMouse();
 
 // Read mouse sensor
 void readMouseSensor(sensValue *sensorPacket);
+
+// Handle received I2C messages.
+void I2CCommandHandle();
 
 /* USER CODE END 0 */
 
@@ -1234,6 +1245,52 @@ void plotSensorData(sensValue *dataToPlot)
 
 
 
+void I2CCommandHandle( )
+{
+
+	const char str0[] = "Undefined command.\n\r";
+	const char str1[] = "Start the gripper.\n\r";
+	const char str2[] = "Stop the gripper.\n\r";
+	const char str3[] = "Release object.\n\r";
+	const char str4[] = "Pause the gripper.\n\r";
+	const char str5[] = "Set motor angle.\n\r";
+
+	messageStructHeaderFromNano messageHeaderFromNano;
+
+	HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, sizeof(messageStructHeaderFromNano), 100);
+
+
+	switch(messageHeaderFromNano.frameType)
+	{
+
+		case 1:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 100);
+			// Should start the gripper
+
+		case 2:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 100);
+			// Should stop the gripper and set it to the standby mode.
+
+
+		case 3:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str3), 100);
+			// Should set the gripper to release mode.
+
+		case 4:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str4, sizeof(str4), 100);
+			// Should pause the gripper in its current stage.
+
+		case 5:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str5, sizeof(str5), 100);
+			// Should handle recommended motor commands from the Nano.
+
+		default:
+			HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
+			// Should Flush all I2C messages.
+	}
+
+}
+
 
 
 /* USER CODE END 4 */
@@ -1272,11 +1329,17 @@ void StartCommBoard(void *argument)
   /* USER CODE BEGIN StartCommBoard */
   /* Infinite loop */
 
+	// Transmit struct for Nucleo.
 	messageStructFromNucleo messageFormNucleo;
 
-	messageStructFromNano messageFromNano;
+	// Set up time variables.
+	const uint32_t deadlineCommunication = 1000;
+	const uint32_t communicationSleepTime = 25;
+	uint32_t lastTransmitTime = osKernelGetTickCount();
 
+	// Debug sensor values.
 	messageFormNucleo.motorStatus[0] = 1;
+	messageFormNucleo.motorStatus[1] = 3;
 	messageFormNucleo.motorStatus[2] = 3;
 	messageFormNucleo.motorStatus[3] = 7;
 	messageFormNucleo.motorStatus[4] = 6;
@@ -1284,19 +1347,27 @@ void StartCommBoard(void *argument)
 	messageFormNucleo.motorStatus[6] = 4;
 	messageFormNucleo.motorStatus[7] = 2;
 
-	messageFormNucleo.statusGripper = 1;
 
   for(;;)
   {
 
-	  // HAL_I2C_Master_Transmit(hi2c1, DevAddress, pData, sizeof(messageStructFromNucleo), 100);
+	// Check if it is time to do a new transmit. Otherwise it check if any new messages is available.
+	if( (lastTransmitTime + deadlineCommunication) >= osKernelGetTickCount() ){
 
-	  HAL_I2C_Slave_Transmit(hi2c1, &messageFormNucleo, sizeof(messageStructFromNucleo), 10000);
+		// Transmit the data from Nucleo.
+		HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
+		// Save the transmit time.
+		lastTransmitTime = osKernelGetTickCount();
 
-	  // HAL_I2C_Master_Receive(hi2c1, DevAddress, pData, sizeof(messageStructFromNano), 100);
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
+	}else{
 
-	HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
-	osDelay(1000);
+		// Handle received I2C data.
+		I2CCommandHandle();
+	}
+
+	osDelay(communicationSleepTime);
+
   }
 
   osThreadTerminate(NULL);
@@ -1329,7 +1400,7 @@ void StartSensorRead(void *argument)
 	readMouseSensor( &sensorPacket );
 
     //UART Send data to console.
-    plotSensorData( &sensorPacket );
+    // plotSensorData( &sensorPacket );
 
     osDelay(1000);
 
