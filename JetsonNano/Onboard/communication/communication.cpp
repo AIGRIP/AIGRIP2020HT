@@ -12,6 +12,9 @@
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 
+#include <sys/stat.h>
+#include <sys/select.h>
+
 #include <time.h>
 
 #include "communication.h"
@@ -22,12 +25,32 @@ int i2cfd;
 
 void setupI2C()
 {
+    fd_set set;
+    struct timeval timeout;
+    int rv;
+
     if( (i2cfd = open( FILENAME_I2C, O_RDWR  ) ) < 0){
         perror("Failed to open I2C file.\n");
         exit(1);
     }else{
-	printf("Open I2C file successfully");
+	printf("Open I2C file successfully.\n");
+	fflush(stdout);
     }
+
+    FD_ZERO(&set); /* clear the set */
+    FD_SET(i2cfd, &set); /* add our file descriptor to the set */
+
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 1000;
+
+    rv = select(i2cfd + 1, &set, NULL, NULL, &timeout);
+
+    if(rv == -1)
+    {
+	perror("Failed to set timeout.\n");
+	exit(1);
+    }
+
 }
 
 void writeI2C(unsigned char *messageToSend,int lengthOfMessage )
@@ -62,10 +85,12 @@ void communicationHandler()
     int readSize;
 
     // Timming for communication.
-    clock_t lastTimeCheckI2CMessage;
+    clock_t lastTimeCheckI2CMessage = clock();
 
     // Check received message every 25 milli-seconds.
-    clock_t checkTimming = CLOCKS_PER_SEC * 25/1000;
+    clock_t checkTimming = CLOCKS_PER_SEC * ((float)25/1000);
+
+    printf("%d %d \n",CLOCKS_PER_SEC,checkTimming);
 
     // Initiate communication structure.
     messageStructHeaderFromNano infoFrameFromNano;
@@ -77,7 +102,7 @@ void communicationHandler()
 
     // Set up I2C
     setupI2C();
-    
+
     // Temporary variable to debug.
     unsigned long counter = 0;
 
@@ -87,25 +112,32 @@ void communicationHandler()
 
         // Check if it is time to read data from Nucleo. Check if there is commands to send.
         // ToDo make a trigger to send messages.
-        if( (counter++%2) == 0 )
+        if( (counter%7) == 0 )
         {
+		/*
+	    infoFrameFromNano.frameType = (counter%3)+1;
 
             writeI2C((unsigned char *) &infoFrameFromNano, sizeof(messageStructHeaderFromNano) );
-
+	    printf("Wrote I2C message\n");
+	    fflush(stdout);
+		*/
         }
-        else if( (lastTimeCheckI2CMessage + checkTimming) >= clock() )
+        else if( (lastTimeCheckI2CMessage + checkTimming) <= clock() )
         {
             // Check if I2C data is available, if so read the data.
-            readSize = readI2C( &messageFromNucleo);
+            //readSize = readI2C( &messageFromNucleo);
             // If there was data received, get the new time (and print the data).
-            if(readSize > 0)
+            if(readSize > -1)
             {
-                printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );        
-                lastTimeCheckI2CMessage = clock();
+		printf("ReadSize %d\n",readSize);
+                printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
+                fflush(stdout);
+		lastTimeCheckI2CMessage = clock();
             }
 
         }
-
+	counter++;
+	printf("MULT\n");
         // Sleep 10 ms.
         usleep(10000);
     }

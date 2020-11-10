@@ -38,7 +38,7 @@ struct structMessageStructHeaderFromNano {
 
 // Send motor commands to Nucleo.
 struct structMessageStructNucleoCommand{
-    
+
     short motorAngle[NUMBER_OF_MOTORS];
 
 }typedef messageStructNucleoCommand;
