@@ -3,16 +3,13 @@ function [jointPositionA] = forwardKinematics(motorPostionM1,motorAnglet1,motorA
 %   Detailed explanation goes here
 
 % system_model
-
+ 
 
 %motorPostionM1 = [0 0]; % Motor 1 position
 motorPostionM2 = motorPostionM1 + [29 -38]; % Motor 2, relativ to Motor 1
 
 motorAnglet1 = deg2rad(motorAnglet1); 
-motorAnglet2 = deg2rad(motorAnglet2); % alltid paralle nu
-% a vinkelrät med b om: t1=-24, t2=0 
-
-delta_e = 25; % contact point on upper phalanx
+motorAnglet2 = deg2rad(motorAnglet2);
 
 % Phalanx and leaver-lengths in mm
 linkLengtha = 25;
@@ -42,7 +39,7 @@ jointPositionA = [motorPostionM2(1)+linkLengtha*cos(motorAnglet2) motorPostionM2
 jointPositionB = [motorPostionM2(1)+linkLengtha*cos(motorAnglet2)+linkLengthb*cos(pi-angleAlfa+motorAnglet2) motorPostionM2(2)+linkLengtha*sin(motorAnglet2)+linkLengthb*sin(pi-angleAlfa+motorAnglet2)];
 jointPositionC = [motorPostionM1(1)+(linkLengthc*-sin(motorAnglet1)) motorPostionM1(2)+(linkLengthc*cos(motorAnglet1))];
 jointPositionE = [motorPostionM1(1)-linkLengthc*sin(motorAnglet1)+linkLengthe*sin((pi/2)-angleTheta-motorAnglet1) motorPostionM1(2)+linkLengthc*cos(motorAnglet1)+linkLengthe*cos((pi/2)-angleTheta-motorAnglet1)];
-dE = [motorPostionM1(1)-linkLengthc*sin(motorAnglet1)+delta_e*sin((pi/2)-angleTheta-motorAnglet1) motorPostionM1(2)+linkLengthc*cos(motorAnglet1)+delta_e*cos((pi/2)-angleTheta-motorAnglet1)]; % point of exerted force on upper phalanx
+mouseSensorPosition = [motorPostionM1(1)-linkLengthc*sin(motorAnglet1)+(linkLengthe/2)*sin((pi/2)-angleTheta-motorAnglet1) motorPostionM1(2)+linkLengthc*cos(motorAnglet1)+(linkLengthe/2)*cos((pi/2)-angleTheta-motorAnglet1)]; % point of exerted force on upper phalanx
 
 joint = [motorPostionM1 ; motorPostionM2 ; jointPositionA ; jointPositionB ; jointPositionC ; jointPositionE]';
 scatter(joint(1,:),joint(2,:))
