@@ -1,4 +1,4 @@
-function [jointPositionA] = forwardKinematics(motorPositionM1,motorAnglet1,motorAnglet2)
+function [mouseSensorPosition] = forwardKinematics(motorPositionM1,motorAnglet1,motorAnglet2)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
