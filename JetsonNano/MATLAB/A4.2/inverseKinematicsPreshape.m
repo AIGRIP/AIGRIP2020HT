@@ -39,15 +39,20 @@ distanceX = desiredPosition(1) - motorPositionM1(1);
 distanceY = desiredPosition(2) - motorPositionM1(2);
 distance = sqrt( distanceX^2 + distanceY^2 );
 
+%Calculate the angle of motor M1 to reach the desired position
 motorAngles(2) = pi/2 - acos(distance / linkLengthc);
 if distanceX >= 0 && distanceY >= 0
     motorAngles(2) = -motorAngles(2);
 end
 
+%Calculate the angle of motor M2 so that link e is parallel
 motorAngles(3) = parallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengtha,linkLengthb,linkLengthc,linkLengthd);
 
+%Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535
 motorAngles = int16(rad2deg(motorAngles) * 65535 / 359);
 
-
-
 end
+
+
+
+
