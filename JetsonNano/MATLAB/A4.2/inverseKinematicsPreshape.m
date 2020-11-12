@@ -29,14 +29,14 @@ elseif  motorAngles(1) > (pi/2)
 end
 motorAngles(1) = abs(motorAngles(1));
 
-
+%Calculate the distance from the palm center to the poistions 
+%of motor M1 and M2
 motorPositionM1 = [60,60]; %Calculate actaul position
 motorPositionM2 = motorPositionM1 + [29 -38];
 
-
+%Calculate the distance from motor M1 to the desired position 
 distanceX = desiredPosition(1) - motorPositionM1(1);
 distanceY = desiredPosition(2) - motorPositionM1(2);
-
 distance = sqrt( distanceX^2 + distanceY^2 );
 
 motorAngles(2) = pi/2 - acos(distance / linkLengthc);
