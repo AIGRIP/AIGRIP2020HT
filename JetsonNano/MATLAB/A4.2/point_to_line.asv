@@ -1,8 +1,8 @@
 
 function desiredPosition = point_to_line(singularityPoint, possiblePositions, normalStableLine)
 
-       errorMargin = 30;
-       
+       errorMargin = ( 
+       )
       a = normalStableLine - possiblePositions;
       b = a.*flip(singularityPoint);
       distance = abs(b(:,2) - b(:,1) + normalStableLine(:,1).*possiblePositions(:,2) - normalStableLine(:,2).*possiblePositions(:,1)) ./ vecnorm(a')';

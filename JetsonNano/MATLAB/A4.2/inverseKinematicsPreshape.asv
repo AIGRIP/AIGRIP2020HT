@@ -9,26 +9,25 @@ linkLengthb = 95;
 linkLengthc = 60;
 linkLengthd = 35;
 
-%Set the posistion of motor M0 relative to the center of the palm
-motorPositionM3 = [0,0];
-%Make the direction relate to M0 position instead of palm center
+%Set the posistion of motor M3 relative to the center of the palm
+motorPositionM3 = [60,60];
+%Make the direction relate to M3 position instead of palm center
 directionPosition = normStableLine - motorPositionM3;
-%If the directionPosition is the same as motorPositionM0 move the direction
+%If the directionPosition is the same as motorPositionM3 move the direction
 %in the normal direction
 if directionPosition == 0
     directionPosition = normStableLine + desiredPosition - motorPositionM3;
 end
-%Calcualet the angle that motor M0 should move to
+%Calcualet the angle that motor M3 should move to
 motorAngles(1) = angle(directionPosition(1) + directionPosition(2)*1i);
 
-%Change the angles to be between 0-90 degree
-if motorAngles(1) < -(pi/2)
-    motorAngles(1) = motorAngles(1) + pi;
-elseif  motorAngles(1) > (pi/2)
-    motorAngles(1) = motorAngles(1) - pi;
-end
-motorAngles(1) = abs(motorAngles(1));
 
+if motorAngles(1) < 0
+    motorAngles(1) = abs(motorAngles(1));
+if  motorAngles(1) > (pi/2)
+    motorAngles(1) = motorAngles(1) - pi;
+
+end
 
 motorPositionM1 = [60,60]; %Calculate actaul position
 motorPositionM2 = motorPositionM1 + [29 -38];
