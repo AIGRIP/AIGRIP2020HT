@@ -13,10 +13,10 @@ main.c:1051:6:SPI_E_WriteReg	24	static
 main.c:1072:6:startUpMouse	32	static
 main.c:1153:6:readMouseSensor	32	static
 main.c:1193:6:plotSensorData	104	dynamic
-main.c:1248:6:I2CCommandHandle	152	static
-main.c:1305:6:StartControlTask	16	static
-main.c:1327:6:StartCommBoard	80	static
-main.c:1385:6:StartSensorRead	24	static
-main.c:1421:6:StartSafety	16	static
-main.c:1449:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:1466:6:Error_Handler	4	static
+main.c:1248:6:I2CCommandHandle	192	dynamic
+main.c:1332:6:StartControlTask	16	static
+main.c:1354:6:StartCommBoard	184	static
+main.c:1433:6:StartSensorRead	24	static
+main.c:1469:6:StartSafety	16	static
+main.c:1497:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:1514:6:Error_Handler	4	static

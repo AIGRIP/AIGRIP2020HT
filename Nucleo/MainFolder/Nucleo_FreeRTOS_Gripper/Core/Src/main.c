@@ -1248,6 +1248,7 @@ void plotSensorData(sensValue *dataToPlot)
 void I2CCommandHandle( )
 {
 
+	const char strF[] = "I2C buffer is empty.\n\r";
 	const char str0[] = "Undefined command.\n\r";
 	const char str1[] = "Start the gripper.\n\r";
 	const char str2[] = "Stop the gripper.\n\r";
@@ -1257,37 +1258,63 @@ void I2CCommandHandle( )
 
 	messageStructHeaderFromNano messageHeaderFromNano;
 
-	HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, sizeof(messageStructHeaderFromNano), 100);
+	// Indicate status of transmition.
+	int receiveStatus;
 
+	receiveStatus = HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, sizeof(messageStructHeaderFromNano), 100);
 
-	switch(messageHeaderFromNano.frameType)
+	if(receiveStatus == 0)
 	{
+		switch(messageHeaderFromNano.frameType)
+		{
 
-		case 1:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 100);
-			// Should start the gripper
+			case 1:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 100);
+				// Should start the gripper
+				break;
 
-		case 2:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 100);
-			// Should stop the gripper and set it to the standby mode.
+			case 2:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 100);
+				// Should stop the gripper and set it to the standby mode.
+				break;
+
+			case 3:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str3), 100);
+				// Should set the gripper to release mode.
+				break;
+
+			case 4:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str4, sizeof(str4), 100);
+				// Should pause the gripper in its current stage.
+				break;
+
+			case 5:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str5, sizeof(str5), 100);
+				// Should handle recommended motor commands from the Nano.
+				break;
+
+			default:
+				HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
+				// Should Flush all I2C messages.
+				break;
+		}
+	}else{
+		HAL_UART_Transmit(&huart3,(uint8_t *) strF, sizeof(strF), 100);
 
 
-		case 3:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str3), 100);
-			// Should set the gripper to release mode.
+		receiveStatus = HAL_I2C_GetState(&hi2c1);
 
-		case 4:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str4, sizeof(str4), 100);
-			// Should pause the gripper in its current stage.
+		//HAL_I2C_STATE_RESET
 
-		case 5:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str5, sizeof(str5), 100);
-			// Should handle recommended motor commands from the Nano.
+		int arrSize = 22;
+		char nrBuff[arrSize];
 
-		default:
-			HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
-			// Should Flush all I2C messages.
+		sprintf(nrBuff, "Status Receive: %d \n\r", receiveStatus);
+
+		HAL_UART_Transmit(&huart3,(uint8_t *) nrBuff, arrSize, 100);
 	}
+
+
 
 }
 
@@ -1348,14 +1375,35 @@ void StartCommBoard(void *argument)
 	messageFormNucleo.motorStatus[7] = 2;
 
 
+	char str0[] = "Starting I2C Communication.\n\r";
+	char str1[] = "Transmit Success.\n\r";
+	char str2[] = "Transmit Failure.\n\r";
+	char str3[] = "About to transmit.\n\r";
+
+	// Indicate status of I2C transmition.
+	int transStatus;
+
+
   for(;;)
   {
 
 	// Check if it is time to do a new transmit. Otherwise it check if any new messages is available.
-	if( (lastTransmitTime + deadlineCommunication) >= osKernelGetTickCount() ){
+	if( (lastTransmitTime + deadlineCommunication) <= osKernelGetTickCount() ){
+
+		// Indicate that a I2C transimtion is about to happen.
+		HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str1), 50);
 
 		// Transmit the data from Nucleo.
-		HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
+		transStatus = HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
+
+		//Print transmit status.
+		if(transStatus == 0)
+		{
+			HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 50);
+		}else{
+			HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 50);
+		}
+
 		// Save the transmit time.
 		lastTransmitTime = osKernelGetTickCount();
 
@@ -1363,7 +1411,7 @@ void StartCommBoard(void *argument)
 	}else{
 
 		// Handle received I2C data.
-		I2CCommandHandle();
+		//I2CCommandHandle();
 	}
 
 	osDelay(communicationSleepTime);
