@@ -1,7 +1,14 @@
-function [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengtha,linkLengthb,linkLengthc,linkLengthd)
+function [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths)
 
 
 
+
+
+    %Set the appropriate lengths for the links
+    linkLengtha = linkLengths(1);
+    linkLengthb = linkLengths(2);
+    linkLengthc = linkLengths(3);
+    linkLengthd = linkLengths(4);
 
     %Calculate the position of joint B when link d lies 
     %perpendicular to link e
