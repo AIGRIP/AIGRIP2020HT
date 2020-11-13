@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -53,32 +52,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-#if defined ( __ICCARM__ ) /*!< IAR Compiler */
-
-#pragma location=0x30040000
-ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-#pragma location=0x30040060
-ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-#pragma location=0x30040200
-uint8_t Rx_Buff[ETH_RX_DESC_CNT][ETH_MAX_PACKET_SIZE]; /* Ethernet Receive Buffers */
-
-#elif defined ( __CC_ARM )  /* MDK ARM Compiler */
-
-__attribute__((at(0x30040000))) ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-__attribute__((at(0x30040060))) ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-__attribute__((at(0x30040200))) uint8_t Rx_Buff[ETH_RX_DESC_CNT][ETH_MAX_PACKET_SIZE]; /* Ethernet Receive Buffer */
-
-#elif defined ( __GNUC__ ) /* GNU Compiler */
-
-ETH_DMADescTypeDef DMARxDscrTab[ETH_RX_DESC_CNT] __attribute__((section(".RxDecripSection"))); /* Ethernet Rx DMA Descriptors */
-ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT] __attribute__((section(".TxDecripSection")));   /* Ethernet Tx DMA Descriptors */
-uint8_t Rx_Buff[ETH_RX_DESC_CNT][ETH_MAX_PACKET_SIZE] __attribute__((section(".RxArraySection"))); /* Ethernet Receive Buffers */
-
-#endif
-
-ETH_TxPacketConfig TxConfig;
-
-ETH_HandleTypeDef heth;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -101,7 +74,7 @@ const osThreadAttr_t ControlTask_attributes = {
 osThreadId_t CommBoardHandle;
 const osThreadAttr_t CommBoard_attributes = {
   .name = "CommBoard",
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityAboveNormal,
   .stack_size = 128 * 4
 };
 /* Definitions for SensorRead */
@@ -402,7 +375,6 @@ const uint8_t firmware_data[] = {    // SROM 0x04
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ETH_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI4_Init(void);
@@ -502,11 +474,12 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
+  HAL_I2C_MspInit(&hi2c1);
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ETH_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI4_Init();
@@ -641,52 +614,6 @@ void SystemClock_Config(void)
   /** Enable USB Voltage detector
   */
   HAL_PWREx_EnableUSBVoltageDetector();
-}
-
-/**
-  * @brief ETH Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ETH_Init(void)
-{
-
-  /* USER CODE BEGIN ETH_Init 0 */
-
-  /* USER CODE END ETH_Init 0 */
-
-  /* USER CODE BEGIN ETH_Init 1 */
-
-  /* USER CODE END ETH_Init 1 */
-  heth.Instance = ETH;
-  heth.Init.MACAddr[0] =   0x00;
-  heth.Init.MACAddr[1] =   0x80;
-  heth.Init.MACAddr[2] =   0xE1;
-  heth.Init.MACAddr[3] =   0x00;
-  heth.Init.MACAddr[4] =   0x00;
-  heth.Init.MACAddr[5] =   0x00;
-  heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
-  heth.Init.TxDesc = DMATxDscrTab;
-  heth.Init.RxDesc = DMARxDscrTab;
-  heth.Init.RxBuffLen = 1524;
-
-  /* USER CODE BEGIN MACADDRESS */
-
-  /* USER CODE END MACADDRESS */
-
-  if (HAL_ETH_Init(&heth) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  memset(&TxConfig, 0 , sizeof(ETH_TxPacketConfig));
-  TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM | ETH_TX_PACKETS_FEATURES_CRCPAD;
-  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
-  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
-  /* USER CODE BEGIN ETH_Init 2 */
-
-  /* USER CODE END ETH_Init 2 */
-
 }
 
 /**
@@ -986,6 +913,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
@@ -1004,11 +934,42 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PC1 PC4 PC5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PB0 LD3_Pin */
   GPIO_InitStruct.Pin = GPIO_PIN_0|LD3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_OTG_FS_PWR_EN_Pin */
@@ -1023,6 +984,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USB_OTG_FS_OVCR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PG11 PG13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
 }
 
@@ -1247,7 +1216,7 @@ void plotSensorData(sensValue *dataToPlot)
 
 void I2CCommandHandle( )
 {
-
+	// Debug messages.
 	const char strF[] = "I2C buffer is empty.\n\r";
 	const char str0[] = "Undefined command.\n\r";
 	const char str1[] = "Start the gripper.\n\r";
@@ -1256,68 +1225,135 @@ void I2CCommandHandle( )
 	const char str4[] = "Pause the gripper.\n\r";
 	const char str5[] = "Set motor angle.\n\r";
 
+	// Standard receive packages.
 	messageStructHeaderFromNano messageHeaderFromNano;
 
-	// Indicate status of transmition.
-	int receiveStatus;
 
-	receiveStatus = HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, sizeof(messageStructHeaderFromNano), 100);
+	// Indicate status of I2C.
+	int I2CReceiveStatus;
 
-	if(receiveStatus == 0)
+	// Check if new I2C messages is available.
+	I2CReceiveStatus = HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, (uint16_t) sizeof(messageStructHeaderFromNano), (uint32_t) 1);
+
+
+	// If there is a message, follow the instructions dependent of the type of message.
+	if( I2CReceiveStatus == 0 )
 	{
+
 		switch(messageHeaderFromNano.frameType)
 		{
 
 			case 1:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 100);
+			{
 				// Should start the gripper
+				HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 10);
+			}
 				break;
 
 			case 2:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 100);
+			{
 				// Should stop the gripper and set it to the standby mode.
+				HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 100);
+			}
 				break;
 
 			case 3:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str3), 100);
+			{
 				// Should set the gripper to release mode.
+				HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str3), 100);
+			}
 				break;
 
 			case 4:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str4, sizeof(str4), 100);
+			{
 				// Should pause the gripper in its current stage.
+				HAL_UART_Transmit(&huart3,(uint8_t *) str4, sizeof(str4), 100);
+			}
 				break;
 
 			case 5:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str5, sizeof(str5), 100);
+			{
 				// Should handle recommended motor commands from the Nano.
+				HAL_UART_Transmit(&huart3,(uint8_t *) str5, sizeof(str5), 100);
+			}
 				break;
 
 			default:
-				HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
+			{
 				// Should Flush all I2C messages.
+				HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
+			}
 				break;
 		}
 	}else{
-		HAL_UART_Transmit(&huart3,(uint8_t *) strF, sizeof(strF), 100);
+		// Indicate that there was no data in the I2C buffer.
+		HAL_UART_Transmit(&huart3,(uint8_t *) strF, sizeof(strF), 10);
 
+		HAL_I2C_Init(&hi2c1);
 
-		receiveStatus = HAL_I2C_GetState(&hi2c1);
-
-		//HAL_I2C_STATE_RESET
-
-		int arrSize = 22;
-		char nrBuff[arrSize];
-
-		sprintf(nrBuff, "Status Receive: %d \n\r", receiveStatus);
-
-		HAL_UART_Transmit(&huart3,(uint8_t *) nrBuff, arrSize, 100);
 	}
-
-
 
 }
 
+
+
+uint32_t I2CTransmitHandle( )
+{
+	// This function handles the I2C transmition to other controllers.
+	// It sends the sensor/motor values and status of the gripper.
+	//
+	// On success it return the transmition time.
+	// On failure it return 0.
+
+	// Transmit struct for Nucleo.
+	messageStructFromNucleo messageFormNucleo;
+
+	// Indicate status of I2C transmition.
+	int transStatus;
+
+	// Debug messages.
+	char str1[] = "Transmit Success.\n\r";
+	char str2[] = "Transmit Failure.\n\r";
+	char str3[] = "About to transmit.\n\r";
+
+	// Is to debug communication with receiver.
+	messageFormNucleo.motorStatus[0] = 1;
+	messageFormNucleo.motorStatus[1] = 3;
+	messageFormNucleo.motorStatus[2] = 3;
+	messageFormNucleo.motorStatus[3] = 7;
+
+
+	// Indicate that a I2C transimtion is about to happen.
+	HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str1), 50);
+
+	// Need to reset I2C before transmition, don't know why...
+	HAL_I2C_Init(&hi2c1);
+
+	// Transmit the data from Nucleo.
+	transStatus = HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
+
+	//Print transmit status.
+	if(transStatus == 0)
+	{
+		// Transmit gripper information.
+		HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 50);
+
+		// Toggle orange led to see transmition.
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
+
+		// Return the latest transmit time.
+		return osKernelGetTickCount();
+
+	}else{
+
+		HAL_I2C_Init(&hi2c1);
+		// Transmit debug message.
+		HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 50);
+		// Return error value.
+		return 0;
+	}
+
+}
 
 
 /* USER CODE END 4 */
@@ -1336,7 +1372,7 @@ void StartControlTask(void *argument)
   for(;;)
   {
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
-	osDelay(500);
+	osDelay(2000);
   }
 
   osThreadTerminate(NULL);
@@ -1356,64 +1392,49 @@ void StartCommBoard(void *argument)
   /* USER CODE BEGIN StartCommBoard */
   /* Infinite loop */
 
-	// Transmit struct for Nucleo.
-	messageStructFromNucleo messageFormNucleo;
-
 	// Set up time variables.
 	const uint32_t deadlineCommunication = 1000;
 	const uint32_t communicationSleepTime = 25;
+	uint32_t transmitionStatus;
 	uint32_t lastTransmitTime = osKernelGetTickCount();
 
-	// Debug sensor values.
-	messageFormNucleo.motorStatus[0] = 1;
-	messageFormNucleo.motorStatus[1] = 3;
-	messageFormNucleo.motorStatus[2] = 3;
-	messageFormNucleo.motorStatus[3] = 7;
-	messageFormNucleo.motorStatus[4] = 6;
-	messageFormNucleo.motorStatus[5] = 9;
-	messageFormNucleo.motorStatus[6] = 4;
-	messageFormNucleo.motorStatus[7] = 2;
-
-
+	// Indicate that I2C communication is started.
 	char str0[] = "Starting I2C Communication.\n\r";
-	char str1[] = "Transmit Success.\n\r";
-	char str2[] = "Transmit Failure.\n\r";
-	char str3[] = "About to transmit.\n\r";
-
-	// Indicate status of I2C transmition.
-	int transStatus;
-
+	HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 50);
 
   for(;;)
   {
 
+
+	  // Check if for new incomming I2C messages.
+
+	// Suspend all other task from interrupt.
+	osKernelLock();
+	// Handle received I2C data.
+	I2CCommandHandle();
+	osKernelUnlock();
+
+
 	// Check if it is time to do a new transmit. Otherwise it check if any new messages is available.
-	if( (lastTransmitTime + deadlineCommunication) <= osKernelGetTickCount() ){
+	if( (lastTransmitTime + deadlineCommunication) <= osKernelGetTickCount() )
+	{
+		// Suspend all other task from interrupt.
+		osKernelLock();
 
-		// Indicate that a I2C transimtion is about to happen.
-		HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str1), 50);
+		// Transmit data from Nucleo.
+		transmitionStatus = I2CTransmitHandle();
 
-		// Transmit the data from Nucleo.
-		transStatus = HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
-
-		//Print transmit status.
-		if(transStatus == 0)
+		// Check if the data were transmitted.
+		if(transmitionStatus != 0)
 		{
-			HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 50);
-		}else{
-			HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 50);
+			lastTransmitTime = transmitionStatus;
 		}
 
-		// Save the transmit time.
-		lastTransmitTime = osKernelGetTickCount();
+		osKernelUnlock();
 
-		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
-	}else{
-
-		// Handle received I2C data.
-		//I2CCommandHandle();
 	}
 
+	// Communication task sleep.
 	osDelay(communicationSleepTime);
 
   }
