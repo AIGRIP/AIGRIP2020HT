@@ -13,8 +13,9 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
     %center
 
     %normalStableLine = 1x2 array with the x and y coordinates that together
-    %with the desiredPosition creates the line which represents the normal. 
-    %The coordinates are relative to the palm center
+    %with the possiblePosition creates the line which represents the 
+    %direction the finger should be facing. The coordinates are 
+    %relative to the palm center
 
     %Output:
     %motorAngles = 1X3 array with three motor angles one for each motro in a
