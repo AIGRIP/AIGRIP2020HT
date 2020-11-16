@@ -54,6 +54,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 I2C_HandleTypeDef hi2c1;
+DMA_HandleTypeDef hdma_i2c1_rx;
 
 SPI_HandleTypeDef hspi4;
 
@@ -375,6 +376,7 @@ const uint8_t firmware_data[] = {    // SROM 0x04
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI4_Init(void);
@@ -480,6 +482,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI4_Init();
@@ -891,6 +894,22 @@ static void MX_USB_OTG_FS_PCD_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -1216,6 +1235,11 @@ void plotSensorData(sensValue *dataToPlot)
 
 void I2CCommandHandle( )
 {
+	/*
+	 * Handles all received I2C messages. It reads the first 2 bytes as a frame.
+	 * Then depending on the frame type it handle the command requested from the master.
+	 */
+
 	// Debug messages.
 	const char strF[] = "I2C buffer is empty.\n\r";
 	const char str0[] = "Undefined command.\n\r";
@@ -1224,6 +1248,9 @@ void I2CCommandHandle( )
 	const char str3[] = "Release object.\n\r";
 	const char str4[] = "Pause the gripper.\n\r";
 	const char str5[] = "Set motor angle.\n\r";
+
+	int arrSize = 30;
+	char nrBuff[arrSize];
 
 	// Standard receive packages.
 	messageStructHeaderFromNano messageHeaderFromNano;
@@ -1235,18 +1262,23 @@ void I2CCommandHandle( )
 	// Check if new I2C messages is available.
 	I2CReceiveStatus = HAL_I2C_Slave_Receive(&hi2c1, (uint8_t *) &messageHeaderFromNano, (uint16_t) sizeof(messageStructHeaderFromNano), (uint32_t) 1);
 
+	// Struggled to enable DMA.
+	//I2CReceiveStatus = HAL_I2C_Slave_Receive_DMA(&hi2c1, (uint8_t *) &messageHeaderFromNano, (uint16_t) sizeof(messageStructHeaderFromNano));
+//	sprintf(nrBuff, "Status Receive: %d \n\r", I2CReceiveStatus);
+//	HAL_UART_Transmit(&huart3,(uint8_t *) nrBuff, arrSize, 100);
 
 	// If there is a message, follow the instructions dependent of the type of message.
 	if( I2CReceiveStatus == 0 )
 	{
 
+		// This switch case take care of each request from the master.
 		switch(messageHeaderFromNano.frameType)
 		{
 
 			case 1:
 			{
 				// Should start the gripper
-				HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 10);
+				HAL_UART_Transmit(&huart3,(uint8_t *) str1, sizeof(str1), 50);
 			}
 				break;
 
@@ -1281,6 +1313,7 @@ void I2CCommandHandle( )
 			default:
 			{
 				// Should Flush all I2C messages.
+				HAL_I2C_Init(&hi2c1);
 				HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 100);
 			}
 				break;
@@ -1289,6 +1322,7 @@ void I2CCommandHandle( )
 		// Indicate that there was no data in the I2C buffer.
 		HAL_UART_Transmit(&huart3,(uint8_t *) strF, sizeof(strF), 10);
 
+		// Have to reset I2C if there was no message available...
 		HAL_I2C_Init(&hi2c1);
 
 	}
@@ -1312,9 +1346,9 @@ uint32_t I2CTransmitHandle( )
 	int transStatus;
 
 	// Debug messages.
-	char str1[] = "Transmit Success.\n\r";
-	char str2[] = "Transmit Failure.\n\r";
-	char str3[] = "About to transmit.\n\r";
+	const char str1[] = "Transmit Success.\n\r";
+	const char str2[] = "Transmit Failure.\n\r";
+	const char str3[] = "About to transmit.\n\r";
 
 	// Is to debug communication with receiver.
 	messageFormNucleo.motorStatus[0] = 1;
@@ -1324,10 +1358,9 @@ uint32_t I2CTransmitHandle( )
 
 
 	// Indicate that a I2C transimtion is about to happen.
-	HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str1), 50);
+	HAL_UART_Transmit(&huart3,(uint8_t *) str3, sizeof(str1), 150);
 
 	// Need to reset I2C before transmition, don't know why...
-	HAL_I2C_Init(&hi2c1);
 
 	// Transmit the data from Nucleo.
 	transStatus = HAL_I2C_Slave_Transmit(&hi2c1,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
@@ -1346,7 +1379,6 @@ uint32_t I2CTransmitHandle( )
 
 	}else{
 
-		HAL_I2C_Init(&hi2c1);
 		// Transmit debug message.
 		HAL_UART_Transmit(&huart3,(uint8_t *) str2, sizeof(str2), 50);
 		// Return error value.
@@ -1393,21 +1425,20 @@ void StartCommBoard(void *argument)
   /* Infinite loop */
 
 	// Set up time variables.
-	const uint32_t deadlineCommunication = 1000;
+	const uint32_t deadlineCommunication = 2000;
 	const uint32_t communicationSleepTime = 25;
 	uint32_t transmitionStatus;
 	uint32_t lastTransmitTime = osKernelGetTickCount();
 
 	// Indicate that I2C communication is started.
-	char str0[] = "Starting I2C Communication.\n\r";
+	const char str0[] = "Starting I2C Communication.\n\r";
 	HAL_UART_Transmit(&huart3,(uint8_t *) str0, sizeof(str0), 50);
+
 
   for(;;)
   {
 
-
-	  // Check if for new incomming I2C messages.
-
+	// Check if for new incoming I2C messages.
 	// Suspend all other task from interrupt.
 	osKernelLock();
 	// Handle received I2C data.
@@ -1415,7 +1446,7 @@ void StartCommBoard(void *argument)
 	osKernelUnlock();
 
 
-	// Check if it is time to do a new transmit. Otherwise it check if any new messages is available.
+	// Check if it is time to do a new transmit.
 	if( (lastTransmitTime + deadlineCommunication) <= osKernelGetTickCount() )
 	{
 		// Suspend all other task from interrupt.
