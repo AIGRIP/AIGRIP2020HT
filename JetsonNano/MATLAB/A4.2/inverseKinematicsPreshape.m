@@ -1,4 +1,4 @@
-function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine)
+function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -23,10 +23,11 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
     %remaped from 0-359 to 0-65535 this is to fill out a short as much as
     %possible.
 
+    motorAngles = zeros(1,3);
 
     %Set the posistion of motor M0 relative to the center of the palm
-    motorPositionM0 = [0,0];
-    lengthM0toM1 = 9;
+    motorPositionM0 = [10,10];
+    lengthM0toM1 = 10;
     %Make the direction relate to M0 position instead of palm center
     directionPosition = normalStableLine - motorPositionM0;
     %If the directionPosition is the same as motorPositionM0 move the direction
@@ -34,7 +35,7 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
     if directionPosition == 0
         directionPosition = normalStableLine + desiredPosition - motorPositionM0;
     end
-    %Calcualet the angle that motor M0 should move to
+    %Calculate the angle that motor M0 should move to
     motorAngles(1) = angle(directionPosition(1) + directionPosition(2)*1i);
 
     %Change the angles to be between 0-90 degree
@@ -46,8 +47,8 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
 
     %Calculate the distance from the palm center to the poistions 
     %of motor M1 and M2
-    motorPositionM1 = motorPositionM0 + [cosd(motorAngles(1))*lengthM0toM1 , sind(motorAngles(1))*lengthM0toM1]; %Calculate actaul position
-    motorPositionM2 = motorPositionM1 + [29 -38];
+    motorPositionM1 = motorPositionM0 + [cosd(motorAngles(1))*lengthM0toM1 , sind(motorAngles(1))*lengthM0toM1];
+    motorPositionM2 = motorPositionM1 + [-29 -38];
 
     %Turn all negative values to positive
     motorAngles(1) = abs(motorAngles(1));
@@ -58,16 +59,18 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
     distance = sqrt( distanceX^2 + distanceY^2 );
 
     %Calculate the angle of motor M1 to reach the desired position
-    motorAngles(2) = pi/2 - acos(distance / linkLengths(3));
-    if distanceX >= 0 && distanceY >= 0
-        motorAngles(2) = -motorAngles(2);
+    motorAngles(2) = acos(distance / linkLengths(3));
+    %Check if the desired point is closer to the center than the motor M0
+    %position
+    if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM0)
+        motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
     end
 
     %Calculate the angle of motor M2 so that link e is parallel
     motorAngles(3) = parallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
 
     %Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535
-    motorAngles = int16(rad2deg(motorAngles) * 65535 / 359);
+    %motorAngles = int16(rad2deg(motorAngles) * 65536 / 360);
 
 end
 

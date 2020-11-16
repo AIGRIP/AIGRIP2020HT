@@ -1,5 +1,5 @@
 
-function [positionReachable]  = point_to_line(singularityPoint, possiblePosition, normalStableLine)
+function [positionReachable]  = PointToLine(singularityPoint, possiblePosition, normalStableLine)
     
     %This function takes a possible postion and angle for the gripper
     %finger to move to. Then the function decides if the position is

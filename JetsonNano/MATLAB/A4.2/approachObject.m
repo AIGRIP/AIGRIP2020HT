@@ -1,4 +1,4 @@
-function [motorAngles] = approachObject(linkLengths, currentmotorAnglet1,distanceToObject)
+function [motorAngles] = ApproachObject(linkLengths, currentmotorAnglet1,distanceToObject)
 
 
     

@@ -1,4 +1,4 @@
-function [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths)
+function [motorAnglet2] = ParallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths)
 
     %This function Caluclates what the angle motor M2 should have to make 
     %link e parallel 
@@ -28,11 +28,16 @@ function [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,moto
 
     %Calculate the position of joint B when link d lies 
     %perpendicular to link e
-    jointPositionB = [motorPositionM1(1)+(linkLengthc*-sin(motorAnglet1))+linkLengthd  motorPositionM1(2)+(linkLengthc*cos(motorAnglet1))] - motorPositionM2;
-    %Calculate the angle alfa
-    angleAlfa = pi-acos((linkLengtha^2+linkLengthb^2-(norm(jointPositionB))^2)/(2*linkLengtha*linkLengthb));
-    %Calculate the angle of motor M2
-    motorAnglet2 = atan((((jointPositionB(2)*(linkLengtha+linkLengthb*cos(angleAlfa)))-(jointPositionB(1)*(linkLengthb*sin(angleAlfa)))))/((jointPositionB(1)*(linkLengtha+linkLengthb*cos(angleAlfa)))+(jointPositionB(2)*(linkLengthb*sin(angleAlfa)))));   
+    jointPositionB = [motorPositionM1(1)+(linkLengthc*cos(motorAnglet1))-linkLengthd  motorPositionM1(2)+(linkLengthc*sin(motorAnglet1))];
+    normBM2 = norm(jointPositionB-motorPositionM2);
+    motorAnglet2FirHalf = acos((linkLengtha^2+normBM2^2-linkLengthb^2) / (2*linkLengtha*normBM2));
+    motorAnglet2SecHalf = acos(abs(jointPositionB(2)- motorPositionM2(2))/normBM2);
     
+    if jointPositionB(1) > motorPositionM2(1)
+        motorAnglet2 = motorAnglet2FirHalf - motorAnglet2SecHalf;
+    else
+        motorAnglet2 = motorAnglet2FirHalf + motorAnglet2SecHalf;
+    end
+
 end
 

@@ -1,4 +1,4 @@
-function [jointPostions, opticalSensorPosition] = forwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2)
+function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2)
 
     %This function Caluclates the forward kinematics of the gripper.
     
@@ -21,8 +21,10 @@ function [jointPostions, opticalSensorPosition] = forwardKinematics(linkLengths,
     %optical sensor. The coordinates are relative to the palm center
     
     %Calculate the postion of motor M2 relative to motor M1
-    motorPositionM2 = motorPositionM1 + [29 -38];
+    motorPositionM2 = motorPositionM1 + [-29 -38];
 
+    motorAnglet1 = motorAnglet1 - pi/2;
+    motorAnglet2 = motorAnglet2 + pi/2;
     
     linkLengtha = linkLengths(1);
     linkLengthb = linkLengths(2);
@@ -30,31 +32,28 @@ function [jointPostions, opticalSensorPosition] = forwardKinematics(linkLengths,
     linkLengthd = linkLengths(4);
     linkLengthe = linkLengths(5);
 
+    
+    %Calculate the postions of joint A and C
+    jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)];   
+    jointPositionC = [motorPositionM1(1)-linkLengthc*sin(motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)];
 
+    % Calculate the norm for joint A to joint C
+    normAC = norm(jointPositionA - jointPositionC);
 
-    % Calculate the norm for joint A to joint C, joint A to motor M1 and
-    % joint C to motor M2
-    normAC = sqrt((motorPositionM2(1)+linkLengtha*cos(motorAnglet2)+motorPositionM1(1)+linkLengthc*sin(motorAnglet1))^2+(motorPositionM2(2)+linkLengtha*sin(motorAnglet2)+motorPositionM1(2)-linkLengthc*cos(motorAnglet1))^2);
-    normAM1 = sqrt((motorPositionM2(1)+linkLengtha*cos(motorAnglet2)-motorPositionM1(1))^2+(motorPositionM2(2)+linkLengtha*sin(motorAnglet2)-motorPositionM1(2))^2);
-    normCM2 = sqrt((motorPositionM2(1)-motorPositionM1(1)+linkLengthc*sin(motorAnglet1))^2+(motorPositionM2(2)-motorPositionM1(2)-linkLengthc*cos(motorAnglet1))^2);
-
-    %Calculate the angles Theta, Alfa and Beta
-    thetaL = acos((linkLengthc^2+normAC^2-normAM1^2)/(2*linkLengthc*normAC));
-    alfaL = acos((normAC^2+linkLengtha^2-normCM2^2)/(2*normAC*linkLengtha));
-    thetaV = acos((normAC^2+linkLengthd^2-linkLengthb^2)/(2*normAC*linkLengthd));
-    alfaV = acos((linkLengthb^2+normAC^2-linkLengthd^2)/(2*linkLengthb*normAC));
-
-    angleTheta = thetaL + thetaV;
-    angleAlfa = alfaL + alfaV;
-    angleBeta = acos((linkLengthd^2+linkLengthb^2-normAC^2)/(2*linkLengthd*linkLengthb));
-
-    %Calculate every joint postion. And the postion of the optical sensor
-    jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)];
-    jointPositionB = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2)+linkLengthb*cos(pi-angleAlfa+motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)+linkLengthb*sin(pi-angleAlfa+motorAnglet2)];
-    jointPositionC = [motorPositionM1(1)+(linkLengthc*-sin(motorAnglet1)) motorPositionM1(2)+(linkLengthc*cos(motorAnglet1))];
-    jointPositionE = [motorPositionM1(1)-linkLengthc*sin(motorAnglet1)+linkLengthe*sin((pi/2)-angleTheta-motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)+linkLengthe*cos((pi/2)-angleTheta-motorAnglet1)];
-    opticalSensorPosition = [motorPositionM1(1)-linkLengthc*sin(motorAnglet1)+(linkLengthe/2)*sin((pi/2)-angleTheta-motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)+(linkLengthe/2)*cos((pi/2)-angleTheta-motorAnglet1)]; 
+    %Calculate the postions of joint B
+    angleAlfa1 = acos(abs(jointPositionA(1)- jointPositionC(1))/normAC);
+    angleAlfa2 = acos((normAC^2 + linkLengthb^2 - linkLengthd^2) / (2*normAC*linkLengthb));
+    jointPositionB = jointPositionA + [linkLengthb*cos(angleAlfa1+angleAlfa2) linkLengthb*sin(angleAlfa1+angleAlfa2)];
+    
+    %Calculate the postions of joint E and optical sensor postion
+    angleBE = atan(linkLengthe/linkLengthd);
+    normBE = sqrt(linkLengthe^2 + linkLengthd^2);
+    jointPositionE = jointPositionB + [normBE*cos(angleBE) normBE*sin(angleBE)];
+    opticalSensorPosition = [jointPositionE + jointPositionC]/2;
 
     jointPostions = [jointPositionA ; jointPositionB ; jointPositionC ; jointPositionE];
+
+    
+    
 end
 
