@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceGPU -I/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourSegmentationGPU -I/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/morphologicalFiltersCPU 
+CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/InverseKinematicsPreshapeCPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/PointToLineCPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/colourBalanceGPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/colourSegmentationGPU -I/home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/morphologicalFiltersCPU 
 

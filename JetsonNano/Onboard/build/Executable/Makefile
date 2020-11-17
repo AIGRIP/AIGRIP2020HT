@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A4.2/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/Executable/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build/Executable/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/clean
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ RUN_AIGRIP_NANO: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 
 # fast build rule for target.
 RUN_AIGRIP_NANO/fast:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
 .PHONY : RUN_AIGRIP_NANO/fast
 
 main.o: main.cpp.o
@@ -131,7 +131,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -140,7 +140,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.i
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,7 +149,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.s
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/A4.2/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

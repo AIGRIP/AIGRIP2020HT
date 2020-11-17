@@ -6,6 +6,42 @@
 
 #IncludeRegexTransform: 
 
+../codegen/lib/ForwardKinematicsCPU/ForwardKinematics.h
+rtwtypes.h
+../codegen/lib/ForwardKinematicsCPU/rtwtypes.h
+cstddef
+-
+cstdlib
+-
+
+../codegen/lib/InverseKinematicsPreshapeCPU/InverseKinematicsPreshape.h
+rtwtypes.h
+../codegen/lib/InverseKinematicsPreshapeCPU/rtwtypes.h
+cstddef
+-
+cstdlib
+-
+
+../codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.h
+rtwtypes.h
+../codegen/lib/ParallelMotorAnglet2CPU/rtwtypes.h
+cstddef
+-
+cstdlib
+-
+
+../codegen/lib/ParallelMotorAnglet2CPU/rtwtypes.h
+stdbool.h
+-
+
+../codegen/lib/PointToLineCPU/PointToLine.h
+rtwtypes.h
+../codegen/lib/PointToLineCPU/rtwtypes.h
+cstddef
+-
+cstdlib
+-
+
 ../codegen/lib/colourBalanceGPU/colourBalance.h
 rtwtypes.h
 ../codegen/lib/colourBalanceGPU/rtwtypes.h
@@ -22,10 +58,6 @@ cstddef
 cstdlib
 -
 
-../codegen/lib/colourSegmentationGPU/rtwtypes.h
-stdbool.h
--
-
 ../codegen/lib/morphologicalFiltersCPU/morphologicalFilters.h
 rtwtypes.h
 ../codegen/lib/morphologicalFiltersCPU/rtwtypes.h
@@ -36,7 +68,7 @@ cstddef
 cstdlib
 -
 
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/main.cpp
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/main.cpp
 time.h
 -
 stdio.h
@@ -45,10 +77,20 @@ stdlib.h
 -
 math.h
 -
+stdint.h
+-
+ParallelMotorAnglet2.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/ParallelMotorAnglet2.h
+InverseKinematicsPreshape.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/InverseKinematicsPreshape.h
+ForwardKinematics.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/ForwardKinematics.h
+PointToLine.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/PointToLine.h
 colourSegmentation.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/colourSegmentation.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/colourSegmentation.h
 colourBalance.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/colourBalance.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/colourBalance.h
 morphologicalFilters.h
-/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/Executable/morphologicalFilters.h
+/home/aigrip/Documents/A4.2/JetsonNano/Onboard/Executable/morphologicalFilters.h
 

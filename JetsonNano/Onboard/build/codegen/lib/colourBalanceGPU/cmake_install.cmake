@@ -1,4 +1,4 @@
-# Install script for directory: /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceGPU
+# Install script for directory: /home/aigrip/Documents/A4.2/JetsonNano/Onboard/codegen/lib/colourBalanceGPU
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
