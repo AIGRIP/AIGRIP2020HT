@@ -5,7 +5,7 @@
  * File: _coder_ForwardKinematics_mex.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 17-Nov-2020 13:53:46
+ * C/C++ source code generated on  : 17-Nov-2020 14:54:02
  */
 
 /* Include Files */
@@ -15,12 +15,12 @@
 /* Function Definitions */
 /*
  * Arguments    : int32_T nlhs
- *                mxArray *plhs[2]
+ *                mxArray *plhs[1]
  *                int32_T nrhs
  *                const mxArray *prhs[4]
  * Return Type  : void
  */
-void ForwardKinematics_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
+void ForwardKinematics_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
   const mxArray *prhs[4])
 {
   emlrtStack st = { NULL,              /* site */
@@ -28,8 +28,7 @@ void ForwardKinematics_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
     NULL                               /* prev */
   };
 
-  const mxArray *outputs[2];
-  int32_T b_nlhs;
+  const mxArray *outputs[1];
   st.tls = emlrtRootTLSGlobal;
 
   /* Check for proper number of arguments. */
@@ -38,22 +37,16 @@ void ForwardKinematics_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                         17, "ForwardKinematics");
   }
 
-  if (nlhs > 2) {
+  if (nlhs > 1) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 17,
                         "ForwardKinematics");
   }
 
   /* Call the function. */
-  ForwardKinematics_api(prhs, nlhs, outputs);
+  ForwardKinematics_api(prhs, outputs);
 
   /* Copy over outputs to the caller. */
-  if (nlhs < 1) {
-    b_nlhs = 1;
-  } else {
-    b_nlhs = nlhs;
-  }
-
-  emlrtReturnArrays(b_nlhs, plhs, outputs);
+  emlrtReturnArrays(1, plhs, outputs);
 }
 
 /*

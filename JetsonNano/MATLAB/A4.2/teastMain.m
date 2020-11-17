@@ -54,7 +54,7 @@ motorPositionM2 = [-29,-38];
 
 %[motorAnglet2] = ParallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths);
 
-[jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,motorPositionM1,motorAnglet1,motorAnglet2)
+[jointPositions] = ForwardKinematics(linkLengths,motorPositionM1,motorAnglet1,motorAnglet2)
 % 
 % 
 

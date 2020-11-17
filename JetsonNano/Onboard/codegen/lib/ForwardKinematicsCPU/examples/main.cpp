@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 13:53:46
+// C/C++ source code generated on  : 17-Nov-2020 14:54:02
 //
 
 //***********************************************************************
@@ -88,10 +88,9 @@ static double argInit_real_T()
 //
 static void main_ForwardKinematics()
 {
-  double jointPostions[8];
   double dv[5];
   double dv1[2];
-  double opticalSensorPosition[2];
+  double jointPositionC[2];
   double motorAnglet1_tmp;
 
   // Initialize function 'ForwardKinematics' input arguments.
@@ -102,8 +101,7 @@ static void main_ForwardKinematics()
   // Call the entry-point 'ForwardKinematics'.
   argInit_1x5_real_T(dv);
   argInit_1x2_real_T(dv1);
-  ForwardKinematics(dv, dv1, motorAnglet1_tmp, motorAnglet1_tmp, jointPostions,
-                    opticalSensorPosition);
+  ForwardKinematics(dv, dv1, motorAnglet1_tmp, motorAnglet1_tmp, jointPositionC);
 }
 
 //

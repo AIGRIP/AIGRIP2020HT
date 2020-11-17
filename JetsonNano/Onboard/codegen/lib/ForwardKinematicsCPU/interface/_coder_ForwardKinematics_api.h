@@ -5,7 +5,7 @@
  * File: _coder_ForwardKinematics_api.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 17-Nov-2020 13:53:46
+ * C/C++ source code generated on  : 17-Nov-2020 14:54:02
  */
 
 #ifndef _CODER_FORWARDKINEMATICS_API_H
@@ -28,10 +28,9 @@ extern "C" {
 
   /* Function Declarations */
   void ForwardKinematics(real_T linkLengths[5], real_T motorPositionM1[2],
-    real_T motorAnglet1, real_T motorAnglet2, real_T jointPostions[8], real_T
-    opticalSensorPosition[2]);
-  void ForwardKinematics_api(const mxArray * const prhs[4], int32_T nlhs, const
-    mxArray *plhs[2]);
+    real_T motorAnglet1, real_T motorAnglet2, real_T jointPositionC[2]);
+  void ForwardKinematics_api(const mxArray * const prhs[4], const mxArray *plhs
+    [1]);
   void ForwardKinematics_atexit(void);
   void ForwardKinematics_initialize(void);
   void ForwardKinematics_terminate(void);
