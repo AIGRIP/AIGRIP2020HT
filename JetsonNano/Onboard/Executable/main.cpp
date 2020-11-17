@@ -17,7 +17,5 @@ int main(void)
 
 	communicationHandler();
 
-	printf("It took %f seconds to execute.\n",time_taken);
-
 	return 0;
 }

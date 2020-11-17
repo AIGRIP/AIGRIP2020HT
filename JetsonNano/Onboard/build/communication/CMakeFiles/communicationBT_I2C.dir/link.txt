@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcommunicationBT_I2C.a  CMakeFiles/communicationBT_I2C.dir/communication.cpp.o
-/usr/bin/ranlib libcommunicationBT_I2C.a
