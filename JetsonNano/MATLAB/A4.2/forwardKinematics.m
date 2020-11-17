@@ -21,6 +21,8 @@ function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths,
     %optical sensor. The coordinates are relative to the palm center
     
     %Calculate the postion of motor M2 relative to motor M1
+    jointPostions = zeros(1,8)
+    
     motorPositionM2 = motorPositionM1 + [-29 -38];
 
     motorAnglet1 = motorAnglet1 - pi/2;
@@ -51,7 +53,16 @@ function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths,
     jointPositionE = jointPositionB + [normBE*cos(angleBE) normBE*sin(angleBE)];
     opticalSensorPosition = (jointPositionE + jointPositionC)/2;
 
-    jointPostions = [jointPositionA jointPositionB jointPositionC jointPositionE];
+    %jointPostions = [jointPositionA jointPositionB jointPositionC jointPositionE];
+    
+    jointPostions(1) = jointPositionA(1);
+    jointPostions(2) = jointPositionA(2);
+    jointPostions(3) = jointPositionB(1);
+    jointPostions(4) = jointPositionB(2);
+    jointPostions(5) = jointPositionC(1);
+    jointPostions(6) = jointPositionC(2);
+    jointPostions(7) = jointPositionE(1);
+    jointPostions(8) = jointPositionE(2);
     
 %     scatter(jointPostions(:,1),jointPostions(:,2))
 %     hold on
