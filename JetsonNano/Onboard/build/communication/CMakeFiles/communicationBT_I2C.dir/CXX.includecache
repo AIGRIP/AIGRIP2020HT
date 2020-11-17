@@ -31,7 +31,7 @@ sys/stat.h
 -
 sys/select.h
 -
-time.h
+sys/time.h
 -
 communication.h
 /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/communication/communication.h

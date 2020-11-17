@@ -67,7 +67,7 @@ struct structMessageStructFromNucelo {
 void setupI2C();
 
 // Write a message on I2C to the Nucleo.
-void writeI2C(char *messageToSend,int lengthOfMessage );
+int writeI2C(char *messageToSend,int lengthOfMessage );
 
 // Receive a messafe from Nucleo to Nano.
 int readI2C(messageStructFromNucleo *messageFromNucleo);
