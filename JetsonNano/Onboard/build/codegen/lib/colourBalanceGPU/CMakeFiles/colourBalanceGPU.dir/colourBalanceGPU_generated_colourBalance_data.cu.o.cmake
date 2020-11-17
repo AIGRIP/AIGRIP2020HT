@@ -58,18 +58,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceGPU/colourBalance_data.cu") # path
-set(NVCC_generated_dependency_file "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//colourBalanceGPU_generated_colourBalance_data.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//colourBalanceGPU_generated_colourBalance_data.cu.o.depend") # path
+set(source_file "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/codegen/lib/colourBalanceGPU/colourBalance_data.cu") # path
+set(NVCC_generated_dependency_file "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//colourBalanceGPU_generated_colourBalance_data.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//colourBalanceGPU_generated_colourBalance_data.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.10/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.10/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/cc") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//.") # path
-set(generated_file_internal "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//./colourBalanceGPU_generated_colourBalance_data.cu.o") # path
-set(generated_cubin_file_internal "/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//./colourBalanceGPU_generated_colourBalance_data.cu.o.cubin.txt") # path
+set(generated_file_path "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//.") # path
+set(generated_file_internal "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//./colourBalanceGPU_generated_colourBalance_data.cu.o") # path
+set(generated_cubin_file_internal "/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir//./colourBalanceGPU_generated_colourBalance_data.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS -std=c++11;-g;-Xcompiler;-fexceptions;-Xcompiler;-fPIC;-O3;-std=c++11;-gencode;arch=compute_53,code=sm_53;-gencode;arch=compute_62,code=sm_62 ;; ) # list
@@ -79,7 +79,7 @@ set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64) # list
-set(CUDA_NVCC_INCLUDE_DIRS "/usr/local/cuda/include;/usr/local/cuda/include;/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/codegen/lib/colourBalanceGPU") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_DIRS "/usr/local/cuda/include;/usr/local/cuda/include;/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/codegen/lib/colourBalanceGPU") # list (needs to be in quotes to handle spaces properly).
 set(CUDA_NVCC_COMPILE_DEFINITIONS [==[]==]) # list (needs to be in lua quotes see #16510 ).
 set(format_flag "-dc") # string
 set(cuda_language_flag ) # list

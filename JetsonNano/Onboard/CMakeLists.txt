@@ -3,6 +3,13 @@ cmake_minimum_required(VERSION 3.10)
 # Find the package that is needed for the project
 find_package(CUDA REQUIRED)
 
+find_package(OpenCV REQUIRED)
+
+message(STATUS "OpenCV library status:")
+message(STATUS "    version: ${OpenCV_VERSION}")
+message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+message(STATUS "    libraries: ${OpenCV_LIBRARIES}")
+
 
 # Print CUDA version
 message(STATUS "CUDA library status:")
@@ -10,6 +17,7 @@ message(STATUS "    version: ${CUDA_VERSION}")
 message(STATUS "    include path: ${CUDA_INCLUDE_DIRS}")
 message(STATUS "    libraries: ${CUDA_LIBRARIES}")
 set(CUDA_NVCC_FLAGS -O3;--relocatable-device-code=true; -gencode arch=compute_53,code=sm_53; -x cu) # nvcc flags
+
 
 
 set(CUDA_HOST_COMPILATION_CPP ON)
@@ -21,13 +29,14 @@ set(CUDA_SEPARABLE_COMPILATION ON)
 # The subdirectory should be in order of how they depend on each other.
 
 
-add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceGPU is a static library
+
+#add_subdirectory(/usr/include/opencv/) # Open cv library
 
 add_subdirectory(codegen/lib/colourSegmentationGPU/) # colourSegmentationGPU is a static library
 
 add_subdirectory(codegen/lib/morphologicalFiltersCPU/) # 
 
-#add_subdirectory(codegen/lib/colourBalanceCPU/) # colourBalanceCPU is a static library
+add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceCPU is a static library
 
 #add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 

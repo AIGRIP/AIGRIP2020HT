@@ -54,65 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build
-
-#=============================================================================
-# Directory level rules for directory codegen/lib/colourBalanceGPU
-
-# Convenience name for "all" pass in the directory.
-codegen/lib/colourBalanceGPU/all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
-
-.PHONY : codegen/lib/colourBalanceGPU/all
-
-# Convenience name for "clean" pass in the directory.
-codegen/lib/colourBalanceGPU/clean: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
-
-.PHONY : codegen/lib/colourBalanceGPU/clean
-
-# Convenience name for "preinstall" pass in the directory.
-codegen/lib/colourBalanceGPU/preinstall:
-
-.PHONY : codegen/lib/colourBalanceGPU/preinstall
-
-#=============================================================================
-# Target rules for target codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir
-
-# All Build rule for target.
-codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all:
-	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/depend
-	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target colourBalanceGPU"
-.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
-
-# Include target in all.
-all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
-.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule
-
-# Convenience name for target.
-colourBalanceGPU: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule
-
-.PHONY : colourBalanceGPU
-
-# clean rule for target.
-codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean:
-	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
-.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
-
-# clean rule for target.
-clean: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
-
-.PHONY : clean
+CMAKE_BINARY_DIR = /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build
 
 #=============================================================================
 # Directory level rules for directory codegen/lib/colourSegmentationGPU
@@ -139,7 +84,7 @@ codegen/lib/colourSegmentationGPU/preinstall:
 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all:
 	$(MAKE) -f codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build.make codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/depend
 	$(MAKE) -f codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build.make codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target colourSegmentationGPU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target colourSegmentationGPU"
 .PHONY : codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
 
 # Include target in all.
@@ -149,9 +94,9 @@ all: codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
 
 # Build rule for subdir invocation for target.
 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule
 
 # Convenience name for target.
@@ -194,7 +139,7 @@ codegen/lib/morphologicalFiltersCPU/preinstall:
 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all:
 	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/depend
 	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target morphologicalFiltersCPU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target morphologicalFiltersCPU"
 .PHONY : codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
 
 # Include target in all.
@@ -204,9 +149,9 @@ all: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/
 
 # Build rule for subdir invocation for target.
 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/rule
 
 # Convenience name for target.
@@ -221,6 +166,61 @@ codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/clean
 
 # clean rule for target.
 clean: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory codegen/lib/colourBalanceGPU
+
+# Convenience name for "all" pass in the directory.
+codegen/lib/colourBalanceGPU/all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
+
+.PHONY : codegen/lib/colourBalanceGPU/all
+
+# Convenience name for "clean" pass in the directory.
+codegen/lib/colourBalanceGPU/clean: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
+
+.PHONY : codegen/lib/colourBalanceGPU/clean
+
+# Convenience name for "preinstall" pass in the directory.
+codegen/lib/colourBalanceGPU/preinstall:
+
+.PHONY : codegen/lib/colourBalanceGPU/preinstall
+
+#=============================================================================
+# Target rules for target codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir
+
+# All Build rule for target.
+codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all:
+	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/depend
+	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target colourBalanceGPU"
+.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
+
+# Include target in all.
+all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 0
+.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule
+
+# Convenience name for target.
+colourBalanceGPU: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/rule
+
+.PHONY : colourBalanceGPU
+
+# clean rule for target.
+codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean:
+	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
+.PHONY : codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
+
+# clean rule for target.
+clean: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/clean
 
 .PHONY : clean
 
@@ -246,12 +246,12 @@ Executable/preinstall:
 # Target rules for target Executable/CMakeFiles/RUN_AIGRIP_NANO.dir
 
 # All Build rule for target.
-Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
+Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/all
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/depend
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=1,2 "Built target RUN_AIGRIP_NANO"
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Include target in all.
@@ -261,9 +261,9 @@ all: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
 
 # Build rule for subdir invocation for target.
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 27
 	$(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/AIGRIP2020HT/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
 
 # Convenience name for target.
