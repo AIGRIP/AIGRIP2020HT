@@ -5,7 +5,7 @@
 // File: ForwardKinematics.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 12:44:38
+// C/C++ source code generated on  : 17-Nov-2020 13:30:22
 //
 
 // Include Files
@@ -101,13 +101,13 @@ void ForwardKinematics(const double linkLengths[5], const double
   scale = motorPositionM2_idx_1 + scale * std::sin(t);
   opticalSensorPosition[0] = (absxk + jointPositionC_idx_0) / 2.0;
   jointPostions[0] = jointPositionA_idx_0;
-  jointPostions[1] = normAC;
-  jointPostions[2] = jointPositionC_idx_0;
-  jointPostions[3] = absxk;
+  jointPostions[2] = normAC;
+  jointPostions[4] = jointPositionC_idx_0;
+  jointPostions[6] = absxk;
   opticalSensorPosition[1] = (scale + jointPositionC_idx_1) / 2.0;
-  jointPostions[4] = jointPositionA_idx_1;
-  jointPostions[5] = motorPositionM2_idx_1;
-  jointPostions[6] = jointPositionC_idx_1;
+  jointPostions[1] = jointPositionA_idx_1;
+  jointPostions[3] = motorPositionM2_idx_1;
+  jointPostions[5] = jointPositionC_idx_1;
   jointPostions[7] = scale;
 
   //      scatter(jointPostions(:,1),jointPostions(:,2))

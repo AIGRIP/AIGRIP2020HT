@@ -51,7 +51,7 @@ function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths,
     jointPositionE = jointPositionB + [normBE*cos(angleBE) normBE*sin(angleBE)];
     opticalSensorPosition = (jointPositionE + jointPositionC)/2;
 
-    jointPostions = [jointPositionA ; jointPositionB ; jointPositionC ; jointPositionE];
+    jointPostions = [jointPositionA jointPositionB jointPositionC jointPositionE];
     
 %     scatter(jointPostions(:,1),jointPostions(:,2))
 %     hold on

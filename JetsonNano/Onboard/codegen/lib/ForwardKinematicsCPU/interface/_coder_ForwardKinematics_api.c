@@ -5,7 +5,7 @@
  * File: _coder_ForwardKinematics_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 17-Nov-2020 12:44:38
+ * C/C++ source code generated on  : 17-Nov-2020 13:30:22
  */
 
 /* Include Files */
@@ -160,7 +160,7 @@ static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
 {
   static const int32_T iv[2] = { 0, 0 };
 
-  static const int32_T iv1[2] = { 4, 2 };
+  static const int32_T iv1[2] = { 1, 8 };
 
   const mxArray *m;
   const mxArray *y;
