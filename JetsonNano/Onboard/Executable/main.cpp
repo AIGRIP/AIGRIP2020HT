@@ -1,56 +1,59 @@
-
-
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-//#include <cv.h>
-//#include <highgui.h>
+// #include <iostream>
 #include <opencv2/opencv.hpp>
-//#include <opencv4/opencv.hpp>
-//#include <opencv.hpp>
-//extern "cBalance"
+// #include <opencv2/videoio.hpp>
+// #include <opencv2/highgui.hpp>
 
-//#include "testFuncHardwareGPU.h"
-#include "colourSegmentation.h"
-#include "colourBalance.h"
-#include "morphologicalFilters.h"
-
-
-
-
-std::string get_tegra_pipeline(int width, int height, int fps) {
-    return "nvcamerasrc ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(width) + ", height=(int)" +
-            std::to_string(height) + ", format=(string)I420, framerate=(fraction)" + std::to_string(fps) +
-            "/1 ! nvvidconv flip-method=2 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+std::string gstreamer_pipeline (int capture_width, int capture_height, int display_width, int display_height, int framerate, int flip_method) {
+    return "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(capture_width) + ", height=(int)" +
+           std::to_string(capture_height) + ", format=(string)NV12, framerate=(fraction)" + std::to_string(framerate) +
+           "/1 ! nvvidconv flip-method=" + std::to_string(flip_method) + " ! video/x-raw, width=(int)" + std::to_string(display_width) + ", height=(int)" +
+           std::to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
 }
 
-int main() {
-    // Options
-    int  WIDTH = 1920;
-    int  HEIGHT = 1080;
-    int FPS = 30;
+int main()
+{
+    int capture_width =10 ;
+    int capture_height =10 ;
+    int display_width = 10 ;
+    int display_height = 10 ;
+    int framerate = 60 ;
+    int flip_method = 0 ;
 
-    // Define the gstream pipeline
-    std::string pipeline = get_tegra_pipeline(WIDTH, HEIGHT, FPS);
+    std::string pipeline = gstreamer_pipeline(capture_width,
+	capture_height,
+	display_width,
+	display_height,
+	framerate,
+	flip_method);
     std::cout << "Using pipeline: \n\t" << pipeline << "\n";
-
-    // Create OpenCV capture object, ensure it works.
-    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
-    if (!cap.isOpened()) {
-        std::cout << "Connection failed";
-        return -1;
-    }
-
-    // View video
-    cv::Mat frame;
-    while (1) {
-        cap >> frame;  // Get a new frame from camera
-
-        // Display frame
-        imshow("Display window", frame);
-        cv::waitKey(1); //needed to show frame
-    }
-}
  
+    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
+    if(!cap.isOpened()) {
+	std::cout<<"Failed to open camera."<<std::endl;
+	return (-1);
+    }
+
+//    cv::namedWindow("CSI Camera", cv::WINDOW_AUTOSIZE);
+    cv::Mat img;
+
+    std::cout << "Hit ESC to exit" << "\n" ;
+    
+   
+    	if (!cap.read(img)) {
+		std::cout<<"Capture read error"<<std::endl;
+	}
+	
+	//cv::imshow("CSI Camera",img);
+	int keycode = cv::waitKey(30) & 0xff ;
+	cv::MatIterator_<double> _it = img.begin<double>();
+	for(;_it!=img.end<double>(); _it++){
+    	std::cout << *_it <<std:: endl;}
+	
+    
+
+    cap.release();
+    return 0;
+
+
+
+}
