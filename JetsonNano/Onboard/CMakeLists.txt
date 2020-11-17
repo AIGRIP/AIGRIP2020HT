@@ -36,3 +36,7 @@ add_subdirectory(Executable/) # Executable on all included libraries/functions
 
 
 
+add_subdirectory(communication/)
+
+add_subdirectory(Executable/) # Executable on all included libraries/functions
+

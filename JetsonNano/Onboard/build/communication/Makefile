@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/Executable/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/all
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/communication/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/clean
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,12 +97,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/preinstall
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -111,46 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
-.PHONY : Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
+communication/CMakeFiles/communicationBT_I2C.dir/rule:
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/rule
+.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/rule
 
 # Convenience name for target.
-RUN_AIGRIP_NANO: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/rule
+communicationBT_I2C: communication/CMakeFiles/communicationBT_I2C.dir/rule
 
-.PHONY : RUN_AIGRIP_NANO
+.PHONY : communicationBT_I2C
 
 # fast build rule for target.
-RUN_AIGRIP_NANO/fast:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
-.PHONY : RUN_AIGRIP_NANO/fast
+communicationBT_I2C/fast:
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
+.PHONY : communicationBT_I2C/fast
 
-main.o: main.cpp.o
+communication.o: communication.cpp.o
 
-.PHONY : main.o
+.PHONY : communication.o
 
 # target to build an object file
-main.cpp.o:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
-.PHONY : main.cpp.o
+communication.cpp.o:
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o
+.PHONY : communication.cpp.o
 
-main.i: main.cpp.i
+communication.i: communication.cpp.i
 
-.PHONY : main.i
+.PHONY : communication.i
 
 # target to preprocess a source file
-main.cpp.i:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.i
-.PHONY : main.cpp.i
+communication.cpp.i:
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.i
+.PHONY : communication.cpp.i
 
-main.s: main.cpp.s
+communication.s: communication.cpp.s
 
-.PHONY : main.s
+.PHONY : communication.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.s
-.PHONY : main.cpp.s
+communication.cpp.s:
+	cd /home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build && $(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.s
+.PHONY : communication.cpp.s
 
 # Help Target
 help:
@@ -159,11 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... RUN_AIGRIP_NANO"
+	@echo "... communicationBT_I2C"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... communication.o"
+	@echo "... communication.i"
+	@echo "... communication.s"
 .PHONY : help
 
 
