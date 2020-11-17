@@ -70,7 +70,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     motorAngles(3) = ParallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
 
     %Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535
-    %motorAngles = int16(rad2deg(motorAngles) * 65536 / 360);
+    motorAngles = int16(rad2deg(motorAngles) * 65535 / 300);
 
 end
 

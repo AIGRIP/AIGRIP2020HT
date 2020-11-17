@@ -16,25 +16,25 @@ desiredPosition = [5,10];
 desiredAngle = [9,10];
 
 [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle)
-
-[jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
 % 
+% [jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
+% % 
+% % 
+% %% 
+% clc
+% clear all
+% close all
+% pt = [30,30];
+% v1 = [1,3];
+% v2 = [1,5];
 % 
-%% 
-clc
-clear all
-close all
-pt = [3,1];
-v1 = [1,3];
-v2 = [1,5];
-
- d = PointToLine(pt, v1, v2);
+%  d = PointToLine(pt, v1, v2);
+% % 
+% % 
+% % 
+% % 
 % 
-% 
-% 
-% 
-% 
-% %%
+%%
 % clc
 % clear all
 % close all
@@ -47,15 +47,16 @@ v2 = [1,5];
 % 
 % linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 % motorAnglet1 = pi/4;
+% motorAnglet2 = 1.2829;
 % motorPositionM1 = [0,0];
 % motorPositionM2 = [-29,-38];
 % 
 % 
-% [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths);
+% %[motorAnglet2] = ParallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths);
 % 
-% [jointPositions , opticalSensorPosition] = forwardKinematics(linkLengths,motorPositionM1,motorAnglet1,motorAnglet2);
-% 
-% 
+% [jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,motorPositionM1,motorAnglet1,motorAnglet2)
+% % 
+% % 
 
 
 

@@ -5,7 +5,7 @@
 // File: InverseKinematicsPreshape.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 09:12:10
+// C/C++ source code generated on  : 17-Nov-2020 12:52:12
 //
 
 // Include Files
@@ -380,7 +380,7 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   absx = std::acos(x_tmp / normBM2);
 
   // Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535 
-  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_0 * 65536.0 / 360.0);
+  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_0 * 65535.0 / 300.0);
   if (x_tmp < 32768.0) {
     i = static_cast<short>(x_tmp);
   } else if (x_tmp >= 32768.0) {
@@ -390,7 +390,7 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   }
 
   motorAngles[0] = i;
-  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_1 * 65536.0 / 360.0);
+  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_1 * 65535.0 / 300.0);
   if (x_tmp < 32768.0) {
     if (x_tmp >= -32768.0) {
       i = static_cast<short>(x_tmp);
@@ -410,8 +410,8 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     jointPositionB_idx_0 = motorAnglet2FirHalf + absx;
   }
 
-  x_tmp = rt_roundd_snf(57.295779513082323 * jointPositionB_idx_0 * 65536.0 /
-                        360.0);
+  x_tmp = rt_roundd_snf(57.295779513082323 * jointPositionB_idx_0 * 65535.0 /
+                        300.0);
   if (x_tmp < 32768.0) {
     if (x_tmp >= -32768.0) {
       i = static_cast<short>(x_tmp);

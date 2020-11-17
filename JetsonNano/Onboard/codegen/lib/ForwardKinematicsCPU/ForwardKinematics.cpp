@@ -5,7 +5,7 @@
 // File: ForwardKinematics.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 09:16:32
+// C/C++ source code generated on  : 17-Nov-2020 12:44:38
 //
 
 // Include Files
@@ -45,7 +45,7 @@ void ForwardKinematics(const double linkLengths[5], const double
   // motorAnglet1 = Angle of motor M1 in rad
   // motorAnglet2 = Angle of motor M1 in rad
   // Output:
-  // jointPostions =  2x5 array with the postions of all four joints in the order 
+  // jointPostions =  2x4 array with the postions of all four joints in the order 
   // A,B,C,E
   // opticalSensorPosition = 1x2 array with the x and y coordinates of
   // optical sensor. The coordinates are relative to the palm center
@@ -109,6 +109,12 @@ void ForwardKinematics(const double linkLengths[5], const double
   jointPostions[5] = motorPositionM2_idx_1;
   jointPostions[6] = jointPositionC_idx_1;
   jointPostions[7] = scale;
+
+  //      scatter(jointPostions(:,1),jointPostions(:,2))
+  //      hold on
+  //      scatter(0,0)
+  //      hold on
+  //      scatter(-29,-38)
 }
 
 //

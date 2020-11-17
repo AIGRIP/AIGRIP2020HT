@@ -14,7 +14,7 @@ function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths,
     %motorAnglet2 = Angle of motor M1 in rad
 
     %Output:
-    %jointPostions =  2x5 array with the postions of all four joints in the order
+    %jointPostions =  2x4 array with the postions of all four joints in the order
     %A,B,C,E
     
     %opticalSensorPosition = 1x2 array with the x and y coordinates of
@@ -49,9 +49,15 @@ function [jointPostions, opticalSensorPosition] = ForwardKinematics(linkLengths,
     angleBE = atan(linkLengthe/linkLengthd);
     normBE = sqrt(linkLengthe^2 + linkLengthd^2);
     jointPositionE = jointPositionB + [normBE*cos(angleBE) normBE*sin(angleBE)];
-    opticalSensorPosition = [jointPositionE + jointPositionC]/2;
+    opticalSensorPosition = (jointPositionE + jointPositionC)/2;
 
     jointPostions = [jointPositionA ; jointPositionB ; jointPositionC ; jointPositionE];
+    
+%     scatter(jointPostions(:,1),jointPostions(:,2))
+%     hold on
+%     scatter(0,0)
+%     hold on
+%     scatter(-29,-38)
 
     
     
