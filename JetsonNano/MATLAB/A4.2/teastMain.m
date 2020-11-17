@@ -15,9 +15,9 @@ linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 desiredPosition = [5,10];
 desiredAngle = [9,10];
 
-[motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle)
+[motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle)
 
-[jointPositions , opticalSensorPosition] = forwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
+[jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
 % 
 % 
 %% 
@@ -28,7 +28,7 @@ pt = [3,1];
 v1 = [1,3];
 v2 = [1,5];
 
- d = pointToLine(pt, v1, v2);
+ d = PointToLine(pt, v1, v2);
 % 
 % 
 % 
