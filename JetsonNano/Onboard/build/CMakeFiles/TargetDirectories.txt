@@ -1,8 +1,0 @@
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles/rebuild_cache.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/CMakeFiles/edit_cache.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/communication/CMakeFiles/rebuild_cache.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/communication/CMakeFiles/edit_cache.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/Executable/CMakeFiles/rebuild_cache.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/Executable/CMakeFiles/RUN_AIGRIP_NANO.dir
-/home/aigrip/Documents/A1.4.1/JetsonNano/Onboard/build/Executable/CMakeFiles/edit_cache.dir
