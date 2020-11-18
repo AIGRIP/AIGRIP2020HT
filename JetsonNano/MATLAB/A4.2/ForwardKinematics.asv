@@ -24,9 +24,9 @@ function [jointPositionC] = ForwardKinematics(linkLengths, motorPositionM1,motor
 %     jointPostions = zeros(1,8);
 %     
 %     motorPositionM2 = motorPositionM1 + [-29 -38];
-% % 
-% 
-     disp(motorAnglet1)
+
+    motorAnglet1 = motorAnglet1 - pi/2;
+    disp(motorAnglet1)
 %     motorAnglet2 = motorAnglet2 + pi/2;
 %     
 %     linkLengtha = linkLengths(1);
@@ -34,12 +34,12 @@ function [jointPositionC] = ForwardKinematics(linkLengths, motorPositionM1,motor
     linkLengthc = linkLengths(3);
 %     linkLengthd = linkLengths(4);
 %     linkLengthe = linkLengths(5);
-% 
-%     
-%     %Calculate the postions of joint A and C
+
+    
+    %Calculate the postions of joint A and C
 %     jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)];   
     
-    jointPositionC = [motorPositionM1(1)+linkLengthc*sin(motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)];
+    jointPositionC = [motorPositionM1(1)-linkLengthc*sin(motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)];
 
 %     % Calculate the norm for joint A to joint C
 %     normAC = norm(jointPositionA - jointPositionC);
@@ -66,12 +66,8 @@ function [jointPositionC] = ForwardKinematics(linkLengths, motorPositionM1,motor
 %     jointPostions(7) = jointPositionE(1);
 %     jointPostions(8) = jointPositionE(2);
 %     
-%     for i = 1:4
-%         scatter(jointPostions(i*2-1),jointPostions(i*2),'b')
-%         hold on
-%     end
-%     
-%     
+%     scatter(jointPostions(:,1),jointPostions(:,2))
+%     hold on
 %     scatter(0,0)
 %     hold on
 %     scatter(-29,-38)

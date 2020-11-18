@@ -5,7 +5,7 @@
 // File: ForwardKinematics.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 07:15:07
+// C/C++ source code generated on  : 18-Nov-2020 07:47:32
 //
 
 // Include Files
@@ -41,17 +41,19 @@ void ForwardKinematics(const double linkLengths[5], const double
   //      jointPostions = zeros(1,8);
   //
   //      motorPositionM2 = motorPositionM1 + [-29 -38];
-  motorAnglet1 -= 1.5707963267948966;
-
+  //  %
+  //
   //      motorAnglet2 = motorAnglet2 + pi/2;
   //
   //      linkLengtha = linkLengths(1);
   //      linkLengthb = linkLengths(2);
   //      linkLengthd = linkLengths(4);
   //      linkLengthe = linkLengths(5);
-  // Calculate the postions of joint A and C
+  //
+  //
+  //      %Calculate the postions of joint A and C
   //      jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)];    
-  jointPositionC[0] = motorPositionM1[0] - linkLengths[2] * std::sin
+  jointPositionC[0] = motorPositionM1[0] + linkLengths[2] * std::sin
     (motorAnglet1);
   jointPositionC[1] = motorPositionM1[1] + linkLengths[2] * std::cos
     (motorAnglet1);
@@ -81,8 +83,12 @@ void ForwardKinematics(const double linkLengths[5], const double
   //      jointPostions(7) = jointPositionE(1);
   //      jointPostions(8) = jointPositionE(2);
   //
-  //      scatter(jointPostions(:,1),jointPostions(:,2))
-  //      hold on
+  //      for i = 1:4
+  //          scatter(jointPostions(i*2-1),jointPostions(i*2),'b')
+  //          hold on
+  //      end
+  //
+  //
   //      scatter(0,0)
   //      hold on
   //      scatter(-29,-38)
