@@ -12,7 +12,7 @@ linkLengthe = 50;
 linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 
 
-desiredPosition = [5,10];
+desiredPosition = [10,10];
 desiredAngle = [9,10];
 
 [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle)

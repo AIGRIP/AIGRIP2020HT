@@ -19,9 +19,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
 
     %Output:
     %motorAngles = 1X3 array with three motor angles one for each motro in a
-    %finger. The order of the motors in the array is M0,M1,M2. The angles are
-    %remaped from 0-359 to 0-65535 this is to fill out a short as much as
-    %possible.
+    %finger. The order of the motors in the array is M0,M1,M2. 
 
     motorAngles = zeros(1,3);
 
@@ -72,7 +70,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     %Add offset for the motors and change radians to degree
     motorAngles = rad2deg(motorAngles) + [0 150 48];
     
-    %Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535
+    %Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535
     motorAngles = int16(motorAngles * 65535 / 300);
 
 end
