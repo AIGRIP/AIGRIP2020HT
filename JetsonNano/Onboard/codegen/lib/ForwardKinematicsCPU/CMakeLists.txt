@@ -1,4 +1,4 @@
-# This CMake file is to build this "communicationBT_I2C" library
+# This CMake file is to build this "ForwardKinematicsCPU" library
 
 # Set flag and GPU architecture
 set(
@@ -14,13 +14,13 @@ file(GLOB cu *.c *.cpp)
 
 
 # Create a library and choose the name (linking name) for the library.
-CUDA_ADD_LIBRARY(communicationBT_I2C STATIC ${cu})
+CUDA_ADD_LIBRARY(ForwardKinematicsCPU STATIC ${cu})
 
 # Make library public.
-target_compile_features(communicationBT_I2C PUBLIC cxx_std_11)
+target_compile_features(ForwardKinematicsCPU PUBLIC cxx_std_11)
 
 # Make the current directory public.
-target_include_directories(communicationBT_I2C PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(ForwardKinematicsCPU PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # Link the library.
-target_link_libraries(communicationBT_I2C)
+target_link_libraries(ForwardKinematicsCPU)
