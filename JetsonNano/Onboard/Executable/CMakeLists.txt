@@ -17,6 +17,7 @@ target_link_libraries(RUN_AIGRIP_NANO morphologicalFiltersCPU)
 
 #target_link_libraries(RUN_AIGRIP_NANO colourBalanceCPU)
 #target_link_libraries(RUN_AIGRIP_NANO colourSegmentationCPU)
+target_link_libraries(RUN_AIGRIP_NANO communicationBT_I2C)
 
 # Set CUDA properties to the executable.
 set_target_properties(RUN_AIGRIP_NANO PROPERTIES CUDA_SEPARABLE_COMPILATION ON)

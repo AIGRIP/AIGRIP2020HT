@@ -14,10 +14,12 @@
 #include "colourSegmentation.h"
 #include "colourBalance.h"
 #include "morphologicalFilters.h"
+#include "communication.h"
 
 
 int main(void)
 {
+
 
 	const double linkLengths[] = {25,95,60,35,50};
 	double desiredPosition[] = {5,10};
@@ -58,4 +60,8 @@ int main(void)
 	printf("\n");
 
 	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
+
+	communicationHandler();
+
+	return 0;
 }
