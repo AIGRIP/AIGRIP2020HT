@@ -20,6 +20,13 @@ set(CUDA_SEPARABLE_COMPILATION ON)
 
 # The subdirectory should be in order of how they depend on each other.
 
+add_subdirectory(codegen/lib/ParallelMotorAnglet2CPU/)
+
+add_subdirectory(codegen/lib/InverseKinematicsPreshapeCPU/)
+
+add_subdirectory(codegen/lib/ForwardKinematicsCPU/)
+
+add_subdirectory(codegen/lib/PointToLineCPU/)
 
 add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceGPU is a static library
 
