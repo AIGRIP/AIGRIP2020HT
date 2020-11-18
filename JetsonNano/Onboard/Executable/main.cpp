@@ -49,7 +49,7 @@ int main(void)
 	double motorPositionM2[] = {-29,-38};
 	double jointPositions [8];
 	double opticalSensorPosition [2];
-	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,opticalSensorPosition);
+	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,jointPositions,opticalSensorPosition);
 
 	for(int i = 0 ; i<8 ; i++)
 	{
