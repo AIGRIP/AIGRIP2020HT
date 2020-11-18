@@ -5,7 +5,7 @@
 // File: InverseKinematicsPreshape.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 12:52:12
+// C/C++ source code generated on  : 18-Nov-2020 08:59:29
 //
 
 // Include Files
@@ -136,11 +136,9 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   double directionPosition[2];
   double absx;
   double b_x;
-  double c_x;
   double jointPositionB_idx_0;
   double motorAngles_idx_0;
   double motorAngles_idx_1;
-  double motorAnglet2FirHalf;
   double normBM2;
   double scale;
   double t;
@@ -205,50 +203,50 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   // Calculate the distance from the palm center to the poistions
   // of motor M1 and M2
   if (rtIsInf(motorAngles_idx_0) || rtIsNaN(motorAngles_idx_0)) {
+    scale = rtNaN;
     x = rtNaN;
-    b_x = rtNaN;
   } else {
     signed char n;
     x_tmp = rt_remd_snf(motorAngles_idx_0, 360.0);
-    x = x_tmp;
+    scale = x_tmp;
     absx = std::abs(x_tmp);
     if (absx > 180.0) {
       if (x_tmp > 0.0) {
-        x = x_tmp - 360.0;
+        scale = x_tmp - 360.0;
       } else {
-        x = x_tmp + 360.0;
+        scale = x_tmp + 360.0;
       }
 
-      absx = std::abs(x);
+      absx = std::abs(scale);
     }
 
     if (absx <= 45.0) {
-      x *= 0.017453292519943295;
+      scale *= 0.017453292519943295;
       n = 0;
     } else if (absx <= 135.0) {
-      if (x > 0.0) {
-        x = 0.017453292519943295 * (x - 90.0);
+      if (scale > 0.0) {
+        scale = 0.017453292519943295 * (scale - 90.0);
         n = 1;
       } else {
-        x = 0.017453292519943295 * (x + 90.0);
+        scale = 0.017453292519943295 * (scale + 90.0);
         n = -1;
       }
-    } else if (x > 0.0) {
-      x = 0.017453292519943295 * (x - 180.0);
+    } else if (scale > 0.0) {
+      scale = 0.017453292519943295 * (scale - 180.0);
       n = 2;
     } else {
-      x = 0.017453292519943295 * (x + 180.0);
+      scale = 0.017453292519943295 * (scale + 180.0);
       n = -2;
     }
 
     if (n == 0) {
-      x = std::cos(x);
+      scale = std::cos(scale);
     } else if (n == 1) {
-      x = -std::sin(x);
+      scale = -std::sin(scale);
     } else if (n == -1) {
-      x = std::sin(x);
+      scale = std::sin(scale);
     } else {
-      x = -std::cos(x);
+      scale = -std::cos(scale);
     }
 
     absx = std::abs(x_tmp);
@@ -282,25 +280,26 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     }
 
     if (n == 0) {
-      b_x = std::sin(x_tmp);
+      x = std::sin(x_tmp);
     } else if (n == 1) {
-      b_x = std::cos(x_tmp);
+      x = std::cos(x_tmp);
     } else if (n == -1) {
-      b_x = -std::cos(x_tmp);
+      x = -std::cos(x_tmp);
     } else {
-      b_x = -std::sin(x_tmp);
+      x = -std::sin(x_tmp);
     }
   }
 
-  motorAnglet2FirHalf = x * 10.0;
-  c_x = b_x * 10.0;
+  normBM2 = scale * 10.0;
+  b_x = x * 10.0;
+  directionPosition[0] = scale * 10.0 + 10.0;
 
   // Turn all negative values to positive
   motorAngles_idx_0 = std::abs(motorAngles_idx_0);
 
   // Calculate the distance from motor M1 to the desired position
-  x_tmp = desiredPosition[0] - (motorAnglet2FirHalf + 10.0);
-  absx = desiredPosition[1] - (c_x + 10.0);
+  x_tmp = desiredPosition[0] - (normBM2 + 10.0);
+  absx = desiredPosition[1] - (b_x + 10.0);
 
   // Calculate the angle of motor M1 to reach the desired position
   motorAngles_idx_1 = std::acos(std::sqrt(x_tmp * x_tmp + absx * absx) /
@@ -350,10 +349,10 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   // Set the appropriate lengths for the links
   // Calculate the position of joint B when link d lies
   // perpendicular to link e
-  jointPositionB_idx_0 = ((motorAnglet2FirHalf + 10.0) + linkLengths[2] * std::
-    cos(motorAngles_idx_1)) - linkLengths[3];
+  jointPositionB_idx_0 = ((normBM2 + 10.0) + linkLengths[2] * std::cos
+    (motorAngles_idx_1)) - linkLengths[3];
   scale = 3.3121686421112381E-170;
-  absx = std::abs(jointPositionB_idx_0 - ((x * 10.0 + 10.0) + -29.0));
+  absx = std::abs(jointPositionB_idx_0 - (directionPosition[0] + -29.0));
   if (absx > 3.3121686421112381E-170) {
     normBM2 = 1.0;
     scale = absx;
@@ -362,8 +361,8 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     normBM2 = t * t;
   }
 
-  x_tmp = std::abs(((c_x + 10.0) + linkLengths[2] * std::sin(motorAngles_idx_1))
-                   - ((b_x * 10.0 + 10.0) + -38.0));
+  x_tmp = std::abs(((b_x + 10.0) + linkLengths[2] * std::sin(motorAngles_idx_1))
+                   - ((x * 10.0 + 10.0) + -38.0));
   if (x_tmp > scale) {
     t = scale / x_tmp;
     normBM2 = normBM2 * t * t + 1.0;
@@ -374,11 +373,12 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   }
 
   normBM2 = scale * std::sqrt(normBM2);
-  motorAnglet2FirHalf = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 *
-    normBM2) - linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
+  scale = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 * normBM2) -
+                     linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
     normBM2));
   absx = std::acos(x_tmp / normBM2);
 
+  // Add offset for the motors and change radians to degree
   // Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535 
   x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_0 * 65535.0 / 300.0);
   if (x_tmp < 32768.0) {
@@ -390,7 +390,8 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   }
 
   motorAngles[0] = i;
-  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_1 * 65535.0 / 300.0);
+  x_tmp = rt_roundd_snf((57.295779513082323 * motorAngles_idx_1 + 150.0) *
+                        65535.0 / 300.0);
   if (x_tmp < 32768.0) {
     if (x_tmp >= -32768.0) {
       i = static_cast<short>(x_tmp);
@@ -404,14 +405,14 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   }
 
   motorAngles[1] = i;
-  if (jointPositionB_idx_0 > (x * 10.0 + 10.0) + -29.0) {
-    jointPositionB_idx_0 = motorAnglet2FirHalf - absx;
+  if (jointPositionB_idx_0 > directionPosition[0] + -29.0) {
+    jointPositionB_idx_0 = scale - absx;
   } else {
-    jointPositionB_idx_0 = motorAnglet2FirHalf + absx;
+    jointPositionB_idx_0 = scale + absx;
   }
 
-  x_tmp = rt_roundd_snf(57.295779513082323 * jointPositionB_idx_0 * 65535.0 /
-                        300.0);
+  x_tmp = rt_roundd_snf((57.295779513082323 * jointPositionB_idx_0 + 48.0) *
+                        65535.0 / 300.0);
   if (x_tmp < 32768.0) {
     if (x_tmp >= -32768.0) {
       i = static_cast<short>(x_tmp);

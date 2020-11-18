@@ -5,7 +5,7 @@
 // File: ForwardKinematics.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 07:47:32
+// C/C++ source code generated on  : 18-Nov-2020 08:52:04
 //
 #ifndef FORWARDKINEMATICS_H
 #define FORWARDKINEMATICS_H
@@ -18,7 +18,7 @@
 // Function Declarations
 extern void ForwardKinematics(const double linkLengths[5], const double
   motorPositionM1[2], double motorAnglet1, double motorAnglet2, double
-  jointPositionC[2]);
+  jointPostions[8], double opticalSensorPosition[2]);
 
 #endif
 
