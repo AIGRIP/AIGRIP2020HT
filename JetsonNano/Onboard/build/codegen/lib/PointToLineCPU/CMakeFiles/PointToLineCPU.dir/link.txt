@@ -1,2 +1,0 @@
-/usr/bin/ar qc libPointToLineCPU.a  CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.o CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.o CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.o CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.o
-/usr/bin/ranlib libPointToLineCPU.a
