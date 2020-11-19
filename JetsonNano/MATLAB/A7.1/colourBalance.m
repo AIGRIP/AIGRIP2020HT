@@ -9,9 +9,9 @@ function [colourBalancedImage] = colourBalance(originalImage)
 %Output:
 %colourBalancedImage = RGB image 984x740x3
 
-    
 %Calculate number of pixales in te image
 [imageHeight,imageWidth,~] = size(originalImage);
+
 numPixel = imageHeight * imageWidth;
 
 %Calculate the mean of every colour and take the mean of every colour added
@@ -33,7 +33,7 @@ newRedLayer = oldRedLayer * (meanTotal / meanRed);
 newGreenLayer = oldGreenLayer * (meanTotal / meanGreen);
 newBlueLayer = oldBlueLayer * (meanTotal / meanBlue);
 
-colourBalancedImage = cat(3, newRedLayer, newGreenLayer, newBlueLayer);
+colourBalancedImage = cat(3, newBlueLayer, newGreenLayer, newRedLayer);
 
 
 

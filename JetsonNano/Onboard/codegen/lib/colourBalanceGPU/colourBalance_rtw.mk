@@ -2,7 +2,7 @@
 ## Makefile generated for component 'colourBalance'. 
 ## 
 ## Makefile     : colourBalance_rtw.mk
-## Generated on : Fri Nov 06 10:03:01 2020
+## Generated on : Thu Nov 19 17:09:38 2020
 ## Final product: ./colourBalance.a
 ## Product type : static-library
 ## 

@@ -5,7 +5,7 @@
 // File: colourBalance.cu
 //
 // GPU Coder version                    : 2.0
-// CUDA/C/C++ source code generated on  : 06-Nov-2020 10:02:26
+// CUDA/C/C++ source code generated on  : 19-Nov-2020 17:09:04
 //
 
 // Include Files
@@ -31,7 +31,7 @@ static __global__ void colourBalance_kernel7(const double *y, const double
   newGreenLayer[728160], unsigned char newRedLayer[728160]);
 static __global__ void colourBalance_kernel8(const double meanRed, const
   unsigned char originalImage[2184480], unsigned char newBlueLayer[728160]);
-static __global__ void colourBalance_kernel9(const unsigned char newBlueLayer
+static __global__ void colourBalance_kernel9(const unsigned char newRedLayer
   [728160], const int initAuxVar, unsigned char colourBalancedImage[2184480]);
 static __device__ double rt_roundd_snf_device(double u);
 static __device__ double shflDown2(double in1, unsigned int offset, unsigned int
@@ -348,19 +348,19 @@ static __global__ __launch_bounds__(512, 1) void colourBalance_kernel8(const
 //
 // Arguments    : dim3 blockArg
 //                dim3 gridArg
-//                const unsigned char newBlueLayer[728160]
+//                const unsigned char newRedLayer[728160]
 //                const int initAuxVar
 //                unsigned char colourBalancedImage[2184480]
 // Return Type  : void
 //
 static __global__ __launch_bounds__(512, 1) void colourBalance_kernel9(const
-  unsigned char newBlueLayer[728160], const int initAuxVar, unsigned char
+  unsigned char newRedLayer[728160], const int initAuxVar, unsigned char
   colourBalancedImage[2184480])
 {
   int j;
   j = static_cast<int>(mwGetGlobalThreadIndex());
   if (j < 728160) {
-    colourBalancedImage[(initAuxVar + j) + 1] = newBlueLayer[j];
+    colourBalancedImage[(initAuxVar + j) + 1] = newRedLayer[j];
   }
 }
 
@@ -469,8 +469,8 @@ static __device__ double workGroupReduction(double val, unsigned int mask,
 void colourBalance(const unsigned char originalImage[2184480], unsigned char
                    colourBalancedImage[2184480])
 {
+  static unsigned char newBlueLayer[728160];
   static unsigned char newGreenLayer[728160];
-  static unsigned char newRedLayer[728160];
   double meanBlue;
   double meanGreen;
   double meanRed;
@@ -486,12 +486,12 @@ void colourBalance(const unsigned char originalImage[2184480], unsigned char
   unsigned char (*gpu_newGreenLayer)[728160];
   unsigned char (*gpu_newRedLayer)[728160];
   bool colourBalancedImage_dirtyOnCpu;
-  bool newGreenLayer_dirtyOnGpu;
+  bool newBlueLayer_dirtyOnGpu;
   bool originalImage_dirtyOnCpu;
-  cudaMalloc(&gpu_newBlueLayer, 728160UL);
+  cudaMalloc(&gpu_newRedLayer, 728160UL);
   cudaMalloc(&gpu_newGreenLayer, 728160UL);
   cudaMalloc(&gpu_colourBalancedImage, 2184480UL);
-  cudaMalloc(&gpu_newRedLayer, 728160UL);
+  cudaMalloc(&gpu_newBlueLayer, 728160UL);
   cudaMalloc(&gpu_y, 8UL);
   cudaMalloc(&gpu_originalImage, 2184480UL);
   colourBalancedImage_dirtyOnCpu = false;
@@ -533,29 +533,29 @@ void colourBalance(const unsigned char originalImage[2184480], unsigned char
   colourBalance_kernel7<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>(gpu_y,
     meanRed, *gpu_originalImage, *gpu_newGreenLayer, *gpu_newRedLayer);
   originalImage_dirtyOnCpu = true;
-  newGreenLayer_dirtyOnGpu = true;
   colourBalance_kernel8<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>(meanTotal /
     meanBlue, *gpu_originalImage, *gpu_newBlueLayer);
+  newBlueLayer_dirtyOnGpu = true;
   iy = -1;
   for (j = 0; j < 728160; j++) {
     iy = j;
-    if (originalImage_dirtyOnCpu) {
-      cudaMemcpy(&newRedLayer[0], gpu_newRedLayer, 728160UL,
+    if (newBlueLayer_dirtyOnGpu) {
+      cudaMemcpy(&newBlueLayer[0], gpu_newBlueLayer, 728160UL,
                  cudaMemcpyDeviceToHost);
-      originalImage_dirtyOnCpu = false;
+      newBlueLayer_dirtyOnGpu = false;
     }
 
-    colourBalancedImage[j] = newRedLayer[j];
+    colourBalancedImage[j] = newBlueLayer[j];
     colourBalancedImage_dirtyOnCpu = true;
   }
 
   initAuxVar = iy;
   for (j = 0; j < 728160; j++) {
     iy = (initAuxVar + j) + 1;
-    if (newGreenLayer_dirtyOnGpu) {
+    if (originalImage_dirtyOnCpu) {
       cudaMemcpy(&newGreenLayer[0], gpu_newGreenLayer, 728160UL,
                  cudaMemcpyDeviceToHost);
-      newGreenLayer_dirtyOnGpu = false;
+      originalImage_dirtyOnCpu = false;
     }
 
     colourBalancedImage[iy] = newGreenLayer[j];
@@ -568,15 +568,15 @@ void colourBalance(const unsigned char originalImage[2184480], unsigned char
   }
 
   colourBalance_kernel9<<<dim3(1423U, 1U, 1U), dim3(512U, 1U, 1U)>>>
-    (*gpu_newBlueLayer, iy, *gpu_colourBalancedImage);
+    (*gpu_newRedLayer, iy, *gpu_colourBalancedImage);
   cudaMemcpy(&colourBalancedImage[0], gpu_colourBalancedImage, 2184480UL,
              cudaMemcpyDeviceToHost);
   cudaFree(*gpu_originalImage);
   cudaFree(gpu_y);
-  cudaFree(*gpu_newRedLayer);
+  cudaFree(*gpu_newBlueLayer);
   cudaFree(*gpu_colourBalancedImage);
   cudaFree(*gpu_newGreenLayer);
-  cudaFree(*gpu_newBlueLayer);
+  cudaFree(*gpu_newRedLayer);
 }
 
 //
