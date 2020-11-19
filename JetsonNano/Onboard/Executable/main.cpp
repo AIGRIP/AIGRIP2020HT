@@ -77,23 +77,23 @@ int main()
         if (keycode == 27) break ;
     }
 
-//cv::Vec3b tempVar;
-//int count = 0;
+cv::Vec3b tempVar;
+int count = 0;
 
-//for(int k=0; k<3; k++){
-//	for(int i=0; i<(img.rows); i++){
-//		for(int j = 0; j<(img.cols); j++){
-//			tempVar = img.at<cv::Vec3b>(i,j);
-//			outputImg[count] = tempVar[k];
-//			count++;
+for(int k=0; k<3; k++){
+	for(int i=0; i<(img.cols); i++){
+		for(int j = 0; j<(img.rows); j++){
+			tempVar = img.at<cv::Vec3b>(j,i);
+			outputImg[count] = tempVar[2-k];
+			count++;
 			
 			
-//		}
-//	}
-//}
+		}
+	}
+}
   //    std::cout<<"outputimg"<<sizeof outputImg<<std::endl;
-      unsigned char* dataOut = img.data;
-      colourBalance(dataOut, colourBalancedImage);
+  //    unsigned char* dataOut = img.data;
+      colourBalance(outputImg, colourBalancedImage);
 
       colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
 
@@ -103,7 +103,7 @@ int main()
 	{
 		for(int j=0;j<(height-5);j=j+5)
 		{
-			if( binIm2[i*height + j] == 0)
+			if( binIm2[j*height + i] == 0)
 			{
 				printf(" ");
 			}else{

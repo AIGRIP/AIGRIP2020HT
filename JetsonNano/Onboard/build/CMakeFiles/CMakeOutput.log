@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/aigrip/Documents/A1.2.1/
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_18b63/fast"
-/usr/bin/make -f CMakeFiles/cmTC_18b63.dir/build.make CMakeFiles/cmTC_18b63.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_e7367/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e7367.dir/build.make CMakeFiles/cmTC_e7367.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_18b63.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_18b63.dir/testCCompiler.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_18b63
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18b63.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_18b63.dir/testCCompiler.c.o  -o cmTC_18b63 
+Building C object CMakeFiles/cmTC_e7367.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_e7367.dir/testCCompiler.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_e7367
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7367.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e7367.dir/testCCompiler.c.o  -o cmTC_e7367 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0e109/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0e109.dir/build.make CMakeFiles/cmTC_0e109.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fdacf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fdacf.dir/build.make CMakeFiles/cmTC_fdacf.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_0e109
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e109.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o  -o cmTC_0e109 
+Building C object CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_fdacf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdacf.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o  -o cmTC_fdacf 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper
@@ -59,9 +59,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0e109' '-mlittle-endian' '-mabi=lp64'
- /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZP5muE.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_0e109 /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0e109' '-mlittle-endian' '-mabi=lp64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdacf' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc2ROiKe.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_fdacf /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdacf' '-mlittle-endian' '-mabi=lp64'
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -69,14 +69,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0e109/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0e109.dir/build.make CMakeFiles/cmTC_0e109.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_fdacf/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_fdacf.dir/build.make CMakeFiles/cmTC_fdacf.dir/build]
   ignore line: [make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_0e109]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e109.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o  -o cmTC_0e109 ]
+  ignore line: [Building C object CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_fdacf]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdacf.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o  -o cmTC_fdacf ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0e109' '-mlittle-endian' '-mabi=lp64']
-  link line: [ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZP5muE.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_0e109 /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fdacf' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc2ROiKe.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_fdacf /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccZP5muE.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc2ROiKe.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -113,7 +113,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0e109] ==> ignore
+    arg [cmTC_fdacf] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -125,7 +125,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/aarch64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_0e109.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_fdacf.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -157,14 +157,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_315e2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_315e2.dir/build.make CMakeFiles/cmTC_315e2.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_74da2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_74da2.dir/build.make CMakeFiles/cmTC_74da2.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_315e2.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_315e2.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_315e2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_315e2.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_315e2.dir/feature_tests.c.o  -o cmTC_315e2 
+Building C object CMakeFiles/cmTC_74da2.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_74da2.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_74da2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74da2.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_74da2.dir/feature_tests.c.o  -o cmTC_74da2 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -177,14 +177,14 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5428b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5428b.dir/build.make CMakeFiles/cmTC_5428b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_bc5e6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bc5e6.dir/build.make CMakeFiles/cmTC_bc5e6.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5428b.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_5428b.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_5428b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5428b.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5428b.dir/feature_tests.c.o  -o cmTC_5428b 
+Building C object CMakeFiles/cmTC_bc5e6.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_bc5e6.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bc5e6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc5e6.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_bc5e6.dir/feature_tests.c.o  -o cmTC_bc5e6 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -197,14 +197,14 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1db8e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1db8e.dir/build.make CMakeFiles/cmTC_1db8e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a7f97/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a7f97.dir/build.make CMakeFiles/cmTC_a7f97.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1db8e.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_1db8e.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_1db8e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1db8e.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_1db8e.dir/feature_tests.c.o  -o cmTC_1db8e 
+Building C object CMakeFiles/cmTC_a7f97.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_a7f97.dir/feature_tests.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a7f97
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7f97.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a7f97.dir/feature_tests.c.o  -o cmTC_a7f97 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -215,28 +215,28 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ffba4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ffba4.dir/build.make CMakeFiles/cmTC_ffba4.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_76eb5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_76eb5.dir/build.make CMakeFiles/cmTC_76eb5.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ffba4.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_ffba4.dir/testCXXCompiler.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_ffba4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffba4.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_ffba4.dir/testCXXCompiler.cxx.o  -o cmTC_ffba4 
+Building CXX object CMakeFiles/cmTC_76eb5.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_76eb5.dir/testCXXCompiler.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_76eb5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76eb5.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_76eb5.dir/testCXXCompiler.cxx.o  -o cmTC_76eb5 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_86dec/fast"
-/usr/bin/make -f CMakeFiles/cmTC_86dec.dir/build.make CMakeFiles/cmTC_86dec.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_15a2a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_15a2a.dir/build.make CMakeFiles/cmTC_15a2a.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_86dec
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86dec.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_86dec 
+Building CXX object CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_15a2a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15a2a.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_15a2a 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper
@@ -246,9 +246,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_86dec' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
- /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccuzRpjS.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_86dec /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_86dec' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_15a2a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccO48B7q.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_15a2a /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_15a2a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -256,14 +256,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_86dec/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_86dec.dir/build.make CMakeFiles/cmTC_86dec.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_15a2a/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_15a2a.dir/build.make CMakeFiles/cmTC_15a2a.dir/build]
   ignore line: [make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_86dec]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86dec.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_86dec ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_15a2a]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15a2a.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_15a2a ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper]
@@ -273,13 +273,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/7/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_86dec' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
-  link line: [ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccuzRpjS.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_86dec /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_15a2a' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccO48B7q.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_15a2a /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/7 -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/7/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/7/../../.. CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/7/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccuzRpjS.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccO48B7q.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -300,7 +300,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_86dec] ==> ignore
+    arg [cmTC_15a2a] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/../../../aarch64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/aarch64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -312,7 +312,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/aarch64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_86dec.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_15a2a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -340,14 +340,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9c8ef/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9c8ef.dir/build.make CMakeFiles/cmTC_9c8ef.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_545cf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_545cf.dir/build.make CMakeFiles/cmTC_545cf.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9c8ef.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_9c8ef.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_9c8ef
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c8ef.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_9c8ef.dir/feature_tests.cxx.o  -o cmTC_9c8ef 
+Building CXX object CMakeFiles/cmTC_545cf.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_545cf.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_545cf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_545cf.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_545cf.dir/feature_tests.cxx.o  -o cmTC_545cf 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -413,14 +413,14 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bdb43/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bdb43.dir/build.make CMakeFiles/cmTC_bdb43.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_59168/fast"
+/usr/bin/make -f CMakeFiles/cmTC_59168.dir/build.make CMakeFiles/cmTC_59168.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_bdb43.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_bdb43.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_bdb43
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdb43.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_bdb43.dir/feature_tests.cxx.o  -o cmTC_bdb43 
+Building CXX object CMakeFiles/cmTC_59168.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_59168.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_59168
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59168.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_59168.dir/feature_tests.cxx.o  -o cmTC_59168 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -486,14 +486,14 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_42384/fast"
-/usr/bin/make -f CMakeFiles/cmTC_42384.dir/build.make CMakeFiles/cmTC_42384.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_91adc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_91adc.dir/build.make CMakeFiles/cmTC_91adc.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_42384.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_42384.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_42384
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_42384.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_42384.dir/feature_tests.cxx.o  -o cmTC_42384 
+Building CXX object CMakeFiles/cmTC_91adc.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_91adc.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_91adc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91adc.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_91adc.dir/feature_tests.cxx.o  -o cmTC_91adc 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -559,14 +559,14 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7a68b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7a68b.dir/build.make CMakeFiles/cmTC_7a68b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_38afa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_38afa.dir/build.make CMakeFiles/cmTC_38afa.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7a68b.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_7a68b.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_7a68b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7a68b.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_7a68b.dir/feature_tests.cxx.o  -o cmTC_7a68b 
+Building CXX object CMakeFiles/cmTC_38afa.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_38afa.dir/feature_tests.cxx.o -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_38afa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38afa.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_38afa.dir/feature_tests.cxx.o  -o cmTC_38afa 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
@@ -630,28 +630,28 @@ make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/bui
 Determining if the include file pthread.h exists passed with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ff732/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ff732.dir/build.make CMakeFiles/cmTC_ff732.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_036d4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_036d4.dir/build.make CMakeFiles/cmTC_036d4.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ff732.dir/CheckIncludeFile.c.o
-/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_ff732.dir/CheckIncludeFile.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_ff732
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff732.dir/link.txt --verbose=1
-/usr/bin/cc -fPIC     CMakeFiles/cmTC_ff732.dir/CheckIncludeFile.c.o  -o cmTC_ff732 
+Building C object CMakeFiles/cmTC_036d4.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_036d4.dir/CheckIncludeFile.c.o   -c /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_036d4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_036d4.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_036d4.dir/CheckIncludeFile.c.o  -o cmTC_036d4 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
 Change Dir: /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b5dd3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b5dd3.dir/build.make CMakeFiles/cmTC_b5dd3.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_80b36/fast"
+/usr/bin/make -f CMakeFiles/cmTC_80b36.dir/build.make CMakeFiles/cmTC_80b36.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b5dd3.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b5dd3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_b5dd3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5dd3.dir/link.txt --verbose=1
-/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_b5dd3.dir/CheckFunctionExists.c.o  -o cmTC_b5dd3 -lpthread 
+Building C object CMakeFiles/cmTC_80b36.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_80b36.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_80b36
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80b36.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_80b36.dir/CheckFunctionExists.c.o  -o cmTC_80b36 -lpthread 
 make[1]: Leaving directory '/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
 
 
