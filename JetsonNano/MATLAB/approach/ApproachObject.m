@@ -1,4 +1,4 @@
-function [motorAngles] = ApproachObject(linkLengths, currentmotorM1Steps,distanceToObject)
+function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps,distanceToObject)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -21,29 +21,33 @@ function [motorAngles] = ApproachObject(linkLengths, currentmotorM1Steps,distanc
     motorAngles = zeros(1,3);
 
     %Convert the steps into radians
-    currentmotorAnglet1 = deg2rad(currentmotorM1Steps *(300/65535))-150;
+    currentmotorAnglet1 = deg2rad(currentMotorM1Steps *(300/65535)) + 150;
+    motorAngles(1) = deg2rad(currentMotorM0Steps *(300/65535));
     
+    %Calculate the new angle of motor M1
     
     if currentmotorAnglet1 > pi/2
         angleInTrinagle = pi/2 - currentmotorAnglet1;
         currentDistance =  sin(angleInTrinagle) * linkLengths(3);
-        distance = currentDistance + distanceToObject;
-        motorAngles(2) = acos(distance / linkLengths(3));
+        distance = currentDistance - distanceToObject;
+        motorAngles(2) = acos(abs(distance) / linkLengths(3));
+        if distance > 0
+            motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
+        end
     else
         angleInTrinagle = currentmotorAnglet1 - pi/2;
         currentDistance =  sin(angleInTrinagle) * linkLengths(3);
-        distance = currentDistance - distanceToObject;
-        motorAngles(2) = acos(distance / linkLengths(3)); %Fix this
-    end
-    
-    %Calculate the angle of motor M1 to reach the desired position
-    
+        distance = currentDistance + distanceToObject;
+        motorAngles(2) = acos(distance / linkLengths(3)); 
+    end 
+   
+
     
     %Calculate the angle of motor M2 so that link e is parallel
     motorAngles(3) = parallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
 
     %Add offset for the motors and change radians to degree
-    motorAngles = rad2deg(motorAngles) + [0 150 48];
+    motorAngles = rad2deg(motorAngles) + [150 150 48];
     
     %Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535
     motorAngles = int16(motorAngles * 65535 / 300);
