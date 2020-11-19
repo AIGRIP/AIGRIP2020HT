@@ -1,0 +1,19 @@
+function [targetPoint, normalPoint] = stableLine(signature,degreesMeasured)
+%stableLine Finds the required orientaions for the gripper to grasp an object.
+%   Detailed explanation goes here
+
+    resolutionDeg = 10*pi/180;
+    
+    degreesToMeasureFinger1 = 0:resDeg:(pi/2);
+    
+    finger1Points = 
+    degreesMeasured
+
+    degreesToMeasureFinger2 = (3*pi/2):resDeg:(2*pi);
+    
+    
+    comm.LinearEqualizer()
+    lms
+
+end
+

@@ -1,9 +1,9 @@
 clc
 clear all
 close all
-originalImage = imread('CUDATest.jpg');   
+originalImage = imread("testImages\Test1.jpg");   
 % originalImage = imresize(originalImage,[3280,2464]);
-% originalImage = imresize(originalImage,0.3);
+originalImage = imresize(originalImage,0.3);
 
 
 

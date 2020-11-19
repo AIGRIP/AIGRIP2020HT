@@ -1,0 +1,37 @@
+function [signature] = GetSignature(binaryEdgeImage,numberOfRows,numberOfColumns)
+%GetSignature caclulates the radius dependent on the angle.
+%   binaryEdgeImage     - Should be a binary édge image.
+%   rowsOfImage         - Is the number rows of the image.
+%   columnsOfImage      - Is the number columns of the image.
+%   signature           - Returns the radius for each of the defined angle.
+
+
+    rowFocusSignature = round(numberOfRows/2);
+    columnFocusSignature = round(numberOfColumns/2);
+    
+    % The resulotion of the signature. (5 Degree resolution)
+    resDeg = 5*pi/180;
+    degMeas = 0:resDeg:(2*pi-resDeg);
+
+    % Get index of all high pixels.
+    edgePointsIndex = find(binaryEdgeImage == 1);
+    
+    % Get x and y cordinates.
+    yPCoord = floor( edgePointsIndex/numberOfRows );
+    xPCoord = mod( edgePointsIndex, numberOfRows );
+
+    % Get the offset from the center of the image.
+    dY = yPCoord - rowFocusSignature;
+    dX = xPCoord - 
+    dXY = [dY,dX] - [rowFocusSignature,columnFocusSignature];
+
+    % Convert the coordinates from the centroid to angular degree from
+    % 0 to 2pi
+    angCP = XYtoAngle(dXY(:,1),dXY(:,2));
+
+    % Get the signature with the right number of feature (Radius,Angle).
+    signature = GetARsing(angCP,dXY,degMeas);
+
+
+end
+
