@@ -15,7 +15,7 @@
 #include "colourBalance.h"
 #include "morphologicalFilters.h"
 #include "communication.h"
-
+#include "ApproachObject.h"
 
 int main(void)
 {
@@ -24,9 +24,9 @@ int main(void)
 	const double linkLengths[] = {25,95,60,35,50};
 	double desiredPosition[] = {5,10};
 	double desiredAngle[] = {9,10};
-	int16_t motorAngles[3];  
-
-	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,motorAngles);
+	uint16_t motorAngles[3];  
+	double fingerNum = 1;
+	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,fingerNum,motorAngles);
 	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
 	
 
@@ -61,6 +61,14 @@ int main(void)
 
 	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
 
+	double currentMotorM0Steps = 20000;
+	double currentMotorM1Steps = 50000;
+	double distanceToObject = 10;
+
+	ApproachObject(linkLengths, currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorAngles);
+		
+	printf("%u %u %u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
+	
 	communicationHandler();
 
 	return 0;
