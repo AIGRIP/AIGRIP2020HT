@@ -1,0 +1,11 @@
+# ninja log v5
+20	655	6275053057137235	build/win64/rt_nonfinite.o	cdcd37c3dd017b0
+27	665	6275053057137235	build/win64/cpp_mexapi_version.o	c407ea2e02565741
+15	673	6275053057137235	build/win64/colourBalance_data.o	fd6dfdd6260c76f0
+24	677	6275053057137235	build/win64/_coder_colourBalance_info.o	4f460a021ff2d360
+5	679	6275053057207204	build/win64/colourBalance_initialize.o	6328e42ed9a10fe9
+12	681	6275053057377119	build/win64/colourBalance_terminate.o	b862b6a17d0f8962
+34	684	6275053057407103	build/win64/_coder_colourBalance_api.o	d0cbb80ca6e95c12
+37	686	6275053057397109	build/win64/_coder_colourBalance_mex.o	42786bbb1819d6da
+31	709	6275053057696962	build/win64/colourBalance.o	7ba6cc4f08ed904a
+711	1582	6275053066130527	colourBalance_mex.mexw64	d14cca524927b10e

@@ -37,8 +37,6 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
             motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
         end
     else
-        %Calculate current distance from the joint position c to
-        %position of motor M1
         angleInTrinagle = currentmotorAnglet1 - pi/2;
         currentDistance =  sin(angleInTrinagle) * linkLengths(3);
         distance = currentDistance + distanceToObject;
