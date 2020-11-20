@@ -7,6 +7,7 @@ CUDA_ADD_EXECUTABLE(RUN_AIGRIP_NANO ${SOURCE_FILES})
 # Link the needed libraries to the source file.
 target_link_libraries(RUN_AIGRIP_NANO ParallelMotorAnglet2CPU)
 target_link_libraries(RUN_AIGRIP_NANO InverseKinematicsPreshapeCPU)
+target_link_libraries(RUN_AIGRIP_NANO ApproachObjectCPU)
 target_link_libraries(RUN_AIGRIP_NANO PointToLineCPU)
 target_link_libraries(RUN_AIGRIP_NANO ForwardKinematicsCPU)
 target_link_libraries(RUN_AIGRIP_NANO colourBalanceGPU)

@@ -28,6 +28,20 @@ function [positionReachable]  = PointToLine(singularityPoint, possiblePosition, 
 
     positionReachable = 0;
     
+    %Check if the possiblePosition is in the right quadrant for the
+    %function
+    if singularityPoint(2) > 0
+        if (possiblePosition(1) > 0 && possiblePosition(2) > 0) || (possiblePosition(1) < 0 && possiblePosition(2) < 0)
+            positionReachable = 0;
+            return;
+        end
+    else 
+        if (possiblePosition(1) > 0 && possiblePosition(2) < 0) || (possiblePosition(1) < 0 && possiblePosition(2) > 0)
+            positionReachable = 0;
+            return;
+        end
+    end
+    
     %Calculate the distances from the normals to the singularity point.
     a = normalStableLine - possiblePosition;
     b = a.*flip(singularityPoint);

@@ -5,7 +5,7 @@
 // File: InverseKinematicsPreshape.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 08:59:29
+// C/C++ source code generated on  : 20-Nov-2020 10:29:43
 //
 
 // Include Files
@@ -127,27 +127,29 @@ static double rt_roundd_snf(double u)
 // Arguments    : const double linkLengths[5]
 //                const double desiredPosition[2]
 //                const double normalStableLine[2]
-//                short motorAngles[3]
+//                double fingerNum
+//                unsigned short motorAngles[3]
 // Return Type  : void
 //
 void InverseKinematicsPreshape(const double linkLengths[5], const double
-  desiredPosition[2], const double normalStableLine[2], short motorAngles[3])
+  desiredPosition[2], const double normalStableLine[2], double fingerNum,
+  unsigned short motorAngles[3])
 {
   double directionPosition[2];
   double absx;
-  double b_x;
-  double jointPositionB_idx_0;
+  double b_absxk;
   double motorAngles_idx_0;
   double motorAngles_idx_1;
+  double motorPositionM1_idx_0;
+  double motorPositionM1_idx_1;
   double normBM2;
   double scale;
   double t;
   double x;
-  double x_tmp;
-  int k;
-  short i;
-  bool exitg1;
-  bool y;
+  int absxk;
+  unsigned short u;
+  signed char motorPositionM0_idx_0;
+  signed char motorPositionM0_idx_1;
 
   // Input:
   // linkLengths = 1x5 array with the lengths of all five links in the order
@@ -159,176 +161,220 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   // with the possiblePosition creates the line which represents the
   // direction the finger should be facing. The coordinates are
   // relative to the palm center
+  // fingerNum = number to determine what finger is getting calculated.
+  // The number is between 0-2. 0 is for the stationary finger and
+  // then the sequense countines clockwise
   // Output:
   // motorAngles = 1X3 array with three motor angles one for each motro in a
-  // finger. The order of the motors in the array is M0,M1,M2. The angles are
-  // remaped from 0-359 to 0-65535 this is to fill out a short as much as
-  // possible.
-  // Set the posistion of motor M0 relative to the center of the palm
-  // Make the direction relate to M0 position instead of palm center
-  directionPosition[0] = normalStableLine[0] - 10.0;
-  directionPosition[1] = normalStableLine[1] - 10.0;
+  // finger. The order of the motors in the array is M0,M1,M2.
+  if (fingerNum != 0.0) {
+    bool exitg1;
+    bool y;
 
-  // If the directionPosition is the same as motorPositionM0 move the direction
-  // in the normal direction
-  y = true;
-  k = 0;
-  exitg1 = false;
-  while ((!exitg1) && (k < 2)) {
-    if (!(directionPosition[k] == 0.0)) {
-      y = false;
-      exitg1 = true;
+    // Set the posistion of motor M0 relative to the center of the palm
+    if (fingerNum == 1.0) {
+      motorPositionM0_idx_0 = -20;
+      motorPositionM0_idx_1 = 36;
     } else {
-      k++;
+      motorPositionM0_idx_0 = -20;
+      motorPositionM0_idx_1 = -36;
     }
-  }
 
-  if (y) {
-    directionPosition[0] = (normalStableLine[0] + desiredPosition[0]) - 10.0;
-    directionPosition[1] = (normalStableLine[1] + desiredPosition[1]) - 10.0;
-  }
+    // Make the direction relate to M0 position instead of palm center
+    directionPosition[0] = normalStableLine[0] - -20.0;
+    directionPosition[1] = normalStableLine[1] - static_cast<double>
+      (motorPositionM0_idx_1);
 
-  // Calculate the angle that motor M0 should move to
-  motorAngles_idx_0 = rt_atan2d_snf(directionPosition[1], directionPosition[0]);
+    // If the directionPosition is the same as motorPositionM0 move the direction 
+    // in the normal direction
+    y = true;
+    absxk = 0;
+    exitg1 = false;
+    while ((!exitg1) && (absxk < 2)) {
+      if (!(directionPosition[absxk] == 0.0)) {
+        y = false;
+        exitg1 = true;
+      } else {
+        absxk++;
+      }
+    }
 
-  // Change the angles to be between 0-90 degree
-  if (motorAngles_idx_0 < -1.5707963267948966) {
-    motorAngles_idx_0 += 3.1415926535897931;
+    if (y) {
+      directionPosition[0] = (normalStableLine[0] + desiredPosition[0]) - -20.0;
+      directionPosition[1] = (normalStableLine[1] + desiredPosition[1]) -
+        static_cast<double>(motorPositionM0_idx_1);
+    }
+
+    // Calculate the angle that motor M0 should move to
+    motorAngles_idx_0 = rt_atan2d_snf(directionPosition[1], directionPosition[0]);
+
+    // Change the angles to be between 0-90 degree
+    if (motorAngles_idx_0 < -1.5707963267948966) {
+      motorAngles_idx_0 += 3.1415926535897931;
+    } else {
+      if (motorAngles_idx_0 > 1.5707963267948966) {
+        motorAngles_idx_0 -= 3.1415926535897931;
+      }
+    }
+
+    // Calculate the distance from the palm center to the poistions
+    // of motor M1 and M2
+    if (rtIsInf(motorAngles_idx_0) || rtIsNaN(motorAngles_idx_0)) {
+      x = rtNaN;
+      normBM2 = rtNaN;
+    } else {
+      signed char n;
+      normBM2 = rt_remd_snf(motorAngles_idx_0, 360.0);
+      x = normBM2;
+      absx = std::abs(normBM2);
+      if (absx > 180.0) {
+        if (normBM2 > 0.0) {
+          x = normBM2 - 360.0;
+        } else {
+          x = normBM2 + 360.0;
+        }
+
+        absx = std::abs(x);
+      }
+
+      if (absx <= 45.0) {
+        x *= 0.017453292519943295;
+        n = 0;
+      } else if (absx <= 135.0) {
+        if (x > 0.0) {
+          x = 0.017453292519943295 * (x - 90.0);
+          n = 1;
+        } else {
+          x = 0.017453292519943295 * (x + 90.0);
+          n = -1;
+        }
+      } else if (x > 0.0) {
+        x = 0.017453292519943295 * (x - 180.0);
+        n = 2;
+      } else {
+        x = 0.017453292519943295 * (x + 180.0);
+        n = -2;
+      }
+
+      if (n == 0) {
+        x = std::cos(x);
+      } else if (n == 1) {
+        x = -std::sin(x);
+      } else if (n == -1) {
+        x = std::sin(x);
+      } else {
+        x = -std::cos(x);
+      }
+
+      absx = std::abs(normBM2);
+      if (absx > 180.0) {
+        if (normBM2 > 0.0) {
+          normBM2 -= 360.0;
+        } else {
+          normBM2 += 360.0;
+        }
+
+        absx = std::abs(normBM2);
+      }
+
+      if (absx <= 45.0) {
+        normBM2 *= 0.017453292519943295;
+        n = 0;
+      } else if (absx <= 135.0) {
+        if (normBM2 > 0.0) {
+          normBM2 = 0.017453292519943295 * (normBM2 - 90.0);
+          n = 1;
+        } else {
+          normBM2 = 0.017453292519943295 * (normBM2 + 90.0);
+          n = -1;
+        }
+      } else if (normBM2 > 0.0) {
+        normBM2 = 0.017453292519943295 * (normBM2 - 180.0);
+        n = 2;
+      } else {
+        normBM2 = 0.017453292519943295 * (normBM2 + 180.0);
+        n = -2;
+      }
+
+      if (n == 0) {
+        normBM2 = std::sin(normBM2);
+      } else if (n == 1) {
+        normBM2 = std::cos(normBM2);
+      } else if (n == -1) {
+        normBM2 = -std::cos(normBM2);
+      } else {
+        normBM2 = -std::sin(normBM2);
+      }
+    }
+
+    motorPositionM1_idx_0 = -20.0 + x * 30.0;
+    motorPositionM1_idx_1 = static_cast<double>(motorPositionM0_idx_1) + normBM2
+      * 30.0;
   } else {
-    if (motorAngles_idx_0 > 1.5707963267948966) {
-      motorAngles_idx_0 -= 3.1415926535897931;
-    }
+    motorAngles_idx_0 = 0.0;
+    motorPositionM0_idx_0 = 64;
+    motorPositionM1_idx_0 = 64.0;
+    motorPositionM0_idx_1 = 0;
+    motorPositionM1_idx_1 = 0.0;
   }
-
-  // Calculate the distance from the palm center to the poistions
-  // of motor M1 and M2
-  if (rtIsInf(motorAngles_idx_0) || rtIsNaN(motorAngles_idx_0)) {
-    scale = rtNaN;
-    x = rtNaN;
-  } else {
-    signed char n;
-    x_tmp = rt_remd_snf(motorAngles_idx_0, 360.0);
-    scale = x_tmp;
-    absx = std::abs(x_tmp);
-    if (absx > 180.0) {
-      if (x_tmp > 0.0) {
-        scale = x_tmp - 360.0;
-      } else {
-        scale = x_tmp + 360.0;
-      }
-
-      absx = std::abs(scale);
-    }
-
-    if (absx <= 45.0) {
-      scale *= 0.017453292519943295;
-      n = 0;
-    } else if (absx <= 135.0) {
-      if (scale > 0.0) {
-        scale = 0.017453292519943295 * (scale - 90.0);
-        n = 1;
-      } else {
-        scale = 0.017453292519943295 * (scale + 90.0);
-        n = -1;
-      }
-    } else if (scale > 0.0) {
-      scale = 0.017453292519943295 * (scale - 180.0);
-      n = 2;
-    } else {
-      scale = 0.017453292519943295 * (scale + 180.0);
-      n = -2;
-    }
-
-    if (n == 0) {
-      scale = std::cos(scale);
-    } else if (n == 1) {
-      scale = -std::sin(scale);
-    } else if (n == -1) {
-      scale = std::sin(scale);
-    } else {
-      scale = -std::cos(scale);
-    }
-
-    absx = std::abs(x_tmp);
-    if (absx > 180.0) {
-      if (x_tmp > 0.0) {
-        x_tmp -= 360.0;
-      } else {
-        x_tmp += 360.0;
-      }
-
-      absx = std::abs(x_tmp);
-    }
-
-    if (absx <= 45.0) {
-      x_tmp *= 0.017453292519943295;
-      n = 0;
-    } else if (absx <= 135.0) {
-      if (x_tmp > 0.0) {
-        x_tmp = 0.017453292519943295 * (x_tmp - 90.0);
-        n = 1;
-      } else {
-        x_tmp = 0.017453292519943295 * (x_tmp + 90.0);
-        n = -1;
-      }
-    } else if (x_tmp > 0.0) {
-      x_tmp = 0.017453292519943295 * (x_tmp - 180.0);
-      n = 2;
-    } else {
-      x_tmp = 0.017453292519943295 * (x_tmp + 180.0);
-      n = -2;
-    }
-
-    if (n == 0) {
-      x = std::sin(x_tmp);
-    } else if (n == 1) {
-      x = std::cos(x_tmp);
-    } else if (n == -1) {
-      x = -std::cos(x_tmp);
-    } else {
-      x = -std::sin(x_tmp);
-    }
-  }
-
-  normBM2 = scale * 10.0;
-  b_x = x * 10.0;
-  directionPosition[0] = scale * 10.0 + 10.0;
 
   // Turn all negative values to positive
   motorAngles_idx_0 = std::abs(motorAngles_idx_0);
 
   // Calculate the distance from motor M1 to the desired position
-  x_tmp = desiredPosition[0] - (normBM2 + 10.0);
-  absx = desiredPosition[1] - (b_x + 10.0);
+  normBM2 = desiredPosition[0] - motorPositionM1_idx_0;
+  absx = desiredPosition[1] - motorPositionM1_idx_1;
 
   // Calculate the angle of motor M1 to reach the desired position
-  motorAngles_idx_1 = std::acos(std::sqrt(x_tmp * x_tmp + absx * absx) /
+  motorAngles_idx_1 = std::acos(std::sqrt(normBM2 * normBM2 + absx * absx) /
     linkLengths[2]);
 
   // Check if the desired point is closer to the center than the motor M0
   // position
   scale = 3.3121686421112381E-170;
-  absx = std::abs(0.0 - desiredPosition[0]);
-  if (absx > 3.3121686421112381E-170) {
-    x_tmp = 1.0;
-    scale = absx;
+  absx = 3.3121686421112381E-170;
+  b_absxk = std::abs(0.0 - desiredPosition[0]);
+  if (b_absxk > 3.3121686421112381E-170) {
+    x = 1.0;
+    scale = b_absxk;
   } else {
-    t = absx / 3.3121686421112381E-170;
-    x_tmp = t * t;
+    t = b_absxk / 3.3121686421112381E-170;
+    x = t * t;
   }
 
-  absx = std::abs(0.0 - desiredPosition[1]);
-  if (absx > scale) {
-    t = scale / absx;
-    x_tmp = x_tmp * t * t + 1.0;
-    scale = absx;
+  absxk = static_cast<int>(std::abs(-static_cast<double>(motorPositionM0_idx_0)));
+  if (absxk > 3.3121686421112381E-170) {
+    t = 3.3121686421112381E-170 / static_cast<double>(absxk);
+    normBM2 = 0.0 * t * t + 1.0;
+    absx = absxk;
   } else {
-    t = absx / scale;
-    x_tmp += t * t;
+    t = static_cast<double>(absxk) / 3.3121686421112381E-170;
+    normBM2 = t * t;
   }
 
-  x_tmp = scale * std::sqrt(x_tmp);
-  if (x_tmp > 14.142135623730951) {
+  b_absxk = std::abs(0.0 - desiredPosition[1]);
+  if (b_absxk > scale) {
+    t = scale / b_absxk;
+    x = x * t * t + 1.0;
+    scale = b_absxk;
+  } else {
+    t = b_absxk / scale;
+    x += t * t;
+  }
+
+  absxk = static_cast<int>(std::abs(-static_cast<double>(motorPositionM0_idx_1)));
+  if (absxk > absx) {
+    t = absx / static_cast<double>(absxk);
+    normBM2 = normBM2 * t * t + 1.0;
+    absx = absxk;
+  } else {
+    t = static_cast<double>(absxk) / absx;
+    normBM2 += t * t;
+  }
+
+  x = scale * std::sqrt(x);
+  normBM2 = absx * std::sqrt(normBM2);
+  if (x > normBM2) {
     motorAngles_idx_1 = (1.5707963267948966 - motorAngles_idx_1) +
       1.5707963267948966;
   }
@@ -349,83 +395,100 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
   // Set the appropriate lengths for the links
   // Calculate the position of joint B when link d lies
   // perpendicular to link e
-  jointPositionB_idx_0 = ((normBM2 + 10.0) + linkLengths[2] * std::cos
+  directionPosition[0] = (motorPositionM1_idx_0 + linkLengths[2] * std::cos
     (motorAngles_idx_1)) - linkLengths[3];
   scale = 3.3121686421112381E-170;
-  absx = std::abs(jointPositionB_idx_0 - (directionPosition[0] + -29.0));
-  if (absx > 3.3121686421112381E-170) {
+  b_absxk = std::abs(directionPosition[0] - (motorPositionM1_idx_0 + -29.0));
+  if (b_absxk > 3.3121686421112381E-170) {
     normBM2 = 1.0;
-    scale = absx;
+    scale = b_absxk;
   } else {
-    t = absx / 3.3121686421112381E-170;
+    t = b_absxk / 3.3121686421112381E-170;
     normBM2 = t * t;
   }
 
-  x_tmp = std::abs(((b_x + 10.0) + linkLengths[2] * std::sin(motorAngles_idx_1))
-                   - ((x * 10.0 + 10.0) + -38.0));
-  if (x_tmp > scale) {
-    t = scale / x_tmp;
+  x = std::abs((motorPositionM1_idx_1 + linkLengths[2] * std::sin
+                (motorAngles_idx_1)) - (motorPositionM1_idx_1 + -38.0));
+  if (x > scale) {
+    t = scale / x;
     normBM2 = normBM2 * t * t + 1.0;
-    scale = x_tmp;
+    scale = x;
   } else {
-    t = x_tmp / scale;
+    t = x / scale;
     normBM2 += t * t;
   }
 
   normBM2 = scale * std::sqrt(normBM2);
-  scale = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 * normBM2) -
-                     linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
+  absx = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 * normBM2) -
+                    linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
     normBM2));
-  absx = std::acos(x_tmp / normBM2);
+  normBM2 = std::acos(x / normBM2);
+  if (directionPosition[0] > motorPositionM1_idx_0 + -29.0) {
+    absx -= normBM2;
+  } else {
+    absx += normBM2;
+  }
 
   // Add offset for the motors and change radians to degree
-  // Convert the motor angles to an int16 and remap the angles from 0-359 to 0-65535 
-  x_tmp = rt_roundd_snf(57.295779513082323 * motorAngles_idx_0 * 65535.0 / 300.0);
-  if (x_tmp < 32768.0) {
-    i = static_cast<short>(x_tmp);
-  } else if (x_tmp >= 32768.0) {
-    i = MAX_int16_T;
+  if (fingerNum == 0.0) {
+    motorAngles_idx_0 *= 57.295779513082323;
+    motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
+    absx = 48.0 + 57.295779513082323 * absx;
+  } else if (fingerNum == 1.0) {
+    motorAngles_idx_0 = -150.0 + 57.295779513082323 * motorAngles_idx_0;
+    motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
+    absx = 48.0 + 57.295779513082323 * absx;
   } else {
-    i = 0;
+    motorAngles_idx_0 = 150.0 + 57.295779513082323 * motorAngles_idx_0;
+    motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
+    absx = 48.0 + 57.295779513082323 * absx;
   }
 
-  motorAngles[0] = i;
-  x_tmp = rt_roundd_snf((57.295779513082323 * motorAngles_idx_1 + 150.0) *
-                        65535.0 / 300.0);
-  if (x_tmp < 32768.0) {
-    if (x_tmp >= -32768.0) {
-      i = static_cast<short>(x_tmp);
+  // Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535 
+  normBM2 = rt_roundd_snf(57.295779513082323 * motorAngles_idx_0 * 65535.0 /
+    300.0);
+  if (normBM2 < 65536.0) {
+    if (normBM2 >= 0.0) {
+      u = static_cast<unsigned short>(normBM2);
     } else {
-      i = MIN_int16_T;
+      u = 0U;
     }
-  } else if (x_tmp >= 32768.0) {
-    i = MAX_int16_T;
+  } else if (normBM2 >= 65536.0) {
+    u = MAX_uint16_T;
   } else {
-    i = 0;
+    u = 0U;
   }
 
-  motorAngles[1] = i;
-  if (jointPositionB_idx_0 > directionPosition[0] + -29.0) {
-    jointPositionB_idx_0 = scale - absx;
-  } else {
-    jointPositionB_idx_0 = scale + absx;
-  }
-
-  x_tmp = rt_roundd_snf((57.295779513082323 * jointPositionB_idx_0 + 48.0) *
-                        65535.0 / 300.0);
-  if (x_tmp < 32768.0) {
-    if (x_tmp >= -32768.0) {
-      i = static_cast<short>(x_tmp);
+  motorAngles[0] = u;
+  normBM2 = rt_roundd_snf((57.295779513082323 * motorAngles_idx_1 + 150.0) *
+    65535.0 / 300.0);
+  if (normBM2 < 65536.0) {
+    if (normBM2 >= 0.0) {
+      u = static_cast<unsigned short>(normBM2);
     } else {
-      i = MIN_int16_T;
+      u = 0U;
     }
-  } else if (x_tmp >= 32768.0) {
-    i = MAX_int16_T;
+  } else if (normBM2 >= 65536.0) {
+    u = MAX_uint16_T;
   } else {
-    i = 0;
+    u = 0U;
   }
 
-  motorAngles[2] = i;
+  motorAngles[1] = u;
+  normBM2 = rt_roundd_snf((57.295779513082323 * absx + 48.0) * 65535.0 / 300.0);
+  if (normBM2 < 65536.0) {
+    if (normBM2 >= 0.0) {
+      u = static_cast<unsigned short>(normBM2);
+    } else {
+      u = 0U;
+    }
+  } else if (normBM2 >= 65536.0) {
+    u = MAX_uint16_T;
+  } else {
+    u = 0U;
+  }
+
+  motorAngles[2] = u;
 }
 
 //

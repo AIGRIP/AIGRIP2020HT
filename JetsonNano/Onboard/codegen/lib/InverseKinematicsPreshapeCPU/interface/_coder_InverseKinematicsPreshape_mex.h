@@ -5,7 +5,7 @@
  * File: _coder_InverseKinematicsPreshape_mex.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 18-Nov-2020 08:59:29
+ * C/C++ source code generated on  : 20-Nov-2020 10:29:43
  */
 
 #ifndef _CODER_INVERSEKINEMATICSPRESHAPE_MEX_H
@@ -23,7 +23,7 @@ extern "C" {
 
   /* Function Declarations */
   void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
-    int32_T nrhs, const mxArray *prhs[3]);
+    int32_T nrhs, const mxArray *prhs[4]);
   MEXFUNCTION_LINKAGE void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T
     nrhs, const mxArray *prhs[]);
   emlrtCTX mexFunctionCreateRootTLS(void);
