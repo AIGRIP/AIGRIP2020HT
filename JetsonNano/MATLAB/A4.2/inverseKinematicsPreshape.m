@@ -57,6 +57,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     
     else
         motorAngles(1) = 0;
+        motorPositionM0 = [64,0];
         motorPositionM1 = [64,0];
     end
     motorPositionM2 = motorPositionM1 + [-29 -38];
@@ -91,7 +92,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     motorAngles = rad2deg(motorAngles) + [0 150 48];
     
     %Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535
-    motorAngles = int16(motorAngles * 65535 / 300);
+    motorAngles = uint16(motorAngles * 65535 / 300);
 
 end
 

@@ -5,7 +5,7 @@
  * File: _coder_InverseKinematicsPreshape_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 18-Nov-2020 08:59:29
+ * C/C++ source code generated on  : 20-Nov-2020 10:29:43
  */
 
 /* Include Files */
@@ -32,13 +32,19 @@ static real_T (*c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *desiredPosition, const char_T *identifier))[2];
 static real_T (*d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId))[2];
-static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
-  const emlrtMsgIdentifier *msgId))[5];
+static real_T e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *fingerNum,
+  const char_T *identifier);
 static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *linkLengths, const char_T *identifier))[5];
-static const mxArray *emlrt_marshallOut(const int16_T u[3]);
-static real_T (*f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+static const mxArray *emlrt_marshallOut(const uint16_T u[3]);
+static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+  emlrtMsgIdentifier *parentId);
+static real_T (*g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId))[5];
+static real_T (*h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId))[2];
+static real_T i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
+  emlrtMsgIdentifier *msgId);
 
 /* Function Definitions */
 /*
@@ -51,7 +57,7 @@ static real_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId))[5]
 {
   real_T (*y)[5];
-  y = e_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  y = g_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
   emlrtDestroyArray(&u);
   return y;
 }
@@ -84,26 +90,27 @@ static real_T (*d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId))[2]
 {
   real_T (*y)[2];
-  y = f_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  y = h_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
   emlrtDestroyArray(&u);
   return y;
 }
 /*
  * Arguments    : const emlrtStack *sp
- *                const mxArray *src
- *                const emlrtMsgIdentifier *msgId
- * Return Type  : real_T (*)[5]
+ *                const mxArray *fingerNum
+ *                const char_T *identifier
+ * Return Type  : real_T
  */
-  static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
-  const emlrtMsgIdentifier *msgId))[5]
+  static real_T e_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  *fingerNum, const char_T *identifier)
 {
-  static const int32_T dims[2] = { 1, 5 };
-
-  real_T (*ret)[5];
-  emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 2U, dims);
-  ret = (real_T (*)[5])emlrtMxGetData(src);
-  emlrtDestroyArray(&src);
-  return ret;
+  emlrtMsgIdentifier thisId;
+  real_T y;
+  thisId.fIdentifier = (const char_T *)identifier;
+  thisId.fParent = NULL;
+  thisId.bParentIsCell = false;
+  y = f_emlrt_marshallIn(sp, emlrtAlias(fingerNum), &thisId);
+  emlrtDestroyArray(&fingerNum);
+  return y;
 }
 
 /*
@@ -125,10 +132,10 @@ static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   return y;
 }
 /*
- * Arguments    : const int16_T u[3]
+ * Arguments    : const uint16_T u[3]
  * Return Type  : const mxArray *
  */
-  static const mxArray *emlrt_marshallOut(const int16_T u[3])
+  static const mxArray *emlrt_marshallOut(const uint16_T u[3])
 {
   static const int32_T iv[2] = { 0, 0 };
 
@@ -137,7 +144,7 @@ static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   const mxArray *m;
   const mxArray *y;
   y = NULL;
-  m = emlrtCreateNumericArray(2, &iv[0], mxINT16_CLASS, mxREAL);
+  m = emlrtCreateNumericArray(2, &iv[0], mxUINT16_CLASS, mxREAL);
   emlrtMxSetData((mxArray *)m, (void *)&u[0]);
   emlrtSetDimensions((mxArray *)m, iv1, 2);
   emlrtAssign(&y, m);
@@ -146,11 +153,43 @@ static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
 
 /*
  * Arguments    : const emlrtStack *sp
+ *                const mxArray *u
+ *                const emlrtMsgIdentifier *parentId
+ * Return Type  : real_T
+ */
+static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+  emlrtMsgIdentifier *parentId)
+{
+  real_T y;
+  y = i_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  emlrtDestroyArray(&u);
+  return y;
+}
+
+/*
+ * Arguments    : const emlrtStack *sp
+ *                const mxArray *src
+ *                const emlrtMsgIdentifier *msgId
+ * Return Type  : real_T (*)[5]
+ */
+static real_T (*g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId))[5]
+{
+  static const int32_T dims[2] = { 1, 5 };
+
+  real_T (*ret)[5];
+  emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 2U, dims);
+  ret = (real_T (*)[5])emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+  return ret;
+}
+/*
+ * Arguments    : const emlrtStack *sp
  *                const mxArray *src
  *                const emlrtMsgIdentifier *msgId
  * Return Type  : real_T (*)[2]
  */
-static real_T (*f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  static real_T (*h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId))[2]
 {
   static const int32_T dims[2] = { 1, 2 };
@@ -161,13 +200,31 @@ static real_T (*f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   emlrtDestroyArray(&src);
   return ret;
 }
+
 /*
- * Arguments    : const mxArray * const prhs[3]
+ * Arguments    : const emlrtStack *sp
+ *                const mxArray *src
+ *                const emlrtMsgIdentifier *msgId
+ * Return Type  : real_T
+ */
+static real_T i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
+  emlrtMsgIdentifier *msgId)
+{
+  static const int32_T dims = 0;
+  real_T ret;
+  emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 0U, &dims);
+  ret = *(real_T *)emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+  return ret;
+}
+
+/*
+ * Arguments    : const mxArray * const prhs[4]
  *                const mxArray *plhs[1]
  * Return Type  : void
  */
-  void InverseKinematicsPreshape_api(const mxArray * const prhs[3], const
-  mxArray *plhs[1])
+void InverseKinematicsPreshape_api(const mxArray * const prhs[4], const mxArray *
+  plhs[1])
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -177,9 +234,10 @@ static real_T (*f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   real_T (*linkLengths)[5];
   real_T (*desiredPosition)[2];
   real_T (*normalStableLine)[2];
-  int16_T (*motorAngles)[3];
+  real_T fingerNum;
+  uint16_T (*motorAngles)[3];
   st.tls = emlrtRootTLSGlobal;
-  motorAngles = (int16_T (*)[3])mxMalloc(sizeof(int16_T [3]));
+  motorAngles = (uint16_T (*)[3])mxMalloc(sizeof(uint16_T [3]));
 
   /* Marshall function inputs */
   linkLengths = emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "linkLengths");
@@ -187,10 +245,11 @@ static real_T (*f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
     "desiredPosition");
   normalStableLine = c_emlrt_marshallIn(&st, emlrtAlias(prhs[2]),
     "normalStableLine");
+  fingerNum = e_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]), "fingerNum");
 
   /* Invoke the target function */
   InverseKinematicsPreshape(*linkLengths, *desiredPosition, *normalStableLine,
-    *motorAngles);
+    fingerNum, *motorAngles);
 
   /* Marshall function outputs */
   plhs[0] = emlrt_marshallOut(*motorAngles);

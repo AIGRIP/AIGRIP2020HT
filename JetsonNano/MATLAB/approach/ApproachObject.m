@@ -21,14 +21,14 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
     motorAngles = zeros(1,3);
 
     %Convert the steps into radians
-    currentmotorAnglet1 = deg2rad(currentMotorM1Steps *(300/65535)) + 150;
-    motorAngles(1) = deg2rad(currentMotorM0Steps *(300/65535));
+    currentmotorAnglet1 = deg2rad(currentMotorM1Steps *(300/65535) - 150);
+    motorAngles(1) = deg2rad(currentMotorM0Steps *(300/65535) - 150);
     
     %Calculate the new angle of motor M1
     if currentmotorAnglet1 > pi/2
         %Calculate current distance from the joint position c to
         %position of motor M1
-        angleInTrinagle = pi/2 - currentmotorAnglet1;
+        angleInTrinagle = currentmotorAnglet1 - pi/2;
         currentDistance =  sin(angleInTrinagle) * linkLengths(3);
         distance = currentDistance - distanceToObject;
         %Check if the new angle goes over pi/2 radians
@@ -39,22 +39,23 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
     else
         %Calculate current distance from the joint position c to
         %position of motor M1
-        angleInTrinagle = currentmotorAnglet1 - pi/2;
+        angleInTrinagle = pi/2 - currentmotorAnglet1;
         currentDistance =  sin(angleInTrinagle) * linkLengths(3);
         distance = currentDistance + distanceToObject;
-        motorAngles(2) = acos(distance / linkLengths(3)); 
+        motorAngles(2) = acos(distance / linkLengths(3));
     end 
    
 
-    
+    motorPositionM1 = [0,0];
+    motorPositionM2 = [-29,-38];
     %Calculate the angle of motor M2 so that link e is parallel
-    motorAngles(3) = parallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
+    motorAngles(3) = ParallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
 
     %Add offset for the motors and change radians to degree
     motorAngles = rad2deg(motorAngles) + [150 150 48];
     
     %Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535
-    motorAngles = int16(motorAngles * 65535 / 300);
+    motorAngles = uint16(motorAngles * 65535 / 300);
 
 
 end

@@ -24,6 +24,8 @@ add_subdirectory(codegen/lib/ParallelMotorAnglet2CPU/)
 
 add_subdirectory(codegen/lib/InverseKinematicsPreshapeCPU/)
 
+add_subdirectory(codegen/lib/ApproachObjectCPU/)
+
 add_subdirectory(codegen/lib/ForwardKinematicsCPU/)
 
 add_subdirectory(codegen/lib/PointToLineCPU/)
