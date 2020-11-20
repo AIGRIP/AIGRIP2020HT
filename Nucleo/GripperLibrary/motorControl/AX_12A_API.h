@@ -108,7 +108,7 @@ uint8_t MotorReturnChecksum(uint8_t *argument, int length); // Calculate checksu
 uint16_t MotorConvertAngle (uint16_t newAngle); // Convert angle given as a unsigned short into steps for the motor
 uint16_t MotorGenerateAngle (float angle); // Convert angle given in degrees into unsigned short
 int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *motor); // Initialize and configure startup values for the motor
-
+uint16_t MotorConvertShortToDegree (uint16_t ushort);
 
 
 // Motor configuration functions

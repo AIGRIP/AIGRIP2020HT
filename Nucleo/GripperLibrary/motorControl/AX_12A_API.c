@@ -7,6 +7,7 @@
 
 #include "AX_12A_API.h"
 #include "math.h"
+//#include "cmsis_os.h"
 
 
 
@@ -17,7 +18,7 @@ int MotorSetId(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *newId)
 {
 	int status;
 	uint8_t frame[8] = {0xFF, 0xFF, *id, 4, MOTOR_WRITE, ADDR_ID, *newId, 0};
-	frame[7] = motorInstrChecksum(frame, 1);
+	frame[7] = MotorInstrChecksum(frame, 1);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 
 	return status;
@@ -28,7 +29,7 @@ int MotorSetAngleLimit(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *cwLimit
 {
 	int status;
 	uint8_t frame[11] = {0xFF, 0xFF, *id, 7, MOTOR_WRITE, ADDR_CW_ANGLE_LIMIT, (uint8_t)(*cwLimit & 0xFF), (uint8_t)(*cwLimit >> 8), (uint8_t)(*ccwLimit & 0xFF), (uint8_t)(*ccwLimit >> 8), 0};
-	frame[10] = motorInstrChecksum(frame, 4);
+	frame[10] = MotorInstrChecksum(frame, 4);
 
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 
@@ -40,7 +41,7 @@ int MotorSetMaxTorque(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *maxTorqu
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_MAX_TORQUE, (uint8_t)(*maxTorque & 0xFF), (uint8_t)(*maxTorque >> 8), 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 
@@ -64,7 +65,7 @@ int MotorSetTorqueEnable(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *enable
 	{
 		return 5;
 	}
-	frame[7] = motorInstrChecksum(frame, 1);
+	frame[7] = MotorInstrChecksum(frame, 1);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -74,7 +75,7 @@ int MotorSetComplianceMargin(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *cw
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_CW_COMPLIANCE_MARGIN, *cwComplianceMargin, *ccwComplianceMargin, 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -84,7 +85,7 @@ int MotorSetComplianceSlope(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *cwC
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_CW_COMPLIANCE_SLOPE, *cwComplianceSlope, *ccwComplianceSlope, 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -94,7 +95,7 @@ int MotorSetGoalPosition(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *goalP
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_GOAL_POSITION, (uint8_t)(*goalPosition & 0xFF), (uint8_t)(*goalPosition >> 8), 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -104,7 +105,7 @@ int MotorSetMovingSpeed(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *moving
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_MOVING_SPEED, (uint8_t)(*movingSpeed & 0xFF), (uint8_t)(*movingSpeed >> 8), 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -114,7 +115,7 @@ int MotorSetTorqueLimit(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *torque
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_TORQUE_LIMIT, (uint8_t)(*torqueLimit & 0xFF), (uint8_t)(*torqueLimit >> 8), 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -124,7 +125,7 @@ int MotorSetLock(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *lockROM) 	// L
 {
 	int status;
 	uint8_t frame[8] = {0xFF, 0xFF, *id, 4, MOTOR_WRITE, ADDR_LOCK, *lockROM, 0};
-	frame[7] = motorInstrChecksum(frame, 1);
+	frame[7] = MotorInstrChecksum(frame, 1);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -134,7 +135,7 @@ int MotorSetPunch(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *minCurrentTh
 {
 	int status;
 	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_PUNCH, (uint8_t)(*minCurrentThreshold & 0xFF), (uint8_t)(*minCurrentThreshold >> 8), 0};
-	frame[8] = motorInstrChecksum(frame, 2);
+	frame[8] = MotorInstrChecksum(frame, 2);
 	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
 	return status;
 }
@@ -203,53 +204,58 @@ uint16_t MotorGenerateAngle (float angle)
 	}
 }
 
+uint16_t MotorConvertShortToDegree (uint16_t ushort)
+{
+	return ((uint16_t) (300.0 * ushort / 65535.0));
+}
+
 // Initialize and configure startup values for the motor
 int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *motor)
 {
 	// Write to ROM area to reset initial configuration
 	if (ROM_WRITE || FAILURE)
 	{
-		if (motorSetAngleLimit(huart, id, &motor->cwAngleLimit, &motor->ccwAngleLimit))
+		if (MotorSetAngleLimit(huart, id, &motor->cwAngleLimit, &motor->ccwAngleLimit))
 		{
 			return 1;
 		}
 		HAL_Delay(DELAY_TRANSMIT);
-		if (motorSetMaxTorque(huart, id, &motor->maxTorque))
+		if (MotorSetMaxTorque(huart, id, &motor->maxTorque))
 		{
 			return 2;
 		}
 		HAL_Delay(DELAY_TRANSMIT);
 	}
 
-	// Write to RAM area to configure start-up values
-	if (motorSetTorqueEnable(huart, id, &motor->torqueEnable))
-	{
-		return 3;
-	}
 	HAL_Delay(DELAY_TRANSMIT);
-	if (motorSetComplianceMargin(huart, id, &motor->cwComplianceMargin, &motor->ccwComplianceMargin))
-	{
-		return 4;
-	}
-	HAL_Delay(DELAY_TRANSMIT);
-	if (motorSetComplianceSlope(huart, id, &motor->startCwComplianceSlope, &motor->startCcwComplianceSlope))
-	{
-		return 5;
-	}
-	HAL_Delay(DELAY_TRANSMIT);
-	if (motorSetGoalPosition(huart, id, &motor->startPosition))
-	{
-		return 6;
-	}
-	HAL_Delay(DELAY_TRANSMIT);
-	if (motorSetMovingSpeed(huart, id, &motor->startSpeed))
+	if (MotorSetMovingSpeed(huart, id, &motor->startSpeed))
 	{
 		return 7;
 	}
 	HAL_Delay(DELAY_TRANSMIT);
-	if (motorSetTorqueLimit(huart, id, &motor->startTorqueLimitRAM))
+	if (MotorSetTorqueLimit(huart, id, &motor->startTorqueLimitRAM))
 	{
 		return 8;
+	}
+	// Write to RAM area to configure start-up values
+	if (MotorSetTorqueEnable(huart, id, &motor->torqueEnable))
+	{
+		return 3;
+	}
+	HAL_Delay(DELAY_TRANSMIT);
+	if (MotorSetComplianceMargin(huart, id, &motor->cwComplianceMargin, &motor->ccwComplianceMargin))
+	{
+		return 4;
+	}
+	HAL_Delay(DELAY_TRANSMIT);
+	if (MotorSetComplianceSlope(huart, id, &motor->startCwComplianceSlope, &motor->startCcwComplianceSlope))
+	{
+		return 5;
+	}
+	HAL_Delay(DELAY_TRANSMIT);
+	if (MotorSetGoalPosition(huart, id, &motor->startPosition))
+	{
+		return 6;
 	}
 
 	return 0;
@@ -271,7 +277,7 @@ int MotorPing (UART_HandleTypeDef *huart, uint8_t *id)
 int MotorRead (UART_HandleTypeDef *huart, uint8_t *buf, uint8_t id, uint8_t addr, uint8_t bytesToRead)
 {
 	int status = 0, length = bytesToRead + 2;
-	uint8_t frame[8] = {MOTOR_HEADER, MOTOR_HEADER, id, length, MOTOR_READ, addr, bytesToRead, motorInstrChecksum(frame, 1)};
+	uint8_t frame[8] = {MOTOR_HEADER, MOTOR_HEADER, id, length, MOTOR_READ, addr, bytesToRead, MotorInstrChecksum(frame, 1)};
 	//__HAL_UART_FLUSH_DRREGISTER(huart);
 	//  huart->RxXferCount = 0U;
 	//  __HAL_UART_SEND_REQ(huart, UART_RXDATA_FLUSH_REQUEST);
@@ -303,6 +309,6 @@ int MotorSendStop(UART_HandleTypeDef *huart, uint8_t *id)
 {
 	int status = 0;
 	uint8_t torqueDisable = 0;
-	status = MotorSetTorqueEnable(huart, id, torqueDisable);
+	status = MotorSetTorqueEnable(huart, id, &torqueDisable);
 	return status;
 }
