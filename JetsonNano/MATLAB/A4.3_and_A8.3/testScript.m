@@ -7,12 +7,12 @@ addpath('..\A7.1\testImages\');
 originalImage = imread("CUDATest.jpg");
 
 imagePixelRows = size(originalImage,1);
-imagePixelColumn = size(originalImage,2);
+imagePixelColumns = size(originalImage,2);
 
 colourBalancedImage = colourBalance(originalImage);
 
 centerOfObjectX = round( imagePixelRows/2 );
-centerOfObjectY = round( imagePixelColumn/2 );
+centerOfObjectY = round( imagePixelColumns/2 );
 
 colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
 
@@ -33,14 +33,16 @@ subplot(1,2,2),scatter(centerOfObjectY,centerOfObjectX);
 resDeg = 1*pi/180;
 degreesToMeasure = 0:resDeg:(2*pi-resDeg);
 
-signature = GetSignature(edgeBinaryImage,degreesToMeasure,imagePixelRows,imagePixelColumn);
+[signature,yCoordinates,xCoordinates] = GetSignature(edgeBinaryImage,degreesToMeasure,imagePixelRows,imagePixelColumns);
 
 
 figure
-plot(degreesToMeasure*180/pi,signature);
+subplot(1,2,1),plot(degreesToMeasure*180/pi,signature);
 axis([0,360,0,600]);
+subplot(1,2,2),scatter(yCoordinates,xCoordinates);
+axis([-700,700,-700,700]);
 
-
-%stableLine = stableLine(signature,degreesToMeasure)
+figure
+stableLine = stableLine(degreesToMeasure,yCoordinates,xCoordinates);
 
 
