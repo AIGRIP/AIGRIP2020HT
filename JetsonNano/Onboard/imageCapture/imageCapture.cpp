@@ -51,7 +51,7 @@ int imageCaptureFunc(unsigned char *outputImg){
 		//std::cout<<imgChan.size()<<std::endl;
 
 	}
-	split(img, channels);
+	//split(img, channels);
 
 	//cv::imshow("CSI Camera",img);	//displaying the camare images
 	
