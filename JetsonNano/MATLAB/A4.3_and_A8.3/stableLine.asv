@@ -1,11 +1,18 @@
 function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ... 
-    targetPointF2Y, targetPointF2X, normalPointF1Y,normalPointF1X] = stableLine(degreesMeasured,YCoordinates,XCoordinates)
+    targetPointF2Y, targetPointF2X, normalPointF2Y,normalPointF2X, ... 
+    signatureRadiusTargetF1,signatureRadiusTargetF2] = ...
+    stableLine(degreesMeasured,YCoordinates,XCoordinates,signatureRadius)
 %stableLine finds the required orientaions for the gripper to grasp an object.
 %   degreesMeasured - Containes the angles for each measurement point.
 %   YCoordinates    - Containes the cartesean Y-coordinate for each angle.
 %                   It has the same indexes as degreesMeasured.
 %   XCoordinates    - Containes the cartesean X-coordinate for each angle.
 %                   It has the same indexes as degreesMeasured.
+%   targetPoint     - Returns the position of the all target points. The
+%                   number after letter F indicates which finger the target
+%                   points belong to
+
+    normalXconst = 50;
 
     totalNumberOfDegrees = length( degreesMeasured );
     
@@ -16,6 +23,9 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     
     % Angle points for grasping on finger 1.
     indexToMeasureFinger1 = round( (95:resolutionGrasp:175)*totalNumberOfDegrees/360 );
+    
+    % Signature for finger 1.
+    signatureRadiusTargetF1 = signatureRadius(indexToMeasureFinger1);
     
     % Allocate memory to select samples.
     indexBuffer = zeros(indexOffset*2+1,1);
@@ -39,17 +49,21 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
         normalCoefficient = -1/polynomCoefficients(1);
         
         % To set the normal point withi the object.
-        if(YCoordinates( indexToMeasureFinger1(ii) ) < 0 )
-            normalPointF1Y(ii) = normalCoefficient*YCoordinates( indexToMeasureFinger1(ii) );
+        if(normalCoefficient < 0 )
+            normalPointF1Y(ii) = normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger1(ii) );
+            normalPointF1X(ii) = normalXconst+XCoordinates( indexToMeasureFinger1(ii) );
         else
-            normalPointF1Y(ii) = -normalCoefficient*YCoordinates( indexToMeasureFinger1(ii) );
+            normalPointF1Y(ii) = -normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger1(ii) );
+            normalPointF1X(ii) = -normalXconst+XCoordinates( indexToMeasureFinger1(ii) );
         end
-        normalPointF1X(ii) = XCoordinates( indexToMeasureFinger1(ii) )+1;
-        
+
     end
     
     % Angle points for grasping on finger 2.
     indexToMeasureFinger2 = round( (185:resolutionGrasp:265)*totalNumberOfDegrees/360 );
+    
+    % Signature for finger 1.
+    signatureRadiusTargetF2 = signatureRadius(indexToMeasureFinger2);
     
     % Allocate memory for normal points.
     normalPointF2X = zeros(indexOffset*2+1,1);
@@ -71,13 +85,13 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
         normalCoefficient = -1/polynomCoefficients(1);
         
         % To set the normal point withi the object.
-        if(YCoordinates( indexToMeasureFinger2(ii) ) < 0 )
-            normalPointF2Y(ii) = normalCoefficient*YCoordinates( indexToMeasureFinger2(ii) );
+        if(normalCoefficient < 0 )
+            normalPointF2Y(ii) = normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger2(ii) );
+            normalPointF2X(ii) = normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
         else
-            normalPointF2Y(ii) = -normalCoefficient*YCoordinates( indexToMeasureFinger2(ii) );
-        end
-        normalPointF2X(ii) = XCoordinates( indexToMeasureFinger2(ii) )+1;
-        
+            normalPointF2Y(ii) = -normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger2(ii) );
+            normalPointF2X(ii) = -normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
+        end 
     end
     
 end

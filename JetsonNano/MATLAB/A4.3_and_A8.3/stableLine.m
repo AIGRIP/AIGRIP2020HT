@@ -8,7 +8,14 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
 %                   It has the same indexes as degreesMeasured.
 %   XCoordinates    - Containes the cartesean X-coordinate for each angle.
 %                   It has the same indexes as degreesMeasured.
-
+%   targetPoint     - Returns the position of the all target points. The
+%                   number after letter F indicates which finger the target
+%                   points belong to. X and Y indicate which coordinate
+%                   vector it is.
+%   normalPoint     - Returns a normal point for each of the target points. The
+%                   number after letter F indicates which finger the target
+%                   points belong to. X and Y indicate which coordinate
+%                   vector it is.
     normalXconst = 50;
 
     totalNumberOfDegrees = length( degreesMeasured );
@@ -19,10 +26,9 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     indexOffset = round( (resolutionGrasp/2)*(totalNumberOfDegrees/360) );
     
     % Angle points for grasping on finger 1.
-    indexToMeasureFinger1 = round( (95:resolutionGrasp:175)*totalNumberOfDegrees/360 );
-    
-    % Signature for finger 1.
-    signatureRadiusTargetF1 = signatureRadius(indexToMeasureFinger1);
+    anglePointsF1 = 95:resolutionGrasp:175;
+    % Indexes of angular points for finger 1.
+    indexToMeasureFinger1 = round( anglePointsF1*totalNumberOfDegrees/360 );
     
     % Allocate memory to select samples.
     indexBuffer = zeros(indexOffset*2+1,1);
@@ -56,8 +62,18 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
 
     end
     
+    % Signature for finger 1.
+    signatureRadiusTargetF1 = signatureRadius(indexToMeasureFinger1);
+    
+    % Set the priority order of the target points.
+    [targetPointF1Y,targetPointF1X,normalPointF1Y,normalPointF1X] = ...
+    priorityOfGripPoints(signatureRadiusTargetF1,targetPointF1Y, ...
+    targetPointF1X,normalPointF1Y,normalPointF1X,1);
+    
     % Angle points for grasping on finger 2.
-    indexToMeasureFinger2 = round( (185:resolutionGrasp:265)*totalNumberOfDegrees/360 );
+    anglePointsF2 = 185:resolutionGrasp:265;
+    % Indexes of angular points for finger 2.
+    indexToMeasureFinger2 = round( anglePointsF2*totalNumberOfDegrees/360 );
     
     % Signature for finger 1.
     signatureRadiusTargetF2 = signatureRadius(indexToMeasureFinger2);
@@ -90,6 +106,14 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
             normalPointF2X(ii) = -normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
         end 
     end
+    
+    % Signature for finger 1.
+    signatureRadiusTargetF1 = signatureRadius(indexToMeasureFinger1);
+    
+    % Set the priority order of the target points.
+    [targetPointF2Y,targetPointF2X,normalPointF2Y,normalPointF2X] = ...
+    priorityOfGripPoints(signatureRadiusTargetF2,targetPointF2Y, ...
+    targetPointF2X,normalPointF2Y,normalPointF2X,2);
     
 end
 

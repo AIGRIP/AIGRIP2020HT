@@ -61,15 +61,6 @@ plot(-1*targetPointF1Y,targetPointF1X,'r')
 hold on
 plot(-1*targetPointF2Y,targetPointF2X,'b')
 
-[targetPointF1Y,targetPointF1X,normalPointF1Y,normalPointF1X] = ...
-priorityOfGripPoints(signatureF1,targetPointF1Y, ... 
-    targetPointF1X,normalPointF1Y,normalPointF1X);
-
-[targetPointF2Y,targetPointF2X,normalPointF2Y,normalPointF2X] = ...
-priorityOfGripPoints(signatureF2,targetPointF2Y, ... 
-    targetPointF2X,normalPointF2Y,normalPointF2X);
-
-
 
 cPrior = linspace(1,10,length(targetPointF2Y));
 scatter(-1*targetPointF1Y,targetPointF1X,50,cPrior,'filled')
@@ -80,10 +71,8 @@ scatter(-1*normalPointF2Y,normalPointF2X,'b','x')
 
 plot([-1*targetPointF1Y,-1*normalPointF1Y]',[targetPointF1X,normalPointF1X]','k')
 plot([-1*targetPointF2Y,-1*normalPointF2Y]',[targetPointF2X,normalPointF2X]','k')
-
 hold off
 axis([-600,600,-600,600]);
-
 
 
 figure(2)
@@ -92,5 +81,5 @@ subplot(1,2,2),scatter(-1*targetPointF1Y(1),targetPointF1X(1),60,'r','filled');
 subplot(1,2,2),scatter(-1*targetPointF2Y(1),targetPointF2X(1),60,'r','filled');
 subplot(1,2,2),scatter(-1*yCoordinates(1),xCoordinates(1),60,'r','filled');
 hold off
-axis([0,360,0,600]);
+
 
