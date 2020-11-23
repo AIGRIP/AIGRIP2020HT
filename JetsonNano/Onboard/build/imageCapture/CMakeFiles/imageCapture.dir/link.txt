@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimageCapture.a  CMakeFiles/imageCapture.dir/imageCapture.cpp.o
+/usr/bin/ranlib libimageCapture.a

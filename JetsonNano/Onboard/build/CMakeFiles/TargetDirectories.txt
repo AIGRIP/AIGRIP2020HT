@@ -9,6 +9,9 @@
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/rebuild_cache.dir
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/edit_cache.dir
+/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/rebuild_cache.dir
+/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir
+/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/edit_cache.dir
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/Executable/CMakeFiles/rebuild_cache.dir
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/Executable/CMakeFiles/RUN_AIGRIP_NANO.dir
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/Executable/CMakeFiles/edit_cache.dir

@@ -95,6 +95,7 @@ Executable/RUN_AIGRIP_NANO: /usr/lib/aarch64-linux-gnu/librt.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/morphologicalFiltersCPU/libmorphologicalFiltersCPU.so
+Executable/RUN_AIGRIP_NANO: imageCapture/libimageCapture.a
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_gapi.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_stitching.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_aruco.so.4.1.0
@@ -128,20 +129,19 @@ Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_xobjdetect.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_xphoto.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudart_static.a
 Executable/RUN_AIGRIP_NANO: /usr/lib/aarch64-linux-gnu/librt.so
-Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudadevrt.a
-Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_shape.so.4.1.0
+Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_phase_unwrapping.so.4.1.0
+Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudacodec.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_datasets.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_plot.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_text.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_dnn.so.4.1.0
-Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_ml.so.4.1.0
-Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_phase_unwrapping.so.4.1.0
-Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudacodec.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudaoptflow.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudalegacy.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudawarping.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_optflow.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_video.so.4.1.0
+Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_ml.so.4.1.0
+Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_shape.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_ximgproc.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_objdetect.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_calib3d.so.4.1.0
@@ -157,6 +157,7 @@ Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_imgproc.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudaarithm.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_core.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_cudev.so.4.1.0
+Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudadevrt.a
 Executable/RUN_AIGRIP_NANO: Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable RUN_AIGRIP_NANO"
 	cd /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/Executable && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RUN_AIGRIP_NANO.dir/link.txt --verbose=$(VERBOSE)

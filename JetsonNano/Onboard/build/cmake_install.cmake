@@ -42,6 +42,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourSegmentationGPU/cmake_install.cmake")
   include("/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/morphologicalFiltersCPU/cmake_install.cmake")
   include("/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/cmake_install.cmake")
+  include("/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/imageCapture/cmake_install.cmake")
   include("/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/build/Executable/cmake_install.cmake")
 
 endif()

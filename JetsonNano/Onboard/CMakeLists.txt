@@ -38,6 +38,8 @@ add_subdirectory(codegen/lib/morphologicalFiltersCPU/) #
 
 add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceCPU is a static library
 
+add_subdirectory(imageCapture/)
+
 #add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 
 add_subdirectory(Executable/) # Executable on all included libraries/functions

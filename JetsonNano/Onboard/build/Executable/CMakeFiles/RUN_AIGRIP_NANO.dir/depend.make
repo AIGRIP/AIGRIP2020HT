@@ -5,6 +5,7 @@ Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../codegen/lib/colourBalan
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../codegen/lib/colourSegmentationGPU/colourSegmentation.h
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../codegen/lib/colourSegmentationGPU/rtwtypes.h
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../codegen/lib/morphologicalFiltersCPU/morphologicalFilters.h
+Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../imageCapture/imageCapture.h
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: ../Executable/main.cpp
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/calib3d.hpp
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core.hpp

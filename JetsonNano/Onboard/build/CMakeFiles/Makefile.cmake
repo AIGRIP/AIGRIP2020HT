@@ -31,6 +31,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../codegen/lib/colourBalanceGPU/CMakeLists.txt"
   "../codegen/lib/colourSegmentationGPU/CMakeLists.txt"
   "../codegen/lib/morphologicalFiltersCPU/CMakeLists.txt"
+  "../imageCapture/CMakeLists.txt"
   "/usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake"
   "/usr/local/lib/cmake/opencv4/OpenCVConfig.cmake"
   "/usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake"
@@ -74,6 +75,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "codegen/lib/colourSegmentationGPU/CMakeFiles/CMakeDirectoryInformation.cmake"
   "codegen/lib/morphologicalFiltersCPU/CMakeFiles/CMakeDirectoryInformation.cmake"
   "codegen/lib/colourBalanceGPU/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "imageCapture/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Executable/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -82,5 +84,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/DependInfo.cmake"
   "codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/DependInfo.cmake"
   "codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/DependInfo.cmake"
+  "imageCapture/CMakeFiles/imageCapture.dir/DependInfo.cmake"
   "Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/DependInfo.cmake"
   )

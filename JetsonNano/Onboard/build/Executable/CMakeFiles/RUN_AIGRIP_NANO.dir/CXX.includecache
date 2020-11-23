@@ -36,6 +36,8 @@ cstddef
 cstdlib
 -
 
+../imageCapture/imageCapture.h
+
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/Executable/main.cpp
 time.h
 -
@@ -51,6 +53,8 @@ colourBalance.h
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/Executable/colourBalance.h
 morphologicalFilters.h
 /home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/Executable/morphologicalFilters.h
+imageCapture.h
+/home/aigrip/Documents/A1.2.1/JetsonNano/Onboard/Executable/imageCapture.h
 opencv2/opencv.hpp
 -
 opencv2/core/mat.hpp

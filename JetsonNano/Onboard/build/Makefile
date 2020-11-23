@@ -150,6 +150,19 @@ colourBalanceGPU/fast:
 .PHONY : colourBalanceGPU/fast
 
 #=============================================================================
+# Target rules for targets named imageCapture
+
+# Build rule for target.
+imageCapture: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 imageCapture
+.PHONY : imageCapture
+
+# fast build rule for target.
+imageCapture/fast:
+	$(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/build
+.PHONY : imageCapture/fast
+
+#=============================================================================
 # Target rules for targets named RUN_AIGRIP_NANO
 
 # Build rule for target.
@@ -173,6 +186,7 @@ help:
 	@echo "... colourSegmentationGPU"
 	@echo "... morphologicalFiltersCPU"
 	@echo "... colourBalanceGPU"
+	@echo "... imageCapture"
 	@echo "... RUN_AIGRIP_NANO"
 .PHONY : help
 
