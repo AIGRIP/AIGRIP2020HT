@@ -1,15 +1,24 @@
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
 #include "colourSegmentation.h"
 #include "colourBalance.h"
 #include "morphologicalFilters.h"
 #include "imageCapture.h"
-
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/mat.hpp>
+#include <stdint.h>
+#include "ParallelMotorAnglet2.h"
+#include "InverseKinematicsPreshape.h"
+#include "ForwardKinematics.h"
+#include "PointToLine.h"
+#include "colourSegmentation.h"
+#include "colourBalance.h"
+#include "morphologicalFilters.h"
+#include "communication.h"
+#include "ApproachObject.h"
 
 
 
@@ -23,8 +32,7 @@ int main()
     unsigned char resultImage[728160];
     unsigned char colourBalancedImage[2184480]; 
     imageCaptureFunc(outputImg);
-  //    std::cout<<"outputimg"<<sizeof outputImg<<std::endl;
-  //    unsigned char* dataOut = img.data;
+
       colourBalance(outputImg, colourBalancedImage);
 
       colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
@@ -48,7 +56,6 @@ int main()
     
     return 0;
 }
-
 
 
 

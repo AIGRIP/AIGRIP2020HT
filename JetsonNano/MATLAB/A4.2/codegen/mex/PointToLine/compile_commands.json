@@ -1,0 +1,56 @@
+[
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   PointToLine_data.cpp -o build/win64/PointToLine_data.o",
+    "file": "PointToLine_data.cpp",
+    "output": "build/win64/PointToLine_data.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   rt_nonfinite.cpp -o build/win64/rt_nonfinite.o",
+    "file": "rt_nonfinite.cpp",
+    "output": "build/win64/rt_nonfinite.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   PointToLine_initialize.cpp -o build/win64/PointToLine_initialize.o",
+    "file": "PointToLine_initialize.cpp",
+    "output": "build/win64/PointToLine_initialize.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   PointToLine_terminate.cpp -o build/win64/PointToLine_terminate.o",
+    "file": "PointToLine_terminate.cpp",
+    "output": "build/win64/PointToLine_terminate.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   PointToLine.cpp -o build/win64/PointToLine.o",
+    "file": "PointToLine.cpp",
+    "output": "build/win64/PointToLine.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   interface/_coder_PointToLine_api.cpp -o build/win64/_coder_PointToLine_api.o",
+    "file": "interface/_coder_PointToLine_api.cpp",
+    "output": "build/win64/_coder_PointToLine_api.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   interface/_coder_PointToLine_mex.cpp -o build/win64/_coder_PointToLine_mex.o",
+    "file": "interface/_coder_PointToLine_mex.cpp",
+    "output": "build/win64/_coder_PointToLine_mex.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   interface/_coder_PointToLine_info.cpp -o build/win64/_coder_PointToLine_info.o",
+    "file": "interface/_coder_PointToLine_info.cpp",
+    "output": "build/win64/_coder_PointToLine_info.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\g++ -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.2\\codegen\\mex\\PointToLine\\interface\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \".\" -DMODEL=PointToLine_mex -D__USE_MINGW_ANSI_STDIO=1 -DMW_NEEDS_VERSION_H   \"C:/Program Files/MATLAB/R2020b/extern/version/cpp_mexapi_version.cpp\" -o build/win64/cpp_mexapi_version.o",
+    "file": "C:/Program Files/MATLAB/R2020b/extern/version/cpp_mexapi_version.cpp",
+    "output": "build/win64/cpp_mexapi_version.o"
+  }
+]
