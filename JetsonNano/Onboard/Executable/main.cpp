@@ -3,10 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "colourSegmentation.h"
+#include "colourBalance.h"
+#include "morphologicalFilters.h"
+#include "imageCapture.h"
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
 #include <stdint.h>
-//extern "cBalance"
-
-//#include "testFuncHardwareGPU.h"
 #include "ParallelMotorAnglet2.h"
 #include "InverseKinematicsPreshape.h"
 #include "ForwardKinematics.h"
@@ -17,59 +20,42 @@
 #include "communication.h"
 #include "ApproachObject.h"
 
-int main(void)
+
+
+int main()
 {
+    bool binIm1[728160];
+    bool binIm2[728160];
+    int width = 740, height = 984;
+    unsigned char outputImg[2184480];
 
+    unsigned char resultImage[728160];
+    unsigned char colourBalancedImage[2184480]; 
+    imageCaptureFunc(outputImg);
 
-	const double linkLengths[] = {25,95,60,35,50};
-	double desiredPosition[] = {5,10};
-	double desiredAngle[] = {9,10};
-	uint16_t motorAngles[3];  
-	double fingerNum = 1;
-	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,fingerNum,motorAngles);
-	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
-	
+      colourBalance(outputImg, colourBalancedImage);
 
-	double pt[] = {30,30};
-	double v1[] = {1,3};
-	double v2[] = {1,5};
-	bool positionReachable = PointToLine(pt,v1,v2);
+      colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
 
-	if(positionReachable == 1)
+      morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 );
+
+	for(int i=0;i<(width-5);i=i+5)
 	{
-		printf("1\n");
+		for(int j=0;j<(height-5);j=j+5)
+		{
+			if( binIm1[j*height + i] == 0)
+			{
+				printf(" ");
+			}else{
+				printf("1");
+			}
+		}
+		printf("\n");
 	}
-	else
-	{
-		printf("0\n");
-	}
 
-
-	double motorAnglet1 = (float) 3/4;
-	double motorAnglet2 = (float) 1.2829;
-	const double motorPositionM1[] = {0,0};
-	double motorPositionM2[] = {-29,-38};
-	double jointPositions [8];
-	double opticalSensorPosition [2];
-	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,jointPositions,opticalSensorPosition);
-
-	for(int i = 0 ; i<8 ; i++)
-	{
-		printf("%f,",jointPositions[i]);
-	}
-	printf("\n");
-
-	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
-
-	double currentMotorM0Steps = 20000;
-	double currentMotorM1Steps = 50000;
-	double distanceToObject = 10;
-
-	ApproachObject(linkLengths, currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorAngles);
-		
-	printf("%u %u %u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
-	
-	communicationHandler();
-
-	return 0;
+    
+    return 0;
 }
+
+
+

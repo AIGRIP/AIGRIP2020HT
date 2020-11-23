@@ -13,8 +13,11 @@ function [colourSegmentationMask] = colourSegmentation(colourBalancedImage, cent
 %colourSegmentationMask = bitmask of the segmented object
 
 
+
+[imageWidth, imageHeight, ~]=size(colourBalancedImage);
+
 %Transform the Image into the HSV colour space
-HSVImage = rgb2hsv(colourBalancedImage);
+HSVImage = rgb2hsv(colourBalancedImageNew);
 
 %Standardize the H-values from 0-1 to 0-360
 HSVImage(:,:,1) = HSVImage(:,:,1) * 360;
@@ -64,7 +67,6 @@ voterCount = permute(voterCount,[1 3 2]);
 voterCount = reshape(voterCount,[],size(voterCount,2),1);
 [~,indexBiggest] = max(voterCount);
 
-[imageWidth, imageHeight, ~]=size(colourBalancedImage);
 colourSegmentationMask = zeros(imageWidth, imageHeight, 'logical');
 % Make a mask over the whole image. The colour that is seperated
 % is the one that had the most pixels in the square

@@ -13,8 +13,7 @@ target_link_libraries(RUN_AIGRIP_NANO ForwardKinematicsCPU)
 target_link_libraries(RUN_AIGRIP_NANO colourBalanceGPU)
 target_link_libraries(RUN_AIGRIP_NANO colourSegmentationGPU)
 target_link_libraries(RUN_AIGRIP_NANO morphologicalFiltersCPU)
-
-
+target_link_libraries(RUN_AIGRIP_NANO imageCapture)
 
 #target_link_libraries(RUN_AIGRIP_NANO colourBalanceCPU)
 #target_link_libraries(RUN_AIGRIP_NANO colourSegmentationCPU)
@@ -24,6 +23,6 @@ target_link_libraries(RUN_AIGRIP_NANO communicationBT_I2C)
 set_target_properties(RUN_AIGRIP_NANO PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
 # Link the needed CUDA flags.
-target_link_libraries(RUN_AIGRIP_NANO -lcublas -fopenmp)
+ target_link_libraries(RUN_AIGRIP_NANO -lcublas -fopenmp ${OpenCV_LIBS} ) #-lopencv_core -lopencv_imgproc)
 
 
