@@ -8,10 +8,16 @@
 
 #include <pthread.h>
 
+#include "communicationBLT.h"
+
 int client;
 
 void receiveBluetoothMessages(void *arg)
 {
+    /*
+    * Get into an infinit while loop to receive I2C Messages.
+    * Is recommended to call this function with a thread.
+    */
     int bytes_read;
     char receiveBuffer[1024] = { 0 };
     memset(receiveBuffer, 0, sizeof(receiveBuffer));
@@ -29,6 +35,73 @@ void receiveBluetoothMessages(void *arg)
         usleep(10000);
     }
 }
+
+int sendBluetoothMessage(char bufferToSend[1024])
+{
+    /*
+    * Send bluetooth messages.
+    * On success it returns 0, on failure it return 1.
+    */
+
+    // Indicates how many byte that was sent.
+    int bytes_sent;
+
+    // Get the length of the string.
+    int stringLength;
+    stringLength =strlen(bufferToSend);
+
+    // Write bluetooth message.
+    bytes_sent = write(client, bufferToSend, stringLength);
+
+    // Check if it was sent successfully.
+    if( bytes_sent > 0 ) {
+        printf("Sent: %s", bufferToSend);
+        return 0;
+    }
+    else
+    {
+        printf("Failed to send message.\n");
+        return 1;
+    }
+}
+
+void setupBluetooth()
+{
+    // Allocate size for local address and remot address.
+    struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
+    
+    // Allocate size to print device address. 
+    char printAddress[1024] = { 0 };
+
+    // Define socket variable.
+    int s;
+    socklen_t opt = sizeof(rem_addr);
+
+    // allocate socket
+    s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+
+    // bind socket to port 1 of the first available 
+    // local bluetooth adapter
+    loc_addr.rc_family = AF_BLUETOOTH;
+    loc_addr.rc_bdaddr = *BDADDR_ANY; //"F8:1F:32:35:83:D9";
+    loc_addr.rc_channel = (uint8_t) 1;
+    bind(s, (struct sockaddr *)&loc_addr, sizeof(loc_addr));
+
+    // put socket into listening mode
+    listen(s, 1);
+
+    // accept one connection
+    client = accept(s, (struct sockaddr *)&rem_addr, &opt);
+
+    // Convert address to string.
+    ba2str( &rem_addr.rc_bdaddr, printAddress );
+    // Print address of connected device.
+    fprintf(stderr, "accepted connection from %s\n", printAddress);
+
+}
+
+
+
 
 
 int main(int argc, char **argv)

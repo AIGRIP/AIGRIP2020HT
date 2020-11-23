@@ -63,14 +63,6 @@ struct structMessageStructFromNucelo {
 
 }typedef messageStructFromNucleo;
 
-// Setup of I2C on the Jetson Nano.
-void setupI2C();
-
-// Write a message on I2C to the Nucleo.
-int writeI2C(char *messageToSend,int lengthOfMessage );
-
-// Receive a messafe from Nucleo to Nano.
-int readI2C(messageStructFromNucleo *messageFromNucleo);
 
 // Function that contol all I2C communication between the boards.
 void communicationHandler();
