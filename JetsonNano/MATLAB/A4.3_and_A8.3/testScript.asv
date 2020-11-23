@@ -1,5 +1,4 @@
-clear all;
-close all;
+clear;
 clc;
 
 addpath('..\A7.1');
@@ -87,10 +86,6 @@ axis([-600,600,-600,600]);
 
 
 figure(2)
-hold on
-subplot(1,2,2),scatter(-1*targetPointF1Y(1),targetPointF1X(1),60,'r','filled');
-subplot(1,2,2),scatter(-1*targetPointF2Y(1),targetPointF2X(1),60,'r','filled');
-subplot(1,2,2),scatter(-1*yCoordinates(1),xCoordinates(1),60,'r','filled');
-hold off
+subplot(1,2,2),scatter(-1*yCoordinates,xCoordinates,25,'r','filled');
 axis([0,360,0,600]);
 

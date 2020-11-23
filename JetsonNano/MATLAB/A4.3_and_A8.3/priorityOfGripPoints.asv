@@ -1,0 +1,9 @@
+function [] = priorityOfGripPoints(signatureRadius,targetPointF1Y, ...
+    targetPointF1X,normalPointF1Y,normalPointF1X)
+%priorityOfGripPoints Summary of this function goes here
+%   Detailed explanation goes here
+
+    [~,minRadiusIndex] = sort(signatureRadius);
+
+end
+

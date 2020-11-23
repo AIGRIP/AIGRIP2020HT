@@ -19,8 +19,8 @@ function [signature,YCoordToStore,XCoordToStore] = GetSignature(binaryEdgeImage,
     xPCoord = mod( edgePointsIndex, numberOfRows );
 
     % Get the offset from the center of the image.
-    dY = rowFocusSignature - yPCoord;
-    dX = columnFocusSignature - xPCoord;
+    dY = columnFocusSignature - yPCoord;
+    dX = rowFocusSignature - xPCoord;
 
     % Convert the coordinates from the centroid to angular degree from
     % 0 to 2pi
