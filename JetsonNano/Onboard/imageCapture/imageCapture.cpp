@@ -39,21 +39,15 @@ int imageCaptureFunc(unsigned char *outputImg){
 	std::cout<<"Failed to open camera."<<std::endl;
 	return 0;
     }
-    cv::namedWindow("CSI Camera", cv::WINDOW_AUTOSIZE); // window to show the camera images
     cv::Mat img;
     std::vector<cv::Mat> channels;
     std::cout << "Hit ESC to exit" << "\n" ;
   
     	if (!cap.read(img)) {                                   //image capture every frame
 		std::cout<<"Capture read error"<<std::endl;
-		
-	
-		//std::cout<<imgChan.size()<<std::endl;
 
 	}
-	//split(img, channels);
 
-	//cv::imshow("CSI Camera",img);	//displaying the camare images
 	
 	
 
@@ -64,7 +58,7 @@ for(int k=0; k<3; k++){
 	for(int i=0; i<(img.cols); i++){
 		for(int j = 0; j<(img.rows); j++){
 			tempVar = img.at<cv::Vec3b>(j,i);
-			outputImg[count] = tempVar[2-k];   //input to Samuels algorithm 
+			outputImg[count] = tempVar[2-k];   //Create output image
 			count++;
 			
 			
@@ -72,7 +66,6 @@ for(int k=0; k<3; k++){
 	}
 }
 	cap.release();
-        cv::destroyAllWindows();
 	return 1;
 }
 
