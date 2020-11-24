@@ -53,11 +53,12 @@ int main()
 	// 	printf("\n");
 	// }
 	const double linkLengths[] = {25,95,60,35,50};
-	double desiredPosition[] = {5,10};
-	double desiredAngle[] = {9,10};
+	double desiredPosition[] = {-30,-30};
+	double desiredAngle[] = {0,0};
+	double fingNum = 2;
 	int16_t motorAngles[3];  
 
-	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,motorAngles);
+	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,fingNum,motorAngles);
 	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
     
     return 0;
