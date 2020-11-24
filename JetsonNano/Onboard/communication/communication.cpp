@@ -74,7 +74,10 @@ void communicationHandler()
 
     messageStructHeaderFromNano I2CHeaderToNucleo;
 
-    messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+    unsigned char stateOfGripper = 0xFF;
+    messageStructFromNucleo messageFromNucleo;
+
+    //messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
 
     /*
     * Defines each command on the Jetson Nano.
@@ -95,58 +98,77 @@ void communicationHandler()
 
         mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
 
-	printf("Communication handle received a state.\n");
-	fflush(stdout);
-	switch( mainMessageBuffer )
+        printf("Communication handle received a state.\n");
+        fflush(stdout);
+        switch( mainMessageBuffer )
         {
-        	case 1:
-                {
+            case 1:
+            {
 
+            }
+            break;
+
+            case 4:
+            {
+                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, size(messageStructFromNucleo),NULL);
+
+                
+                /*
+                * Send proximity data to pre-shape.
+                if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer, NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char),1) != 0 )
+                {
+                    printf("Failed to send distance info to pre-shape.\n");
                 }
-                break;
+                */
 
-                case 4:
+                if(stateOfGripper != messageFromNucleo.statusOfNucelo)
                 {
-
-                }
-                break;
-
-                case 6:
-                {
-                    // Start the Gripper
-
-                    // Make a callback to indicate that the command was received.
+                    // Change current state of gripper.
+                    stateOfGripper = messageFromNucleo.statusOfNucelo;
+                    // Send the new state to bluetooth.
                     memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
-                    strcat(I2CBufferToSend,"Start command confirmed\n");
+                    sprintf(I2CBufferToSend,"The griper is in state: %d \n",stateOfGripper);
                     sendBluetoothMessage( I2CBufferToSend );
-
-                    // Send command to Nucleo.
-                    I2CHeaderToNucleo.frameType = 1;
-                    I2CHeaderToNucleo.frameLength = 0;
-                    // writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
                 }
-                break;
+            }
+            break;
 
-                case 7:
-                {
-                    // Stop the Gripper
+            case 6:
+            {
+                // Start the Gripper
 
-                    // Make a callback to indicate that the command was received.
-                    memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
-                    strcat(I2CBufferToSend,"Stop command confirmed\n");
-                    sendBluetoothMessage( I2CBufferToSend );
+                // Make a callback to indicate that the command was received.
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Start command confirmed\n");
+                sendBluetoothMessage( I2CBufferToSend );
 
-                    // Send command to Nucleo.
-                    I2CHeaderToNucleo.frameType = 2;
-                    I2CHeaderToNucleo.frameLength = 0;
-                    // writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
-                }
-                break;
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 1;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+            }
+            break;
 
-                default:{
+            case 7:
+            {
+                // Stop the Gripper
 
-                }
-                break;
+                // Make a callback to indicate that the command was received.
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Stop command confirmed\n");
+                sendBluetoothMessage( I2CBufferToSend );
+
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 2;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+            }
+            break;
+
+            default:{
+
+            }
+            break;
        }
 
 
@@ -167,9 +189,9 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 
     // Set size and number of messages properties.
 	struct mq_attr mainAttr;
-    	struct mq_attr motorAttr;
-    	struct mq_attr distanceAttr;
-    	struct mq_attr nucleoAttr;
+    struct mq_attr motorAttr;
+    struct mq_attr distanceAttr;
+    struct mq_attr nucleoAttr;
 
 	mainAttr.mq_maxmsg = 10;
 	mainAttr.mq_msgsize = messageMainQueueSize;

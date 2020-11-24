@@ -48,21 +48,21 @@ void *receiveBluetoothMessages(void *arg)
             StrMatch = strstr(receiveBuffer,"Stop");
             if( StrMatch != NULL )
             {
-		printf("Received stop command in BLT.\n");
+                printf("Received stop command in BLT.\n");
                 mainMessageBuffer = 7;
                 if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-		{
-		    printf("Failed to send MQ. \n");
-		}
+                {
+                    printf("Failed to send MQ. \n");
+                }
             }else{
                 StrMatch = strstr(receiveBuffer,"Start");
                 if( StrMatch != NULL ){
-		    printf("Received start command in BLT.\n");
+                    printf("Received start command in BLT.\n");
                     mainMessageBuffer = 6;
                     if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-		    {
-			printf("Failed to send MQ.\n");
-		    }
+                    {
+                        printf("Failed to send MQ.\n");
+                    }
                 }
             }
         }

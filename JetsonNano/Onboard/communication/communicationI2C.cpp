@@ -125,6 +125,17 @@ void I2CReceiveHandler(void *arg)
     // Need to get the whole time.
     lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
 
+
+    // Connect to main message queue.
+    int mainMessageBuffer = 4;
+    mqd_t messageQueueMain;
+    messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+
+    // Connect to nucleo data message queue.
+    mqd_t messageQueueNucleo;
+    messageQueueNucleo = mq_open(messageQueueNucleoName, O_RDWR);
+
+
     // Infinit receive loop
     while(1)
     {
@@ -150,8 +161,24 @@ void I2CReceiveHandler(void *arg)
                 printf("ReadSize %d\n",readSize);
                 printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
                 printf("Read %llu in between.\n",(currentTime - lastTime));
-                
                 fflush(stdout);
+
+                if( messageFromNucleo.statusOfNucelo != 0xFF )
+                {
+                    // Share info from Nucleo.
+                    if( mq_send(messageQueueNucleo, (char*) &messageFromNucleo, size(messageStructFromNucleo),1) !=0 )
+                    {
+                        printf("Failed to send MQ. \n");
+                    }else{
+
+                        // Inform the communication handler that data from nucleo has been received.
+                        if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+                        {
+                            printf("Failed to send MQ. \n");
+                        }
+
+                    }
+                }
             }
         }
         
