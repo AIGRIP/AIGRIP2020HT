@@ -1,4 +1,5 @@
 
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,8 +22,6 @@
 #include "ApproachObject.h"
 #include "GetPixelLength.h"
 
-
-
 int main()
 {
     bool binIm1[728160];
@@ -44,7 +43,7 @@ int main()
 	{
 		for(int j=0;j<(height-5);j=j+5)
 		{
-			if( binIm1[j*height + i] == 0)
+			if( binIm2[j*height + i] == 0)
 			{
 				printf(" ");
 			}else{
@@ -56,9 +55,7 @@ int main()
 
 	unsigned char pixelLength = GetPixelLength(binIm2,(double) round(height/2),200);
 
-	printf("%f\n",pixelLength);
-    
-    return 0;
+	printf("%d\n",pixelLength);
 }
 
 
