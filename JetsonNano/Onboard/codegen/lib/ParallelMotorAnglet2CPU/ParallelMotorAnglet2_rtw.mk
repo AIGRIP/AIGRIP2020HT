@@ -1,9 +1,9 @@
 ###########################################################################
-## Makefile generated for component 'parallelMotorAnglet2'. 
+## Makefile generated for component 'ParallelMotorAnglet2'. 
 ## 
-## Makefile     : parallelMotorAnglet2_rtw.mk
-## Generated on : Tue Nov 24 07:55:01 2020
-## Final product: ./parallelMotorAnglet2.lib
+## Makefile     : ParallelMotorAnglet2_rtw.mk
+## Generated on : Tue Nov 24 08:45:56 2020
+## Final product: ./ParallelMotorAnglet2.lib
 ## Product type : static-library
 ## 
 ###########################################################################
@@ -19,8 +19,8 @@
 # CMD_FILE                Command file
 # MODELLIB                Static library target
 
-PRODUCT_NAME              = parallelMotorAnglet2
-MAKEFILE                  = parallelMotorAnglet2_rtw.mk
+PRODUCT_NAME              = ParallelMotorAnglet2
+MAKEFILE                  = ParallelMotorAnglet2_rtw.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2020b
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2020b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
@@ -30,11 +30,11 @@ SOLVER_OBJ                =
 CLASSIC_INTERFACE         = 0
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 
 RELATIVE_PATH_TO_ANCHOR   = .
-COMPILER_COMMAND_FILE     = parallelMotorAnglet2_rtw_comp.rsp
-CMD_FILE                  = parallelMotorAnglet2_rtw.rsp
+COMPILER_COMMAND_FILE     = ParallelMotorAnglet2_rtw_comp.rsp
+CMD_FILE                  = ParallelMotorAnglet2_rtw.rsp
 C_STANDARD_OPTS           = -fwrapv
 CPP_STANDARD_OPTS         = -fwrapv
-MODELLIB                  = parallelMotorAnglet2.lib
+MODELLIB                  = ParallelMotorAnglet2.lib
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
@@ -157,7 +157,7 @@ SHAREDLIB_LDFLAGS    = -shared -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = ./parallelMotorAnglet2.lib
+PRODUCT = ./ParallelMotorAnglet2.lib
 PRODUCT_TYPE = "static-library"
 BUILD_TYPE = "Static Library"
 
@@ -176,7 +176,7 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 DEFINES_ = -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D__USE_MINGW_ANSI_STDIO=1
 DEFINES_CUSTOM = 
 DEFINES_SKIPFORSIL = -D__linux__ -DARM_PROJECT -D_USE_TARGET_UDP_ -D_RUNONTARGETHARDWARE_BUILD_ -DSTACK_SIZE=200000
-DEFINES_STANDARD = -DMODEL=parallelMotorAnglet2
+DEFINES_STANDARD = -DMODEL=ParallelMotorAnglet2
 
 DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD)
 
@@ -184,7 +184,7 @@ DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/parallelMotorAnglet2_data.cpp $(START_DIR)/parallelMotorAnglet2_initialize.cpp $(START_DIR)/parallelMotorAnglet2_terminate.cpp $(START_DIR)/parallelMotorAnglet2.cpp
+SRCS = $(START_DIR)/ParallelMotorAnglet2_data.cpp $(START_DIR)/ParallelMotorAnglet2_initialize.cpp $(START_DIR)/ParallelMotorAnglet2_terminate.cpp $(START_DIR)/ParallelMotorAnglet2.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -192,7 +192,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = parallelMotorAnglet2_data.obj parallelMotorAnglet2_initialize.obj parallelMotorAnglet2_terminate.obj parallelMotorAnglet2.obj
+OBJS = ParallelMotorAnglet2_data.obj ParallelMotorAnglet2_initialize.obj ParallelMotorAnglet2_terminate.obj ParallelMotorAnglet2.obj
 
 ALL_OBJS = $(OBJS)
 
@@ -335,19 +335,19 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-parallelMotorAnglet2_data.obj : $(START_DIR)/parallelMotorAnglet2_data.cpp
+ParallelMotorAnglet2_data.obj : $(START_DIR)/ParallelMotorAnglet2_data.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-parallelMotorAnglet2_initialize.obj : $(START_DIR)/parallelMotorAnglet2_initialize.cpp
+ParallelMotorAnglet2_initialize.obj : $(START_DIR)/ParallelMotorAnglet2_initialize.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-parallelMotorAnglet2_terminate.obj : $(START_DIR)/parallelMotorAnglet2_terminate.cpp
+ParallelMotorAnglet2_terminate.obj : $(START_DIR)/ParallelMotorAnglet2_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-parallelMotorAnglet2.obj : $(START_DIR)/parallelMotorAnglet2.cpp
+ParallelMotorAnglet2.obj : $(START_DIR)/ParallelMotorAnglet2.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

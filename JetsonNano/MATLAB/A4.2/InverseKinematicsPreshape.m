@@ -1,4 +1,4 @@
-function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
+function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -81,7 +81,7 @@ function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition,
     end
 
     %Calculate the angle of motor M2 so that link e is parallel
-    motorAngles(3) = parallelMotorAnglet2(motorAngles(2),[motorPositionM1(1),0],motorPositionM2,linkLengths);
+    motorAngles(3) = ParallelMotorAnglet2(motorAngles(2),[motorPositionM1(1),0],motorPositionM2,linkLengths);
     
     %Add offset for the motors and change radians to degree
     if fingerNum == 0

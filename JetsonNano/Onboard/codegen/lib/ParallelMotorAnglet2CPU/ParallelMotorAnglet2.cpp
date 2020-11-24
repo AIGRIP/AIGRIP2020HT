@@ -2,14 +2,14 @@
 // Academic License - for use in teaching, academic research, and meeting
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
-// File: parallelMotorAnglet2.cpp
+// File: ParallelMotorAnglet2.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 07:54:56
+// C/C++ source code generated on  : 24-Nov-2020 08:45:51
 //
 
 // Include Files
-#include "parallelMotorAnglet2.h"
+#include "ParallelMotorAnglet2.h"
 #include <cmath>
 
 // Function Definitions
@@ -22,7 +22,7 @@
 //                const double linkLengths[5]
 // Return Type  : double
 //
-double parallelMotorAnglet2(double motorAnglet1, const double motorPositionM1[2],
+double ParallelMotorAnglet2(double motorAnglet1, const double motorPositionM1[2],
   const double motorPositionM2[2], const double linkLengths[5])
 {
   double absxk;
@@ -83,7 +83,7 @@ double parallelMotorAnglet2(double motorAnglet1, const double motorPositionM1[2]
 }
 
 //
-// File trailer for parallelMotorAnglet2.cpp
+// File trailer for ParallelMotorAnglet2.cpp
 //
 // [EOF]
 //
