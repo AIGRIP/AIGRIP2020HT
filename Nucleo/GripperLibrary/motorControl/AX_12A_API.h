@@ -61,7 +61,7 @@
 // Additional values
 #define ROM_WRITE  		1
 #define FAILURE  		0
-#define DELAY_TRANSMIT  200
+#define DELAY_TRANSMIT  10
 #define PACKAGE_LENGTH 	9
 
 
