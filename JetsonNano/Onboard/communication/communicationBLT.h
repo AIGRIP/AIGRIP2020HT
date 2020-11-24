@@ -1,6 +1,7 @@
 #ifndef communicationBLT_h
 #define communicationBLT_h
 
+#include "typedefsGripperNano.h"
 
 void receiveBluetoothMessages(void *arg);
 

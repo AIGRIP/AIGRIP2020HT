@@ -101,6 +101,8 @@ void I2CReceiveHandler(void *arg)
     * This function handles all the received I2C messages.
     * Is recommended to use a thread for this function. 
     */
+    // Message to receive from Nucleo.
+    messageStructFromNucleo messageFromNucleo;
 
     // Get how many bytes that was received.
     int readSize;
@@ -152,7 +154,7 @@ void I2CReceiveHandler(void *arg)
                 fflush(stdout);
             }
         }
-
+        
         // Sleep 10 ms.
         usleep(sleepTime);
     }

@@ -19,21 +19,31 @@
 #include <mqueue.h>
 
 #include "communication.h"
-#include "communicationBLT.h"
+
+extern "C" {
+    #include "communicationBLT.h"
+}
 
 
+
+// Private (local function).
+int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqdt_t *messageQueueNucleo );
+
+
+// Main function for communication.
 void communicationHandler()
 {
-    // Initiate communication structure.
-    messageStructHeaderFromNano infoFrameFromNano;
-    messageStructFromNucleo messageFromNucleo;
 
-    // Set debug values.
-    infoFrameFromNano.frameType = 1;
-    infoFrameFromNano.frameLength = 0;
+    // Initate message queue
+    int mainMessageBuffer;
+    mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
+
+    // Create all message queue.
+    CreateMessageQueues(&messageQueueMain, &messageQueueMotors, &messageQueueDistance, &messageQueueNucleo );
+
 
     // Set up I2C
-    setupI2C();
+//    setupI2C();
 
     // Set up bluetooth
     setupBluetooth();
@@ -46,7 +56,7 @@ void communicationHandler()
 
     pthread_attr_init(&attrBluetooth);
     pthread_create(&threadIDBluetooth, &attrBluetooth,(void*) &receiveBluetoothMessages, (void*)&threadCommander);
-
+/*
     // Startup I2C receive thread.
     pthread_attr_t attrI2C;
     pthread_t threadIDI2C;
@@ -54,17 +64,7 @@ void communicationHandler()
 
     pthread_attr_init(&attrI2C);
     pthread_create(&threadIDI2C, &attrI2C,(void*) &I2CReceiveHandler, (void*)&threadCommander);
-
-    mqd_t messageQueue;
-
-    // Creates a message queue.
-    char messageMainQueue[] = "/my_mq";
-    messageQueue = mq_open(messageMainQueue, O_RDWR);
-    
-    if( *messageQueue == (mqd_t) -1){
-		printf("Failed to open message queue.\n");
-	}
-
+*/
 
     // Communication setup done.
 
@@ -89,7 +89,7 @@ void communicationHandler()
     while(1)
     {
 
-        if( mq_receive(messageQueue, pBuffer, sizeof(pBuffer),NULL)==0 ){
+        if( mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL)==0 ){
             
             switch(taskToDo)
             {
@@ -117,13 +117,13 @@ void communicationHandler()
                     // Send command to Nucleo.
                     I2CHeaderToNucleo.frameType = 1;
                     I2CHeaderToNucleo.frameLength = 0;
-                    writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                    // writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
                 }
                 break;
 
-                case 6:
+                case 7:
                 {
-                    // Start the Gripper
+                    // Stop the Gripper
 
                     // Make a callback to indicate that the command was received.
                     memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
@@ -133,7 +133,7 @@ void communicationHandler()
                     // Send command to Nucleo.
                     I2CHeaderToNucleo.frameType = 2;
                     I2CHeaderToNucleo.frameLength = 0;
-                    writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                    // writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
                 }
                 break;
 
@@ -159,6 +159,68 @@ void communicationHandler()
 }
 
 
+
+    // Creates message queues.
+    // Create main message queue.
+    int mainMessageBuffer;
+    mqd_t messageQueueMain,messageQueueMotors;
+ 
+    //messageQueueMain = mq_open(messageMainQueueNano, O_RDWR);
+    
+    if( messageQueueMain == (mqd_t) -1){
+		printf("Failed to open main message queue.\n");
+	}
+
+    // Create motor message queue.
+    //messageQueueMotors = mq_open(messageQueueMotorEvent, O_RDWR);
+
+    if( messageQueueMotors == (mqd_t) -1){
+		printf("Failed to open main message queue.\n");
+	}
+
+
+
+
+
+int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqdt_t *messageQueueNucleo )
+{
+    // Creates a mailslot with the specified name. Return 0 on success and 1 on failure.
+
+    // Set size and number of messages properties.
+	struct mq_attr mainAttr;
+    struct mq_attr  motorAttr;
+
+	mainAttr.mq_maxmsg = 10;
+	mainAttr.mq_msgsize = messageMainQueueSize;
+
+    motorAttr.mq_maxmsg = 10;
+	motorAttr.mq_msgsize = sizeof(messageI2CToNucleoMotor);
+
+    distanceAttr.mq_maxmsg = 10;
+	distanceAttr.mq_msgsize = NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char); /* Change to the correct size of the proximity sensor. */
+
+    distanceAttr.mq_maxmsg = 10;
+	distanceAttr.mq_msgsize = sizeof(messageStructFromNucleo);
+
+    // Open main message queue.
+	*messageQueueMain = mq_open(messageMainQueueName, O_CREAT , 0666, &mainAttr);
+
+    // Open motor message queue.
+	*messageQueueMotors = mq_open(messageQueueMotorName, O_CREAT , 0666, &motorAttr);
+
+    // Open distance message queue.
+	*messageQueueDistance = mq_open(messageQueueDistanceName, O_CREAT , 0666, &distanceAttr);
+
+    // Open distance message queue.
+	*messageQueueNucleo = mq_open(messageQueueNucleoName, O_CREAT , 0666, &distanceAttr);
+
+	if( (*messageQueueMain == (mqd_t)-1) || (*messageQueueMotors == (mqd_t)-1) || (*messageQueueDistance == (mqd_t)-1) || (*messageQueueNucleo == (mqd_t)-1) )
+    {
+		printf("Fail to create message queues. \n");
+		return 1;
+	}
+	return 0;
+}
 
 
 

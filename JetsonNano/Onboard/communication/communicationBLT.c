@@ -20,16 +20,46 @@ void receiveBluetoothMessages(void *arg)
     */
     int bytes_read;
     char receiveBuffer[1024] = { 0 };
-    memset(receiveBuffer, 0, sizeof(receiveBuffer));
 
+    // String commands to compare.
+    char *StrMatch;
+
+
+    strstr();
+
+    // Connect to message queue.
+    int mainMessageBuffer;
+    mqd_t messageQueueMain;
+    messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+    
+    if( messageQueueMain == (mqd_t) -1){
+		printf("Failed to connect to main message queue from bluetooth.\n");
+	}
 
     while(1)
     {
+        memset(receiveBuffer, 0, sizeof(receiveBuffer));
         // read data from the client
         bytes_read = read(client, receiveBuffer, sizeof(receiveBuffer));
         if( bytes_read > 0 ) {
             printf("received [%s]\n", receiveBuffer);
             fflush(stdout);
+
+            // Send event type to message main queue
+
+            StrMatch = strstr(sendBuffer,"Stop");
+            if( StrMatch != NULL )
+            {
+                mainMessageBuffer = 7;
+                mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
+            }else{
+                StrMatch = strstr(sendBuffer,"Start");
+                if( StrMatch != NULL ){
+                    mainMessageBuffer = 6;
+                    mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
+                }                
+            
+            }
         }
 
         usleep(10000);
@@ -102,7 +132,7 @@ void setupBluetooth()
 
 
 
-
+/*
 
 int main(int argc, char **argv)
 {
@@ -182,3 +212,5 @@ int main(int argc, char **argv)
     close(s);
     return 0;
 }
+
+*/

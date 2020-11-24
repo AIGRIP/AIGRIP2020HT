@@ -1,4 +1,4 @@
-# This CMake file is to build this "communicationBT_I2C" library
+# This CMake file is to build this "typedefsGripperNano" library
 
 # Set flag and GPU architecture
 set(
@@ -10,16 +10,16 @@ ${CUDA_NVCC_FLAGS};
 )
 
 # For  CUDA program include all the c++ and CUDA files for the MATLAB converted library.
-file(GLOB cu *.c *.cpp)
+file(GLOB cu *.h)
 
 # Create a library and choose the name (linking name) for the library.
-CUDA_ADD_LIBRARY(communicationBT_I2C STATIC ${cu})
+CUDA_ADD_LIBRARY(typedefsGripperNano STATIC ${cu})
 
 # Make library public.
-target_compile_features(communicationBT_I2C PUBLIC cxx_std_11)
+target_compile_features(typedefsGripperNano PUBLIC cxx_std_11)
 
 # Make the current directory public.
-target_include_directories(communicationBT_I2C PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(typedefsGripperNano PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # Link the library.
-target_link_libraries(communicationBT_I2C -lpthread -lbluetooth)
+target_link_libraries(typedefsGripperNano)

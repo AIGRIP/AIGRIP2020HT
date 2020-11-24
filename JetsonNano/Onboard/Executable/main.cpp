@@ -24,6 +24,7 @@
 
 int main()
 {
+	/*
     bool binIm1[728160];
     bool binIm2[728160];
     int width = 740, height = 984;
@@ -52,7 +53,9 @@ int main()
 		}
 		printf("\n");
 	}
+	*/
 
+	communicationHandler();
     
     return 0;
 }
