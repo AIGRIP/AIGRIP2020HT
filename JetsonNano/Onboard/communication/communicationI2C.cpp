@@ -16,7 +16,7 @@
 
 #include <sys/time.h>
 
-#include "communicationI2C_h"
+#include "communicationI2C.h"
 
 
 

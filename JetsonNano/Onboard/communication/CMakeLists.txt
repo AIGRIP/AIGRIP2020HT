@@ -22,4 +22,4 @@ target_compile_features(communicationBT_I2C PUBLIC cxx_std_11)
 target_include_directories(communicationBT_I2C PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # Link the library.
-target_link_libraries(communicationBT_I2C -lpthread -lbluetooth)
+target_link_libraries(communicationBT_I2C typedefsGripperNano -lpthread -lbluetooth)

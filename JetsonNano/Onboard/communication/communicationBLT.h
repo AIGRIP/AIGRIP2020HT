@@ -3,7 +3,7 @@
 
 #include "typedefsGripperNano.h"
 
-void receiveBluetoothMessages(void *arg);
+void *receiveBluetoothMessages(void *arg);
 
 int sendBluetoothMessage(char bufferToSend[1024]);
 

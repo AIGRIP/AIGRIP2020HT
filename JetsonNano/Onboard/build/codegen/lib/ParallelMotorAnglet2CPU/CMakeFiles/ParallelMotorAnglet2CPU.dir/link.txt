@@ -1,0 +1,2 @@
+/usr/bin/ar qc libParallelMotorAnglet2CPU.a  CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o
+/usr/bin/ranlib libParallelMotorAnglet2CPU.a

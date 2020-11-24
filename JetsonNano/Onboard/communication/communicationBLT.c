@@ -7,12 +7,13 @@
 #include <bluetooth/rfcomm.h>
 
 #include <pthread.h>
+#include <mqueue.h>
 
 #include "communicationBLT.h"
 
 int client;
 
-void receiveBluetoothMessages(void *arg)
+void *receiveBluetoothMessages(void *arg)
 {
     /*
     * Get into an infinit while loop to receive I2C Messages.
@@ -23,9 +24,6 @@ void receiveBluetoothMessages(void *arg)
 
     // String commands to compare.
     char *StrMatch;
-
-
-    strstr();
 
     // Connect to message queue.
     int mainMessageBuffer;
@@ -42,23 +40,30 @@ void receiveBluetoothMessages(void *arg)
         // read data from the client
         bytes_read = read(client, receiveBuffer, sizeof(receiveBuffer));
         if( bytes_read > 0 ) {
-            printf("received [%s]\n", receiveBuffer);
+            printf("Received message: %s", receiveBuffer);
             fflush(stdout);
 
             // Send event type to message main queue
 
-            StrMatch = strstr(sendBuffer,"Stop");
+            StrMatch = strstr(receiveBuffer,"Stop");
             if( StrMatch != NULL )
             {
+		printf("Received stop command in BLT.\n");
                 mainMessageBuffer = 7;
-                mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
+                if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+		{
+		    printf("Failed to send MQ. \n");
+		}
             }else{
-                StrMatch = strstr(sendBuffer,"Start");
+                StrMatch = strstr(receiveBuffer,"Start");
                 if( StrMatch != NULL ){
+		    printf("Received start command in BLT.\n");
                     mainMessageBuffer = 6;
-                    mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
-                }                
-            
+                    if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+		    {
+			printf("Failed to send MQ.\n");
+		    }
+                }
             }
         }
 

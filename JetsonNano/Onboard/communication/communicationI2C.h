@@ -1,6 +1,15 @@
 #ifndef communicationI2C_h
 #define communicationI2C_h
 
+#include "typedefsGripperNano.h"
+
+// Is the second I2C port on Jetson Nano
+#define FILENAME_I2C "/dev/i2c-1"
+
+// Adress to nucleo board
+#define NUCLEO_ADDRESS 0x05
+
+
 // Setup of I2C on the Jetson Nano.
 void setupI2C();
 
