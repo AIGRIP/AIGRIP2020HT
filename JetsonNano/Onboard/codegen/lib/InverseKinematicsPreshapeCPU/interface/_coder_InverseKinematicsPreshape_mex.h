@@ -2,10 +2,10 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_InverseKinematicsPreshape_mex.h
+ * File: _coder_inverseKinematicsPreshape_mex.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 20-Nov-2020 10:29:43
+ * C/C++ source code generated on  : 24-Nov-2020 07:53:31
  */
 
 #ifndef _CODER_INVERSEKINEMATICSPRESHAPE_MEX_H
@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
+  void inverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
     int32_T nrhs, const mxArray *prhs[4]);
   MEXFUNCTION_LINKAGE void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T
     nrhs, const mxArray *prhs[]);
@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 /*
- * File trailer for _coder_InverseKinematicsPreshape_mex.h
+ * File trailer for _coder_inverseKinematicsPreshape_mex.h
  *
  * [EOF]
  */

@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 09:15:26
+// C/C++ source code generated on  : 24-Nov-2020 07:54:56
 //
 
 //***********************************************************************
@@ -35,14 +35,14 @@
 
 // Include Files
 #include "main.h"
-#include "ParallelMotorAnglet2.h"
-#include "ParallelMotorAnglet2_terminate.h"
+#include "parallelMotorAnglet2.h"
+#include "parallelMotorAnglet2_terminate.h"
 
 // Function Declarations
 static void argInit_1x2_real_T(double result[2]);
 static void argInit_1x5_real_T(double result[5]);
 static double argInit_real_T();
-static void main_ParallelMotorAnglet2();
+static void main_parallelMotorAnglet2();
 
 // Function Definitions
 //
@@ -86,21 +86,21 @@ static double argInit_real_T()
 // Arguments    : void
 // Return Type  : void
 //
-static void main_ParallelMotorAnglet2()
+static void main_parallelMotorAnglet2()
 {
   double dv[5];
   double motorPositionM1_tmp[2];
   double motorAnglet2;
 
-  // Initialize function 'ParallelMotorAnglet2' input arguments.
+  // Initialize function 'parallelMotorAnglet2' input arguments.
   // Initialize function input argument 'motorPositionM1'.
   argInit_1x2_real_T(motorPositionM1_tmp);
 
   // Initialize function input argument 'motorPositionM2'.
   // Initialize function input argument 'linkLengths'.
-  // Call the entry-point 'ParallelMotorAnglet2'.
+  // Call the entry-point 'parallelMotorAnglet2'.
   argInit_1x5_real_T(dv);
-  motorAnglet2 = ParallelMotorAnglet2(argInit_real_T(), motorPositionM1_tmp,
+  motorAnglet2 = parallelMotorAnglet2(argInit_real_T(), motorPositionM1_tmp,
     motorPositionM1_tmp, dv);
 }
 
@@ -114,11 +114,11 @@ int main(int, const char * const [])
   // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
   // Invoke the entry-point functions.
   // You can call entry-point functions multiple times.
-  main_ParallelMotorAnglet2();
+  main_parallelMotorAnglet2();
 
   // Terminate the application.
   // You do not need to do this more than one time.
-  ParallelMotorAnglet2_terminate();
+  parallelMotorAnglet2_terminate();
   return 0;
 }
 

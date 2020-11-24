@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 20-Nov-2020 10:29:43
+// C/C++ source code generated on  : 24-Nov-2020 07:53:31
 //
 
 //***********************************************************************
@@ -35,15 +35,15 @@
 
 // Include Files
 #include "main.h"
-#include "InverseKinematicsPreshape.h"
-#include "InverseKinematicsPreshape_terminate.h"
+#include "inverseKinematicsPreshape.h"
+#include "inverseKinematicsPreshape_terminate.h"
 #include "rt_nonfinite.h"
 
 // Function Declarations
 static void argInit_1x2_real_T(double result[2]);
 static void argInit_1x5_real_T(double result[5]);
 static double argInit_real_T();
-static void main_InverseKinematicsPreshape();
+static void main_inverseKinematicsPreshape();
 
 // Function Definitions
 //
@@ -87,21 +87,21 @@ static double argInit_real_T()
 // Arguments    : void
 // Return Type  : void
 //
-static void main_InverseKinematicsPreshape()
+static void main_inverseKinematicsPreshape()
 {
   double dv[5];
   double desiredPosition_tmp[2];
   unsigned short motorAngles[3];
 
-  // Initialize function 'InverseKinematicsPreshape' input arguments.
+  // Initialize function 'inverseKinematicsPreshape' input arguments.
   // Initialize function input argument 'linkLengths'.
   // Initialize function input argument 'desiredPosition'.
   argInit_1x2_real_T(desiredPosition_tmp);
 
   // Initialize function input argument 'normalStableLine'.
-  // Call the entry-point 'InverseKinematicsPreshape'.
+  // Call the entry-point 'inverseKinematicsPreshape'.
   argInit_1x5_real_T(dv);
-  InverseKinematicsPreshape(dv, desiredPosition_tmp, desiredPosition_tmp,
+  inverseKinematicsPreshape(dv, desiredPosition_tmp, desiredPosition_tmp,
     argInit_real_T(), motorAngles);
 }
 
@@ -115,11 +115,11 @@ int main(int, const char * const [])
   // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
   // Invoke the entry-point functions.
   // You can call entry-point functions multiple times.
-  main_InverseKinematicsPreshape();
+  main_inverseKinematicsPreshape();
 
   // Terminate the application.
   // You do not need to do this more than one time.
-  InverseKinematicsPreshape_terminate();
+  inverseKinematicsPreshape_terminate();
   return 0;
 }
 

@@ -2,15 +2,15 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_ParallelMotorAnglet2_api.c
+ * File: _coder_parallelMotorAnglet2_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 17-Nov-2020 09:15:26
+ * C/C++ source code generated on  : 24-Nov-2020 07:54:56
  */
 
 /* Include Files */
-#include "_coder_ParallelMotorAnglet2_api.h"
-#include "_coder_ParallelMotorAnglet2_mex.h"
+#include "_coder_parallelMotorAnglet2_api.h"
+#include "_coder_parallelMotorAnglet2_mex.h"
 
 /* Variable Definitions */
 emlrtCTX emlrtRootTLSGlobal = NULL;
@@ -18,7 +18,7 @@ emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
   false,                               /* bInitialized */
   131595U,                             /* fVersionInfo */
   NULL,                                /* fErrorFunction */
-  "ParallelMotorAnglet2",              /* fFunctionName */
+  "parallelMotorAnglet2",              /* fFunctionName */
   NULL,                                /* fRTCallStack */
   false,                               /* bDebugMode */
   { 2045744189U, 2170104910U, 2743257031U, 4284093946U },/* fSigWrd */
@@ -217,7 +217,7 @@ static real_T (*h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
  *                const mxArray *plhs[1]
  * Return Type  : void
  */
-void ParallelMotorAnglet2_api(const mxArray * const prhs[4], const mxArray *
+void parallelMotorAnglet2_api(const mxArray * const prhs[4], const mxArray *
   plhs[1])
 {
   emlrtStack st = { NULL,              /* site */
@@ -240,7 +240,7 @@ void ParallelMotorAnglet2_api(const mxArray * const prhs[4], const mxArray *
   linkLengths = e_emlrt_marshallIn(&st, emlrtAlias(prhs[3]), "linkLengths");
 
   /* Invoke the target function */
-  motorAnglet1 = ParallelMotorAnglet2(motorAnglet1, *motorPositionM1,
+  motorAnglet1 = parallelMotorAnglet2(motorAnglet1, *motorPositionM1,
     *motorPositionM2, *linkLengths);
 
   /* Marshall function outputs */
@@ -251,7 +251,7 @@ void ParallelMotorAnglet2_api(const mxArray * const prhs[4], const mxArray *
  * Arguments    : void
  * Return Type  : void
  */
-void ParallelMotorAnglet2_atexit(void)
+void parallelMotorAnglet2_atexit(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -263,8 +263,8 @@ void ParallelMotorAnglet2_atexit(void)
   emlrtEnterRtStackR2012b(&st);
   emlrtLeaveRtStackR2012b(&st);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
-  ParallelMotorAnglet2_xil_terminate();
-  ParallelMotorAnglet2_xil_shutdown();
+  parallelMotorAnglet2_xil_terminate();
+  parallelMotorAnglet2_xil_shutdown();
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
@@ -272,7 +272,7 @@ void ParallelMotorAnglet2_atexit(void)
  * Arguments    : void
  * Return Type  : void
  */
-void ParallelMotorAnglet2_initialize(void)
+void parallelMotorAnglet2_initialize(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -290,7 +290,7 @@ void ParallelMotorAnglet2_initialize(void)
  * Arguments    : void
  * Return Type  : void
  */
-void ParallelMotorAnglet2_terminate(void)
+void parallelMotorAnglet2_terminate(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -303,7 +303,7 @@ void ParallelMotorAnglet2_terminate(void)
 }
 
 /*
- * File trailer for _coder_ParallelMotorAnglet2_api.c
+ * File trailer for _coder_parallelMotorAnglet2_api.c
  *
  * [EOF]
  */

@@ -4,7 +4,7 @@
 
 cd .
 
-if "%1"=="" ("C:\PROGRA~1\MATLAB\R2020b\bin\win64\gmake"  -f ParallelMotorAnglet2_rtw.mk all) else ("C:\PROGRA~1\MATLAB\R2020b\bin\win64\gmake"  -f ParallelMotorAnglet2_rtw.mk %1)
+if "%1"=="" ("C:\PROGRA~1\MATLAB\R2020b\bin\win64\gmake"  -f parallelMotorAnglet2_rtw.mk all) else ("C:\PROGRA~1\MATLAB\R2020b\bin\win64\gmake"  -f parallelMotorAnglet2_rtw.mk %1)
 @if errorlevel 1 goto error_exit
 
 exit 0
