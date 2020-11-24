@@ -2,10 +2,10 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_inverseKinematicsPreshape_api.h
+ * File: _coder_InverseKinematicsPreshape_api.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 24-Nov-2020 07:53:31
+ * C/C++ source code generated on  : 24-Nov-2020 08:43:39
  */
 
 #ifndef _CODER_INVERSEKINEMATICSPRESHAPE_API_H
@@ -27,15 +27,15 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  void inverseKinematicsPreshape(real_T linkLengths[5], real_T desiredPosition[2],
+  void InverseKinematicsPreshape(real_T linkLengths[5], real_T desiredPosition[2],
     real_T normalStableLine[2], real_T fingerNum, uint16_T motorAngles[3]);
-  void inverseKinematicsPreshape_api(const mxArray * const prhs[4], const
+  void InverseKinematicsPreshape_api(const mxArray * const prhs[4], const
     mxArray *plhs[1]);
-  void inverseKinematicsPreshape_atexit(void);
-  void inverseKinematicsPreshape_initialize(void);
-  void inverseKinematicsPreshape_terminate(void);
-  void inverseKinematicsPreshape_xil_shutdown(void);
-  void inverseKinematicsPreshape_xil_terminate(void);
+  void InverseKinematicsPreshape_atexit(void);
+  void InverseKinematicsPreshape_initialize(void);
+  void InverseKinematicsPreshape_terminate(void);
+  void InverseKinematicsPreshape_xil_shutdown(void);
+  void InverseKinematicsPreshape_xil_terminate(void);
 
 #ifdef __cplusplus
 
@@ -44,7 +44,7 @@ extern "C" {
 #endif
 
 /*
- * File trailer for _coder_inverseKinematicsPreshape_api.h
+ * File trailer for _coder_InverseKinematicsPreshape_api.h
  *
  * [EOF]
  */

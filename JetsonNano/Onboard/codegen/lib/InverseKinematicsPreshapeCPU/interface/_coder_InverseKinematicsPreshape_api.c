@@ -2,15 +2,15 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_inverseKinematicsPreshape_api.c
+ * File: _coder_InverseKinematicsPreshape_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 24-Nov-2020 07:53:31
+ * C/C++ source code generated on  : 24-Nov-2020 08:43:39
  */
 
 /* Include Files */
-#include "_coder_inverseKinematicsPreshape_api.h"
-#include "_coder_inverseKinematicsPreshape_mex.h"
+#include "_coder_InverseKinematicsPreshape_api.h"
+#include "_coder_InverseKinematicsPreshape_mex.h"
 
 /* Variable Definitions */
 emlrtCTX emlrtRootTLSGlobal = NULL;
@@ -18,7 +18,7 @@ emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
   false,                               /* bInitialized */
   131595U,                             /* fVersionInfo */
   NULL,                                /* fErrorFunction */
-  "inverseKinematicsPreshape",         /* fFunctionName */
+  "InverseKinematicsPreshape",         /* fFunctionName */
   NULL,                                /* fRTCallStack */
   false,                               /* bDebugMode */
   { 2045744189U, 2170104910U, 2743257031U, 4284093946U },/* fSigWrd */
@@ -223,7 +223,7 @@ static real_T i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
  *                const mxArray *plhs[1]
  * Return Type  : void
  */
-void inverseKinematicsPreshape_api(const mxArray * const prhs[4], const mxArray *
+void InverseKinematicsPreshape_api(const mxArray * const prhs[4], const mxArray *
   plhs[1])
 {
   emlrtStack st = { NULL,              /* site */
@@ -248,7 +248,7 @@ void inverseKinematicsPreshape_api(const mxArray * const prhs[4], const mxArray 
   fingerNum = e_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]), "fingerNum");
 
   /* Invoke the target function */
-  inverseKinematicsPreshape(*linkLengths, *desiredPosition, *normalStableLine,
+  InverseKinematicsPreshape(*linkLengths, *desiredPosition, *normalStableLine,
     fingerNum, *motorAngles);
 
   /* Marshall function outputs */
@@ -259,7 +259,7 @@ void inverseKinematicsPreshape_api(const mxArray * const prhs[4], const mxArray 
  * Arguments    : void
  * Return Type  : void
  */
-void inverseKinematicsPreshape_atexit(void)
+void InverseKinematicsPreshape_atexit(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -271,8 +271,8 @@ void inverseKinematicsPreshape_atexit(void)
   emlrtEnterRtStackR2012b(&st);
   emlrtLeaveRtStackR2012b(&st);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
-  inverseKinematicsPreshape_xil_terminate();
-  inverseKinematicsPreshape_xil_shutdown();
+  InverseKinematicsPreshape_xil_terminate();
+  InverseKinematicsPreshape_xil_shutdown();
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
@@ -280,7 +280,7 @@ void inverseKinematicsPreshape_atexit(void)
  * Arguments    : void
  * Return Type  : void
  */
-void inverseKinematicsPreshape_initialize(void)
+void InverseKinematicsPreshape_initialize(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -298,7 +298,7 @@ void inverseKinematicsPreshape_initialize(void)
  * Arguments    : void
  * Return Type  : void
  */
-void inverseKinematicsPreshape_terminate(void)
+void InverseKinematicsPreshape_terminate(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -311,7 +311,7 @@ void inverseKinematicsPreshape_terminate(void)
 }
 
 /*
- * File trailer for _coder_inverseKinematicsPreshape_api.c
+ * File trailer for _coder_InverseKinematicsPreshape_api.c
  *
  * [EOF]
  */

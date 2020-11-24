@@ -2,14 +2,14 @@
 // Academic License - for use in teaching, academic research, and meeting
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
-// File: inverseKinematicsPreshape.cpp
+// File: InverseKinematicsPreshape.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 07:53:31
+// C/C++ source code generated on  : 24-Nov-2020 08:43:39
 //
 
 // Include Files
-#include "inverseKinematicsPreshape.h"
+#include "InverseKinematicsPreshape.h"
 #include "rt_nonfinite.h"
 #include "rt_defines.h"
 #include "rt_nonfinite.h"
@@ -94,7 +94,7 @@ static double rt_roundd_snf(double u)
 //                unsigned short motorAngles[3]
 // Return Type  : void
 //
-void inverseKinematicsPreshape(const double linkLengths[5], const double
+void InverseKinematicsPreshape(const double linkLengths[5], const double
   desiredPosition[2], const double normalStableLine[2], double fingerNum,
   unsigned short motorAngles[3])
 {
@@ -365,7 +365,7 @@ void inverseKinematicsPreshape(const double linkLengths[5], const double
 }
 
 //
-// File trailer for inverseKinematicsPreshape.cpp
+// File trailer for InverseKinematicsPreshape.cpp
 //
 // [EOF]
 //

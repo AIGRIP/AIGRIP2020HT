@@ -61,6 +61,22 @@ int main()
 	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,fingNum,motorAngles);
 	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
     
+	double motorAnglet1 = (float) 3/4;
+	double motorAnglet2 = (float) 1.2829;
+	const double motorPositionM1[] = {0,0};
+	double motorPositionM2[] = {-29,-38};
+	double jointPositions [8];
+	double opticalSensorPosition [2];
+	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,jointPositions,opticalSensorPosition);
+
+	for(int i = 0 ; i<8 ; i++)
+	{
+		printf("%f,",jointPositions[i]);
+	}
+	printf("\n");
+
+	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
+	
     return 0;
 }
 

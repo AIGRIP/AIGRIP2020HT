@@ -1,9 +1,9 @@
 ###########################################################################
-## Makefile generated for component 'inverseKinematicsPreshape'. 
+## Makefile generated for component 'InverseKinematicsPreshape'. 
 ## 
-## Makefile     : inverseKinematicsPreshape_rtw.mk
-## Generated on : Tue Nov 24 07:53:37 2020
-## Final product: ./inverseKinematicsPreshape.lib
+## Makefile     : InverseKinematicsPreshape_rtw.mk
+## Generated on : Tue Nov 24 08:43:52 2020
+## Final product: ./InverseKinematicsPreshape.lib
 ## Product type : static-library
 ## 
 ###########################################################################
@@ -19,8 +19,8 @@
 # CMD_FILE                Command file
 # MODELLIB                Static library target
 
-PRODUCT_NAME              = inverseKinematicsPreshape
-MAKEFILE                  = inverseKinematicsPreshape_rtw.mk
+PRODUCT_NAME              = InverseKinematicsPreshape
+MAKEFILE                  = InverseKinematicsPreshape_rtw.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2020b
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2020b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
@@ -30,11 +30,11 @@ SOLVER_OBJ                =
 CLASSIC_INTERFACE         = 0
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 
 RELATIVE_PATH_TO_ANCHOR   = .
-COMPILER_COMMAND_FILE     = inverseKinematicsPreshape_rtw_comp.rsp
-CMD_FILE                  = inverseKinematicsPreshape_rtw.rsp
+COMPILER_COMMAND_FILE     = InverseKinematicsPreshape_rtw_comp.rsp
+CMD_FILE                  = InverseKinematicsPreshape_rtw.rsp
 C_STANDARD_OPTS           = -fwrapv
 CPP_STANDARD_OPTS         = -fwrapv
-MODELLIB                  = inverseKinematicsPreshape.lib
+MODELLIB                  = InverseKinematicsPreshape.lib
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
@@ -157,7 +157,7 @@ SHAREDLIB_LDFLAGS    = -shared -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = ./inverseKinematicsPreshape.lib
+PRODUCT = ./InverseKinematicsPreshape.lib
 PRODUCT_TYPE = "static-library"
 BUILD_TYPE = "Static Library"
 
@@ -176,7 +176,7 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 DEFINES_ = -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D__USE_MINGW_ANSI_STDIO=1
 DEFINES_CUSTOM = 
 DEFINES_SKIPFORSIL = -D__linux__ -DARM_PROJECT -D_USE_TARGET_UDP_ -D_RUNONTARGETHARDWARE_BUILD_ -DSTACK_SIZE=200000
-DEFINES_STANDARD = -DMODEL=inverseKinematicsPreshape
+DEFINES_STANDARD = -DMODEL=InverseKinematicsPreshape
 
 DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD)
 
@@ -184,7 +184,7 @@ DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/inverseKinematicsPreshape_data.cpp $(START_DIR)/rt_nonfinite.cpp $(START_DIR)/rtGetNaN.cpp $(START_DIR)/rtGetInf.cpp $(START_DIR)/inverseKinematicsPreshape_initialize.cpp $(START_DIR)/inverseKinematicsPreshape_terminate.cpp $(START_DIR)/inverseKinematicsPreshape.cpp
+SRCS = $(START_DIR)/InverseKinematicsPreshape_data.cpp $(START_DIR)/rt_nonfinite.cpp $(START_DIR)/rtGetNaN.cpp $(START_DIR)/rtGetInf.cpp $(START_DIR)/InverseKinematicsPreshape_initialize.cpp $(START_DIR)/InverseKinematicsPreshape_terminate.cpp $(START_DIR)/InverseKinematicsPreshape.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -192,7 +192,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = inverseKinematicsPreshape_data.obj rt_nonfinite.obj rtGetNaN.obj rtGetInf.obj inverseKinematicsPreshape_initialize.obj inverseKinematicsPreshape_terminate.obj inverseKinematicsPreshape.obj
+OBJS = InverseKinematicsPreshape_data.obj rt_nonfinite.obj rtGetNaN.obj rtGetInf.obj InverseKinematicsPreshape_initialize.obj InverseKinematicsPreshape_terminate.obj InverseKinematicsPreshape.obj
 
 ALL_OBJS = $(OBJS)
 
@@ -335,7 +335,7 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-inverseKinematicsPreshape_data.obj : $(START_DIR)/inverseKinematicsPreshape_data.cpp
+InverseKinematicsPreshape_data.obj : $(START_DIR)/InverseKinematicsPreshape_data.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -351,15 +351,15 @@ rtGetInf.obj : $(START_DIR)/rtGetInf.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-inverseKinematicsPreshape_initialize.obj : $(START_DIR)/inverseKinematicsPreshape_initialize.cpp
+InverseKinematicsPreshape_initialize.obj : $(START_DIR)/InverseKinematicsPreshape_initialize.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-inverseKinematicsPreshape_terminate.obj : $(START_DIR)/inverseKinematicsPreshape_terminate.cpp
+InverseKinematicsPreshape_terminate.obj : $(START_DIR)/InverseKinematicsPreshape_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-inverseKinematicsPreshape.obj : $(START_DIR)/inverseKinematicsPreshape.cpp
+InverseKinematicsPreshape.obj : $(START_DIR)/InverseKinematicsPreshape.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
