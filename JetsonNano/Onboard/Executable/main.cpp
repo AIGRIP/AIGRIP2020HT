@@ -10,8 +10,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/mat.hpp>
 #include <stdint.h>
-#include "ParallelMotorAnglet2.h"
-#include "InverseKinematicsPreshape.h"
+#include "parallelMotorAnglet2.h"
+#include "inverseKinematicsPreshape.h"
 #include "ForwardKinematics.h"
 #include "PointToLine.h"
 #include "colourSegmentation.h"
@@ -19,6 +19,7 @@
 #include "morphologicalFilters.h"
 #include "communication.h"
 #include "ApproachObject.h"
+#include "GetPixelLength.h"
 
 
 
@@ -53,6 +54,9 @@ int main()
 		printf("\n");
 	}
 
+	unsigned char pixelLength = GetPixelLength(binIm2,(double) round(height/2),200);
+
+	printf("%f\n",pixelLength);
     
     return 0;
 }

@@ -2,10 +2,10 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_ParallelMotorAnglet2_mex.h
+ * File: _coder_parallelMotorAnglet2_mex.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 17-Nov-2020 09:15:26
+ * C/C++ source code generated on  : 24-Nov-2020 07:54:56
  */
 
 #ifndef _CODER_PARALLELMOTORANGLET2_MEX_H
@@ -22,11 +22,11 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  void ParallelMotorAnglet2_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
-    nrhs, const mxArray *prhs[4]);
   MEXFUNCTION_LINKAGE void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T
     nrhs, const mxArray *prhs[]);
   emlrtCTX mexFunctionCreateRootTLS(void);
+  void parallelMotorAnglet2_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
+    nrhs, const mxArray *prhs[4]);
 
 #ifdef __cplusplus
 
@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 /*
- * File trailer for _coder_ParallelMotorAnglet2_mex.h
+ * File trailer for _coder_parallelMotorAnglet2_mex.h
  *
  * [EOF]
  */

@@ -38,6 +38,8 @@ add_subdirectory(codegen/lib/ForwardKinematicsCPU/)
 
 add_subdirectory(codegen/lib/PointToLineCPU/)
 
+add_subdirectory(codegen/lib/GetPixelLengthCPU/)
+
 
 #add_subdirectory(/usr/include/opencv/) # Open cv library
 

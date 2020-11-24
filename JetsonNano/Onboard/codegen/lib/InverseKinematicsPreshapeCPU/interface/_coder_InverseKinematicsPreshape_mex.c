@@ -2,15 +2,15 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_InverseKinematicsPreshape_mex.c
+ * File: _coder_inverseKinematicsPreshape_mex.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 20-Nov-2020 10:29:43
+ * C/C++ source code generated on  : 24-Nov-2020 07:53:31
  */
 
 /* Include Files */
-#include "_coder_InverseKinematicsPreshape_mex.h"
-#include "_coder_InverseKinematicsPreshape_api.h"
+#include "_coder_inverseKinematicsPreshape_mex.h"
+#include "_coder_inverseKinematicsPreshape_api.h"
 
 /* Function Definitions */
 /*
@@ -20,7 +20,7 @@
  *                const mxArray *prhs[4]
  * Return Type  : void
  */
-void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
+void inverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
   int32_T nrhs, const mxArray *prhs[4])
 {
   emlrtStack st = { NULL,              /* site */
@@ -34,16 +34,16 @@ void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
   /* Check for proper number of arguments. */
   if (nrhs != 4) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 4, 4,
-                        25, "InverseKinematicsPreshape");
+                        25, "inverseKinematicsPreshape");
   }
 
   if (nlhs > 1) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 25,
-                        "InverseKinematicsPreshape");
+                        "inverseKinematicsPreshape");
   }
 
   /* Call the function. */
-  InverseKinematicsPreshape_api(prhs, outputs);
+  inverseKinematicsPreshape_api(prhs, outputs);
 
   /* Copy over outputs to the caller. */
   emlrtReturnArrays(1, plhs, outputs);
@@ -59,18 +59,18 @@ void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
 void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs, const mxArray
                  *prhs[])
 {
-  mexAtExit(&InverseKinematicsPreshape_atexit);
+  mexAtExit(&inverseKinematicsPreshape_atexit);
 
   /* Module initialization. */
-  InverseKinematicsPreshape_initialize();
+  inverseKinematicsPreshape_initialize();
   try {
     emlrtShouldCleanupOnError(emlrtRootTLSGlobal, false);
 
     /* Dispatch the entry-point. */
-    InverseKinematicsPreshape_mexFunction(nlhs, plhs, nrhs, prhs);
+    inverseKinematicsPreshape_mexFunction(nlhs, plhs, nrhs, prhs);
 
     /* Module termination. */
-    InverseKinematicsPreshape_terminate();
+    inverseKinematicsPreshape_terminate();
   } catch (...) {
     emlrtCleanupOnException(emlrtRootTLSGlobal);
     throw;
@@ -88,7 +88,7 @@ emlrtCTX mexFunctionCreateRootTLS(void)
 }
 
 /*
- * File trailer for _coder_InverseKinematicsPreshape_mex.c
+ * File trailer for _coder_inverseKinematicsPreshape_mex.c
  *
  * [EOF]
  */

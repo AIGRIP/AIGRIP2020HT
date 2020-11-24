@@ -2,10 +2,10 @@
 // Academic License - for use in teaching, academic research, and meeting
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
-// File: ParallelMotorAnglet2_terminate.h
+// File: parallelMotorAnglet2_terminate.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 09:15:26
+// C/C++ source code generated on  : 24-Nov-2020 07:54:56
 //
 #ifndef PARALLELMOTORANGLET2_TERMINATE_H
 #define PARALLELMOTORANGLET2_TERMINATE_H
@@ -16,12 +16,12 @@
 #include <cstdlib>
 
 // Function Declarations
-extern void ParallelMotorAnglet2_terminate();
+extern void parallelMotorAnglet2_terminate();
 
 #endif
 
 //
-// File trailer for ParallelMotorAnglet2_terminate.h
+// File trailer for parallelMotorAnglet2_terminate.h
 //
 // [EOF]
 //

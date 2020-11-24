@@ -17,7 +17,7 @@ function [colourSegmentationMask] = colourSegmentation(colourBalancedImage, cent
 [imageWidth, imageHeight, ~]=size(colourBalancedImage);
 
 %Transform the Image into the HSV colour space
-HSVImage = rgb2hsv(colourBalancedImageNew);
+HSVImage = rgb2hsv(colourBalancedImage);
 
 %Standardize the H-values from 0-1 to 0-360
 HSVImage(:,:,1) = HSVImage(:,:,1) * 360;

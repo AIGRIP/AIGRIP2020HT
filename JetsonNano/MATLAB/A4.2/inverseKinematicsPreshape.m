@@ -1,4 +1,4 @@
-function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
+function [motorAngles] = inverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -54,35 +54,34 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
         %Calculate the distance from the palm center to the poistions 
         %of motor M1 and M2
          if fingerNum == 1
-            motorPositionM1 = motorPositionM0 + [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1]
+            motorPositionM1 = motorPositionM0 + [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1];
          else
-            motorPositionM1 = motorPositionM0 - [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1]
+            motorPositionM1 = motorPositionM0 - [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1];
         end
     else
         motorAngles(1) = 0;
-        motorPositionM0 = [64,0];
         motorPositionM1 = [64,0];
     end
-    motorPositionM2(1) = motorPositionM1(1) - 29;
+    motorPositionM2 = [motorPositionM1(1) - 29, -38];
 
     %Turn all negative values to positive
     motorAngles(1) = abs(motorAngles(1));
 
     %Calculate the distance from motor M1 to the desired position 
-    distanceX = desiredPosition(1) - motorPositionM1(1)
-    distanceY = desiredPosition(2) - motorPositionM1(2)
-    distance = sqrt( distanceX^2 + distanceY^2 )
+    distanceX = desiredPosition(1) - motorPositionM1(1);
+    distanceY = desiredPosition(2) - motorPositionM1(2);
+    distance = sqrt( distanceX^2 + distanceY^2 );
 
     %Calculate the angle of motor M1 to reach the desired position
     motorAngles(2) = acos(distance / linkLengths(3));
     %Check if the desired point is closer to the center than the motor M0
     %position
     if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM1)
-        motorAngles(2) = pi/2 + (pi/2 - motorAngles(2))
+        motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
     end
 
     %Calculate the angle of motor M2 so that link e is parallel
-    motorAngles(3) = parallelMotorAnglet2(motorAngles(2),[motorPositionM1(1),0],[motorPositionM2(1),-38],linkLengths);
+    motorAngles(3) = parallelMotorAnglet2(motorAngles(2),[motorPositionM1(1),0],motorPositionM2,linkLengths);
     
     %Add offset for the motors and change radians to degree
     if fingerNum == 0

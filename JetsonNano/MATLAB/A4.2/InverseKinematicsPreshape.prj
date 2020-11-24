@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="541674910" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\InverseKinematicsPreshape.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2" name="InverseKinematicsPreshape" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="516603283" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\inverseKinematicsPreshape.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2" name="inverseKinematicsPreshape" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -840,7 +840,7 @@
     </param.TestSnippets>
     <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
-    <param.outputfile>${PROJECT_ROOT}\codegen\lib\InverseKinematicsPreshape\InverseKinematicsPreshape.lib</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}\codegen\lib\inverseKinematicsPreshape\inverseKinematicsPreshape.lib</param.outputfile>
     <param.version>R2012a</param.version>
     <param.HasECoderFeatures>true</param.HasECoderFeatures>
     <param.HasGpuCoder>true</param.HasGpuCoder>
@@ -855,22 +855,22 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>2144349332</param.AnnotationChecksum>
+    <param.AnnotationChecksum>559670134</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
     <var.redirectedInputTypeData />
     <var.DismissScreener>false</var.DismissScreener>
     <param.unifiedParamStorage />
-    <var.gc.lastOutputRoot>codegen\lib\InverseKinematicsPreshape</var.gc.lastOutputRoot>
+    <var.gc.lastOutputRoot>codegen\lib\inverseKinematicsPreshape</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>2376525636</var.gc.preBuildChecksum>
-    <var.cfi.lastOutputRoot>codegen\mex\InverseKinematicsPreshape</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>468377897</var.cfi.preBuildChecksum>
+    <var.gc.preBuildChecksum>2596238946</var.gc.preBuildChecksum>
+    <var.cfi.lastOutputRoot>codegen\mex\inverseKinematicsPreshape</var.cfi.lastOutputRoot>
+    <var.cfi.preBuildChecksum>2959272589</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>teastMain</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\InverseKinematicsPreshape.m&lt;/file&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\ParallelMotorAnglet2.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1014057415&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\InverseKinematicsPreshape.m&lt;/file&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\ParallelMotorAnglet2.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\inverseKinematicsPreshape.m&lt;/file&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\parallelMotorAnglet2.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;605076980&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\inverseKinematicsPreshape.m&lt;/file&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\parallelMotorAnglet2.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -879,10 +879,10 @@
     <var.boundToGui>true</var.boundToGui>
     <var.isConfigDialog>false</var.isConfigDialog>
     <var.ecoderEnabled>true</var.ecoderEnabled>
-    <param.mex.outputfile>InverseKinematicsPreshape_mex</param.mex.outputfile>
-    <param.grt.outputfile>InverseKinematicsPreshape</param.grt.outputfile>
+    <param.mex.outputfile>inverseKinematicsPreshape_mex</param.mex.outputfile>
+    <param.grt.outputfile>inverseKinematicsPreshape</param.grt.outputfile>
     <param.artifact>option.target.artifact.lib</param.artifact>
-    <param.outputfile>${PROJECT_ROOT}\codegen\lib\InverseKinematicsPreshape\InverseKinematicsPreshape.lib</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}\codegen\lib\inverseKinematicsPreshape\inverseKinematicsPreshape.lib</param.outputfile>
     <param.CppNamespace />
     <param.CppPackagesToNamespaces>true</param.CppPackagesToNamespaces>
     <param.CppNamespaceForMathworksCode>coder</param.CppNamespaceForMathworksCode>
@@ -1080,16 +1080,16 @@
       <param.FixedPointUseDesignRanges />
     </unset>
     <fileset.entrypoints>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}\InverseKinematicsPreshape.m">
-        <Marker>1605864546711</Marker>
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\inverseKinematicsPreshape.m">
+        <Marker>1606200763104</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
       <file>${PROJECT_ROOT}\teastMain.m</file>
     </fileset.testbench>
     <fileset.inputtypes>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}\InverseKinematicsPreshape.m">
-        <Inputs fileName="InverseKinematicsPreshape.m" functionName="InverseKinematicsPreshape">
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\inverseKinematicsPreshape.m">
+        <Inputs fileName="inverseKinematicsPreshape.m" functionName="InverseKinematicsPreshape">
           <Input Name="linkLengths" typeId="0" />
           <Input Name="desiredPosition" typeId="1" />
           <Input Name="normalStableLine" typeId="1" />
@@ -1127,7 +1127,7 @@
       </file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\codegen\lib\InverseKinematicsPreshape" name="InverseKinematicsPreshape.lib" optional="false">C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\codegen\lib\InverseKinematicsPreshape\InverseKinematicsPreshape.lib</file>
+      <file location="${PROJECT_ROOT}\codegen\lib\inverseKinematicsPreshape" name="inverseKinematicsPreshape.lib" optional="false">C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\codegen\lib\inverseKinematicsPreshape\inverseKinematicsPreshape.lib</file>
     </build-deliverables>
     <workflow />
     <matlab>

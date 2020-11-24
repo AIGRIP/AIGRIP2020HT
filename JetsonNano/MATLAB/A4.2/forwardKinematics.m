@@ -1,4 +1,4 @@
-function [jointPostions , opticalSensorPosition] = ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2)
+function [jointPostions , opticalSensorPosition] = forwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2)
 
     %This function Caluclates the forward kinematics of the gripper.
     

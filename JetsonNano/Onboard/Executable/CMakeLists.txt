@@ -14,6 +14,7 @@ target_link_libraries(RUN_AIGRIP_NANO colourBalanceGPU)
 target_link_libraries(RUN_AIGRIP_NANO colourSegmentationGPU)
 target_link_libraries(RUN_AIGRIP_NANO morphologicalFiltersCPU)
 target_link_libraries(RUN_AIGRIP_NANO imageCapture)
+target_link_libraries(RUN_AIGRIP_NANO GetPixelLengthCPU)
 
 #target_link_libraries(RUN_AIGRIP_NANO colourBalanceCPU)
 #target_link_libraries(RUN_AIGRIP_NANO colourSegmentationCPU)
