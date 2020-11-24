@@ -24,60 +24,35 @@
 
 int main()
 {
-    // bool binIm1[728160];
-    // bool binIm2[728160];
-    // int width = 740, height = 984;
-    // unsigned char outputImg[2184480];
+    bool binIm1[728160];
+    bool binIm2[728160];
+    int width = 740, height = 984;
+    unsigned char outputImg[2184480];
 
-    // unsigned char resultImage[728160];
-    // unsigned char colourBalancedImage[2184480]; 
-    // imageCaptureFunc(outputImg);
+    unsigned char resultImage[728160];
+    unsigned char colourBalancedImage[2184480]; 
+    imageCaptureFunc(outputImg);
 
-    //   colourBalance(outputImg, colourBalancedImage);
+      colourBalance(outputImg, colourBalancedImage);
 
-    //   colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
+      colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
 
-    //   morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 );
+      morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 );
 
-	// for(int i=0;i<(width-5);i=i+5)
-	// {
-	// 	for(int j=0;j<(height-5);j=j+5)
-	// 	{
-	// 		if( binIm1[j*height + i] == 0)
-	// 		{
-	// 			printf(" ");
-	// 		}else{
-	// 			printf("1");
-	// 		}
-	// 	}
-	// 	printf("\n");
-	// }
-	const double linkLengths[] = {25,95,60,35,50};
-	double desiredPosition[] = {-30,-30};
-	double desiredAngle[] = {0,0};
-	double fingNum = 2;
-	int16_t motorAngles[3];  
-
-	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,fingNum,motorAngles);
-	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
-    
-	double motorAnglet1 = (float) 3/4;
-	double motorAnglet2 = (float) 1.2829;
-	const double motorPositionM1[] = {0,0};
-	double motorPositionM2[] = {-29,-38};
-	double jointPositions [8];
-	double opticalSensorPosition [2];
-	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,jointPositions,opticalSensorPosition);
-
-	for(int i = 0 ; i<8 ; i++)
+	for(int i=0;i<(width-5);i=i+5)
 	{
-		printf("%f,",jointPositions[i]);
+		for(int j=0;j<(height-5);j=j+5)
+		{
+			if( binIm1[j*height + i] == 0)
+			{
+				printf(" ");
+			}else{
+				printf("1");
+			}
+		}
+		printf("\n");
 	}
-	printf("\n");
 
-	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
-	
-    return 0;
 }
 
 
