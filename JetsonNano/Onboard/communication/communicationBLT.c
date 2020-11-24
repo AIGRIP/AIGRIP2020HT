@@ -96,6 +96,15 @@ int sendBluetoothMessage(char bufferToSend[1024])
     else
     {
         printf("Failed to send message.\n");
+
+	int mainMessageBuffer = 8;
+
+	mqd_t messageQueueMain;
+    	messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+
+	mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
+
+	mq_close(messageQueueMain);
         return 1;
     }
 }

@@ -16,6 +16,8 @@
 
 #include <sys/time.h>
 
+#include <mqueue.h>
+
 #include "communicationI2C.h"
 
 
@@ -95,7 +97,7 @@ int readI2C(messageStructFromNucleo *messageFromNucleo)
 
 
 
-void I2CReceiveHandler(void *arg)
+void *I2CReceiveHandler(void *arg)
 {
     /*
     * This function handles all the received I2C messages.
@@ -156,17 +158,19 @@ void I2CReceiveHandler(void *arg)
             lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
 
             // If there was data received (and print the data).
-	        if(readSize >= 42)
+	    if(readSize > 0)
             {
+		/*
                 printf("ReadSize %d\n",readSize);
                 printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
                 printf("Read %llu in between.\n",(currentTime - lastTime));
                 fflush(stdout);
+		*/
 
                 if( messageFromNucleo.statusOfNucelo != 0xFF )
                 {
                     // Share info from Nucleo.
-                    if( mq_send(messageQueueNucleo, (char*) &messageFromNucleo, size(messageStructFromNucleo),1) !=0 )
+                    if( mq_send(messageQueueNucleo, (char*) &messageFromNucleo, sizeof(messageStructFromNucleo),1) !=0 )
                     {
                         printf("Failed to send MQ. \n");
                     }else{

@@ -83,6 +83,8 @@ sys/select.h
 -
 sys/time.h
 -
+mqueue.h
+-
 communicationI2C.h
 /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
 

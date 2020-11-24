@@ -47,7 +47,7 @@ void communicationHandler()
 
 
     // Set up I2C
-//    setupI2C();
+    setupI2C();
 
     // Set up bluetooth
     setupBluetooth();
@@ -59,14 +59,14 @@ void communicationHandler()
 
     pthread_attr_init(&attrBluetooth);
     pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
-/*
+
     // Startup I2C receive thread.
     pthread_attr_t attrI2C;
     pthread_t threadIDI2C;
 
     pthread_attr_init(&attrI2C);
-    pthread_create(&threadIDI2C, &attrI2C,(void*) &I2CReceiveHandler, (void*) NULL);
-*/
+    pthread_create(&threadIDI2C, &attrI2C, I2CReceiveHandler, (void*) NULL);
+
 
     // Communication setup done.
 
@@ -90,6 +90,7 @@ void communicationHandler()
     *   5. Send gripper status to bluetooth device.
     *   6. Received start command from bluetooth.
     *   7. Received stop command from bluetooth.
+    *   8. User is disconnected from bluetooth.
     */
 
     while(1)
@@ -110,9 +111,8 @@ void communicationHandler()
 
             case 4:
             {
-                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, size(messageStructFromNucleo),NULL);
+                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
 
-                
                 /*
                 * Send proximity data to pre-shape.
                 if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer, NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char),1) != 0 )
@@ -145,7 +145,7 @@ void communicationHandler()
                 // Send command to Nucleo.
                 I2CHeaderToNucleo.frameType = 1;
                 I2CHeaderToNucleo.frameLength = 0;
-                writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
             }
             break;
 
@@ -161,9 +161,27 @@ void communicationHandler()
                 // Send command to Nucleo.
                 I2CHeaderToNucleo.frameType = 2;
                 I2CHeaderToNucleo.frameLength = 0;
-                writeI2C( &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
             }
             break;
+
+
+	    case 8:
+	    {
+		// If user is disconnected stop gripper and reset bluetooth.
+		// Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 2;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+
+		/* ToDo: reset bluetooth correctly!  */
+		pthread_cancel(threadIDBluetooth);
+		setupBluetooth();
+		pthread_attr_init(&attrBluetooth);
+		pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
+
+	    }
+	    break;
 
             default:{
 
