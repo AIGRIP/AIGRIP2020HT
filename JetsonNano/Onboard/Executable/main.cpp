@@ -10,8 +10,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/mat.hpp>
 #include <stdint.h>
-#include "parallelMotorAnglet2.h"
-#include "inverseKinematicsPreshape.h"
+#include "ParallelMotorAnglet2.h"
+#include "InverseKinematicsPreshape.h"
 #include "ForwardKinematics.h"
 #include "PointToLine.h"
 #include "colourSegmentation.h"
