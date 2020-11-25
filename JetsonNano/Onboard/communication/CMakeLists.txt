@@ -9,7 +9,7 @@ ${CUDA_NVCC_FLAGS};
 -gencode arch=compute_62,code=sm_62
 )
 
-# For  CUDA program include all the c++ and CUDA files for the MATLAB converted library.
+# For CUDA program include all the c++ and CUDA files for the MATLAB converted library.
 file(GLOB cu *.c *.cpp)
 
 # Create a library and choose the name (linking name) for the library.

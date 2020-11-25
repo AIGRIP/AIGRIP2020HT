@@ -19,7 +19,7 @@ int bluetoothSocketNano;
 void *receiveBluetoothMessages(void *arg)
 {
     /*
-    * Get into an infinit while loop to receive I2C Messages.
+    * Get into an infinite while loop to receive I2C Messages.
     * Is recommended to call this function with a thread.
     */
     int bytes_read;

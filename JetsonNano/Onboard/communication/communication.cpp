@@ -38,11 +38,11 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 void communicationHandler()
 {
 
-    // Initate message queue
+    // Initate message queues.
     int mainMessageBuffer;
     mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
 
-    // Create all message queue.
+    // Create all message queues.
     CreateMessageQueues(&messageQueueMain, &messageQueueMotors, &messageQueueDistance, &messageQueueNucleo );
 
     // Set up bluetooth
