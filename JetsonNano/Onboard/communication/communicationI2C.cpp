@@ -151,14 +151,14 @@ void *I2CReceiveHandler(void *arg)
         {
 
             // Check if I2C data is available, if so read the data.
-            readSize = readI2C( &messageFromNucleo);
+            readSize = readI2C( &messageFromNucleo );
 
             // Indicate that it tried to read message.
             gettimeofday(&lastTimeCheckI2CMessage, NULL);
             lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
 
-            // If there was data received (and print the data).
-	    if(readSize > 0)
+            // If there was data received send it to the command handle.
+	        if(readSize > 0)
             {
 		/*
                 printf("ReadSize %d\n",readSize);
@@ -166,7 +166,7 @@ void *I2CReceiveHandler(void *arg)
                 printf("Read %llu in between.\n",(currentTime - lastTime));
                 fflush(stdout);
 		*/
-
+                // Check if a false I2C message was received.
                 if( messageFromNucleo.statusOfNucelo != 0xFF )
                 {
                     // Share info from Nucleo.

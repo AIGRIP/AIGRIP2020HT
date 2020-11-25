@@ -9,4 +9,6 @@ int sendBluetoothMessage(char bufferToSend[1024]);
 
 void setupBluetooth();
 
+void closeBluetooth();
+
 #endif

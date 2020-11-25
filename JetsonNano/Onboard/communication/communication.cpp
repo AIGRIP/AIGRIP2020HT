@@ -57,8 +57,10 @@ void communicationHandler()
     pthread_attr_t attrBluetooth;
     pthread_t threadIDBluetooth;
 
+    int receiveCommander = 0;
+
     pthread_attr_init(&attrBluetooth);
-    pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
+    pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) &receiveCommander);
 
     // Startup I2C receive thread.
     pthread_attr_t attrI2C;
@@ -166,22 +168,30 @@ void communicationHandler()
             break;
 
 
-	    case 8:
-	    {
-		// If user is disconnected stop gripper and reset bluetooth.
-		// Send command to Nucleo.
+            case 8:
+            {
+                // If user is disconnected stop gripper and reset bluetooth.
+                // Send command to Nucleo.
                 I2CHeaderToNucleo.frameType = 2;
                 I2CHeaderToNucleo.frameLength = 0;
                 writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
 
-		/* ToDo: reset bluetooth correctly!  */
-		pthread_cancel(threadIDBluetooth);
-		setupBluetooth();
-		pthread_attr_init(&attrBluetooth);
-		pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
+                /* ToDo: reset bluetooth correctly!  */
+                receiveCommander = 1;
+                pthread_join(threadIDBluetooth);
+                pthread_cancel(threadIDBluetooth);
 
-	    }
-	    break;
+                // Reset bluetooth
+                closeBluetooth();
+                setupBluetooth();
+
+                // Restart bluetooth receive thread.
+                receiveCommander = 0;
+                pthread_attr_init(&attrBluetooth);
+                pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) &receiveCommander);
+
+            }
+            break;
 
             default:{
 
