@@ -39,15 +39,18 @@ void *receiveBluetoothMessages(void *arg)
 
     while(1)
     {
+        // Set all character to 0.
         memset(receiveBuffer, 0, sizeof(receiveBuffer));
-        // read data from the client
+        // Read bluetooth data from the client.
         bytes_read = read(client, receiveBuffer, sizeof(receiveBuffer));
+
+        // Check if an message was received.
         if( bytes_read > 0 ) {
             printf("Received message: %s", receiveBuffer);
             fflush(stdout);
 
             // Send event type to message main queue
-
+            // Check the type of message.
             StrMatch = strstr(receiveBuffer,"Stop");
             if( StrMatch != NULL )
             {
@@ -70,11 +73,7 @@ void *receiveBluetoothMessages(void *arg)
             }
         }
 
-        if( *((int*) arg) == 1)
-        {
-            break;
-        }
-
+        // Let it sleep.
         usleep(10000);
     }
 }
@@ -103,22 +102,28 @@ int sendBluetoothMessage(char bufferToSend[1024])
     }
     else
     {
+        // If it failed to send bluetooth messages, the client is propably disconnected.
+        // So it sends a reconnect command.
         printf("Failed to send message.\n");
 
-	int mainMessageBuffer = 8;
+        // State 8 is to reconnect.
+        int mainMessageBuffer = 8;
 
-	mqd_t messageQueueMain;
-    	messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
-
-	mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
-
-	mq_close(messageQueueMain);
+        // Open message queue, send message and close queue.
+        mqd_t messageQueueMain;
+        messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+        mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1);
+        mq_close(messageQueueMain);
         return 1;
     }
 }
 
 void setupBluetooth()
 {
+    /*
+    * Setup the connection to a bluetooth device via rfcomm. 
+    */
+
     // Allocate size for local address and remot address.
     struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
     
@@ -153,7 +158,11 @@ void setupBluetooth()
 
 void closeBluetooth()
 {
+    //Close the bluetooth connection
+
+    // Remove client
     close(client);
 
+    // Close socket.
     close(bluetoothSocketNano);
 }

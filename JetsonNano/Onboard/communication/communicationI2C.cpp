@@ -21,37 +21,40 @@
 #include "communicationI2C.h"
 
 
-
+// The functionS is adapted to work in "communication.cpp".
 
 // filepointer for I2C
 int i2cfd;
 
 void setupI2C()
 {
+    // Define variables for I2C setup and timeout.
     fd_set set;
     struct timeval timeout;
     int rv;
 
+    // Open I2C connection.
     if( (i2cfd = open( FILENAME_I2C, O_RDWR  ) ) < 0){
         perror("Failed to open I2C file.\n");
         exit(1);
     }else{
-	printf("Open I2C file successfully.\n");
-	fflush(stdout);
+        printf("Open I2C file successfully.\n");
+        fflush(stdout);
     }
 
     FD_ZERO(&set); /* clear the set */
     FD_SET(i2cfd, &set); /* add our file descriptor to the set */
 
+    // Set timeout for I2C.
     timeout.tv_sec = 0;
     timeout.tv_usec = 100000;
-
     rv = select(i2cfd + 1, &set, NULL, NULL, &timeout);
 
+    // Control timeout setting.
     if(rv == -1)
     {
-	perror("Failed to set timeout.\n");
-	exit(1);
+        perror("Failed to set timeout.\n");
+        exit(1);
     }
 
 }
@@ -65,10 +68,12 @@ int writeI2C(unsigned char *messageToSend,int lengthOfMessage )
 
     int bytesSent;
 
+    // Connect sender to Nucleos address.
     if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
         perror("Could not send i2c command.\n");
         return 2;
     }else{
+        // Write data to Nucleo.
         bytesSent = write( i2cfd, messageToSend, lengthOfMessage );
 
         if(bytesSent > 0){
@@ -86,10 +91,12 @@ int readI2C(messageStructFromNucleo *messageFromNucleo)
 {
     // Read I2C messages, reads only "messageStructFromNucleo" messages.
 
+    // Connect sender to Nucleos address.
     if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
         perror("Could not receive i2c message.\n");
         return 2;
     }else{
+        // Try to read I2C message.
         return read( i2cfd,messageFromNucleo,sizeof(messageStructFromNucleo) );
     }
 }

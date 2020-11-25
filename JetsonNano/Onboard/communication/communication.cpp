@@ -55,10 +55,8 @@ void communicationHandler()
     pthread_attr_t attrBluetooth;
     pthread_t threadIDBluetooth;
 
-    int receiveCommander = 0;
-
     pthread_attr_init(&attrBluetooth);
-    pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) &receiveCommander);
+    pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
 
     // Startup I2C receive thread.
     pthread_attr_t attrI2C;
@@ -96,7 +94,7 @@ void communicationHandler()
     while(1)
     {
 
-
+        // Receive command from message main queue.
         mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
 
         printf("Communication handle received a state.\n");
@@ -171,43 +169,40 @@ void communicationHandler()
                 // If user is disconnected stop gripper and reset bluetooth.
                 // Send command to Nucleo.
 
-		printf("Debug phone is disconnected.\n");
-		fflush(stdout);
+                printf("\nPhone is disconnected.\n");
+                fflush(stdout);
 
 
                 I2CHeaderToNucleo.frameType = 2;
                 I2CHeaderToNucleo.frameLength = 0;
                 writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
 
-		printf("Debug stop command sent.\n");
-		fflush(stdout);
+                printf("Stop command sent.\n");
+                fflush(stdout);
 
 
-                /* ToDo: reset bluetooth correctly!  */
-                receiveCommander = 1;
-                //pthread_join(threadIDBluetooth,NULL);
+                // Shut down receive thread for bluetooth.
                 pthread_cancel(threadIDBluetooth);
 
-		printf("Debug cancled receive thread..\n");
-		fflush(stdout);
+                printf("Cancled receive thread..\n");
+                fflush(stdout);
+
                 // Reset bluetooth
                 closeBluetooth();
 
-		printf("Debug closed bluetooth.\n");
-		fflush(stdout);
+                printf("Closed bluetooth.\n");
+                fflush(stdout);
 
+                printf("\nWaiting for new connection ...\n");
+                fflush(stdout);
                 setupBluetooth();
 
-		printf("Debug reconnected bluetooth.\n");
-		fflush(stdout);
-
                 // Restart bluetooth receive thread.
-                receiveCommander = 0;
                 pthread_attr_init(&attrBluetooth);
-                pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) &receiveCommander);
+                pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
 
-		printf("Debug created receive thread..\n");
-		fflush(stdout);
+                printf("Created receive thread..\n\n");
+                fflush(stdout);
 
             }
             break;
@@ -220,7 +215,7 @@ void communicationHandler()
 
 
 
-	usleep(10000);
+	    usleep(10000);
 
     }
 

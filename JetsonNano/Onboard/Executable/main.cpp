@@ -55,6 +55,7 @@ int main()
 	}
 	*/
 
+	// Communication handle for Nano.
 	communicationHandler();
     
     return 0;

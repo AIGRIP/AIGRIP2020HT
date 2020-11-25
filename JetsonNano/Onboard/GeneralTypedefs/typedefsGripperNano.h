@@ -2,6 +2,8 @@
 #ifndef typedefsGripperNano_h
 #define typedefsGripperNano_h
 
+// This file should contain all general definitions that are 
+// needed for more than one of the project libraries.
 
 
 /* --- The numbers of sensors and motors --- */
@@ -40,6 +42,7 @@
 * 3. Release        length 0
 * 4. Pause          length 0
 * 5. Motor Command  length "sizeof(messageI2CToNucleoMotor)"
+* 6. Default state  length 0
 */
 
 struct structMessageStructHeaderFromNano {
