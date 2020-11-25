@@ -18,7 +18,7 @@ function [lengthPixel, realObjectWidth] = GetPixelLength(binaryImage, objectMidP
 % Set the standard vaiabels for the camera
 focalLength  = 3.01;
 sensorWidth = 3.68;
-sensorWidthPixels = 740 ;
+sensorWidthPixels = 740; %984;
 %Calculate the width of the object in pixels
 objectWidthPixels = sum(binaryImage(objectMidPoint,:))
 %Calculate the width of the object on the sensor in mm

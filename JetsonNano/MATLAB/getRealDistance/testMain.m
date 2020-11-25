@@ -16,7 +16,7 @@ figure;
 imshow(originalImage)
 title('Colour balanced image');
 
-objectMidPoint = 370;
+objectMidPoint = 400;
 distanceToObject = 400;
 [lengthPixel,realObjectWidth] = GetPixelLength(originalImage, objectMidPoint, distanceToObject )
 
