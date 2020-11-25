@@ -131,6 +131,12 @@ ApproachObject.h
 /home/aigrip/Documents/realWidth/JetsonNano/Onboard/Executable/ApproachObject.h
 GetPixelLength.h
 /home/aigrip/Documents/realWidth/JetsonNano/Onboard/Executable/GetPixelLength.h
+opencv2/core.hpp
+-
+opencv2/imgcodecs.hpp
+-
+opencv2/highgui.hpp
+-
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

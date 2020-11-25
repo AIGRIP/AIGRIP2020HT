@@ -22,6 +22,9 @@
 #include "ApproachObject.h"
 #include "GetPixelLength.h"
 
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 int main()
 {
     bool binIm1[728160];
@@ -33,29 +36,38 @@ int main()
     unsigned char colourBalancedImage[2184480]; 
     imageCaptureFunc(outputImg);
 
-      colourBalance(outputImg, colourBalancedImage);
+      	colourBalance(outputImg, colourBalancedImage);
 
-      colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
+ 	colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
 
-      morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 );
+	morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 );
+	
+	cv::Mat canvas = cv::Mat::zeros(height,width,CV_8UC1);	
+	cv::Mat canvas2 = cv::Mat::zeros(height,width,CV_8UC1);
 
-	for(int i=0;i<(width-5);i=i+5)
+	for(int i=0;i<(height);i=i+1)
 	{
-		for(int j=0;j<(height-5);j=j+5)
+		for(int j=0;j<(width);j=j+1)
 		{
-			if( binIm2[j*height + i] == 0)
+			if( binIm1[j*height + i] == 1)
 			{
-				printf(" ");
-			}else{
-				printf("1");
+				canvas.at<uchar>(cv::Point2i(j,i)) = 255;
+			}
+			if (binIm2[j*height + i] == 1)
+			{
+				canvas2.at<uchar>(cv::Point2i(j,i)) = 255;
 			}
 		}
-		printf("\n");
 	}
+	cv::namedWindow("Binary image", cv::WINDOW_AUTOSIZE);
+	cv::namedWindow("Binary image filter", cv::WINDOW_AUTOSIZE);
+	cv::imshow("Binary image",canvas);
+	cv::imshow("Binary image filter",canvas2);
+	cv::waitKey(0);
 
-	unsigned char pixelLength = GetPixelLength(binIm2,(double) round(height/2),200);
+	double pixelLength = GetPixelLength(binIm2,(double) round(height/2),600);
 
-	printf("%d\n",pixelLength);
+	printf("%f\n",pixelLength);
 }
 
 
