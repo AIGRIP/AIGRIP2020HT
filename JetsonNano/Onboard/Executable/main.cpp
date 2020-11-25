@@ -64,10 +64,10 @@ int main()
 	cv::imshow("Binary image",canvas);
 	cv::imshow("Binary image filter",canvas2);
 	cv::waitKey(0);
-
+	cv::imwrite("../../../binaryImage.jpg",canvas2);
 	double pixelLength;
 	double objectWidth;
-	GetPixelLength(binIm2,(double) round(height/2),600,*pixelLength,*objectWidth);
+	GetPixelLength(binIm2,(double) round(height/2),600,&pixelLength,&objectWidth);
 
 	printf("%f\n%f\n",pixelLength,objectWidth);
 }
