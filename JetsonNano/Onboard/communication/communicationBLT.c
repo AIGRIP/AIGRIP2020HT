@@ -70,7 +70,7 @@ void *receiveBluetoothMessages(void *arg)
             }
         }
 
-        if( (int) *arg == 1)
+        if( *((int*) arg) == 1)
         {
             break;
         }
