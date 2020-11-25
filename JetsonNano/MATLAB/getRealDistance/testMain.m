@@ -1,42 +1,24 @@
 clc
 clear all
 close all
-originalImage = imread('CUDATest.jpg');   
+originalImage = imread('binaryImage.jpg');   
 % originalImage = imresize(originalImage,[3280,2464]);
 % originalImage = imresize(originalImage,0.3);
 
-
+originalImage= imbinarize(originalImage);
 
 %% 
 clc
+close all
 
-colourBalancedImage = colourBalance(originalImage);
 
 figure;
-imshow(colourBalancedImage)
-title('Colour balanced image');
-impixelinfo
-roi = drawcrosshair('Color','r'); 
-
-centerOfObjectX = round(roi.Position(2));
-centerOfObjectY = round(roi.Position(1));
-
-
-tic
-
-colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
-
-segmentationMask = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
-
-toc
-
-figure;
-imshow(segmentationMask)
+imshow(originalImage)
 title('Colour balanced image');
 
-objectMidPoint = 400;
-distanceToObject = 400;
-[lengthPixel,realObjectWidth] = GetPixelLength(segmentationMask, objectMidPoint, distanceToObject )
+objectMidPoint = 984/2;
+distanceToObject = 600;
+[lengthPixel,realObjectWidth] = GetPixelLength(originalImage, objectMidPoint, distanceToObject )
 
 
 
