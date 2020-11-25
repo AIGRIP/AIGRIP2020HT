@@ -5,7 +5,7 @@
  * File: _coder_GetPixelLength_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 24-Nov-2020 07:46:11
+ * C/C++ source code generated on  : 25-Nov-2020 11:02:41
  */
 
 /* Include Files */
@@ -158,10 +158,12 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
 
 /*
  * Arguments    : const mxArray * const prhs[3]
- *                const mxArray *plhs[1]
+ *                int32_T nlhs
+ *                const mxArray *plhs[2]
  * Return Type  : void
  */
-void GetPixelLength_api(const mxArray * const prhs[3], const mxArray *plhs[1])
+void GetPixelLength_api(const mxArray * const prhs[3], int32_T nlhs, const
+  mxArray *plhs[2])
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -169,7 +171,9 @@ void GetPixelLength_api(const mxArray * const prhs[3], const mxArray *plhs[1])
   };
 
   real_T distanceToObject;
+  real_T lengthPixel;
   real_T objectMidPoint;
+  real_T realObjectWidth;
   boolean_T (*binaryImage)[728160];
   st.tls = emlrtRootTLSGlobal;
 
@@ -181,10 +185,14 @@ void GetPixelLength_api(const mxArray * const prhs[3], const mxArray *plhs[1])
     "distanceToObject");
 
   /* Invoke the target function */
-  objectMidPoint = GetPixelLength(*binaryImage, objectMidPoint, distanceToObject);
+  GetPixelLength(*binaryImage, objectMidPoint, distanceToObject, &lengthPixel,
+                 &realObjectWidth);
 
   /* Marshall function outputs */
-  plhs[0] = emlrt_marshallOut(objectMidPoint);
+  plhs[0] = emlrt_marshallOut(lengthPixel);
+  if (nlhs > 1) {
+    plhs[1] = emlrt_marshallOut(realObjectWidth);
+  }
 }
 
 /*

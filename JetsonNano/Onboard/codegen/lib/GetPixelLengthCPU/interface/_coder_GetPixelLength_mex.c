@@ -5,7 +5,7 @@
  * File: _coder_GetPixelLength_mex.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 24-Nov-2020 07:46:11
+ * C/C++ source code generated on  : 25-Nov-2020 11:02:41
  */
 
 /* Include Files */
@@ -15,12 +15,12 @@
 /* Function Definitions */
 /*
  * Arguments    : int32_T nlhs
- *                mxArray *plhs[1]
+ *                mxArray *plhs[2]
  *                int32_T nrhs
  *                const mxArray *prhs[3]
  * Return Type  : void
  */
-void GetPixelLength_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
+void GetPixelLength_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
   const mxArray *prhs[3])
 {
   emlrtStack st = { NULL,              /* site */
@@ -28,7 +28,8 @@ void GetPixelLength_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
     NULL                               /* prev */
   };
 
-  const mxArray *outputs[1];
+  const mxArray *outputs[2];
+  int32_T b_nlhs;
   st.tls = emlrtRootTLSGlobal;
 
   /* Check for proper number of arguments. */
@@ -37,16 +38,22 @@ void GetPixelLength_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
                         14, "GetPixelLength");
   }
 
-  if (nlhs > 1) {
+  if (nlhs > 2) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 14,
                         "GetPixelLength");
   }
 
   /* Call the function. */
-  GetPixelLength_api(prhs, outputs);
+  GetPixelLength_api(prhs, nlhs, outputs);
 
   /* Copy over outputs to the caller. */
-  emlrtReturnArrays(1, plhs, outputs);
+  if (nlhs < 1) {
+    b_nlhs = 1;
+  } else {
+    b_nlhs = nlhs;
+  }
+
+  emlrtReturnArrays(b_nlhs, plhs, outputs);
 }
 
 /*

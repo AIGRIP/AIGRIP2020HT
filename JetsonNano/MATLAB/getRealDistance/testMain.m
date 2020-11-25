@@ -36,7 +36,7 @@ title('Colour balanced image');
 
 objectMidPoint = 400;
 distanceToObject = 400;
-lengthPixel = GetPixelLength(segmentationMask, objectMidPoint, distanceToObject )
+[lengthPixel,realObjectWidth] = GetPixelLength(segmentationMask, objectMidPoint, distanceToObject )
 
 
 

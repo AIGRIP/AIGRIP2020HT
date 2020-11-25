@@ -5,7 +5,7 @@
 // File: GetPixelLength.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 07:46:11
+// C/C++ source code generated on  : 25-Nov-2020 11:02:41
 //
 
 // Include Files
@@ -18,10 +18,13 @@
 // Arguments    : const bool binaryImage[728160]
 //                double objectMidPoint
 //                double distanceToObject
-// Return Type  : double
+//                double *lengthPixel
+//                double *realObjectWidth
+// Return Type  : void
 //
-double GetPixelLength(const bool binaryImage[728160], double objectMidPoint,
-                      double distanceToObject)
+void GetPixelLength(const bool binaryImage[728160], double objectMidPoint,
+                    double distanceToObject, double *lengthPixel, double
+                    *realObjectWidth)
 {
   int nz;
   int nz_tmp;
@@ -44,9 +47,11 @@ double GetPixelLength(const bool binaryImage[728160], double objectMidPoint,
 
   // Calculate the width of the object on the sensor in mm
   // Calculate the width of the object in the real world
+  *realObjectWidth = distanceToObject * (6.35 * static_cast<double>(nz) / 740.0)
+    / 3.04;
+
   // Calculate what length one pixel corresponds to in the real world
-  return distanceToObject * (6.35 * static_cast<double>(nz) / 740.0) / 3.04 /
-    static_cast<double>(nz);
+  *lengthPixel = *realObjectWidth / static_cast<double>(nz);
 }
 
 //

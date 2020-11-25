@@ -65,9 +65,11 @@ int main()
 	cv::imshow("Binary image filter",canvas2);
 	cv::waitKey(0);
 
-	double pixelLength = GetPixelLength(binIm2,(double) round(height/2),600);
+	double pixelLength;
+	double objectWidth;
+	GetPixelLength(binIm2,(double) round(height/2),600,*pixelLength,*objectWidth);
 
-	printf("%f\n",pixelLength);
+	printf("%f\n%f\n",pixelLength,objectWidth);
 }
 
 

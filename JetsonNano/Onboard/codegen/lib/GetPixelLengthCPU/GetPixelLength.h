@@ -5,7 +5,7 @@
 // File: GetPixelLength.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 07:46:11
+// C/C++ source code generated on  : 25-Nov-2020 11:02:41
 //
 #ifndef GETPIXELLENGTH_H
 #define GETPIXELLENGTH_H
@@ -16,8 +16,8 @@
 #include <cstdlib>
 
 // Function Declarations
-extern double GetPixelLength(const bool binaryImage[728160], double
-  objectMidPoint, double distanceToObject);
+extern void GetPixelLength(const bool binaryImage[728160], double objectMidPoint,
+  double distanceToObject, double *lengthPixel, double *realObjectWidth);
 
 #endif
 

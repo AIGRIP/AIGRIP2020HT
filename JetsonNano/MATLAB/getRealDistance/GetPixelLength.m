@@ -1,4 +1,4 @@
-function [lengthPixel] = GetPixelLength(binaryImage, objectMidPoint, distanceToObject )
+function [lengthPixel, realObjectWidth] = GetPixelLength(binaryImage, objectMidPoint, distanceToObject )
 
     %This function will calculate the width of an object in an image taken
     %by a raspberry 

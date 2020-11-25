@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 07:46:11
+// C/C++ source code generated on  : 25-Nov-2020 11:02:41
 //
 
 //***********************************************************************
@@ -86,7 +86,9 @@ static double argInit_real_T()
 static void main_GetPixelLength()
 {
   static bool bv[728160];
+  double lengthPixel;
   double objectMidPoint_tmp;
+  double realObjectWidth;
 
   // Initialize function 'GetPixelLength' input arguments.
   // Initialize function input argument 'binaryImage'.
@@ -94,7 +96,8 @@ static void main_GetPixelLength()
 
   // Call the entry-point 'GetPixelLength'.
   argInit_984x740_boolean_T(bv);
-  objectMidPoint_tmp = GetPixelLength(bv, objectMidPoint_tmp, objectMidPoint_tmp);
+  GetPixelLength(bv, objectMidPoint_tmp, objectMidPoint_tmp, &lengthPixel,
+                 &realObjectWidth);
 }
 
 //

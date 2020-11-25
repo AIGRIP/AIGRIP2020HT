@@ -5,7 +5,7 @@
  * File: _coder_GetPixelLength_api.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 24-Nov-2020 07:46:11
+ * C/C++ source code generated on  : 25-Nov-2020 11:02:41
  */
 
 #ifndef _CODER_GETPIXELLENGTH_API_H
@@ -27,9 +27,11 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  real_T GetPixelLength(boolean_T binaryImage[728160], real_T objectMidPoint,
-                        real_T distanceToObject);
-  void GetPixelLength_api(const mxArray * const prhs[3], const mxArray *plhs[1]);
+  void GetPixelLength(boolean_T binaryImage[728160], real_T objectMidPoint,
+                      real_T distanceToObject, real_T *lengthPixel, real_T
+                      *realObjectWidth);
+  void GetPixelLength_api(const mxArray * const prhs[3], int32_T nlhs, const
+    mxArray *plhs[2]);
   void GetPixelLength_atexit(void);
   void GetPixelLength_initialize(void);
   void GetPixelLength_terminate(void);
