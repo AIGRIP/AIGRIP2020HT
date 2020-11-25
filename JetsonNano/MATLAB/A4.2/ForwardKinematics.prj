@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="2637182410" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\PointToLine.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2" name="PointToLine" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="467977914" file="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\ForwardKinematics.prj" location="C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2" name="ForwardKinematics" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -840,7 +840,7 @@
     </param.TestSnippets>
     <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
-    <param.outputfile>${PROJECT_ROOT}\codegen\lib\PointToLine\PointToLine.lib</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}\codegen\lib\ForwardKinematics\ForwardKinematics.lib</param.outputfile>
     <param.version>R2012a</param.version>
     <param.HasECoderFeatures>true</param.HasECoderFeatures>
     <param.HasGpuCoder>true</param.HasGpuCoder>
@@ -855,22 +855,22 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>1916720473</param.AnnotationChecksum>
+    <param.AnnotationChecksum>4223993558</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
     <var.redirectedInputTypeData />
     <var.DismissScreener>false</var.DismissScreener>
     <param.unifiedParamStorage />
-    <var.gc.lastOutputRoot>codegen\lib\PointToLine</var.gc.lastOutputRoot>
+    <var.gc.lastOutputRoot>codegen\lib\ForwardKinematics</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>1489013250</var.gc.preBuildChecksum>
-    <var.cfi.lastOutputRoot>codegen\mex\PointToLine</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>515053533</var.cfi.preBuildChecksum>
+    <var.gc.preBuildChecksum>3660764421</var.gc.preBuildChecksum>
+    <var.cfi.lastOutputRoot>codegen\mex\ForwardKinematics</var.cfi.lastOutputRoot>
+    <var.cfi.preBuildChecksum>3093398720</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>teastMain</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\PointToLine.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;895896631&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\PointToLine.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\ForwardKinematics.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1809500969&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\ForwardKinematics.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -879,10 +879,10 @@
     <var.boundToGui>true</var.boundToGui>
     <var.isConfigDialog>false</var.isConfigDialog>
     <var.ecoderEnabled>true</var.ecoderEnabled>
-    <param.mex.outputfile>PointToLine_mex</param.mex.outputfile>
-    <param.grt.outputfile>PointToLine</param.grt.outputfile>
+    <param.mex.outputfile>ForwardKinematics_mex</param.mex.outputfile>
+    <param.grt.outputfile>ForwardKinematics</param.grt.outputfile>
     <param.artifact>option.target.artifact.lib</param.artifact>
-    <param.outputfile>${PROJECT_ROOT}\codegen\lib\PointToLine\PointToLine.lib</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}\codegen\lib\ForwardKinematics\ForwardKinematics.lib</param.outputfile>
     <param.CppNamespace />
     <param.CppPackagesToNamespaces>true</param.CppPackagesToNamespaces>
     <param.CppNamespaceForMathworksCode>coder</param.CppNamespaceForMathworksCode>
@@ -1080,23 +1080,42 @@
       <param.FixedPointUseDesignRanges />
     </unset>
     <fileset.entrypoints>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}\PointToLine.m">
-        <Marker>1605860620183</Marker>
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\ForwardKinematics.m">
+        <Marker>1606204260869</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
       <file>${PROJECT_ROOT}\teastMain.m</file>
     </fileset.testbench>
     <fileset.inputtypes>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}\PointToLine.m">
-        <Inputs fileName="PointToLine.m" functionName="PointToLine">
-          <Input Name="singularityPoint" typeId="0" />
-          <Input Name="possiblePosition" typeId="0" />
-          <Input Name="normalStableLine" typeId="0" />
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\ForwardKinematics.m">
+        <Inputs fileName="ForwardKinematics.m" functionName="ForwardKinematics">
+          <Input Name="linkLengths" typeId="0" />
+          <Input Name="motorPositionM1" typeId="1" />
+          <Input Name="motorAnglet1" typeId="2" />
+          <Input Name="motorAnglet2" typeId="2" />
           <idpTable>
             <type typeId="0">
               <Class>double</Class>
+              <Size>1 x 5</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+            </type>
+            <type typeId="1">
+              <Class>double</Class>
               <Size>1 x 2</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+            </type>
+            <type typeId="2">
+              <Class>double</Class>
+              <Size>1 x 1</Size>
               <Value />
               <InitialValue />
               <UserDefined>false</UserDefined>
@@ -1108,7 +1127,7 @@
       </file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\codegen\lib\PointToLine" name="PointToLine.lib" optional="false">C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\codegen\lib\PointToLine\PointToLine.lib</file>
+      <file location="${PROJECT_ROOT}\codegen\lib\ForwardKinematics" name="ForwardKinematics.lib" optional="false">C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.2\codegen\lib\ForwardKinematics\ForwardKinematics.lib</file>
     </build-deliverables>
     <workflow />
     <matlab>

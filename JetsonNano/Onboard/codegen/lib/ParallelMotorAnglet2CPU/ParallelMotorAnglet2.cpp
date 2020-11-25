@@ -5,7 +5,7 @@
 // File: ParallelMotorAnglet2.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 17-Nov-2020 09:15:26
+// C/C++ source code generated on  : 24-Nov-2020 08:45:51
 //
 
 // Include Files
@@ -34,9 +34,9 @@ double ParallelMotorAnglet2(double motorAnglet1, const double motorPositionM1[2]
 
   // Input:
   // motorAnglet1 = Angle of motor M1 in rad
-  // motorPositionM1 =  1x2 array with the x and y coordinates of motor M1.
+  // motorPositionM1 =  1x2 array with the x and -z coordinates of motor M1.
   // The coordinates are relative to the palm center
-  // motorPositionM2 =  1x2 array with the x and y coordinates of motor M2.
+  // motorPositionM2 =  1x2 array with the x and -z coordinates of motor M2.
   // The coordinates are relative to the palm center
   // linkLengths = 1x5 array with the lengths of all five links in the order
   // a,b,c,d,e
