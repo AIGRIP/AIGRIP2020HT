@@ -5,7 +5,7 @@
 // File: InverseKinematicsPreshape.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 24-Nov-2020 08:43:39
+// C/C++ source code generated on  : 26-Nov-2020 14:36:02
 //
 
 // Include Files
@@ -140,7 +140,7 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     }
 
     // Make the direction relate to M0 position instead of palm center
-    directionPosition[0] = normalStableLine[0] - -20.0;
+    directionPosition[0] = normalStableLine[0] - -23.0;
     directionPosition[1] = normalStableLine[1] - motorPositionM0_idx_1;
 
     // If the directionPosition is the same as motorPositionM0 move the direction 
@@ -158,7 +158,7 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     }
 
     if (y) {
-      directionPosition[0] = (normalStableLine[0] + desiredPosition[0]) - -20.0;
+      directionPosition[0] = (normalStableLine[0] + desiredPosition[0]) - -23.0;
       directionPosition[1] = (normalStableLine[1] + desiredPosition[1]) -
         motorPositionM0_idx_1;
     }
@@ -177,15 +177,9 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
 
     // Calculate the distance from the palm center to the poistions
     // of motor M1 and M2
-    if (fingerNum == 1.0) {
-      motorPositionM1_idx_0 = -20.0 + std::sin(motorAngles_idx_0) * 30.0;
-      motorPositionM1_idx_1 = motorPositionM0_idx_1 + std::cos(motorAngles_idx_0)
-        * 30.0;
-    } else {
-      motorPositionM1_idx_0 = -20.0 - std::sin(motorAngles_idx_0) * 30.0;
-      motorPositionM1_idx_1 = motorPositionM0_idx_1 - std::cos(motorAngles_idx_0)
-        * 30.0;
-    }
+    motorPositionM1_idx_0 = -23.0 - std::cos(motorAngles_idx_0) * 38.0;
+    motorPositionM1_idx_1 = motorPositionM0_idx_1 - std::sin(motorAngles_idx_0) *
+      38.0;
   } else {
     motorAngles_idx_0 = 0.0;
     motorPositionM1_idx_0 = 64.0;
@@ -309,14 +303,14 @@ void InverseKinematicsPreshape(const double linkLengths[5], const double
     motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
     motorAnglet2FirHalf = 60.0 + 57.295779513082323 * motorAnglet2FirHalf;
   } else if (fingerNum == 1.0) {
+    motorAngles_idx_0 = 150.0 + 57.295779513082323 * motorAngles_idx_0;
+    motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
+    motorAnglet2FirHalf = 60.0 + 57.295779513082323 * motorAnglet2FirHalf;
+  } else {
     motorAngles_idx_0 *= 57.295779513082323;
     motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
     motorAnglet2FirHalf = 60.0 + 57.295779513082323 * motorAnglet2FirHalf;
     motorAngles_idx_0 = (90.0 - motorAngles_idx_0) + 60.0;
-  } else {
-    motorAngles_idx_0 = 150.0 + 57.295779513082323 * motorAngles_idx_0;
-    motorAngles_idx_1 = 150.0 + 57.295779513082323 * motorAngles_idx_1;
-    motorAnglet2FirHalf = 60.0 + 57.295779513082323 * motorAnglet2FirHalf;
   }
 
   // Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535 
