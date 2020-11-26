@@ -29,9 +29,9 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     if fingerNum ~= 0 
         %Set the posistion of motor M0 relative to the center of the palm
         if fingerNum == 1
-            motorPositionM0 = [-20,36];
+            motorPositionM0 = [-23,36];
         else
-            motorPositionM0 = [-20,-36];
+            motorPositionM0 = [-23,-36];
         end
         lengthM0toM1 = 38;
         %Make the direction relate to M0 position instead of palm center
@@ -89,7 +89,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     elseif fingerNum == 1
         motorAngles = [150 150 60] + rad2deg(motorAngles); 
     else
-        motorAngles = [0 150 60] + rad2deg(motorAngles) ;
+        motorAngles = [0 150 60] + rad2deg(motorAngles);
         motorAngles(1) = 90 - motorAngles(1) + 60;
     end
     
