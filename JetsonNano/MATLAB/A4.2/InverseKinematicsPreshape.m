@@ -33,7 +33,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
         else
             motorPositionM0 = [-20,-36];
         end
-        lengthM0toM1 = 30;
+        lengthM0toM1 = 38;
         %Make the direction relate to M0 position instead of palm center
         directionPosition = normalStableLine - motorPositionM0; 
         %If the directionPosition is the same as motorPositionM0 move the direction
@@ -54,9 +54,9 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
         %Calculate the distance from the palm center to the poistions 
         %of motor M1 and M2
          if fingerNum == 1
-            motorPositionM1 = motorPositionM0 + [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1];
+            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 , sin(motorAngles(1))*lengthM0toM1];
          else
-            motorPositionM1 = motorPositionM0 - [sin(motorAngles(1))*lengthM0toM1 , cos(motorAngles(1))*lengthM0toM1];
+            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 , sin(motorAngles(1))*lengthM0toM1];
         end
     else
         motorAngles(1) = 0;
@@ -87,10 +87,10 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     if fingerNum == 0
         motorAngles = [0 150 60] + rad2deg(motorAngles);   
     elseif fingerNum == 1
+        motorAngles = [150 150 60] + rad2deg(motorAngles); 
+    else
         motorAngles = [0 150 60] + rad2deg(motorAngles) ;
         motorAngles(1) = 90 - motorAngles(1) + 60;
-    else
-        motorAngles = [150 150 60] + rad2deg(motorAngles); 
     end
     
     %Convert the motor angles to an int16 and remap the angles from 0-300 to 0-65535
