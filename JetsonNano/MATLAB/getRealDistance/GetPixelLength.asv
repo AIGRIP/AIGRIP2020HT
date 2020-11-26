@@ -30,19 +30,17 @@ function [lengthPixel, realObjectHeight] = GetPixelLength(binaryImage, objectMid
 
 %sensorWidthPixels = 984;
 %Calculate the width of the object in pixels
-% objectHeightPixels = sum(binaryImage(1:492,objectMidPoint));
-% 
-% sensorFOW = 31.1;
-% 
-% angleToObject = sensorFOW * (objectHeightPixels/492);
-% 
-% %Calculate the width of the object in the real world
-% realObjectHeight = distanceToObject * tand(angleToObject);
-% %Calculate what length one pixel corresponds to in the real world
-% 
-% lengthPixel = realObjectHeight / objectHeightPixels; 
-lengthPixel = distanceToObject * tand(40/492);
+objectHeightPixels = sum(binaryImage(1:492,objectMidPoint));
 
+sensorFOW = 31.1;
+
+angleToObject = sensorFOW * (objectHeightPixels/492);
+
+%Calculate the width of the object in the real world
+realObjectHeight = distanceToObject * tand(angleToObject);
+%Calculate what length one pixel corresponds to in the real world
+
+lengthPixel = realObjectHeight / objectHeightPixels; 
 
 objectHeightPixels = sum(binaryImage(:,objectMidPoint));
 realObjectHeight = lengthPixel * objectHeightPixels;
