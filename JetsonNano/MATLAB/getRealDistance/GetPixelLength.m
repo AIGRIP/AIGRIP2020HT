@@ -1,51 +1,26 @@
-function [lengthPixel, realObjectHeight] = GetPixelLength(binaryImage, objectMidPoint, distanceToObject )
+function [edgePointsmm] = GetPixelLength( centerPointPixel  ,edgePointsPixel ,distanceToObject )
 
-    %This function will calculate the width of an object in an image taken
-    %by a raspberry 
-
+    %This function will calculate the length of one pixel of an object.
+    %Then convert pixel postions into real world coordinates in mm.
+    
     %Input:
-    %binaryImage = An binary image where an object have been segmentated
+    %centerPointPixel = Center of the pixel area. x and y postion. 
+    %Position is in pixels
 
-    %objectMidPoint = A rough estimation of the objects midpoint. midpoint
-    %is calculated with pixels in the image
+    %edgePointsPixel = Points along the edge of the pixel area. array with 
+    %x and y postion. Positions is in pixels
     
     %distanceToObject = distance to object in mm.
     
     %Output:
-    %lengthPixel = What one pixel equals for distance in the real world.
+    %edgePointsmm = edgePointsPixel converted to mm
 
-
-% % Set the standard vaiabels for the camera
-% focalLength  = 3.01;
-% sensorWidth = 3.68;
-% sensorWidthPixels = 740; %984;
-% %Calculate the width of the object in pixels
-% objectWidthPixels = sum(binaryImage(objectMidPoint,:))
-% %Calculate the width of the object on the sensor in mm
-% objectWidthOnSensor = sensorWidth * objectWidthPixels / sensorWidthPixels;
-% %Calculate the width of the object in the real world
-% realObjectWidth = distanceToObject * objectWidthOnSensor / focalLength;
-% %Calculate what length one pixel corresponds to in the real world
-% lengthPixel = realObjectWidth / objectWidthPixels; 
-
-%sensorWidthPixels = 984;
+% Set the standard vaiabels for the camera
+focalLengthPixel = 737.016;
 %Calculate the width of the object in pixels
-% objectHeightPixels = sum(binaryImage(1:492,objectMidPoint));
-% 
-% sensorFOW = 31.1;
-% 
-% angleToObject = sensorFOW * (objectHeightPixels/492);
-% 
-% %Calculate the width of the object in the real world
-% realObjectHeight = distanceToObject * tand(angleToObject);
-% %Calculate what length one pixel corresponds to in the real world
-% 
-% lengthPixel = realObjectHeight / objectHeightPixels; 
-lengthPixel = distanceToObject * tand(40/492);
-
-
-objectHeightPixels = sum(binaryImage(:,objectMidPoint));
-realObjectHeight = lengthPixel * objectHeightPixels;
+lengthPixel = distanceToObject * (1 / focalLengthPixel);
+%Convert the points from pixels to mm
+edgePointsmm = abs(centerPointPixel - edgePointsPixel)*lengthPixel;
 
 end
 
