@@ -25,7 +25,7 @@ int imageCaptureFunc(unsigned char *outputImg){
     int display_width = 740 ;
     int display_height = 984 ;
     int framerate = 20 ;
-    int flip_method = 3 ;
+    int flip_method = 1 ;
     std::string pipeline = gstreamer_pipeline(capture_width, // call to gstream func
 	capture_height,
 	display_width,
