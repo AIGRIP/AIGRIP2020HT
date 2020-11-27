@@ -15,8 +15,8 @@ function [edgePointsmm] = GetPixelLength( centerPointPixel  ,edgePointsPixel ,di
     %Output:
     %edgePointsmm = edgePointsPixel converted to mm
 
-% Set the standard vaiabels for the camera
-focalLengthPixel = 737.016;
+% Focal length in pixels
+focalLengthPixel = 736;
 %Calculate the width of the object in pixels
 lengthPixel = distanceToObject * (1 / focalLengthPixel);
 %Convert the points from pixels to mm
