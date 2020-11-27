@@ -1,2 +1,0 @@
-/usr/bin/ar qc libGetPixelLengthCPU.a  CMakeFiles/GetPixelLengthCPU.dir/GetPixelLength.cpp.o CMakeFiles/GetPixelLengthCPU.dir/GetPixelLength_data.cpp.o CMakeFiles/GetPixelLengthCPU.dir/GetPixelLength_initialize.cpp.o CMakeFiles/GetPixelLengthCPU.dir/GetPixelLength_terminate.cpp.o
-/usr/bin/ranlib libGetPixelLengthCPU.a
