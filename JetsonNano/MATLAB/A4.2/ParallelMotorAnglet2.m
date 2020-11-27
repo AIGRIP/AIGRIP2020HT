@@ -1,4 +1,4 @@
-function [motorAnglet2] = parallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths)
+function [motorAnglet2] = ParallelMotorAnglet2(motorAnglet1,motorPositionM1,motorPositionM2,linkLengths)
 
     %This function Caluclates what the angle motor M2 should have to make 
     %link e parallel 
