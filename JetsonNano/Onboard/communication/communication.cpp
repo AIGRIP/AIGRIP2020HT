@@ -16,154 +16,256 @@
 
 #include <sys/time.h>
 
+#include <mqueue.h>
+#include <pthread.h>
+
+#include <cstring>
+
 #include "communication.h"
+#include "communicationI2C.h"
 
-
-// filepointer for I2C
-int i2cfd;
-
-void setupI2C()
-{
-    fd_set set;
-    struct timeval timeout;
-    int rv;
-
-    if( (i2cfd = open( FILENAME_I2C, O_RDWR  ) ) < 0){
-        perror("Failed to open I2C file.\n");
-        exit(1);
-    }else{
-	printf("Open I2C file successfully.\n");
-	fflush(stdout);
-    }
-
-    FD_ZERO(&set); /* clear the set */
-    FD_SET(i2cfd, &set); /* add our file descriptor to the set */
-
-    timeout.tv_sec = 0;
-    timeout.tv_usec = 100000;
-
-    rv = select(i2cfd + 1, &set, NULL, NULL, &timeout);
-
-    if(rv == -1)
-    {
-	perror("Failed to set timeout.\n");
-	exit(1);
-    }
-
-}
-
-int writeI2C(unsigned char *messageToSend,int lengthOfMessage )
-{
-
-    if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
-        perror("Could not send i2c command.\n");
-	exit(1);
-        return -1;
-    }else{
-        return write( i2cfd, messageToSend, lengthOfMessage );
-    }
-
-}
-
-
-int readI2C(messageStructFromNucleo *messageFromNucleo)
-{
-
-    if( ioctl( i2cfd,I2C_SLAVE,NUCLEO_ADDRESS )<0){
-        perror("Could not receive i2c message.\n");
-        exit(1);
-	return -1;
-
-    }else{
-        return read( i2cfd,messageFromNucleo,sizeof(messageStructFromNucleo) );
-    }
+extern "C" {
+    #include "communicationBLT.h"
 }
 
 
 
+// Private (local function).
+int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqd_t *messageQueueNucleo );
+
+
+// Main function for communication.
 void communicationHandler()
 {
-    // The amount of bytes read/write in I2C.
-    int readSize, writeSize;
 
-    // Save last time for communication and get current time.
-    struct timeval lastTimeCheckI2CMessage,currentTimeHandle;
+    // Initate message queues.
+    int mainMessageBuffer;
+    mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
 
-    // Check received message every 25 milli-second
-    const long checkTimming = 25000;
+    // Create all message queues.
+    CreateMessageQueues(&messageQueueMain, &messageQueueMotors, &messageQueueDistance, &messageQueueNucleo );
 
-    // Fill a time value.
-    gettimeofday(&lastTimeCheckI2CMessage, NULL);
-
-    unsigned long long currentTime;
-    unsigned long long lastTime;
-
-    lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
-
-
-    // Initiate communication structure.
-    messageStructHeaderFromNano infoFrameFromNano;
-    messageStructFromNucleo messageFromNucleo;
-
-    // Set debug values.
-    infoFrameFromNano.frameType = 1;
-    infoFrameFromNano.frameLength = 0;
+    // Set up bluetooth
+    setupBluetooth();
 
     // Set up I2C
     setupI2C();
 
-    // Temporary variable to debug.
-    unsigned long counter = 0;
+    // Startup bluetooth receive thread.
+    pthread_attr_t attrBluetooth;
+    pthread_t threadIDBluetooth;
+
+    pthread_attr_init(&attrBluetooth);
+    pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
+
+    // Startup I2C receive thread.
+    pthread_attr_t attrI2C;
+    pthread_t threadIDI2C;
+
+    pthread_attr_init(&attrI2C);
+    pthread_create(&threadIDI2C, &attrI2C, I2CReceiveHandler, (void*) NULL);
 
 
-    // Infinit communication
+    // Communication setup done.
+
+    char I2CBufferToSend[1024];
+
+    messageStructHeaderFromNano I2CHeaderToNucleo;
+
+    unsigned char stateOfGripper = 0xFF;
+    messageStructFromNucleo messageFromNucleo;
+
+    //messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
+
+    /*
+    * Defines each command on the Jetson Nano.
+    * Handles all the communication, between other devices.
+    *
+    *   1. Send motor commands to Nucleo.
+    *   2. Send start command to Nucleo.
+    *   3. Send stop command to Nucleo.
+    *   4. Received data from Nucleo.
+    *   5. Send gripper status to bluetooth device.
+    *   6. Received start command from bluetooth.
+    *   7. Received stop command from bluetooth.
+    *   8. User is disconnected from bluetooth.
+    */
+
     while(1)
     {
 
-        // Check if it is time to read data from Nucleo. Check if there is commands to send.
-        // ToDo make a trigger to send messages.
-	gettimeofday(&currentTimeHandle, NULL);
-	currentTime = currentTimeHandle.tv_sec*1000000 + currentTimeHandle.tv_usec;
+        // Receive command from message main queue.
+        mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
 
-        if((counter%40) == 0 )
+        printf("Communication handle received a state.\n");
+        fflush(stdout);
+        switch( mainMessageBuffer )
         {
-
-	    infoFrameFromNano.frameType = 1;//(counter%3)+1;
-
-            writeSize = writeI2C((unsigned char *) &infoFrameFromNano, sizeof(messageStructHeaderFromNano) );
-
-	    printf("Wrote I2C message: %d\n",writeSize);
-	    fflush(stdout);
-
-        }
-        else if( (lastTime + checkTimming) <= currentTime )
-        {
-
-            // Check if I2C data is available, if so read the data.
-            readSize = readI2C( &messageFromNucleo);
-
-	    lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
-
-            // If there was data received, get the new time (and print the data).
-	    if(readSize >= 42)
+            case 1:
             {
-		printf("ReadSize %d\n",readSize);
-                printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
-		printf("Read %llu in between.\n",(currentTime - lastTime));
-                fflush(stdout);
-		gettimeofday(&lastTimeCheckI2CMessage, NULL);
 
             }
+            break;
 
-        }
-	counter++;
-	fflush(stdout);
-        // Sleep 10 ms.
-        usleep(10000);
+            case 4:
+            {
+                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
+
+                /*
+                * Send proximity data to pre-shape.
+                if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer, NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char),1) != 0 )
+                {
+                    printf("Failed to send distance info to pre-shape.\n");
+                }
+                */
+
+                if(stateOfGripper != messageFromNucleo.statusOfNucelo)
+                {
+                    // Change current state of gripper.
+                    stateOfGripper = messageFromNucleo.statusOfNucelo;
+                    // Send the new state to bluetooth.
+                    memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                    sprintf(I2CBufferToSend,"The griper is in state: %d \n",stateOfGripper);
+                    sendBluetoothMessage( I2CBufferToSend );
+                }
+            }
+            break;
+
+            case 6:
+            {
+                // Start the Gripper
+
+                // Make a callback to indicate that the command was received.
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Start command confirmed\n");
+                sendBluetoothMessage( I2CBufferToSend );
+
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 1;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+            }
+            break;
+
+            case 7:
+            {
+                // Stop the Gripper
+
+                // Make a callback to indicate that the command was received.
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Stop command confirmed\n");
+                sendBluetoothMessage( I2CBufferToSend );
+
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 2;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+            }
+            break;
+
+
+            case 8:
+            {
+                // If user is disconnected stop gripper and reset bluetooth.
+                // Send command to Nucleo.
+
+                printf("\nPhone is disconnected.\n");
+                fflush(stdout);
+
+
+                I2CHeaderToNucleo.frameType = 2;
+                I2CHeaderToNucleo.frameLength = 0;
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+
+                printf("Stop command sent.\n");
+                fflush(stdout);
+
+
+                // Shut down receive thread for bluetooth.
+                pthread_cancel(threadIDBluetooth);
+
+                printf("Cancled receive thread..\n");
+                fflush(stdout);
+
+                // Reset bluetooth
+                closeBluetooth();
+
+                printf("Closed bluetooth.\n");
+                fflush(stdout);
+
+                printf("\nWaiting for new connection ...\n");
+                fflush(stdout);
+                setupBluetooth();
+
+                // Restart bluetooth receive thread.
+                pthread_attr_init(&attrBluetooth);
+                pthread_create(&threadIDBluetooth, &attrBluetooth, receiveBluetoothMessages, (void*) NULL);
+
+                printf("Created receive thread..\n\n");
+                fflush(stdout);
+
+            }
+            break;
+
+            default:{
+
+            }
+            break;
+       }
+
+
+
+	    usleep(10000);
+
     }
 
 }
 
+
+
+
+
+int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqd_t *messageQueueNucleo )
+{
+    // Creates a mailslot with the specified name. Return 0 on success and 1 on failure.
+
+    // Set size and number of messages properties.
+	struct mq_attr mainAttr;
+    struct mq_attr motorAttr;
+    struct mq_attr distanceAttr;
+    struct mq_attr nucleoAttr;
+
+	mainAttr.mq_maxmsg = 10;
+	mainAttr.mq_msgsize = messageMainQueueSize;
+
+    motorAttr.mq_maxmsg = 10;
+	motorAttr.mq_msgsize = sizeof(messageI2CToNucleoMotor);
+
+    distanceAttr.mq_maxmsg = 10;
+	distanceAttr.mq_msgsize = NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char); /* Change to the correct size of the proximity sensor. */
+
+    nucleoAttr.mq_maxmsg = 10;
+	nucleoAttr.mq_msgsize = sizeof(messageStructFromNucleo);
+
+    // Open main message queue.
+	*messageQueueMain = mq_open(messageMainQueueName, O_CREAT , 0666, &mainAttr);
+
+    // Open motor message queue.
+	*messageQueueMotors = mq_open(messageQueueMotorName, O_CREAT , 0666, &motorAttr);
+
+    // Open distance message queue.
+	*messageQueueDistance = mq_open(messageQueueDistanceName, O_CREAT , 0666, &distanceAttr);
+
+    // Open distance message queue.
+	*messageQueueNucleo = mq_open(messageQueueNucleoName, O_CREAT , 0666, &nucleoAttr);
+
+	if( (*messageQueueMain == (mqd_t)-1) || (*messageQueueMotors == (mqd_t)-1) || (*messageQueueDistance == (mqd_t)-1) || (*messageQueueNucleo == (mqd_t)-1) )
+        {
+		printf("Fail to create message queues. \n");
+		return 1;
+	}
+	return 0;
+}
 
 
 

@@ -27,6 +27,7 @@
 #include <opencv2/highgui.hpp>
 int main()
 {
+	/*
     bool binIm1[728160];
     bool binIm2[728160];
     int width = 740, height = 984;
@@ -59,17 +60,12 @@ int main()
 			}
 		}
 	}
-	cv::namedWindow("Binary image", cv::WINDOW_AUTOSIZE);
-	cv::namedWindow("Binary image filter", cv::WINDOW_AUTOSIZE);
-	cv::imshow("Binary image",canvas);
-	cv::imshow("Binary image filter",canvas2);
-	cv::waitKey(0);
-	cv::imwrite("../../../binaryImage500.jpg",canvas2);
-	double pixelLength;
-	double objectWidth;
-	GetPixelLength(binIm2,(double) round(height/2),600,&pixelLength,&objectWidth);
+	*/
 
-	printf("%f\n%f\n",pixelLength,objectWidth);
+	// Communication handle for Nano.
+	communicationHandler();
+    
+    return 0;
 }
 
 
