@@ -5,7 +5,7 @@
  * File: _coder_InverseKinematicsPreshape_mex.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 18-Nov-2020 08:59:29
+ * C/C++ source code generated on  : 26-Nov-2020 14:36:02
  */
 
 /* Include Files */
@@ -17,11 +17,11 @@
  * Arguments    : int32_T nlhs
  *                mxArray *plhs[1]
  *                int32_T nrhs
- *                const mxArray *prhs[3]
+ *                const mxArray *prhs[4]
  * Return Type  : void
  */
 void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
-  int32_T nrhs, const mxArray *prhs[3])
+  int32_T nrhs, const mxArray *prhs[4])
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -32,8 +32,8 @@ void InverseKinematicsPreshape_mexFunction(int32_T nlhs, mxArray *plhs[1],
   st.tls = emlrtRootTLSGlobal;
 
   /* Check for proper number of arguments. */
-  if (nrhs != 3) {
-    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 3, 4,
+  if (nrhs != 4) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 4, 4,
                         25, "InverseKinematicsPreshape");
   }
 

@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 08:59:29
+// C/C++ source code generated on  : 26-Nov-2020 14:36:02
 //
 
 //***********************************************************************
@@ -91,7 +91,7 @@ static void main_InverseKinematicsPreshape()
 {
   double dv[5];
   double desiredPosition_tmp[2];
-  short motorAngles[3];
+  unsigned short motorAngles[3];
 
   // Initialize function 'InverseKinematicsPreshape' input arguments.
   // Initialize function input argument 'linkLengths'.
@@ -102,7 +102,7 @@ static void main_InverseKinematicsPreshape()
   // Call the entry-point 'InverseKinematicsPreshape'.
   argInit_1x5_real_T(dv);
   InverseKinematicsPreshape(dv, desiredPosition_tmp, desiredPosition_tmp,
-    motorAngles);
+    argInit_real_T(), motorAngles);
 }
 
 //

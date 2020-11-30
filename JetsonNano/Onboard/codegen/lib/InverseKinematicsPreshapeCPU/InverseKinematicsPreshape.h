@@ -5,7 +5,7 @@
 // File: InverseKinematicsPreshape.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 08:59:29
+// C/C++ source code generated on  : 26-Nov-2020 14:36:02
 //
 #ifndef INVERSEKINEMATICSPRESHAPE_H
 #define INVERSEKINEMATICSPRESHAPE_H
@@ -17,7 +17,8 @@
 
 // Function Declarations
 extern void InverseKinematicsPreshape(const double linkLengths[5], const double
-  desiredPosition[2], const double normalStableLine[2], short motorAngles[3]);
+  desiredPosition[2], const double normalStableLine[2], double fingerNum,
+  unsigned short motorAngles[3]);
 
 #endif
 

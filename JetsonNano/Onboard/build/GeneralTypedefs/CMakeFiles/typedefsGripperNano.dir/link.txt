@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtypedefsGripperNano.a  
+/usr/bin/ranlib libtypedefsGripperNano.a
