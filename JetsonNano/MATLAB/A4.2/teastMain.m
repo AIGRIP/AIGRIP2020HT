@@ -14,11 +14,12 @@ linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 
 desiredPosition = [-23,36];
 desiredAngle = [30,0];
+offset = 0; 
 
 if PointToLine([-23,36], desiredPosition, desiredAngle) == 1
     
 
-    [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle,1)
+    [motorAngles] = InverseKinematicsPreshape(linkLengths,offset, desiredPosition, desiredAngle,1)
 
     motorAnglesDegree = motorAngles * (300/65535) 
 
