@@ -1,5 +1,6 @@
 function [signature,YCoordToStore,XCoordToStore] = GetARsing(angles,Y,X,degreesToMeasure)
-% GetARsing returns the radius for the angles in "degreesToMeasure". 
+% GetARsing returns the radius of the of Y and X for the positions closest
+% to the angles in "degreesToMeasure". 
 %   angles              - Is the degrees of the points represented by "Y" and "X".
 %   Y                   - Is the Y-coordinates for the points.
 %   X                   - Is the X-coordinates for the points.
@@ -17,13 +18,13 @@ function [signature,YCoordToStore,XCoordToStore] = GetARsing(angles,Y,X,degreesT
 
         % Get the closest point to the angle to measure.
         [~,indA] = min( abs( degreesToMeasure(jj)-angles));
-        
-        % Get the radius.
         signature(jj) = sqrt(X(indA)^2+Y(indA)^2);
         % Store the cartesean coordinates.
         XCoordToStore(jj) = X(indA);
         YCoordToStore(jj) = Y(indA);
     end
+
+    %singature = normalize(singature,'norm');
     
 end
 

@@ -24,7 +24,7 @@ function [positionReachable]  = PointToLine(singularityPoint, possiblePosition, 
     % Non_zero if possiblePosition is reachable
 
     %Set value of error margin
-    errorMargin = 3;
+    errorMargin = 6;
 
     positionReachable = 0;
     

@@ -22,7 +22,7 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     %then the sequense countines clockwise  
     
     %Output:
-    %motorAngles = 1X3 array with three motor angles one for each motro in a
+    %motorAngles = 1X3 array with three motor angles one for each motor in a
     %finger. The order of the motors in the array is M0,M1,M2. 
 
     motorAngles = zeros(1,3);

@@ -1,31 +1,33 @@
 clear all;
-close all;
 clc;
 
+addpath('..\A4.2');
 addpath('..\A7.1');
 addpath('..\A7.1\testImages\');
+addpath('..\getRealDistance\');
 
-originalImage = imread("CUDATest.jpg");
+% originalImage = imread("CUDATest.jpg");
+
+originalImage = imread("binaryImage300.jpg");
+colourSegmentationMask = originalImage;
+distanceToObject = 300;
 
 imagePixelRows = size(originalImage,1);
 imagePixelColumns = size(originalImage,2);
 
-colourBalancedImage = colourBalance(originalImage);
-
 centerOfObjectX = round( imagePixelRows/2 );
 centerOfObjectY = round( imagePixelColumns/2 );
 
-colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
 
-segmentationMask = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
-
-
+% colourBalancedImage = colourBalance(originalImage);
+%  
+% colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
 
 figure(1)
-subplot(1,2,1),imshow(segmentationMask);
+subplot(1,2,1),imshow(colourSegmentationMask);
 
-% Edge filter work as expected.
-[edgeBinaryImage] = MorphologicalEdgeFilter(segmentationMask);
+colourSegmentationMask = imbinarize(colourSegmentationMask);
+edgeBinaryImage = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
 
 subplot(1,2,2),imshow(edgeBinaryImage);
 hold on;
@@ -35,7 +37,6 @@ resDeg = 1*pi/180;
 degreesToMeasure = 0:resDeg:(2*pi-resDeg);
 
 [signature,yCoordinates,xCoordinates] = GetSignature(edgeBinaryImage,degreesToMeasure,imagePixelRows,imagePixelColumns);
-
 
 figure(2)
 subplot(1,2,1),plot(degreesToMeasure*180/pi,signature);
@@ -48,12 +49,19 @@ subplot(1,2,2),scatter(0,0,50,'k','filled');
 hold off
 axis([-600,600,-600,600]);
 
-
 [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     targetPointF2Y,targetPointF2X, normalPointF2Y,normalPointF2X, ...
+    targetPointF0Y,targetPointF0X,normalPointF0Y,normalPointF0X, ...
     signatureF1,signatureF2] = ...
     stableLine(degreesToMeasure,yCoordinates,xCoordinates,signature);
 
+
+figure(2)
+hold on
+subplot(1,2,2),scatter(-1*targetPointF1Y(1),targetPointF1X(1),60,'r','filled');
+subplot(1,2,2),scatter(-1*targetPointF2Y(1),targetPointF2X(1),60,'r','filled');
+subplot(1,2,2),scatter(-1*yCoordinates(1),xCoordinates(1),60,'r','filled');
+hold off
 
 figure(3)
 
@@ -68,18 +76,56 @@ scatter(-1*normalPointF1Y,normalPointF1X,'r','x')
 scatter(-1*targetPointF2Y,targetPointF2X,50,cPrior,'filled')
 scatter(-1*normalPointF2Y,normalPointF2X,'b','x')
 
+scatter(-1*targetPointF0Y,targetPointF0X,'b','filled')
+scatter(-1*normalPointF0Y,normalPointF0X,'c','x')
+plot([-1*targetPointF0Y,-1*normalPointF0Y]',[targetPointF0X,normalPointF0X]','k')
 
 plot([-1*targetPointF1Y,-1*normalPointF1Y]',[targetPointF1X,normalPointF1X]','k')
 plot([-1*targetPointF2Y,-1*normalPointF2Y]',[targetPointF2X,normalPointF2X]','k')
 hold off
 axis([-600,600,-600,600]);
 
+% Get valid points
+[motorStepF1,BestPointF1Y,BestPointF1X,BestNormalF1Y,BestNormalF1X] = ...
+GetValidGripPoints(targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X,distanceToObject,1);
 
-figure(2)
+% Get valid points
+[motorStepF2,BestPointF2Y,BestPointF2X,BestNormalF2Y,BestNormalF2X] = ...
+GetValidGripPoints(targetPointF2Y,targetPointF2X, normalPointF2Y,normalPointF2X,distanceToObject,2);
+
+
+% Get valid points
+[motorStepF0,BestPointF0Y,BestPointF0X,BestNormalF0Y,BestNormalF0X] = ...
+GetValidGripPoints(targetPointF0Y,targetPointF0X, normalPointF0Y,normalPointF0X,distanceToObject,0);
+
+figure(4)
+
+scatter(0,0,40,'k','filled');
 hold on
-subplot(1,2,2),scatter(-1*targetPointF1Y(1),targetPointF1X(1),60,'r','filled');
-subplot(1,2,2),scatter(-1*targetPointF2Y(1),targetPointF2X(1),60,'r','filled');
-subplot(1,2,2),scatter(-1*yCoordinates(1),xCoordinates(1),60,'r','filled');
+scatter(BestPointF1X,BestPointF1Y,40,'r','filled');
+scatter(BestPointF2X,BestPointF2Y,40,'r','filled');
+scatter(BestPointF0X,BestPointF0Y,40,'r','filled');
+
+scatter(0,0,40,'k','filled');
+scatter(-23,36,40,'k','filled');
+scatter(-23,-36,40,'k','filled');
+
+for i=1:length(targetPointF2Y)
+   scatter(-GetPixelLength( 0 ,targetPointF2Y(i) ,distanceToObject ) ...
+,GetPixelLength( 0 ,targetPointF2X(i) ,distanceToObject ) ) 
+
+   scatter(-GetPixelLength( 0 ,targetPointF1Y(i) ,distanceToObject ) ...
+,GetPixelLength( 0 ,targetPointF1X(i) ,distanceToObject ) ) 
+end
+
 hold off
 
+disp('Motorvalue Finger 0')
+disp(motorStepF0)
+
+disp('Motorvalue Finger 1')
+disp(motorStepF1)
+
+disp('Motorvalue Finger 2')
+disp(motorStepF2)
 

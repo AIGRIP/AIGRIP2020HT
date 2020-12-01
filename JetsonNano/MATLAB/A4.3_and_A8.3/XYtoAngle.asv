@@ -1,0 +1,48 @@
+function [angleRadian] = XYtoAngle(x,y)
+% Convert length vectors to angles.
+%   x - Is the vector in x-direction.
+%   y - Is the vector in y-direction.
+%   angleRadian - Returns the angle in radian for all the vectors.
+
+
+%     % Allocates the angles to return in radians.
+%     angleRadian= zeros(length(x),1);
+% 
+%     % Convert angles in the first quadrant. RH+
+%     RHPi = (y>=0) & (x>=0);
+%     angleRadian( RHPi ) = -1*atan2(y(RHPi),x(RHPi))+pi;
+%     
+%     % Convert angles in the third quadrant. LH-
+%     LHNi = (y<=0) & (x<=0);
+%     angleRadian( LHNi ) = 2*pi-atan2( abs(y(LHNi)),abs(x(LHNi)) );
+%     
+%     % Convert angles in the second quadrant. LH+
+%     LHPi = (y>=0) & (x<=0);
+%     angleRadian( LHPi ) = atan2( abs(y(LHPi)),abs(x(LHPi)) );
+%     
+%     % Convert angles in the fourth quadrant. RH-
+%     RHNi = (y<=0) & (x>=0);
+%     angleRadian( RHNi ) = atan2( abs(y(RHNi)),abs(x(RHNi)) )+pi;
+
+    % Allocates the angles to return in radians.
+    angleRadian= zeros(length(x),1);
+
+    % Convert angles in the first quadrant. RH+
+    RHPi = (y>=0) & (x>=0);
+    angleRadian( RHPi ) = -1*atan2(y(RHPi),x(RHPi))+pi;
+    
+    % Convert angles in the third quadrant. LH-
+    LHNi = (y<=0) & (x<=0);
+    angleRadian( LHNi ) = 2*pi-atan2( abs(y(LHNi)),abs(x(LHNi)) );
+    
+    % Convert angles in the second quadrant. LH+
+    LHPi = (y>=0) & (x<=0);
+    angleRadian( LHPi ) = -1*atan2( abs(y(LHPi)),abs(x(LHPi)));
+    
+    % Convert angles in the fourth quadrant. RH-
+    RHNi = (y<=0) & (x>=0);
+    angleRadian( RHNi ) = atan2( abs(y(RHNi)),abs(x(RHNi)) )+pi;
+    
+    
+end
+

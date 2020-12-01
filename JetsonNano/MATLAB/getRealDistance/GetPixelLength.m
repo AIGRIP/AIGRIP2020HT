@@ -15,12 +15,12 @@ function [edgePointsmm] = GetPixelLength( centerPointPixel  ,edgePointsPixel ,di
     %Output:
     %edgePointsmm = edgePointsPixel converted to mm
 
-% Focal length in pixels
-focalLengthPixel = 736;
-%Calculate the width of the object in pixels
-lengthPixel = distanceToObject * (1 / focalLengthPixel);
-%Convert the points from pixels to mm
-edgePointsmm = abs(centerPointPixel - edgePointsPixel)*lengthPixel;
+    % Focal length in pixels
+    focalLengthPixel = 736;
+    %Calculate the width of the object in pixels
+    lengthPixel = distanceToObject * (1 / focalLengthPixel);
+    %Convert the points from pixels to mm
+    edgePointsmm = (edgePointsPixel-centerPointPixel)*lengthPixel;
 
 end
 

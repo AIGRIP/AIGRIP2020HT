@@ -37,6 +37,12 @@ distances = sqrt(sum(bsxfun(@minus, centroid, [centerOfObjectY,centerOfObjectX])
 segmentationMask = zeros(size(colourSegmentationMask),'logical');
 segmentationMask(stats(index).PixelIdxList) = 1;
 
+% Make smother edges in the image.
+segmentationMask = imerode(segmentationMask,ones(20));
+segmentationMask = imdilate(segmentationMask,ones(20));
+
+% Edge filter, display only the edges of the filter.
+segmentationMask = MorphologicalEdgeFilter(segmentationMask);
 
 end
 
