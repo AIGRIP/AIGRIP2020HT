@@ -18,8 +18,8 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
 %                   vector it is.
 %   signatureRadiusTargetF - Is the signature for finger 1 and 2.
     
-    %Offset in x-direction for the normal points.
-    normalXconst = 50;
+    %Offset in radius for the normal points.
+    normalRadius = 50;
     
     % Resolution of possible grip positions in degrees.
     resolutionGrasp = 5;
@@ -39,41 +39,41 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     % The number of neighbours used to get the polynomal.
     indexOffset = round( (resolutionGrasp/2)*(totalNumberOfDegrees/360) );
     
+    uniquePoints = unique([XCoordinates,YCoordinates],'rows');
+    
     % Indexes of angular points for finger 1.
     indexToMeasureFinger1 = round( anglePointsF1*totalNumberOfDegrees/360 );
     
+    % Size of index buffer.
+    indexBufferSize = indexOffset*2+1;
     % Allocate memory to select samples.
-    indexBuffer = zeros(indexOffset*2+1,1);
+    indexBuffer = zeros(indexBufferSize,1);
     % Allocate memory for normal points.
-    normalPointF1X = zeros(indexOffset*2+1,1);
-    normalPointF1Y = zeros(indexOffset*2+1,1);
+    normalPointF1X = zeros(length(indexToMeasureFinger1),1);
+    normalPointF1Y = zeros(length(indexToMeasureFinger1),1);
     
     % Allocate memory for normal points.
     targetPointF1X = XCoordinates( indexToMeasureFinger1 );
     targetPointF1Y = YCoordinates( indexToMeasureFinger1 );
-
-    polynomCoefficients = zeros(1,2);
     
     % Calculates the normal for all target points for finger 1.
     for ii=1:length(indexToMeasureFinger1)
     
-        % Get the index of points to measure surface.
-        indexBuffer = (indexToMeasureFinger1(ii)-indexOffset) : (indexToMeasureFinger1(ii)+indexOffset);
+        % Calculates the euclodian distance to target.
+        distanceToTargetX = uniquePoints(:,1) - targetPointF1X(ii);
+        distanceToTargetY = uniquePoints(:,2) - targetPointF1Y(ii);
         
-        % Calculate polynom coefficients.
-        polynomCoefficients = polyfit(XCoordinates(indexBuffer),YCoordinates(indexBuffer),1);
+        % Get the closest unique indecies to the target point.
+        [~,indexBuffer] = mink( sum( distanceToTargetX.^2 + distanceToTargetY.^2,2),indexBufferSize);
         
-        % Calculate the normal of a first degree polynom.
-        normalCoefficient = -1/polynomCoefficients(1);
-        
-        % To set the normal point withi the object.
-        if(normalCoefficient < 0 )
-            normalPointF1Y(ii) = normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger1(ii) );
-            normalPointF1X(ii) = normalXconst+XCoordinates( indexToMeasureFinger1(ii) );
-        else
-            normalPointF1Y(ii) = -normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger1(ii) );
-            normalPointF1X(ii) = -normalXconst+XCoordinates( indexToMeasureFinger1(ii) );
-        end
+        % Get the length vectors to neighbour
+        xDirection = targetPointF1X(ii)-uniquePoints(indexBuffer(indexBufferSize),1);
+        yDirection = targetPointF1Y(ii)-uniquePoints(indexBuffer(indexBufferSize),2);
+        % Get the angle from target to neighbour.
+        angleDirection = atan(yDirection/xDirection);
+        % Get the normal point to the target point.
+        normalPointF1X(ii) = targetPointF1X(ii) + normalRadius*cos(angleDirection+pi/2);
+        normalPointF1Y(ii) = targetPointF1Y(ii) + normalRadius*sin(angleDirection+pi/2);
 
     end
     
@@ -89,8 +89,8 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     indexToMeasureFinger2 = round( anglePointsF2*totalNumberOfDegrees/360 );
     
     % Allocate memory for normal points.
-    normalPointF2X = zeros(indexOffset*2+1,1);
-    normalPointF2Y = zeros(indexOffset*2+1,1);
+    normalPointF2X = zeros(length(indexToMeasureFinger2),1);
+    normalPointF2Y = zeros(length(indexToMeasureFinger2),1);
     
     % Allocate memory for normal points.
     targetPointF2X = XCoordinates( indexToMeasureFinger2 );
@@ -98,24 +98,24 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     
     % Calculates the normal for all target points for finger 1.
     for ii=1:length(indexToMeasureFinger2)
-    
-        % Get the index of points to measure surface.
-        indexBuffer = (indexToMeasureFinger2(ii)-indexOffset) : (indexToMeasureFinger2(ii)+indexOffset);
+
+        % Calculates the euclodian distance to target.
+        distanceToTargetX = uniquePoints(:,1) - targetPointF2X(ii);
+        distanceToTargetY = uniquePoints(:,2) - targetPointF2Y(ii);
         
-        % Calculate polynom coefficients.
-        polynomCoefficients = polyfit(XCoordinates(indexBuffer),YCoordinates(indexBuffer),1);
+        % Get the closest unique indecies to the target point.
+        [~,indexBuffer] = mink( sum( distanceToTargetX.^2 + distanceToTargetY.^2,2),indexBufferSize);
         
-        % Calculate the normal of a first degree polynom.
-        normalCoefficient = -1/polynomCoefficients(1);
+        % Get the length vectors to neighbour
+        xDirection = targetPointF2X(ii)-uniquePoints(indexBuffer(indexBufferSize),1);
+        yDirection = targetPointF2Y(ii)-uniquePoints(indexBuffer(indexBufferSize),2);
         
-        % To set the normal point withi the object.
-        if(normalCoefficient < 0 )
-            normalPointF2Y(ii) = -normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger2(ii) );
-            normalPointF2X(ii) = -normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
-        else
-            normalPointF2Y(ii) = normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger2(ii) );
-            normalPointF2X(ii) = normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
-        end 
+        % Get the angle from target to neighbour.
+        angleDirection = atan(yDirection/xDirection);
+        
+        % Get the normal point to the target point.
+        normalPointF2X(ii) = targetPointF2X(ii) + normalRadius*cos(angleDirection+pi/2);
+        normalPointF2Y(ii) = targetPointF2Y(ii) + normalRadius*sin(angleDirection+pi/2);
     end
     
     % Signature for finger 2.
@@ -129,19 +129,26 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
 
     % Get normal for finger 0.
     
-    indexToCheckF0 = [1:indexOffset,indexOffset:length(XCoordinates)];
-    
-    % Calculate polynom coefficients.
-    polynomCoefficients = polyfit(XCoordinates(indexToCheckF0),YCoordinates(indexToCheckF0),1);
-
-    % Calculate the normal of a first degree polynom.
-    normalCoefficient = -1/polynomCoefficients(1);
-    
-    normalPointF0Y = -normalXconst*normalCoefficient+YCoordinates( indexToMeasureFinger2(ii) );
-    normalPointF0X = -normalXconst+XCoordinates( indexToMeasureFinger2(ii) );
-    
     targetPointF0X = XCoordinates(1);
     targetPointF0Y = YCoordinates(1);
+    
+    % Calculates the euclodian distance to target.
+    distanceToTargetF0X = uniquePoints(:,1) - targetPointF0X;
+    distanceToTargetF0Y = uniquePoints(:,2) - targetPointF0Y;
+    
+    % Get the closest unique indecies to the target point.
+    [~,indexBuffer] = mink( sum( distanceToTargetF0X.^2 + distanceToTargetF0Y.^2,2),indexBufferSize);
+
+    % Get the length vectors to neighbour
+    xDirection = targetPointF0X-uniquePoints(indexBuffer(indexBufferSize),1);
+    yDirection = targetPointF0Y-uniquePoints(indexBuffer(indexBufferSize),2);
+
+    % Get the angle from target to neighbour.
+    angleDirection = atan(yDirection/xDirection);
+
+    % Get the normal point to the target point.
+    normalPointF0X = targetPointF0X + normalRadius*cos(angleDirection+pi/2);
+    normalPointF0Y = targetPointF0Y + normalRadius*sin(angleDirection+pi/2);
     
 end
 
