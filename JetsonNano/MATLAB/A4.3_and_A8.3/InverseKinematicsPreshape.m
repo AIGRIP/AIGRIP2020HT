@@ -35,13 +35,12 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
         end
         lengthM0toM1 = 38;
         %Make the direction relate to M0 position instead of palm center
-        directionPosition = normalStableLine - motorPositionM0; 
+        directionPosition = desiredPosition - motorPositionM0; 
         %If the directionPosition is the same as motorPositionM0 move the direction
         %in the normal direction
         if sum(directionPosition ~= 0) == 0
-            normalStableLine = normalStableLine + (desiredPosition-normalStableLine)*2;
-            
-            %Make the direction relate to M0 position instead of palm center
+            %If the desired postion is in the singularity point use the
+            %normal stable line instead
             directionPosition = normalStableLine - motorPositionM0; 
         end
         %Calculate the angle that motor M0 should move to
@@ -55,11 +54,11 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
         end
 
         %Calculate the distance from the palm center to the poistions 
-        %of motor M1 and M2
+        %of motor M1 and M2                                                                                                                                                                                                                                                                                                                 
          if fingerNum == 1
-            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 , sin(motorAngles(1))*lengthM0toM1];
+            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 ,- sin(motorAngles(1))*lengthM0toM1];
          else
-            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 , -sin(motorAngles(1))*lengthM0toM1];
+            motorPositionM1 = motorPositionM0 - [cos(motorAngles(1))*lengthM0toM1 , sin(motorAngles(1))*lengthM0toM1];
         end
     else
         motorAngles(1) = 0;
