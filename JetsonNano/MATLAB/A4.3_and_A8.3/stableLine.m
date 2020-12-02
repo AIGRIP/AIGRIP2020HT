@@ -52,6 +52,8 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     targetPointF1X = XCoordinates( indexToMeasureFinger1 );
     targetPointF1Y = YCoordinates( indexToMeasureFinger1 );
 
+    polynomCoefficients = zeros(1,2);
+    
     % Calculates the normal for all target points for finger 1.
     for ii=1:length(indexToMeasureFinger1)
     

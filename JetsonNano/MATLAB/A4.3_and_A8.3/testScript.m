@@ -20,13 +20,14 @@ centerOfObjectY = round( imagePixelColumns/2 );
 
 
 % colourBalancedImage = colourBalance(originalImage);
-%
+% 
 % colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
 
 figure(1)
 subplot(1,2,1),imshow(colourSegmentationMask);
 
 colourSegmentationMask = imbinarize(colourSegmentationMask);
+
 edgeBinaryImage = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
 
 subplot(1,2,2),imshow(edgeBinaryImage);

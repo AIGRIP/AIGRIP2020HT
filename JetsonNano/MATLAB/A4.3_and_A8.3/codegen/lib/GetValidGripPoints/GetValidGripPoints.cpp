@@ -5,7 +5,7 @@
 // File: GetValidGripPoints.cpp
 //
 // MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 11:25:48
+// C/C++ source code generated on  : 02-Dec-2020 13:16:30
 //
 
 // Include Files
@@ -224,7 +224,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     *bestTargetPointY = -36.0;
     *bestTargetPointX = -78.0;
     *bestNormalPointY = -36.0;
-    *bestNormalPointX = -23.0;
+    *bestNormalPointX = 0.0;
     guard1 = true;
   } else {
     //  Check if the target point is reachable.
