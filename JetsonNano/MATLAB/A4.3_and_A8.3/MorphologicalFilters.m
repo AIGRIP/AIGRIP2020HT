@@ -1,4 +1,4 @@
-function[segmentationMask] = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY)
+function[segmentationMask] = MorphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY)
 
 %The function takes in a binary image where the colours have been segmentated 
 %and a rough postion of the object in the image that should be segmented. 

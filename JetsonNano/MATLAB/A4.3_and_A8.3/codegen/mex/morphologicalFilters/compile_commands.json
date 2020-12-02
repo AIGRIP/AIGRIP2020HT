@@ -1,0 +1,128 @@
+[
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalFilters_data.c -o build/win64/MorphologicalFilters_data.o",
+    "file": "MorphologicalFilters_data.c",
+    "output": "build/win64/MorphologicalFilters_data.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   rt_nonfinite.c -o build/win64/rt_nonfinite.o",
+    "file": "rt_nonfinite.c",
+    "output": "build/win64/rt_nonfinite.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalFilters_initialize.c -o build/win64/MorphologicalFilters_initialize.o",
+    "file": "MorphologicalFilters_initialize.c",
+    "output": "build/win64/MorphologicalFilters_initialize.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalFilters_terminate.c -o build/win64/MorphologicalFilters_terminate.o",
+    "file": "MorphologicalFilters_terminate.c",
+    "output": "build/win64/MorphologicalFilters_terminate.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalFilters.c -o build/win64/MorphologicalFilters.o",
+    "file": "MorphologicalFilters.c",
+    "output": "build/win64/MorphologicalFilters.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   imfill.c -o build/win64/imfill.o",
+    "file": "imfill.c",
+    "output": "build/win64/imfill.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   eml_int_forloop_overflow_check.c -o build/win64/eml_int_forloop_overflow_check.o",
+    "file": "eml_int_forloop_overflow_check.c",
+    "output": "build/win64/eml_int_forloop_overflow_check.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   regionprops.c -o build/win64/regionprops.o",
+    "file": "regionprops.c",
+    "output": "build/win64/regionprops.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   bwconncomp.c -o build/win64/bwconncomp.o",
+    "file": "bwconncomp.c",
+    "output": "build/win64/bwconncomp.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   assertValidSizeArg.c -o build/win64/assertValidSizeArg.o",
+    "file": "assertValidSizeArg.c",
+    "output": "build/win64/assertValidSizeArg.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   horzcatStructList.c -o build/win64/horzcatStructList.o",
+    "file": "horzcatStructList.c",
+    "output": "build/win64/horzcatStructList.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   sum.c -o build/win64/sum.o",
+    "file": "sum.c",
+    "output": "build/win64/sum.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   imerode.c -o build/win64/imerode.o",
+    "file": "imerode.c",
+    "output": "build/win64/imerode.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   imdilate.c -o build/win64/imdilate.o",
+    "file": "imdilate.c",
+    "output": "build/win64/imdilate.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalEdgeFilter.c -o build/win64/MorphologicalEdgeFilter.o",
+    "file": "MorphologicalEdgeFilter.c",
+    "output": "build/win64/MorphologicalEdgeFilter.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   interface/_coder_MorphologicalFilters_api.c -o build/win64/_coder_MorphologicalFilters_api.o",
+    "file": "interface/_coder_MorphologicalFilters_api.c",
+    "output": "build/win64/_coder_MorphologicalFilters_api.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   interface/_coder_MorphologicalFilters_mex.c -o build/win64/_coder_MorphologicalFilters_mex.o",
+    "file": "interface/_coder_MorphologicalFilters_mex.c",
+    "output": "build/win64/_coder_MorphologicalFilters_mex.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   useConstantDim.c -o build/win64/useConstantDim.o",
+    "file": "useConstantDim.c",
+    "output": "build/win64/useConstantDim.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   MorphologicalFilters_emxutil.c -o build/win64/MorphologicalFilters_emxutil.o",
+    "file": "MorphologicalFilters_emxutil.c",
+    "output": "build/win64/MorphologicalFilters_emxutil.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   interface/_coder_MorphologicalFilters_info.c -o build/win64/_coder_MorphologicalFilters_info.o",
+    "file": "interface/_coder_MorphologicalFilters_info.c",
+    "output": "build/win64/_coder_MorphologicalFilters_info.o"
+  },
+  {
+    "directory": "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\morphologicalFilters",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\" -I \"C:\\Program Files\\MATLAB\\R2020b\\extern\\include\" -I \"C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\codegen\\mex\\MorphologicalFilters\\interface\" -I \".\" -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1   \"C:/Program Files/MATLAB/R2020b/extern/version/c_mexapi_version.c\" -o build/win64/c_mexapi_version.o",
+    "file": "C:/Program Files/MATLAB/R2020b/extern/version/c_mexapi_version.c",
+    "output": "build/win64/c_mexapi_version.o"
+  }
+]

@@ -28,7 +28,7 @@ subplot(1,2,1),imshow(colourSegmentationMask);
 
 colourSegmentationMask = imbinarize(colourSegmentationMask);
 
-edgeBinaryImage = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
+edgeBinaryImage = MorphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
 
 subplot(1,2,2),imshow(edgeBinaryImage);
 hold on;
@@ -54,7 +54,7 @@ axis([-600,600,-600,600]);
     targetPointF2Y,targetPointF2X, normalPointF2Y,normalPointF2X, ...
     targetPointF0Y,targetPointF0X,normalPointF0Y,normalPointF0X, ...
     signatureF1,signatureF2] = ...
-    stableLine(degreesToMeasure,yCoordinates,xCoordinates,signature);
+    StableLine(degreesToMeasure,yCoordinates,xCoordinates,signature);
 
 
 figure(2)
