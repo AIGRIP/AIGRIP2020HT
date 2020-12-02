@@ -28,6 +28,7 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
 
     linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 
+    
     % Convert to pixelcoordinates to real cordinates. 
     % "Real coordinate X" = "-1*Pixel Coordinate Y"
     % "Real coordinate Y" = "Pixel Coordinate X"
@@ -40,6 +41,9 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
 
     % Offset from center to signularity point of finger.
     XdistanceTosingularity = -23;
+    
+    % Set the default value dependent on which finger and check if finger
+    % is in workspace.
     if(fingerNumber == 1)
         % Singularity point Y coordinate for finger 1.
         YdistanceTosingularity = 36;
@@ -68,18 +72,8 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
         bestTargetPointY = YdistanceTosingularity;
         bestTargetPointX = XdistanceTosingularity-55;
         bestNormalPointY = YdistanceTosingularity;
-        bestNormalPointX = XdistanceTosingularity;
-    else
-        % Set motor to default poistion if there is no valid target point.
-        % For finger 2.
-        bestTargetPointY = 0;
-        bestTargetPointX = 64+(60*cosd(60))-11;
-        bestNormalPointY = 0;
         bestNormalPointX = 0;
-        
-        % If there was no valid target point.
-        motorSteps = InverseKinematicsPreshape(linkLengths, ... 
-            [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber);
+    else
         
         % Check if the target point is reachable.
         if ( ( (64 -(60*cosd(34)+11)) < targetPointX(1) ) && (targetPointX(1) < ( 64 +(60*cosd(60)-11)) ) )
@@ -87,17 +81,28 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
             % Check if the angle between surface and finger surface. If it
             % is less then 60 degrees it is a valid point to grasp with
             % finger 0.
-            if atand(abs(normalPointY)/abs(targetPointX-normalPointX)) < 60
+            if atand(abs(normalPointY(1))/abs(targetPointX(1)-normalPointX(1))) < 60
 
                 motorSteps = InverseKinematicsPreshape(linkLengths, ... 
                     [targetPointX(1),0], [normalPointX(1),normalPointY(1)], fingerNumber);
                 % Return the coordinate for the finger 0 to grip.
-                bestTargetPointY = targetPointY;
-                bestTargetPointX = targetPointX;
-                bestNormalPointY = normalPointY;
-                bestNormalPointX = normalPointX;
+                bestTargetPointY = targetPointY(1);
+                bestTargetPointX = targetPointX(1);
+                bestNormalPointY = normalPointY(1);
+                bestNormalPointX = normalPointX(1);
+                return
             end
         end
+        
+        % Set motor to default poistion if there is no valid target point.
+        % For finger 2.
+        bestTargetPointY = 0;
+        bestTargetPointX = 64+(60*cosd(60))-11;
+        bestNormalPointY = 0;
+        bestNormalPointX = 0;
+        % If there was no valid target point.
+        motorSteps = InverseKinematicsPreshape(linkLengths, ... 
+            [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber);
         return
     end
     

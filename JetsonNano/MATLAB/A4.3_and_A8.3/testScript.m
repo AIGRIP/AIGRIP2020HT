@@ -1,16 +1,16 @@
 clear all;
 clc;
 
-addpath('..\A4.2');
-addpath('..\A7.1');
-addpath('..\A7.1\testImages\');
-addpath('..\getRealDistance\');
+% addpath('..\A4.2');
+% addpath('..\A7.1');
+% addpath('..\A7.1\testImages\');
+% addpath('..\getRealDistance\');
 
 % originalImage = imread("CUDATest.jpg");
 
-originalImage = imread("binaryImage300.jpg");
+originalImage = imread("binaryImage600.jpg");
 colourSegmentationMask = originalImage;
-distanceToObject = 300;
+distanceToObject = 600;
 
 imagePixelRows = size(originalImage,1);
 imagePixelColumns = size(originalImage,2);
@@ -20,7 +20,7 @@ centerOfObjectY = round( imagePixelColumns/2 );
 
 
 % colourBalancedImage = colourBalance(originalImage);
-%  
+%
 % colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
 
 figure(1)
@@ -117,6 +117,9 @@ for i=1:length(targetPointF2Y)
    scatter(-GetPixelLength( 0 ,targetPointF1Y(i) ,distanceToObject ) ...
 ,GetPixelLength( 0 ,targetPointF1X(i) ,distanceToObject ) ) 
 end
+
+plot(-1*GetPixelLength(0,yCoordinates,distanceToObject),GetPixelLength(0,xCoordinates,distanceToObject),'r')
+
 
 hold off
 
