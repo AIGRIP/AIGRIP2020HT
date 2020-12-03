@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -202,17 +202,17 @@ colourSegmentationGPU/fast:
 .PHONY : colourSegmentationGPU/fast
 
 #=============================================================================
-# Target rules for targets named morphologicalFiltersCPU
+# Target rules for targets named MorphologicalFiltersCPU
 
 # Build rule for target.
-morphologicalFiltersCPU: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 morphologicalFiltersCPU
-.PHONY : morphologicalFiltersCPU
+MorphologicalFiltersCPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MorphologicalFiltersCPU
+.PHONY : MorphologicalFiltersCPU
 
 # fast build rule for target.
-morphologicalFiltersCPU/fast:
-	$(MAKE) -f codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build.make codegen/lib/morphologicalFiltersCPU/CMakeFiles/morphologicalFiltersCPU.dir/build
-.PHONY : morphologicalFiltersCPU/fast
+MorphologicalFiltersCPU/fast:
+	$(MAKE) -f codegen/lib/MorphologicalFiltersCPU/CMakeFiles/MorphologicalFiltersCPU.dir/build.make codegen/lib/MorphologicalFiltersCPU/CMakeFiles/MorphologicalFiltersCPU.dir/build
+.PHONY : MorphologicalFiltersCPU/fast
 
 #=============================================================================
 # Target rules for targets named colourBalanceGPU
@@ -226,6 +226,45 @@ colourBalanceGPU: cmake_check_build_system
 colourBalanceGPU/fast:
 	$(MAKE) -f codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build.make codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/build
 .PHONY : colourBalanceGPU/fast
+
+#=============================================================================
+# Target rules for targets named StableLineCPU
+
+# Build rule for target.
+StableLineCPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 StableLineCPU
+.PHONY : StableLineCPU
+
+# fast build rule for target.
+StableLineCPU/fast:
+	$(MAKE) -f codegen/lib/StableLineCPU/CMakeFiles/StableLineCPU.dir/build.make codegen/lib/StableLineCPU/CMakeFiles/StableLineCPU.dir/build
+.PHONY : StableLineCPU/fast
+
+#=============================================================================
+# Target rules for targets named GetValidGripPointsCPU
+
+# Build rule for target.
+GetValidGripPointsCPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GetValidGripPointsCPU
+.PHONY : GetValidGripPointsCPU
+
+# fast build rule for target.
+GetValidGripPointsCPU/fast:
+	$(MAKE) -f codegen/lib/GetValidGripPointsCPU/CMakeFiles/GetValidGripPointsCPU.dir/build.make codegen/lib/GetValidGripPointsCPU/CMakeFiles/GetValidGripPointsCPU.dir/build
+.PHONY : GetValidGripPointsCPU/fast
+
+#=============================================================================
+# Target rules for targets named GetSignatureCPU
+
+# Build rule for target.
+GetSignatureCPU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GetSignatureCPU
+.PHONY : GetSignatureCPU
+
+# fast build rule for target.
+GetSignatureCPU/fast:
+	$(MAKE) -f codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir/build.make codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir/build
+.PHONY : GetSignatureCPU/fast
 
 #=============================================================================
 # Target rules for targets named imageCapture
@@ -252,6 +291,19 @@ communicationBT_I2C: cmake_check_build_system
 communicationBT_I2C/fast:
 	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
 .PHONY : communicationBT_I2C/fast
+
+#=============================================================================
+# Target rules for targets named controlGriperNano
+
+# Build rule for target.
+controlGriperNano: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controlGriperNano
+.PHONY : controlGriperNano
+
+# fast build rule for target.
+controlGriperNano/fast:
+	$(MAKE) -f control/CMakeFiles/controlGriperNano.dir/build.make control/CMakeFiles/controlGriperNano.dir/build
+.PHONY : controlGriperNano/fast
 
 #=============================================================================
 # Target rules for targets named RUN_AIGRIP_NANO
@@ -281,10 +333,14 @@ help:
 	@echo "... ForwardKinematicsCPU"
 	@echo "... PointToLineCPU"
 	@echo "... colourSegmentationGPU"
-	@echo "... morphologicalFiltersCPU"
+	@echo "... MorphologicalFiltersCPU"
 	@echo "... colourBalanceGPU"
+	@echo "... StableLineCPU"
+	@echo "... GetValidGripPointsCPU"
+	@echo "... GetSignatureCPU"
 	@echo "... imageCapture"
 	@echo "... communicationBT_I2C"
+	@echo "... controlGriperNano"
 	@echo "... RUN_AIGRIP_NANO"
 .PHONY : help
 

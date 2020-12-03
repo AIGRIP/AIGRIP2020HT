@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/PointToLineCPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/PointToLineCPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/rule
 .PHONY : codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ PointToLineCPU: codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/rule
 
 # fast build rule for target.
 PointToLineCPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build
 .PHONY : PointToLineCPU/fast
 
 PointToLine.o: PointToLine.cpp.o
@@ -131,7 +131,7 @@ PointToLine.o: PointToLine.cpp.o
 
 # target to build an object file
 PointToLine.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.o
 .PHONY : PointToLine.cpp.o
 
 PointToLine.i: PointToLine.cpp.i
@@ -140,7 +140,7 @@ PointToLine.i: PointToLine.cpp.i
 
 # target to preprocess a source file
 PointToLine.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.i
 .PHONY : PointToLine.cpp.i
 
 PointToLine.s: PointToLine.cpp.s
@@ -149,7 +149,7 @@ PointToLine.s: PointToLine.cpp.s
 
 # target to generate assembly for a file
 PointToLine.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine.cpp.s
 .PHONY : PointToLine.cpp.s
 
 PointToLine_data.o: PointToLine_data.cpp.o
@@ -158,7 +158,7 @@ PointToLine_data.o: PointToLine_data.cpp.o
 
 # target to build an object file
 PointToLine_data.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.o
 .PHONY : PointToLine_data.cpp.o
 
 PointToLine_data.i: PointToLine_data.cpp.i
@@ -167,7 +167,7 @@ PointToLine_data.i: PointToLine_data.cpp.i
 
 # target to preprocess a source file
 PointToLine_data.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.i
 .PHONY : PointToLine_data.cpp.i
 
 PointToLine_data.s: PointToLine_data.cpp.s
@@ -176,7 +176,7 @@ PointToLine_data.s: PointToLine_data.cpp.s
 
 # target to generate assembly for a file
 PointToLine_data.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_data.cpp.s
 .PHONY : PointToLine_data.cpp.s
 
 PointToLine_initialize.o: PointToLine_initialize.cpp.o
@@ -185,7 +185,7 @@ PointToLine_initialize.o: PointToLine_initialize.cpp.o
 
 # target to build an object file
 PointToLine_initialize.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.o
 .PHONY : PointToLine_initialize.cpp.o
 
 PointToLine_initialize.i: PointToLine_initialize.cpp.i
@@ -194,7 +194,7 @@ PointToLine_initialize.i: PointToLine_initialize.cpp.i
 
 # target to preprocess a source file
 PointToLine_initialize.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.i
 .PHONY : PointToLine_initialize.cpp.i
 
 PointToLine_initialize.s: PointToLine_initialize.cpp.s
@@ -203,7 +203,7 @@ PointToLine_initialize.s: PointToLine_initialize.cpp.s
 
 # target to generate assembly for a file
 PointToLine_initialize.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_initialize.cpp.s
 .PHONY : PointToLine_initialize.cpp.s
 
 PointToLine_terminate.o: PointToLine_terminate.cpp.o
@@ -212,7 +212,7 @@ PointToLine_terminate.o: PointToLine_terminate.cpp.o
 
 # target to build an object file
 PointToLine_terminate.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.o
 .PHONY : PointToLine_terminate.cpp.o
 
 PointToLine_terminate.i: PointToLine_terminate.cpp.i
@@ -221,7 +221,7 @@ PointToLine_terminate.i: PointToLine_terminate.cpp.i
 
 # target to preprocess a source file
 PointToLine_terminate.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.i
 .PHONY : PointToLine_terminate.cpp.i
 
 PointToLine_terminate.s: PointToLine_terminate.cpp.s
@@ -230,7 +230,7 @@ PointToLine_terminate.s: PointToLine_terminate.cpp.s
 
 # target to generate assembly for a file
 PointToLine_terminate.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/build.make codegen/lib/PointToLineCPU/CMakeFiles/PointToLineCPU.dir/PointToLine_terminate.cpp.s
 .PHONY : PointToLine_terminate.cpp.s
 
 # Help Target
@@ -265,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

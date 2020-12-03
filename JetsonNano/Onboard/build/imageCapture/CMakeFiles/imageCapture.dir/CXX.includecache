@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture/imageCapture.cpp
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture/imageCapture.cpp
 time.h
 -
 stdio.h

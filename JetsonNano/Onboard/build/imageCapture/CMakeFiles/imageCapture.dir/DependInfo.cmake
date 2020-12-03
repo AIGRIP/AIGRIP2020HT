@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture/imageCapture.cpp" "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o"
+  "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture/imageCapture.cpp" "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

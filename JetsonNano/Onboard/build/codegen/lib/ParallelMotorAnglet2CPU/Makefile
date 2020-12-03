@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/rule
 .PHONY : codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ ParallelMotorAnglet2CPU: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/Parallel
 
 # fast build rule for target.
 ParallelMotorAnglet2CPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build
 .PHONY : ParallelMotorAnglet2CPU/fast
 
 ParallelMotorAnglet2.o: ParallelMotorAnglet2.cpp.o
@@ -131,7 +131,7 @@ ParallelMotorAnglet2.o: ParallelMotorAnglet2.cpp.o
 
 # target to build an object file
 ParallelMotorAnglet2.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o
 .PHONY : ParallelMotorAnglet2.cpp.o
 
 ParallelMotorAnglet2.i: ParallelMotorAnglet2.cpp.i
@@ -140,7 +140,7 @@ ParallelMotorAnglet2.i: ParallelMotorAnglet2.cpp.i
 
 # target to preprocess a source file
 ParallelMotorAnglet2.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i
 .PHONY : ParallelMotorAnglet2.cpp.i
 
 ParallelMotorAnglet2.s: ParallelMotorAnglet2.cpp.s
@@ -149,7 +149,7 @@ ParallelMotorAnglet2.s: ParallelMotorAnglet2.cpp.s
 
 # target to generate assembly for a file
 ParallelMotorAnglet2.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s
 .PHONY : ParallelMotorAnglet2.cpp.s
 
 ParallelMotorAnglet2_data.o: ParallelMotorAnglet2_data.cpp.o
@@ -158,7 +158,7 @@ ParallelMotorAnglet2_data.o: ParallelMotorAnglet2_data.cpp.o
 
 # target to build an object file
 ParallelMotorAnglet2_data.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o
 .PHONY : ParallelMotorAnglet2_data.cpp.o
 
 ParallelMotorAnglet2_data.i: ParallelMotorAnglet2_data.cpp.i
@@ -167,7 +167,7 @@ ParallelMotorAnglet2_data.i: ParallelMotorAnglet2_data.cpp.i
 
 # target to preprocess a source file
 ParallelMotorAnglet2_data.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i
 .PHONY : ParallelMotorAnglet2_data.cpp.i
 
 ParallelMotorAnglet2_data.s: ParallelMotorAnglet2_data.cpp.s
@@ -176,7 +176,7 @@ ParallelMotorAnglet2_data.s: ParallelMotorAnglet2_data.cpp.s
 
 # target to generate assembly for a file
 ParallelMotorAnglet2_data.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s
 .PHONY : ParallelMotorAnglet2_data.cpp.s
 
 ParallelMotorAnglet2_initialize.o: ParallelMotorAnglet2_initialize.cpp.o
@@ -185,7 +185,7 @@ ParallelMotorAnglet2_initialize.o: ParallelMotorAnglet2_initialize.cpp.o
 
 # target to build an object file
 ParallelMotorAnglet2_initialize.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o
 .PHONY : ParallelMotorAnglet2_initialize.cpp.o
 
 ParallelMotorAnglet2_initialize.i: ParallelMotorAnglet2_initialize.cpp.i
@@ -194,7 +194,7 @@ ParallelMotorAnglet2_initialize.i: ParallelMotorAnglet2_initialize.cpp.i
 
 # target to preprocess a source file
 ParallelMotorAnglet2_initialize.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i
 .PHONY : ParallelMotorAnglet2_initialize.cpp.i
 
 ParallelMotorAnglet2_initialize.s: ParallelMotorAnglet2_initialize.cpp.s
@@ -203,7 +203,7 @@ ParallelMotorAnglet2_initialize.s: ParallelMotorAnglet2_initialize.cpp.s
 
 # target to generate assembly for a file
 ParallelMotorAnglet2_initialize.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s
 .PHONY : ParallelMotorAnglet2_initialize.cpp.s
 
 ParallelMotorAnglet2_terminate.o: ParallelMotorAnglet2_terminate.cpp.o
@@ -212,7 +212,7 @@ ParallelMotorAnglet2_terminate.o: ParallelMotorAnglet2_terminate.cpp.o
 
 # target to build an object file
 ParallelMotorAnglet2_terminate.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o
 .PHONY : ParallelMotorAnglet2_terminate.cpp.o
 
 ParallelMotorAnglet2_terminate.i: ParallelMotorAnglet2_terminate.cpp.i
@@ -221,7 +221,7 @@ ParallelMotorAnglet2_terminate.i: ParallelMotorAnglet2_terminate.cpp.i
 
 # target to preprocess a source file
 ParallelMotorAnglet2_terminate.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i
 .PHONY : ParallelMotorAnglet2_terminate.cpp.i
 
 ParallelMotorAnglet2_terminate.s: ParallelMotorAnglet2_terminate.cpp.s
@@ -230,7 +230,7 @@ ParallelMotorAnglet2_terminate.s: ParallelMotorAnglet2_terminate.cpp.s
 
 # target to generate assembly for a file
 ParallelMotorAnglet2_terminate.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s
 .PHONY : ParallelMotorAnglet2_terminate.cpp.s
 
 # Help Target
@@ -265,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

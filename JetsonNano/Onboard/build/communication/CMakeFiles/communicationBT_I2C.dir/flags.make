@@ -7,11 +7,11 @@ C_FLAGS = -g -fPIC
 
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication -I/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/GeneralTypedefs 
+C_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication -I/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/GeneralTypedefs 
 
 CXX_FLAGS = -g -fPIC   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication -I/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/GeneralTypedefs 
+CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication -I/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/GeneralTypedefs 
 

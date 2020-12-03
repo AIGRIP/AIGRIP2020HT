@@ -1,18 +1,25 @@
 
 #include "control.h"
 
-#include "typedefsGripperNano.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
+
+#include "typedefsGripperNano.h"
+
+#include "imageCapture.h"
+
 #include "colourSegmentation.h"
 #include "colourBalance.h"
-#include "morphologicalFilters.h"
-#include "imageCapture.h"
-#include "ParallelMotorAnglet2.h"
-#include "InverseKinematicsPreshape.h"
-#include "ApproachObject.h"
+#include "MorphologicalFilters.h"
+
+#include "StableLine.h"
+#include "GetValidGripPoints.h"
+#include "GetSignature.h"
+
+//#include "InverseKinematicsPreshape.h"
+//#include "ApproachObject.h"
 
 // Main function for communication.
 void* controlThread(void* arg)
@@ -21,7 +28,7 @@ void* controlThread(void* arg)
     bool binIm1[728160];
     bool binIm2[728160];
     unsigned char outputImg[2184480];
-    unsigned char colourBalancedImage[2184480]; 
+    unsigned char colourBalancedImage[2184480];
     const double linkLengths[] = {25,95,60,35,50};
 
 
@@ -35,7 +42,7 @@ void* controlThread(void* arg)
     // Variables for stable line.
 
     // Number of target points for each finger.
-    const int nrTargetPointsFinger = [1,11,11];
+    const int nrTargetPointsFinger[] = {1,11,11};
 
     double targetPointF0Y, targetPointF0X, normalPointF0Y, normalPointF0X;
 
@@ -43,7 +50,7 @@ void* controlThread(void* arg)
     double targetPointF1X[nrTargetPointsFinger[1]];
     double normalPointF1Y[nrTargetPointsFinger[1]];
     double normalPointF1X[nrTargetPointsFinger[1]];
-  
+
     double targetPointF2Y[nrTargetPointsFinger[2]];
     double targetPointF2X[nrTargetPointsFinger[2]];
     double normalPointF2Y[nrTargetPointsFinger[2]];
@@ -58,7 +65,7 @@ void* controlThread(void* arg)
     double bestTargetPointY, bestTargetPointX, bestNormalPointY, bestNormalPointX;
     unsigned short motorSteps[3];
 
-    double resDeg = 1*pi/180;
+    double resDeg = 1*3.1415/180.0;
 
     // Initate measuring points.
     for(int i=0;i<lengthSignature;i++)
@@ -67,7 +74,7 @@ void* controlThread(void* arg)
     }
 
     unsigned char gripperState;
- 
+
     while(1)
     {
         // Receive command from message main queue.
@@ -85,53 +92,90 @@ void* controlThread(void* arg)
                 colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
                 MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2), binIm2);
 
+	for(int i=0;i<(width-5);i=i+5)
+	{
+		for(int j=0;j<(height-5);j=j+5)
+		{
+			if( binIm2[j*height + i] == 0)
+			{
+				printf(" ");
+			}else{
+				printf("1");
+			}
+		}
+		printf("\n");
+	}
+
+
                 //signature
                 GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
+
+		for(int i=0;i<(lengthSignature-10);i=i+10)
+		{
+			printf("%.1lf ",signature[i]);
+		}
+		printf("\n");
+
 
                 //stable line
                 StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
                     normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
                     &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
 
+		printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
+
+		printf("Suggested gripping points finger 1.\n");
+		for(int i=0;i<nrTargetPointsFinger[1];i++)
+                {
+                        printf("%.1lf	%.1lf \n",targetPointF1X[i],targetPointF1Y[i]);
+                }
+
+                printf("Suggested gripping points finger 2.\n");
+                for(int i=0;i<nrTargetPointsFinger[2];i++)
+                {
+                        printf("%.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i]);
+                }
+
+
+
                 //Recive current distance to obejct
                 // ToDo set real value after testing.
-                distanceToObject = 30;
+                distanceToObject = 300;
 
                 //getvalid points
 
-                
                 // Get valid point for finger 0, the thumb.
-                GetValidGripPoints(&targetPointF0Y, nrTargetPointsFinger[0], 
-                    &targetPointF0X, nrTargetPointsFinger[0], 
-                    &normalPointF0Y, nrTargetPointsFinger[0], 
-                    &normalPointF0X, nrTargetPointsFinger[0], 
-                    distanceToObject, 0, motorSteps, 
+                GetValidGripPoints(&targetPointF0Y, &nrTargetPointsFinger[0],
+                    &targetPointF0X, &nrTargetPointsFinger[0],
+                    &normalPointF0Y, &nrTargetPointsFinger[0],
+                    &normalPointF0X, &nrTargetPointsFinger[0],
+                    distanceToObject, 0, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %f    %f\n",bestTargetPointY,bestTargetPointX);
+                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
                 // Get valid point for finger 1, the pointing finger.
-                GetValidGripPoints(targetPointF1Y, nrTargetPointsFinger[1], 
-                    targetPointF1X, nrTargetPointsFinger[1], 
-                    normalPointF1Y, nrTargetPointsFinger[1], 
-                    normalPointF1X, nrTargetPointsFinger[1], 
-                    distanceToObject, 1, motorSteps, 
+                GetValidGripPoints(targetPointF1Y, &nrTargetPointsFinger[1],
+                    targetPointF1X, &nrTargetPointsFinger[1],
+                    normalPointF1Y, &nrTargetPointsFinger[1],
+                    normalPointF1X, &nrTargetPointsFinger[1],
+                    distanceToObject, 1, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %f    %f\n",bestTargetPointY,bestTargetPointX);
+                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
                 // Get valid point for finger 2, the long finger.
-                GetValidGripPoints(targetPointF2Y, nrTargetPointsFinger[2], 
-                    targetPointF2X, nrTargetPointsFinger[2], 
-                    normalPointF2Y, nrTargetPointsFinger[2], 
-                    normalPointF2X, nrTargetPointsFinger[2], 
-                    distanceToObject, 2, motorSteps, 
+                GetValidGripPoints(targetPointF2Y, &nrTargetPointsFinger[2],
+                    targetPointF2X, &nrTargetPointsFinger[2],
+                    normalPointF2Y, &nrTargetPointsFinger[2],
+                    normalPointF2X, &nrTargetPointsFinger[2],
+                    distanceToObject, 2, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %f    %f\n",bestTargetPointY,bestTargetPointX);
+                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
                 //Send motor values to communtication
             }

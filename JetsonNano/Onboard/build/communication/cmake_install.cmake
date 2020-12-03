@@ -1,4 +1,4 @@
-# Install script for directory: /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication
+# Install script for directory: /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

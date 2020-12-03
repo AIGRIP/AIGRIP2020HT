@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/colourSegmentationGPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/colourSegmentationGPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule
 .PHONY : codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ colourSegmentationGPU: codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmen
 
 # fast build rule for target.
 colourSegmentationGPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build.make codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build.make codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/build
 .PHONY : colourSegmentationGPU/fast
 
 # Help Target
@@ -145,6 +145,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

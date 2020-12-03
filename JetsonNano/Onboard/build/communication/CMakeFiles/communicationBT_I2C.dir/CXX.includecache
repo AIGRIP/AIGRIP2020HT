@@ -8,7 +8,7 @@
 
 ../GeneralTypedefs/typedefsGripperNano.h
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp
 errno.h
 -
 stdio.h
@@ -42,21 +42,21 @@ pthread.h
 cstring
 -
 communication.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.h
 communicationI2C.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.h
 communicationBLT.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.h
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.h
 typedefsGripperNano.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/typedefsGripperNano.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/typedefsGripperNano.h
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.h
 typedefsGripperNano.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/typedefsGripperNano.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/typedefsGripperNano.h
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp
 errno.h
 -
 stdio.h
@@ -86,9 +86,9 @@ sys/time.h
 mqueue.h
 -
 communicationI2C.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.h
 
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.h
 typedefsGripperNano.h
-/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/typedefsGripperNano.h
+/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/typedefsGripperNano.h
 

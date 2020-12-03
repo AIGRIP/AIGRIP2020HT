@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/rule
 .PHONY : codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ ForwardKinematicsCPU: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinemat
 
 # fast build rule for target.
 ForwardKinematicsCPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build
 .PHONY : ForwardKinematicsCPU/fast
 
 ForwardKinematics.o: ForwardKinematics.cpp.o
@@ -131,7 +131,7 @@ ForwardKinematics.o: ForwardKinematics.cpp.o
 
 # target to build an object file
 ForwardKinematics.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o
 .PHONY : ForwardKinematics.cpp.o
 
 ForwardKinematics.i: ForwardKinematics.cpp.i
@@ -140,7 +140,7 @@ ForwardKinematics.i: ForwardKinematics.cpp.i
 
 # target to preprocess a source file
 ForwardKinematics.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i
 .PHONY : ForwardKinematics.cpp.i
 
 ForwardKinematics.s: ForwardKinematics.cpp.s
@@ -149,7 +149,7 @@ ForwardKinematics.s: ForwardKinematics.cpp.s
 
 # target to generate assembly for a file
 ForwardKinematics.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s
 .PHONY : ForwardKinematics.cpp.s
 
 ForwardKinematics_data.o: ForwardKinematics_data.cpp.o
@@ -158,7 +158,7 @@ ForwardKinematics_data.o: ForwardKinematics_data.cpp.o
 
 # target to build an object file
 ForwardKinematics_data.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o
 .PHONY : ForwardKinematics_data.cpp.o
 
 ForwardKinematics_data.i: ForwardKinematics_data.cpp.i
@@ -167,7 +167,7 @@ ForwardKinematics_data.i: ForwardKinematics_data.cpp.i
 
 # target to preprocess a source file
 ForwardKinematics_data.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i
 .PHONY : ForwardKinematics_data.cpp.i
 
 ForwardKinematics_data.s: ForwardKinematics_data.cpp.s
@@ -176,7 +176,7 @@ ForwardKinematics_data.s: ForwardKinematics_data.cpp.s
 
 # target to generate assembly for a file
 ForwardKinematics_data.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s
 .PHONY : ForwardKinematics_data.cpp.s
 
 ForwardKinematics_initialize.o: ForwardKinematics_initialize.cpp.o
@@ -185,7 +185,7 @@ ForwardKinematics_initialize.o: ForwardKinematics_initialize.cpp.o
 
 # target to build an object file
 ForwardKinematics_initialize.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o
 .PHONY : ForwardKinematics_initialize.cpp.o
 
 ForwardKinematics_initialize.i: ForwardKinematics_initialize.cpp.i
@@ -194,7 +194,7 @@ ForwardKinematics_initialize.i: ForwardKinematics_initialize.cpp.i
 
 # target to preprocess a source file
 ForwardKinematics_initialize.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i
 .PHONY : ForwardKinematics_initialize.cpp.i
 
 ForwardKinematics_initialize.s: ForwardKinematics_initialize.cpp.s
@@ -203,7 +203,7 @@ ForwardKinematics_initialize.s: ForwardKinematics_initialize.cpp.s
 
 # target to generate assembly for a file
 ForwardKinematics_initialize.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s
 .PHONY : ForwardKinematics_initialize.cpp.s
 
 ForwardKinematics_terminate.o: ForwardKinematics_terminate.cpp.o
@@ -212,7 +212,7 @@ ForwardKinematics_terminate.o: ForwardKinematics_terminate.cpp.o
 
 # target to build an object file
 ForwardKinematics_terminate.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o
 .PHONY : ForwardKinematics_terminate.cpp.o
 
 ForwardKinematics_terminate.i: ForwardKinematics_terminate.cpp.i
@@ -221,7 +221,7 @@ ForwardKinematics_terminate.i: ForwardKinematics_terminate.cpp.i
 
 # target to preprocess a source file
 ForwardKinematics_terminate.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i
 .PHONY : ForwardKinematics_terminate.cpp.i
 
 ForwardKinematics_terminate.s: ForwardKinematics_terminate.cpp.s
@@ -230,7 +230,7 @@ ForwardKinematics_terminate.s: ForwardKinematics_terminate.cpp.s
 
 # target to generate assembly for a file
 ForwardKinematics_terminate.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s
 .PHONY : ForwardKinematics_terminate.cpp.s
 
 # Help Target
@@ -265,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 # Include any dependencies generated for this target.
 include codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/depend.make
@@ -59,16 +59,16 @@ include codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/fla
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/flags.make
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o: ../codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.i
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.s
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics.cpp.o.requires:
 
@@ -83,16 +83,16 @@ codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKine
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/flags.make
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o: ../codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.i
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_data.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.s
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_data.cpp.o.requires:
 
@@ -107,16 +107,16 @@ codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKine
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/flags.make
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o: ../codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.i
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_initialize.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.s
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_initialize.cpp.o.requires:
 
@@ -131,16 +131,16 @@ codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKine
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/flags.make
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o: ../codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp > CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.i
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU/ForwardKinematics_terminate.cpp -o CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.s
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o.requires:
 
@@ -169,9 +169,9 @@ codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a: codegen/lib/ForwardK
 codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/ForwardKinematics_terminate.cpp.o
 codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build.make
 codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a: codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libForwardKinematicsCPU.a"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -P CMakeFiles/ForwardKinematicsCPU.dir/cmake_clean_target.cmake
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ForwardKinematicsCPU.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libForwardKinematicsCPU.a"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -P CMakeFiles/ForwardKinematicsCPU.dir/cmake_clean_target.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ForwardKinematicsCPU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/build: codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a
@@ -186,10 +186,10 @@ codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/requires: c
 .PHONY : codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/requires
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -P CMakeFiles/ForwardKinematicsCPU.dir/cmake_clean.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU && $(CMAKE_COMMAND) -P CMakeFiles/ForwardKinematicsCPU.dir/cmake_clean.cmake
 .PHONY : codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/clean
 
 codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ForwardKinematicsCPU /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/depend
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 imageCapture/CMakeFiles/imageCapture.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/CMakeFiles/imageCapture.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 imageCapture/CMakeFiles/imageCapture.dir/rule
 .PHONY : imageCapture/CMakeFiles/imageCapture.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ imageCapture: imageCapture/CMakeFiles/imageCapture.dir/rule
 
 # fast build rule for target.
 imageCapture/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/build
 .PHONY : imageCapture/fast
 
 imageCapture.o: imageCapture.cpp.o
@@ -131,7 +131,7 @@ imageCapture.o: imageCapture.cpp.o
 
 # target to build an object file
 imageCapture.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o
 .PHONY : imageCapture.cpp.o
 
 imageCapture.i: imageCapture.cpp.i
@@ -140,7 +140,7 @@ imageCapture.i: imageCapture.cpp.i
 
 # target to preprocess a source file
 imageCapture.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.i
 .PHONY : imageCapture.cpp.i
 
 imageCapture.s: imageCapture.cpp.s
@@ -149,7 +149,7 @@ imageCapture.s: imageCapture.cpp.s
 
 # target to generate assembly for a file
 imageCapture.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.s
 .PHONY : imageCapture.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

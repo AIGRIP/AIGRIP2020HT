@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rule
 .PHONY : codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ InverseKinematicsPreshapeCPU: codegen/lib/InverseKinematicsPreshapeCPU/CMakeFile
 
 # fast build rule for target.
 InverseKinematicsPreshapeCPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build
 .PHONY : InverseKinematicsPreshapeCPU/fast
 
 InverseKinematicsPreshape.o: InverseKinematicsPreshape.cpp.o
@@ -131,7 +131,7 @@ InverseKinematicsPreshape.o: InverseKinematicsPreshape.cpp.o
 
 # target to build an object file
 InverseKinematicsPreshape.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.o
 .PHONY : InverseKinematicsPreshape.cpp.o
 
 InverseKinematicsPreshape.i: InverseKinematicsPreshape.cpp.i
@@ -140,7 +140,7 @@ InverseKinematicsPreshape.i: InverseKinematicsPreshape.cpp.i
 
 # target to preprocess a source file
 InverseKinematicsPreshape.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.i
 .PHONY : InverseKinematicsPreshape.cpp.i
 
 InverseKinematicsPreshape.s: InverseKinematicsPreshape.cpp.s
@@ -149,7 +149,7 @@ InverseKinematicsPreshape.s: InverseKinematicsPreshape.cpp.s
 
 # target to generate assembly for a file
 InverseKinematicsPreshape.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape.cpp.s
 .PHONY : InverseKinematicsPreshape.cpp.s
 
 InverseKinematicsPreshape_data.o: InverseKinematicsPreshape_data.cpp.o
@@ -158,7 +158,7 @@ InverseKinematicsPreshape_data.o: InverseKinematicsPreshape_data.cpp.o
 
 # target to build an object file
 InverseKinematicsPreshape_data.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.o
 .PHONY : InverseKinematicsPreshape_data.cpp.o
 
 InverseKinematicsPreshape_data.i: InverseKinematicsPreshape_data.cpp.i
@@ -167,7 +167,7 @@ InverseKinematicsPreshape_data.i: InverseKinematicsPreshape_data.cpp.i
 
 # target to preprocess a source file
 InverseKinematicsPreshape_data.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.i
 .PHONY : InverseKinematicsPreshape_data.cpp.i
 
 InverseKinematicsPreshape_data.s: InverseKinematicsPreshape_data.cpp.s
@@ -176,7 +176,7 @@ InverseKinematicsPreshape_data.s: InverseKinematicsPreshape_data.cpp.s
 
 # target to generate assembly for a file
 InverseKinematicsPreshape_data.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_data.cpp.s
 .PHONY : InverseKinematicsPreshape_data.cpp.s
 
 InverseKinematicsPreshape_initialize.o: InverseKinematicsPreshape_initialize.cpp.o
@@ -185,7 +185,7 @@ InverseKinematicsPreshape_initialize.o: InverseKinematicsPreshape_initialize.cpp
 
 # target to build an object file
 InverseKinematicsPreshape_initialize.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.o
 .PHONY : InverseKinematicsPreshape_initialize.cpp.o
 
 InverseKinematicsPreshape_initialize.i: InverseKinematicsPreshape_initialize.cpp.i
@@ -194,7 +194,7 @@ InverseKinematicsPreshape_initialize.i: InverseKinematicsPreshape_initialize.cpp
 
 # target to preprocess a source file
 InverseKinematicsPreshape_initialize.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.i
 .PHONY : InverseKinematicsPreshape_initialize.cpp.i
 
 InverseKinematicsPreshape_initialize.s: InverseKinematicsPreshape_initialize.cpp.s
@@ -203,7 +203,7 @@ InverseKinematicsPreshape_initialize.s: InverseKinematicsPreshape_initialize.cpp
 
 # target to generate assembly for a file
 InverseKinematicsPreshape_initialize.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_initialize.cpp.s
 .PHONY : InverseKinematicsPreshape_initialize.cpp.s
 
 InverseKinematicsPreshape_terminate.o: InverseKinematicsPreshape_terminate.cpp.o
@@ -212,7 +212,7 @@ InverseKinematicsPreshape_terminate.o: InverseKinematicsPreshape_terminate.cpp.o
 
 # target to build an object file
 InverseKinematicsPreshape_terminate.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.o
 .PHONY : InverseKinematicsPreshape_terminate.cpp.o
 
 InverseKinematicsPreshape_terminate.i: InverseKinematicsPreshape_terminate.cpp.i
@@ -221,7 +221,7 @@ InverseKinematicsPreshape_terminate.i: InverseKinematicsPreshape_terminate.cpp.i
 
 # target to preprocess a source file
 InverseKinematicsPreshape_terminate.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.i
 .PHONY : InverseKinematicsPreshape_terminate.cpp.i
 
 InverseKinematicsPreshape_terminate.s: InverseKinematicsPreshape_terminate.cpp.s
@@ -230,7 +230,7 @@ InverseKinematicsPreshape_terminate.s: InverseKinematicsPreshape_terminate.cpp.s
 
 # target to generate assembly for a file
 InverseKinematicsPreshape_terminate.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/InverseKinematicsPreshape_terminate.cpp.s
 .PHONY : InverseKinematicsPreshape_terminate.cpp.s
 
 rtGetInf.o: rtGetInf.cpp.o
@@ -239,7 +239,7 @@ rtGetInf.o: rtGetInf.cpp.o
 
 # target to build an object file
 rtGetInf.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.o
 .PHONY : rtGetInf.cpp.o
 
 rtGetInf.i: rtGetInf.cpp.i
@@ -248,7 +248,7 @@ rtGetInf.i: rtGetInf.cpp.i
 
 # target to preprocess a source file
 rtGetInf.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.i
 .PHONY : rtGetInf.cpp.i
 
 rtGetInf.s: rtGetInf.cpp.s
@@ -257,7 +257,7 @@ rtGetInf.s: rtGetInf.cpp.s
 
 # target to generate assembly for a file
 rtGetInf.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetInf.cpp.s
 .PHONY : rtGetInf.cpp.s
 
 rtGetNaN.o: rtGetNaN.cpp.o
@@ -266,7 +266,7 @@ rtGetNaN.o: rtGetNaN.cpp.o
 
 # target to build an object file
 rtGetNaN.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.o
 .PHONY : rtGetNaN.cpp.o
 
 rtGetNaN.i: rtGetNaN.cpp.i
@@ -275,7 +275,7 @@ rtGetNaN.i: rtGetNaN.cpp.i
 
 # target to preprocess a source file
 rtGetNaN.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.i
 .PHONY : rtGetNaN.cpp.i
 
 rtGetNaN.s: rtGetNaN.cpp.s
@@ -284,7 +284,7 @@ rtGetNaN.s: rtGetNaN.cpp.s
 
 # target to generate assembly for a file
 rtGetNaN.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rtGetNaN.cpp.s
 .PHONY : rtGetNaN.cpp.s
 
 rt_nonfinite.o: rt_nonfinite.cpp.o
@@ -293,7 +293,7 @@ rt_nonfinite.o: rt_nonfinite.cpp.o
 
 # target to build an object file
 rt_nonfinite.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.o
 .PHONY : rt_nonfinite.cpp.o
 
 rt_nonfinite.i: rt_nonfinite.cpp.i
@@ -302,7 +302,7 @@ rt_nonfinite.i: rt_nonfinite.cpp.i
 
 # target to preprocess a source file
 rt_nonfinite.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.i
 .PHONY : rt_nonfinite.cpp.i
 
 rt_nonfinite.s: rt_nonfinite.cpp.s
@@ -311,7 +311,7 @@ rt_nonfinite.s: rt_nonfinite.cpp.s
 
 # target to generate assembly for a file
 rt_nonfinite.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/build.make codegen/lib/InverseKinematicsPreshapeCPU/CMakeFiles/InverseKinematicsPreshapeCPU.dir/rt_nonfinite.cpp.s
 .PHONY : rt_nonfinite.cpp.s
 
 # Help Target
@@ -355,6 +355,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

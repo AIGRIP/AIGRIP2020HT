@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.c" "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o"
+  "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.c" "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -16,8 +16,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../GeneralTypedefs"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp" "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o"
-  "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp" "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o"
+  "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp" "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o"
+  "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp" "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -30,7 +30,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/DependInfo.cmake"
+  "/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/PointToLineCPU 
+CXX_INCLUDES = -I/usr/local/cuda/include -I/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/PointToLineCPU 
 

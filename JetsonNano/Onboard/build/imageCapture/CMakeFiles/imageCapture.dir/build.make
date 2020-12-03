@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 # Include any dependencies generated for this target.
 include imageCapture/CMakeFiles/imageCapture.dir/depend.make
@@ -59,16 +59,16 @@ include imageCapture/CMakeFiles/imageCapture.dir/flags.make
 
 imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o: imageCapture/CMakeFiles/imageCapture.dir/flags.make
 imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o: ../imageCapture/imageCapture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imageCapture.dir/imageCapture.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture/imageCapture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imageCapture.dir/imageCapture.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture/imageCapture.cpp
 
 imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imageCapture.dir/imageCapture.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture/imageCapture.cpp > CMakeFiles/imageCapture.dir/imageCapture.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture/imageCapture.cpp > CMakeFiles/imageCapture.dir/imageCapture.cpp.i
 
 imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imageCapture.dir/imageCapture.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture/imageCapture.cpp -o CMakeFiles/imageCapture.dir/imageCapture.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture/imageCapture.cpp -o CMakeFiles/imageCapture.dir/imageCapture.cpp.s
 
 imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o.requires:
 
@@ -91,9 +91,9 @@ imageCapture_EXTERNAL_OBJECTS =
 imageCapture/libimageCapture.a: imageCapture/CMakeFiles/imageCapture.dir/imageCapture.cpp.o
 imageCapture/libimageCapture.a: imageCapture/CMakeFiles/imageCapture.dir/build.make
 imageCapture/libimageCapture.a: imageCapture/CMakeFiles/imageCapture.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libimageCapture.a"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -P CMakeFiles/imageCapture.dir/cmake_clean_target.cmake
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imageCapture.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libimageCapture.a"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -P CMakeFiles/imageCapture.dir/cmake_clean_target.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imageCapture.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 imageCapture/CMakeFiles/imageCapture.dir/build: imageCapture/libimageCapture.a
@@ -105,10 +105,10 @@ imageCapture/CMakeFiles/imageCapture.dir/requires: imageCapture/CMakeFiles/image
 .PHONY : imageCapture/CMakeFiles/imageCapture.dir/requires
 
 imageCapture/CMakeFiles/imageCapture.dir/clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -P CMakeFiles/imageCapture.dir/cmake_clean.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture && $(CMAKE_COMMAND) -P CMakeFiles/imageCapture.dir/cmake_clean.cmake
 .PHONY : imageCapture/CMakeFiles/imageCapture.dir/clean
 
 imageCapture/CMakeFiles/imageCapture.dir/depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/imageCapture /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/imageCapture /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : imageCapture/CMakeFiles/imageCapture.dir/depend
 

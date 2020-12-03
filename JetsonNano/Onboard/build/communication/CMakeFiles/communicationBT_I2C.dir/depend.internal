@@ -3,15 +3,15 @@
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o
  ../GeneralTypedefs/typedefsGripperNano.h
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.c
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.h
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.c
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.h
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o
  ../GeneralTypedefs/typedefsGripperNano.h
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.h
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.h
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.h
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.h
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.h
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o
  ../GeneralTypedefs/typedefsGripperNano.h
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp
- /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.h
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp
+ /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.h

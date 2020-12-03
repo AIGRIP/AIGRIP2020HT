@@ -10,11 +10,11 @@ ${CUDA_NVCC_FLAGS};
 )
 
 # For CUDA program include all the c++ and CUDA files for the MATLAB converted library.
-file(GLOB cu *.c *.cpp)
+file(GLOB cu *.c *.cpp *.h)
 
 
 # Create a library and choose the name (linking name) for the library.
-CUDA_ADD_LIBRARY(MorphologicalFiltersCPU STATIC ${cu})
+CUDA_ADD_LIBRARY(MorphologicalFiltersCPU SHARED ${cu})
 
 # Make library public.
 target_compile_features(MorphologicalFiltersCPU PUBLIC cxx_std_11)

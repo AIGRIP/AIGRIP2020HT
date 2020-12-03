@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 # Include any dependencies generated for this target.
 include codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/depend.make
@@ -59,16 +59,16 @@ include codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.d
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/flags.make
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o: ../codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.i
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.s
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2.cpp.o.requires:
 
@@ -83,16 +83,16 @@ codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/Paral
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/flags.make
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o: ../codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.i
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_data.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.s
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_data.cpp.o.requires:
 
@@ -107,16 +107,16 @@ codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/Paral
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/flags.make
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o: ../codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.i
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_initialize.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.s
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_initialize.cpp.o.requires:
 
@@ -131,16 +131,16 @@ codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/Paral
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/flags.make
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o: ../codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp > CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.i
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU/ParallelMotorAnglet2_terminate.cpp -o CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.s
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o.requires:
 
@@ -169,9 +169,9 @@ codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a: codegen/lib/Pa
 codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/ParallelMotorAnglet2_terminate.cpp.o
 codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build.make
 codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a: codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libParallelMotorAnglet2CPU.a"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -P CMakeFiles/ParallelMotorAnglet2CPU.dir/cmake_clean_target.cmake
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ParallelMotorAnglet2CPU.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libParallelMotorAnglet2CPU.a"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -P CMakeFiles/ParallelMotorAnglet2CPU.dir/cmake_clean_target.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ParallelMotorAnglet2CPU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/build: codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a
@@ -186,10 +186,10 @@ codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/requi
 .PHONY : codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/requires
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -P CMakeFiles/ParallelMotorAnglet2CPU.dir/cmake_clean.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU && $(CMAKE_COMMAND) -P CMakeFiles/ParallelMotorAnglet2CPU.dir/cmake_clean.cmake
 .PHONY : codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/clean
 
 codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/codegen/lib/ParallelMotorAnglet2CPU /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : codegen/lib/ParallelMotorAnglet2CPU/CMakeFiles/ParallelMotorAnglet2CPU.dir/depend
 

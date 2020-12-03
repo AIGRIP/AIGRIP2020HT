@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/codegen/lib/ApproachObjectCPU/CMakeFiles/progress.marks
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/codegen/lib/ApproachObjectCPU/CMakeFiles/progress.marks
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/clean
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/preinstall
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/rule:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/rule
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f CMakeFiles/Makefile2 codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/rule
 .PHONY : codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ ApproachObjectCPU: codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.di
 
 # fast build rule for target.
 ApproachObjectCPU/fast:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build
 .PHONY : ApproachObjectCPU/fast
 
 ApproachObject.o: ApproachObject.cpp.o
@@ -131,7 +131,7 @@ ApproachObject.o: ApproachObject.cpp.o
 
 # target to build an object file
 ApproachObject.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.o
 .PHONY : ApproachObject.cpp.o
 
 ApproachObject.i: ApproachObject.cpp.i
@@ -140,7 +140,7 @@ ApproachObject.i: ApproachObject.cpp.i
 
 # target to preprocess a source file
 ApproachObject.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.i
 .PHONY : ApproachObject.cpp.i
 
 ApproachObject.s: ApproachObject.cpp.s
@@ -149,7 +149,7 @@ ApproachObject.s: ApproachObject.cpp.s
 
 # target to generate assembly for a file
 ApproachObject.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.s
 .PHONY : ApproachObject.cpp.s
 
 ApproachObject_data.o: ApproachObject_data.cpp.o
@@ -158,7 +158,7 @@ ApproachObject_data.o: ApproachObject_data.cpp.o
 
 # target to build an object file
 ApproachObject_data.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.o
 .PHONY : ApproachObject_data.cpp.o
 
 ApproachObject_data.i: ApproachObject_data.cpp.i
@@ -167,7 +167,7 @@ ApproachObject_data.i: ApproachObject_data.cpp.i
 
 # target to preprocess a source file
 ApproachObject_data.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.i
 .PHONY : ApproachObject_data.cpp.i
 
 ApproachObject_data.s: ApproachObject_data.cpp.s
@@ -176,7 +176,7 @@ ApproachObject_data.s: ApproachObject_data.cpp.s
 
 # target to generate assembly for a file
 ApproachObject_data.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.s
 .PHONY : ApproachObject_data.cpp.s
 
 ApproachObject_initialize.o: ApproachObject_initialize.cpp.o
@@ -185,7 +185,7 @@ ApproachObject_initialize.o: ApproachObject_initialize.cpp.o
 
 # target to build an object file
 ApproachObject_initialize.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.o
 .PHONY : ApproachObject_initialize.cpp.o
 
 ApproachObject_initialize.i: ApproachObject_initialize.cpp.i
@@ -194,7 +194,7 @@ ApproachObject_initialize.i: ApproachObject_initialize.cpp.i
 
 # target to preprocess a source file
 ApproachObject_initialize.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.i
 .PHONY : ApproachObject_initialize.cpp.i
 
 ApproachObject_initialize.s: ApproachObject_initialize.cpp.s
@@ -203,7 +203,7 @@ ApproachObject_initialize.s: ApproachObject_initialize.cpp.s
 
 # target to generate assembly for a file
 ApproachObject_initialize.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.s
 .PHONY : ApproachObject_initialize.cpp.s
 
 ApproachObject_terminate.o: ApproachObject_terminate.cpp.o
@@ -212,7 +212,7 @@ ApproachObject_terminate.o: ApproachObject_terminate.cpp.o
 
 # target to build an object file
 ApproachObject_terminate.cpp.o:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.o
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.o
 .PHONY : ApproachObject_terminate.cpp.o
 
 ApproachObject_terminate.i: ApproachObject_terminate.cpp.i
@@ -221,7 +221,7 @@ ApproachObject_terminate.i: ApproachObject_terminate.cpp.i
 
 # target to preprocess a source file
 ApproachObject_terminate.cpp.i:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.i
 .PHONY : ApproachObject_terminate.cpp.i
 
 ApproachObject_terminate.s: ApproachObject_terminate.cpp.s
@@ -230,7 +230,7 @@ ApproachObject_terminate.s: ApproachObject_terminate.cpp.s
 
 # target to generate assembly for a file
 ApproachObject_terminate.cpp.s:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.s
 .PHONY : ApproachObject_terminate.cpp.s
 
 # Help Target
@@ -265,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

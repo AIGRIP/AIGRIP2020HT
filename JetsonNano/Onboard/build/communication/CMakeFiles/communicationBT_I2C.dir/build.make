@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard
+CMAKE_SOURCE_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build
+CMAKE_BINARY_DIR = /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build
 
 # Include any dependencies generated for this target.
 include communication/CMakeFiles/communicationBT_I2C.dir/depend.make
@@ -59,16 +59,16 @@ include communication/CMakeFiles/communicationBT_I2C.dir/flags.make
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o: communication/CMakeFiles/communicationBT_I2C.dir/flags.make
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o: ../communication/communicationBLT.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o   -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o   -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.c
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.c > CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.c > CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.i
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationBLT.c -o CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationBLT.c -o CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.s
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o.requires:
 
@@ -83,16 +83,16 @@ communication/CMakeFiles/communicationBT_I2C.dir/communicationBLT.c.o.provides.b
 
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o: communication/CMakeFiles/communicationBT_I2C.dir/flags.make
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o: ../communication/communication.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communication.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communication.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp
 
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/communicationBT_I2C.dir/communication.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp > CMakeFiles/communicationBT_I2C.dir/communication.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp > CMakeFiles/communicationBT_I2C.dir/communication.cpp.i
 
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/communicationBT_I2C.dir/communication.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communication.cpp -o CMakeFiles/communicationBT_I2C.dir/communication.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communication.cpp -o CMakeFiles/communicationBT_I2C.dir/communication.cpp.s
 
 communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o.requires:
 
@@ -107,16 +107,16 @@ communication/CMakeFiles/communicationBT_I2C.dir/communication.cpp.o.provides.bu
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o: communication/CMakeFiles/communicationBT_I2C.dir/flags.make
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o: ../communication/communicationI2C.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o -c /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o -c /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.i"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp > CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.i
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp > CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.i
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.s"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication/communicationI2C.cpp -o CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.s
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication/communicationI2C.cpp -o CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.s
 
 communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o.requires:
 
@@ -143,9 +143,9 @@ communication/libcommunicationBT_I2C.a: communication/CMakeFiles/communicationBT
 communication/libcommunicationBT_I2C.a: communication/CMakeFiles/communicationBT_I2C.dir/communicationI2C.cpp.o
 communication/libcommunicationBT_I2C.a: communication/CMakeFiles/communicationBT_I2C.dir/build.make
 communication/libcommunicationBT_I2C.a: communication/CMakeFiles/communicationBT_I2C.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libcommunicationBT_I2C.a"
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -P CMakeFiles/communicationBT_I2C.dir/cmake_clean_target.cmake
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/communicationBT_I2C.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libcommunicationBT_I2C.a"
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -P CMakeFiles/communicationBT_I2C.dir/cmake_clean_target.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/communicationBT_I2C.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 communication/CMakeFiles/communicationBT_I2C.dir/build: communication/libcommunicationBT_I2C.a
@@ -159,10 +159,10 @@ communication/CMakeFiles/communicationBT_I2C.dir/requires: communication/CMakeFi
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/requires
 
 communication/CMakeFiles/communicationBT_I2C.dir/clean:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -P CMakeFiles/communicationBT_I2C.dir/cmake_clean.cmake
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication && $(CMAKE_COMMAND) -P CMakeFiles/communicationBT_I2C.dir/cmake_clean.cmake
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/clean
 
 communication/CMakeFiles/communicationBT_I2C.dir/depend:
-	cd /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/communication /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication /home/aigrip/Documents/A2.1.1/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/communication /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication /home/aigrip/Documents/controlMainNano/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : communication/CMakeFiles/communicationBT_I2C.dir/depend
 
