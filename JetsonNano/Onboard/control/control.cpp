@@ -1,4 +1,6 @@
 
+#include "control.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -8,9 +10,7 @@
 #include "imageCapture.h"
 #include "ParallelMotorAnglet2.h"
 #include "InverseKinematicsPreshape.h"
-#include "communication.h"
 #include "ApproachObject.h"
-#include "PointToLine.h"
 
 // Main function for communication.
 void* controlThread(void* arg)
@@ -38,6 +38,8 @@ void* controlThread(void* arg)
                 colourBalance(outputImg, colourBalancedImage);
                 colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
                 morphologicalFilters( binIm1,(double) round(height/2),(double) round(width/2) ,binIm2 ); 
+
+                MorphologicalFilters(const bool colourSegmentationMask[728160],double centerOfObjectX, double centerOfObjectY, bool segmentationMask[728160]);
                 //signature
                 //stable line
                 //Recive current distance to obejct
