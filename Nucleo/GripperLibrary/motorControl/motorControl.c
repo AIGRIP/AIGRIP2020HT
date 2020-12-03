@@ -295,7 +295,7 @@ void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions 
 		{
 			// controlCommand : 1 indicates start command
 			case 1:
-				motors->gripperState = GRIPPER_SLIPNOT;
+				motors->gripperState = GRIPPER_START;
 				break;
 			// controlCommand : 2 indicates stop command
 			case 2:
