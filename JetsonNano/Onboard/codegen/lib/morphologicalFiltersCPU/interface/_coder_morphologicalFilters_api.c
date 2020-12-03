@@ -2,15 +2,15 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_morphologicalFilters_api.c
+ * File: _coder_MorphologicalFilters_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 05-Nov-2020 08:33:11
+ * C/C++ source code generated on  : 02-Dec-2020 13:31:29
  */
 
 /* Include Files */
-#include "_coder_morphologicalFilters_api.h"
-#include "_coder_morphologicalFilters_mex.h"
+#include "_coder_MorphologicalFilters_api.h"
+#include "_coder_MorphologicalFilters_mex.h"
 
 /* Variable Definitions */
 emlrtCTX emlrtRootTLSGlobal = NULL;
@@ -18,7 +18,7 @@ emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
   false,                               /* bInitialized */
   131595U,                             /* fVersionInfo */
   NULL,                                /* fErrorFunction */
-  "morphologicalFilters",              /* fFunctionName */
+  "MorphologicalFilters",              /* fFunctionName */
   NULL,                                /* fRTCallStack */
   false,                               /* bDebugMode */
   { 2045744189U, 2170104910U, 2743257031U, 4284093946U },/* fSigWrd */
@@ -167,7 +167,7 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
  *                const mxArray *plhs[1]
  * Return Type  : void
  */
-void morphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
+void MorphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
   plhs[1])
 {
   emlrtStack st = { NULL,              /* site */
@@ -191,7 +191,7 @@ void morphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
     "centerOfObjectY");
 
   /* Invoke the target function */
-  morphologicalFilters(*colourSegmentationMask, centerOfObjectX, centerOfObjectY,
+  MorphologicalFilters(*colourSegmentationMask, centerOfObjectX, centerOfObjectY,
                        *segmentationMask);
 
   /* Marshall function outputs */
@@ -202,7 +202,7 @@ void morphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
  * Arguments    : void
  * Return Type  : void
  */
-void morphologicalFilters_atexit(void)
+void MorphologicalFilters_atexit(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -214,8 +214,8 @@ void morphologicalFilters_atexit(void)
   emlrtEnterRtStackR2012b(&st);
   emlrtLeaveRtStackR2012b(&st);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
-  morphologicalFilters_xil_terminate();
-  morphologicalFilters_xil_shutdown();
+  MorphologicalFilters_xil_terminate();
+  MorphologicalFilters_xil_shutdown();
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
@@ -223,7 +223,7 @@ void morphologicalFilters_atexit(void)
  * Arguments    : void
  * Return Type  : void
  */
-void morphologicalFilters_initialize(void)
+void MorphologicalFilters_initialize(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -241,7 +241,7 @@ void morphologicalFilters_initialize(void)
  * Arguments    : void
  * Return Type  : void
  */
-void morphologicalFilters_terminate(void)
+void MorphologicalFilters_terminate(void)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -254,7 +254,7 @@ void morphologicalFilters_terminate(void)
 }
 
 /*
- * File trailer for _coder_morphologicalFilters_api.c
+ * File trailer for _coder_MorphologicalFilters_api.c
  *
  * [EOF]
  */

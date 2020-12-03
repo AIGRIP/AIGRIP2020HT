@@ -5,13 +5,14 @@
 // File: minOrMax.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 05-Nov-2020 08:33:11
+// C/C++ source code generated on  : 02-Dec-2020 13:31:29
 //
 #ifndef MINORMAX_H
 #define MINORMAX_H
 
 // Include Files
 #include "rtwtypes.h"
+#include "coder_array.h"
 #include "omp.h"
 #include <cstddef>
 #include <cstdlib>
@@ -22,6 +23,8 @@ namespace coder
   namespace internal
   {
     unsigned char maximum(const unsigned char x_data[], const int x_size[1]);
+    double minimum(const ::coder::array<double, 1U> &x);
+    double minimum(const double x[10]);
   }
 }
 

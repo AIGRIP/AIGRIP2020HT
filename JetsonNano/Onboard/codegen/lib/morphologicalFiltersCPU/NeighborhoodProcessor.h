@@ -5,7 +5,7 @@
 // File: NeighborhoodProcessor.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 05-Nov-2020 08:33:11
+// C/C++ source code generated on  : 02-Dec-2020 13:31:29
 //
 #ifndef NEIGHBORHOODPROCESSOR_H
 #define NEIGHBORHOODPROCESSOR_H
@@ -31,14 +31,21 @@ namespace coder
           static void computeParameters(const int imSize[2], const bool nhConn[9],
             int loffsets[5], int linds[5], int soffsets[10], double
             interiorStart[2], int interiorEnd[2]);
+          static void b_computeParameters(const int imSize[2], const bool
+            nhConn[9], int loffsets[9], int linds[9], int soffsets[18], double
+            interiorStart[2], int interiorEnd[2]);
+          void process2D(const bool in[728160], bool out[728160]) const;
           bool Neighborhood[9];
           int ImageSize[2];
-          int ImageNeighborLinearOffsets[5];
+          double InteriorStart[2];
+          int InteriorEnd[2];
+          int ImageNeighborLinearOffsets[9];
           double Padding;
+          double PadValue;
+          bool ProcessBorder;
           double NeighborhoodCenter;
-         private:
-          int NeighborLinearIndices[5];
-          int NeighborSubscriptOffsets[10];
+          int NeighborLinearIndices[9];
+          int NeighborSubscriptOffsets[18];
         };
       }
     }

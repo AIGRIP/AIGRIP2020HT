@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 05-Nov-2020 08:33:11
+// C/C++ source code generated on  : 02-Dec-2020 13:31:29
 //
 
 //***********************************************************************
@@ -35,15 +35,15 @@
 
 // Include Files
 #include "main.h"
-#include "morphologicalFilters.h"
-#include "morphologicalFilters_terminate.h"
+#include "MorphologicalFilters.h"
+#include "MorphologicalFilters_terminate.h"
 #include "rt_nonfinite.h"
 
 // Function Declarations
 static void argInit_984x740_boolean_T(bool result[728160]);
 static bool argInit_boolean_T();
 static double argInit_real_T();
-static void main_morphologicalFilters();
+static void main_MorphologicalFilters();
 
 // Function Definitions
 //
@@ -84,19 +84,19 @@ static double argInit_real_T()
 // Arguments    : void
 // Return Type  : void
 //
-static void main_morphologicalFilters()
+static void main_MorphologicalFilters()
 {
   static bool bv[728160];
   static bool segmentationMask[728160];
   double centerOfObjectX_tmp;
 
-  // Initialize function 'morphologicalFilters' input arguments.
+  // Initialize function 'MorphologicalFilters' input arguments.
   // Initialize function input argument 'colourSegmentationMask'.
   centerOfObjectX_tmp = argInit_real_T();
 
-  // Call the entry-point 'morphologicalFilters'.
+  // Call the entry-point 'MorphologicalFilters'.
   argInit_984x740_boolean_T(bv);
-  morphologicalFilters(bv, centerOfObjectX_tmp, centerOfObjectX_tmp,
+  MorphologicalFilters(bv, centerOfObjectX_tmp, centerOfObjectX_tmp,
                        segmentationMask);
 }
 
@@ -110,11 +110,11 @@ int main(int, const char * const [])
   // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
   // Invoke the entry-point functions.
   // You can call entry-point functions multiple times.
-  main_morphologicalFilters();
+  main_MorphologicalFilters();
 
   // Terminate the application.
   // You do not need to do this more than one time.
-  morphologicalFilters_terminate();
+  MorphologicalFilters_terminate();
   return 0;
 }
 
