@@ -1,4 +1,4 @@
-function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
+function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum ,offset)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -20,6 +20,8 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     %fingerNum = number to determine what finger is getting calculated. 
     %The number is between 0-2. 0 is for the stationary finger and 
     %then the sequense countines clockwise  
+    
+    %offset = distance the motor should move back. offset is in mm
     
     %Output:
     %motorAngles = 1X3 array with three motor angles one for each motor in a
@@ -68,18 +70,36 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
 
     %Turn all negative values to positive
     motorAngles(1) = abs(motorAngles(1));
+    
+    
 
     %Calculate the distance from motor M1 to the desired position 
     distanceX = desiredPosition(1) - motorPositionM1(1);
     distanceY = desiredPosition(2) - motorPositionM1(2);
     distance = sqrt( distanceX^2 + distanceY^2 );
-
+        forwardLeaning = 1;
+     if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM1)
+        forwardLeaning = 0;
+        distance = distance + offset;
+     else
+         distance = distance - offset;
+         if distance < 0
+            forwardLeaning = 0;
+            distance = abs(distance);
+         end
+     end 
     %Calculate the angle of motor M1 to reach the desired position
     motorAngles(2) = acos(distance / linkLengths(3));
     %Check if the desired point is closer to the center than the motor M0
     %position
-    if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM1)
+    if forwardLeaning == 0
         motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
+    end
+    
+    if motorAngles(2) > deg2rad(120)
+        motorAngles(2) = deg2rad(120);
+    elseif motorAngles(2) < deg2rad(34)
+        motorAngles(2) = deg2rad(34);
     end
 
     %Calculate the angle of motor M2 so that link e is parallel

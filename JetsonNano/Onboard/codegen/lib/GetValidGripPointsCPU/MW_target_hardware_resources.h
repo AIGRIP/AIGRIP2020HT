@@ -3,6 +3,7 @@
 #ifndef __MW_TARGET_HARDWARE_RESOURCES_H__
 #define __MW_TARGET_HARDWARE_RESOURCES_H__
 
+#include "MW_nvidia_init.h"
 
 
 #endif /* __MW_TARGET_HARDWARE_RESOURCES_H__ */

@@ -1,21 +1,18 @@
 //
-//  Academic License - for use in teaching, academic research, and meeting
-//  course requirements at degree granting institutions only.  Not for
-//  government, commercial, or other organizational use.
-//  File: rtGetNaN.h
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
+// File: rtGetNaN.h
 //
-//  MATLAB Coder version            : 5.0
-//  C/C++ source code generated on  : 02-Dec-2020 13:40:33
-
-
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
+//
 #ifndef RTGETNAN_H
 #define RTGETNAN_H
+
+// Include Files
 #include "rtwtypes.h"
-#include "rt_nonfinite.h"
-#ifndef __cplusplus
-#include <stddef.h>
-#else
-#include <cstddef>
+#ifdef __cplusplus
 
 extern "C" {
 
@@ -31,7 +28,7 @@ extern "C" {
 #endif
 
 //
-//  File trailer for rtGetNaN.h
+// File trailer for rtGetNaN.h
 //
-//  [EOF]
-
+// [EOF]
+//

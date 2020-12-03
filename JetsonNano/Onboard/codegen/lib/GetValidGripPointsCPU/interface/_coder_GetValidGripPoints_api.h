@@ -4,40 +4,48 @@
  * government, commercial, or other organizational use.
  * File: _coder_GetValidGripPoints_api.h
  *
- * MATLAB Coder version            : 5.0
- * C/C++ source code generated on  : 02-Dec-2020 13:40:33
+ * MATLAB Coder version            : 5.1
+ * C/C++ source code generated on  : 03-Dec-2020 12:39:31
  */
 
 #ifndef _CODER_GETVALIDGRIPPOINTS_API_H
 #define _CODER_GETVALIDGRIPPOINTS_API_H
 
 /* Include Files */
-#include <stddef.h>
-#include <stdlib.h>
-#include "tmwtypes.h"
-#include "mex.h"
 #include "emlrt.h"
+#include "tmwtypes.h"
+#include <string.h>
 
 /* Variable Declarations */
 extern emlrtCTX emlrtRootTLSGlobal;
 extern emlrtContext emlrtContextGlobal;
 
-/* Function Declarations */
-extern void GetValidGripPoints(real_T targetPointYPixel_data[], int32_T
-  targetPointYPixel_size[1], real_T targetPointXPixel_data[], int32_T
-  targetPointXPixel_size[1], real_T normalPointYPixel_data[], int32_T
-  normalPointYPixel_size[1], real_T normalPointXPixel_data[], int32_T
-  normalPointXPixel_size[1], real_T distanceToObject, real_T fingerNumber,
-  uint16_T motorSteps[3], real_T *bestTargetPointY, real_T *bestTargetPointX,
-  real_T *bestNormalPointY, real_T *bestNormalPointX);
-extern void GetValidGripPoints_api(const mxArray * const prhs[6], int32_T nlhs,
-  const mxArray *plhs[5]);
-extern void GetValidGripPoints_atexit(void);
-extern void GetValidGripPoints_initialize(void);
-extern void GetValidGripPoints_terminate(void);
-extern void GetValidGripPoints_xil_shutdown(void);
-extern void GetValidGripPoints_xil_terminate(void);
+#ifdef __cplusplus
 
+extern "C" {
+
+#endif
+
+  /* Function Declarations */
+  void GetValidGripPoints(real_T targetPointYPixel_data[], int32_T
+    targetPointYPixel_size[1], real_T targetPointXPixel_data[], int32_T
+    targetPointXPixel_size[1], real_T normalPointYPixel_data[], int32_T
+    normalPointYPixel_size[1], real_T normalPointXPixel_data[], int32_T
+    normalPointXPixel_size[1], real_T distanceToObject, real_T fingerNumber,
+    real_T offset, uint16_T motorSteps[3], real_T *bestTargetPointY, real_T
+    *bestTargetPointX, real_T *bestNormalPointY, real_T *bestNormalPointX);
+  void GetValidGripPoints_api(const mxArray * const prhs[7], int32_T nlhs, const
+    mxArray *plhs[5]);
+  void GetValidGripPoints_atexit(void);
+  void GetValidGripPoints_initialize(void);
+  void GetValidGripPoints_terminate(void);
+  void GetValidGripPoints_xil_shutdown(void);
+  void GetValidGripPoints_xil_terminate(void);
+
+#ifdef __cplusplus
+
+}
+#endif
 #endif
 
 /*

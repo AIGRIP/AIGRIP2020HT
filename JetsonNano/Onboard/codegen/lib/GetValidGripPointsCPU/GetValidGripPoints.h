@@ -4,17 +4,16 @@
 // government, commercial, or other organizational use.
 // File: GetValidGripPoints.h
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 13:40:33
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
 //
 #ifndef GETVALIDGRIPPOINTS_H
 #define GETVALIDGRIPPOINTS_H
 
 // Include Files
+#include "rtwtypes.h"
 #include <cstddef>
 #include <cstdlib>
-#include "rtwtypes.h"
-#include "GetValidGripPoints_types.h"
 
 // Function Declarations
 extern void GetValidGripPoints(const double targetPointYPixel_data[], const int
@@ -22,8 +21,8 @@ extern void GetValidGripPoints(const double targetPointYPixel_data[], const int
   targetPointXPixel_size[1], const double normalPointYPixel_data[], const int
   normalPointYPixel_size[1], const double normalPointXPixel_data[], const int
   normalPointXPixel_size[1], double distanceToObject, double fingerNumber,
-  unsigned short motorSteps[3], double *bestTargetPointY, double
-  *bestTargetPointX, double *bestNormalPointY, double *bestNormalPointX);
+  double offset, unsigned short motorSteps[3], double *bestTargetPointY, double *
+  bestTargetPointX, double *bestNormalPointY, double *bestNormalPointX);
 
 #endif
 

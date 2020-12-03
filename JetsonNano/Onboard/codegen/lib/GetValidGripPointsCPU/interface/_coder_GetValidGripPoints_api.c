@@ -4,8 +4,8 @@
  * government, commercial, or other organizational use.
  * File: _coder_GetValidGripPoints_api.c
  *
- * MATLAB Coder version            : 5.0
- * C/C++ source code generated on  : 02-Dec-2020 13:40:33
+ * MATLAB Coder version            : 5.1
+ * C/C++ source code generated on  : 03-Dec-2020 12:39:31
  */
 
 /* Include Files */
@@ -16,7 +16,7 @@
 emlrtCTX emlrtRootTLSGlobal = NULL;
 emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
   false,                               /* bInitialized */
-  131594U,                             /* fVersionInfo */
+  131595U,                             /* fVersionInfo */
   NULL,                                /* fErrorFunction */
   "GetValidGripPoints",                /* fFunctionName */
   NULL,                                /* fRTCallStack */
@@ -43,7 +43,6 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 
 /* Function Definitions */
-
 /*
  * Arguments    : const emlrtStack *sp
  *                const mxArray *u
@@ -65,8 +64,8 @@ static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
  */
 static const mxArray *b_emlrt_marshallOut(const real_T u)
 {
-  const mxArray *y;
   const mxArray *m;
+  const mxArray *y;
   y = NULL;
   m = emlrtCreateDoubleScalar(u);
   emlrtAssign(&y, m);
@@ -82,9 +81,9 @@ static const mxArray *b_emlrt_marshallOut(const real_T u)
 static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *distanceToObject, const char_T *identifier)
 {
-  real_T y;
   emlrtMsgIdentifier thisId;
-  thisId.fIdentifier = (const char *)identifier;
+  real_T y;
+  thisId.fIdentifier = (const char_T *)identifier;
   thisId.fParent = NULL;
   thisId.bParentIsCell = false;
   y = d_emlrt_marshallIn(sp, emlrtAlias(distanceToObject), &thisId);
@@ -120,9 +119,9 @@ static void e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
 {
   static const int32_T dims[1] = { 11 };
 
+  int32_T iv[1];
   const boolean_T bv[1] = { true };
 
-  int32_T iv[1];
   emlrtCheckVsBuiltInR2012b(sp, msgId, src, "double", false, 1U, dims, &bv[0],
     iv);
   ret_size[0] = iv[0];
@@ -143,10 +142,12 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray
   [1])
 {
   emlrtMsgIdentifier thisId;
-  thisId.fIdentifier = (const char *)identifier;
+  real_T *r;
+  thisId.fIdentifier = (const char_T *)identifier;
   thisId.fParent = NULL;
   thisId.bParentIsCell = false;
-  b_emlrt_marshallIn(sp, emlrtAlias(targetPointYPixel), &thisId, y_data, y_size);
+  b_emlrt_marshallIn(sp, emlrtAlias(targetPointYPixel), &thisId, &r, y_size);
+  *y_data = r;
   emlrtDestroyArray(&targetPointYPixel);
 }
 
@@ -156,16 +157,16 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray
  */
 static const mxArray *emlrt_marshallOut(const uint16_T u[3])
 {
-  const mxArray *y;
-  const mxArray *m;
   static const int32_T iv[2] = { 0, 0 };
 
   static const int32_T iv1[2] = { 1, 3 };
 
+  const mxArray *m;
+  const mxArray *y;
   y = NULL;
   m = emlrtCreateNumericArray(2, &iv[0], mxUINT16_CLASS, mxREAL);
   emlrtMxSetData((mxArray *)m, (void *)&u[0]);
-  emlrtSetDimensions((mxArray *)m, *(int32_T (*)[2])&iv1[0], 2);
+  emlrtSetDimensions((mxArray *)m, iv1, 2);
   emlrtAssign(&y, m);
   return y;
 }
@@ -179,8 +180,8 @@ static const mxArray *emlrt_marshallOut(const uint16_T u[3])
 static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId)
 {
-  real_T ret;
   static const int32_T dims = 0;
+  real_T ret;
   emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 0U, &dims);
   ret = *(real_T *)emlrtMxGetData(src);
   emlrtDestroyArray(&src);
@@ -188,34 +189,35 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
 }
 
 /*
- * Arguments    : const mxArray * const prhs[6]
+ * Arguments    : const mxArray * const prhs[7]
  *                int32_T nlhs
  *                const mxArray *plhs[5]
  * Return Type  : void
  */
-void GetValidGripPoints_api(const mxArray * const prhs[6], int32_T nlhs, const
+void GetValidGripPoints_api(const mxArray * const prhs[7], int32_T nlhs, const
   mxArray *plhs[5])
 {
-  uint16_T (*motorSteps)[3];
-  real_T (*targetPointYPixel_data)[11];
-  int32_T targetPointYPixel_size[1];
-  real_T (*targetPointXPixel_data)[11];
-  int32_T targetPointXPixel_size[1];
-  real_T (*normalPointYPixel_data)[11];
-  int32_T normalPointYPixel_size[1];
-  real_T (*normalPointXPixel_data)[11];
-  int32_T normalPointXPixel_size[1];
-  real_T distanceToObject;
-  real_T fingerNumber;
-  real_T bestTargetPointY;
-  real_T bestTargetPointX;
-  real_T bestNormalPointY;
-  real_T bestNormalPointX;
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
     NULL                               /* prev */
   };
 
+  real_T (*normalPointXPixel_data)[11];
+  real_T (*normalPointYPixel_data)[11];
+  real_T (*targetPointXPixel_data)[11];
+  real_T (*targetPointYPixel_data)[11];
+  real_T bestNormalPointX;
+  real_T bestNormalPointY;
+  real_T bestTargetPointX;
+  real_T bestTargetPointY;
+  real_T distanceToObject;
+  real_T fingerNumber;
+  real_T offset;
+  int32_T normalPointXPixel_size[1];
+  int32_T normalPointYPixel_size[1];
+  int32_T targetPointXPixel_size[1];
+  int32_T targetPointYPixel_size[1];
+  uint16_T (*motorSteps)[3];
   st.tls = emlrtRootTLSGlobal;
   motorSteps = (uint16_T (*)[3])mxMalloc(sizeof(uint16_T [3]));
 
@@ -231,13 +233,14 @@ void GetValidGripPoints_api(const mxArray * const prhs[6], int32_T nlhs, const
   distanceToObject = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[4]),
     "distanceToObject");
   fingerNumber = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[5]), "fingerNumber");
+  offset = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[6]), "offset");
 
   /* Invoke the target function */
   GetValidGripPoints(*targetPointYPixel_data, targetPointYPixel_size,
                      *targetPointXPixel_data, targetPointXPixel_size,
                      *normalPointYPixel_data, normalPointYPixel_size,
                      *normalPointXPixel_data, normalPointXPixel_size,
-                     distanceToObject, fingerNumber, *motorSteps,
+                     distanceToObject, fingerNumber, offset, *motorSteps,
                      &bestTargetPointY, &bestTargetPointX, &bestNormalPointY,
                      &bestNormalPointX);
 

@@ -4,26 +4,21 @@
 // government, commercial, or other organizational use.
 // File: GetValidGripPoints_initialize.cpp
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 13:40:33
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
 //
 
 // Include Files
 #include "GetValidGripPoints_initialize.h"
-#include "GetValidGripPoints.h"
-#include "GetValidGripPoints_data.h"
 #include "rt_nonfinite.h"
 
 // Function Definitions
-
 //
 // Arguments    : void
 // Return Type  : void
 //
 void GetValidGripPoints_initialize()
 {
-  rt_InitInfAndNaN();
-  isInitialized_GetValidGripPoints = true;
 }
 
 //

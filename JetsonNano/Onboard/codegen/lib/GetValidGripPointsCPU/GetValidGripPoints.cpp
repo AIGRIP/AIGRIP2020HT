@@ -4,14 +4,12 @@
 // government, commercial, or other organizational use.
 // File: GetValidGripPoints.cpp
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 13:40:33
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
 //
 
 // Include Files
 #include "GetValidGripPoints.h"
-#include "GetValidGripPoints_data.h"
-#include "GetValidGripPoints_initialize.h"
 #include "InverseKinematicsPreshape.h"
 #include "cosd.h"
 #include "rt_nonfinite.h"
@@ -19,11 +17,11 @@
 #include <cstring>
 
 // Function Definitions
-
 //
 // getValidGripPoints checks if the target points is possible for the gripper
 // to grasp correctly. Consider to the mouse sensor and the workspace of the
-// gripper.
+// gripper. It return motor values for the current finger and the best target
+// point and its normal.
 //    targetPointYPixel   - Is the desired point for the gripper to grasp in
 //    y direction.
 //    targetPointXPixel   - Is the desired point for the gripper to grasp in
@@ -34,6 +32,7 @@
 //    fingerNumber        - Is the finger of the gripper. Finger 0 is the
 //                            thumb. Finger 1 is the "first finger". Finger 2
 //                            is the "long finger".
+//    offset              - distance the motor should move back. offset is in mm
 //    motorSteps          - Returns the position for the motors.
 //    bestTargetPointY    - Returns the best point in Y-direction.
 //    bestTargetPointX    - Returns the best point in X-direction.
@@ -49,6 +48,7 @@
 //                const int normalPointXPixel_size[1]
 //                double distanceToObject
 //                double fingerNumber
+//                double offset
 //                unsigned short motorSteps[3]
 //                double *bestTargetPointY
 //                double *bestTargetPointX
@@ -61,40 +61,38 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
   targetPointXPixel_size[1], const double normalPointYPixel_data[], const int
   normalPointYPixel_size[1], const double normalPointXPixel_data[], const int
   normalPointXPixel_size[1], double distanceToObject, double fingerNumber,
-  unsigned short motorSteps[3], double *bestTargetPointY, double
-  *bestTargetPointX, double *bestNormalPointY, double *bestNormalPointX)
+  double offset, unsigned short motorSteps[3], double *bestTargetPointY, double *
+  bestTargetPointX, double *bestNormalPointY, double *bestNormalPointX)
 {
-  double b;
-  int targetPointX_size_idx_0;
-  int loop_ub;
-  int i;
-  double targetPointX_data[11];
-  int targetPointY_size_idx_0;
-  double targetPointY_data[11];
+  double distanceTargetPointToSignularityPoint_data[11];
   double normalPointX_data[11];
   double normalPointY_data[11];
-  bool guard1 = false;
-  bool guard2 = false;
-  int YdistanceTosingularity;
-  int c_pointsInRightQuadrant_size_id;
-  bool pointsInRightQuadrant_data[11];
-  double b_b[2];
-  double normalPointX[2];
   double pointsInRightRange_data[11];
-  double c_distanceTargetPointToSignular[11];
+  double targetPointX_data[11];
+  double targetPointY_data[11];
   double y_data[11];
-  bool tmp_data[11];
-  bool x_data[11];
+  double b[2];
+  double normalPointX[2];
+  double b_y;
+  double d;
+  double scale;
+  int YdistanceTosingularity;
+  int i;
+  int loop_ub;
   int nz;
+  int pointsInRightQuadrant_size_idx_0;
+  int targetPointX_size_idx_0;
+  int targetPointY_size_idx_0;
   int y;
   signed char b_tmp_data[11];
   signed char c_tmp_data[11];
   signed char d_tmp_data[11];
   signed char e_tmp_data[11];
-  double b_y;
-  if (!isInitialized_GetValidGripPoints) {
-    GetValidGripPoints_initialize();
-  }
+  bool pointsInRightQuadrant_data[11];
+  bool tmp_data[11];
+  bool x_data[11];
+  bool guard1 = false;
+  bool guard2 = false;
 
   //  Define the links of the gripper fingers.
   //  Convert to pixelcoordinates to real cordinates.
@@ -112,13 +110,13 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
   // edgePointsmm = edgePointsPixel converted to mm
   //  Focal length in pixels
   // Calculate the width of the object in pixels
-  b = distanceToObject * 0.001358695652173913;
+  scale = distanceToObject * 0.001358695652173913;
 
   // Convert the points from pixels to mm
   targetPointX_size_idx_0 = targetPointYPixel_size[0];
   loop_ub = targetPointYPixel_size[0];
   for (i = 0; i < loop_ub; i++) {
-    targetPointX_data[i] = -(targetPointYPixel_data[i] * b);
+    targetPointX_data[i] = -(targetPointYPixel_data[i] * scale);
   }
 
   // This function will calculate the length of one pixel of an object.
@@ -133,13 +131,11 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
   // edgePointsmm = edgePointsPixel converted to mm
   //  Focal length in pixels
   // Calculate the width of the object in pixels
-  b = distanceToObject * 0.001358695652173913;
-
   // Convert the points from pixels to mm
   targetPointY_size_idx_0 = targetPointXPixel_size[0];
   loop_ub = targetPointXPixel_size[0];
   for (i = 0; i < loop_ub; i++) {
-    targetPointY_data[i] = targetPointXPixel_data[i] * b;
+    targetPointY_data[i] = targetPointXPixel_data[i] * scale;
   }
 
   // This function will calculate the length of one pixel of an object.
@@ -154,12 +150,10 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
   // edgePointsmm = edgePointsPixel converted to mm
   //  Focal length in pixels
   // Calculate the width of the object in pixels
-  b = distanceToObject * 0.001358695652173913;
-
   // Convert the points from pixels to mm
   loop_ub = normalPointYPixel_size[0];
   for (i = 0; i < loop_ub; i++) {
-    normalPointX_data[i] = -(normalPointYPixel_data[i] * b);
+    normalPointX_data[i] = -(normalPointYPixel_data[i] * scale);
   }
 
   // This function will calculate the length of one pixel of an object.
@@ -174,12 +168,10 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
   // edgePointsmm = edgePointsPixel converted to mm
   //  Focal length in pixels
   // Calculate the width of the object in pixels
-  b = distanceToObject * 0.001358695652173913;
-
   // Convert the points from pixels to mm
   loop_ub = normalPointXPixel_size[0];
   for (i = 0; i < loop_ub; i++) {
-    normalPointY_data[i] = normalPointXPixel_data[i] * b;
+    normalPointY_data[i] = normalPointXPixel_data[i] * scale;
   }
 
   //  Check if target points is reachable for grippers pre-shape.
@@ -193,11 +185,12 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     YdistanceTosingularity = 36;
 
     //  Check if finger 1 is within its workspace.
-    c_pointsInRightQuadrant_size_id = targetPointYPixel_size[0];
+    pointsInRightQuadrant_size_idx_0 = targetPointYPixel_size[0];
     for (i = 0; i < targetPointX_size_idx_0; i++) {
-      pointsInRightQuadrant_data[i] = (((targetPointX_data[i] <= -23.0) &&
-        (targetPointY_data[i] >= 36.0)) || ((targetPointX_data[i] >= -23.0) &&
-        (targetPointY_data[i] <= 36.0)));
+      d = targetPointX_data[i];
+      scale = targetPointY_data[i];
+      pointsInRightQuadrant_data[i] = (((d <= -23.0) && (scale >= 36.0)) || ((d >=
+        -23.0) && (scale <= 36.0)));
     }
 
     //  Set motor to default poistion if there is no valid target point.
@@ -212,11 +205,12 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     YdistanceTosingularity = -36;
 
     //  Check if finger 2 is within its workspace.
-    c_pointsInRightQuadrant_size_id = targetPointYPixel_size[0];
+    pointsInRightQuadrant_size_idx_0 = targetPointYPixel_size[0];
     for (i = 0; i < targetPointX_size_idx_0; i++) {
-      pointsInRightQuadrant_data[i] = (((targetPointX_data[i] >= -23.0) &&
-        (targetPointY_data[i] >= -36.0)) || ((targetPointX_data[i] <= -23.0) &&
-        (targetPointY_data[i] <= -36.0)));
+      d = targetPointX_data[i];
+      scale = targetPointY_data[i];
+      pointsInRightQuadrant_data[i] = (((d >= -23.0) && (scale >= -36.0)) || ((d
+        <= -23.0) && (scale <= -36.0)));
     }
 
     //  Set motor to default poistion if there is no valid target point.
@@ -228,22 +222,23 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     guard1 = true;
   } else {
     //  Check if the target point is reachable.
-    b = 34.0;
-    b_cosd(&b);
-    if (64.0 - (60.0 * b + 11.0) < targetPointX_data[0]) {
-      b = 60.0;
-      b_cosd(&b);
-      if ((targetPointX_data[0] < (60.0 * b - 11.0) + 64.0) &&
+    d = 34.0;
+    coder::b_cosd(&d);
+    if (64.0 - (60.0 * d + 11.0) < targetPointX_data[0]) {
+      d = 60.0;
+      coder::b_cosd(&d);
+      if ((targetPointX_data[0] < (60.0 * d - 11.0) + 64.0) &&
           (57.295779513082323 * std::atan(std::abs(normalPointY_data[0]) / std::
             abs(targetPointX_data[0] - normalPointX_data[0])) < 60.0)) {
         //  Check if the angle between surface and finger surface. If it
         //  is less then 60 degrees it is a valid point to grasp with
         //  finger 0.
-        b_b[0] = targetPointX_data[0];
-        b_b[1] = 0.0;
+        b[0] = targetPointX_data[0];
+        b[1] = 0.0;
         normalPointX[0] = normalPointX_data[0];
         normalPointX[1] = normalPointY_data[0];
-        InverseKinematicsPreshape(b_b, normalPointX, fingerNumber, motorSteps);
+        InverseKinematicsPreshape(b, normalPointX, fingerNumber, offset,
+          motorSteps);
 
         //  Return the coordinate for the finger 0 to grip.
         *bestTargetPointY = targetPointY_data[0];
@@ -267,11 +262,11 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     *bestNormalPointX = 0.0;
 
     //  If there was no valid target point.
-    b_b[0] = 83.0;
+    b[0] = 83.0;
     normalPointX[0] = 0.0;
-    b_b[1] = 0.0;
+    b[1] = 0.0;
     normalPointX[1] = 0.0;
-    InverseKinematicsPreshape(b_b, normalPointX, fingerNumber, motorSteps);
+    InverseKinematicsPreshape(b, normalPointX, fingerNumber, offset, motorSteps);
   }
 
   if (guard1) {
@@ -284,8 +279,8 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (loop_ub = 0; loop_ub < targetPointX_size_idx_0; loop_ub++) {
-      c_distanceTargetPointToSignular[loop_ub] = pointsInRightRange_data[loop_ub]
-        * pointsInRightRange_data[loop_ub];
+      d = pointsInRightRange_data[loop_ub];
+      distanceTargetPointToSignularityPoint_data[loop_ub] = d * d;
     }
 
     for (i = 0; i < targetPointY_size_idx_0; i++) {
@@ -294,17 +289,17 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (loop_ub = 0; loop_ub < targetPointY_size_idx_0; loop_ub++) {
-      y_data[loop_ub] = pointsInRightRange_data[loop_ub] *
-        pointsInRightRange_data[loop_ub];
+      d = pointsInRightRange_data[loop_ub];
+      y_data[loop_ub] = d * d;
     }
 
     for (i = 0; i < targetPointX_size_idx_0; i++) {
-      c_distanceTargetPointToSignular[i] += y_data[i];
+      distanceTargetPointToSignularityPoint_data[i] += y_data[i];
     }
 
     for (loop_ub = 0; loop_ub < targetPointX_size_idx_0; loop_ub++) {
-      c_distanceTargetPointToSignular[loop_ub] = std::sqrt
-        (c_distanceTargetPointToSignular[loop_ub]);
+      distanceTargetPointToSignularityPoint_data[loop_ub] = std::sqrt
+        (distanceTargetPointToSignularityPoint_data[loop_ub]);
     }
 
     //  Allocate space to indicate point within range.
@@ -317,10 +312,11 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     for (i = 0; i < targetPointX_size_idx_0; i++) {
       //  Check witch side of the singluaraity the point is in.
       if (targetPointX_data[i] > -23.0) {
-        pointsInRightRange_data[i] = (c_distanceTargetPointToSignular[i] <
-          22.7422543533025);
+        pointsInRightRange_data[i] =
+          (distanceTargetPointToSignularityPoint_data[i] < 22.7422543533025);
       } else {
-        pointsInRightRange_data[i] = (c_distanceTargetPointToSignular[i] < 57.0);
+        pointsInRightRange_data[i] =
+          (distanceTargetPointToSignularityPoint_data[i] < 57.0);
       }
     }
 
@@ -330,21 +326,23 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     //  Get the amount of valid positions.
-    for (i = 0; i < c_pointsInRightQuadrant_size_id; i++) {
+    for (i = 0; i < pointsInRightQuadrant_size_idx_0; i++) {
       x_data[i] = (pointsInRightQuadrant_data[i] && tmp_data[i]);
     }
 
-    if (c_pointsInRightQuadrant_size_id == 0) {
+    if (pointsInRightQuadrant_size_idx_0 == 0) {
       nz = -1;
       y = 0;
     } else {
       nz = x_data[0] - 1;
-      for (loop_ub = 2; loop_ub <= c_pointsInRightQuadrant_size_id; loop_ub++) {
+      for (loop_ub = 2; loop_ub <= pointsInRightQuadrant_size_idx_0; loop_ub++)
+      {
         nz += x_data[loop_ub - 1];
       }
 
       y = x_data[0];
-      for (loop_ub = 2; loop_ub <= c_pointsInRightQuadrant_size_id; loop_ub++) {
+      for (loop_ub = 2; loop_ub <= pointsInRightQuadrant_size_idx_0; loop_ub++)
+      {
         y += x_data[loop_ub - 1];
       }
     }
@@ -356,7 +354,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
       loop_ub = nz + 1;
     }
 
-    targetPointY_size_idx_0 = c_pointsInRightQuadrant_size_id - 1;
+    targetPointY_size_idx_0 = pointsInRightQuadrant_size_idx_0 - 1;
     targetPointX_size_idx_0 = 0;
     for (i = 0; i <= targetPointY_size_idx_0; i++) {
       if (pointsInRightQuadrant_data[i] && tmp_data[i]) {
@@ -366,12 +364,14 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (i = 0; i < loop_ub; i++) {
-      c_distanceTargetPointToSignular[i] = targetPointY_data[b_tmp_data[i] - 1];
+      distanceTargetPointToSignularityPoint_data[i] =
+        targetPointY_data[b_tmp_data[i] - 1];
     }
 
     if (0 <= loop_ub - 1) {
-      std::memcpy(&targetPointY_data[0], &c_distanceTargetPointToSignular[0],
-                  loop_ub * sizeof(double));
+      std::memcpy(&targetPointY_data[0],
+                  &distanceTargetPointToSignularityPoint_data[0], loop_ub *
+                  sizeof(double));
     }
 
     if (1 > y) {
@@ -380,7 +380,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
       loop_ub = nz + 1;
     }
 
-    targetPointY_size_idx_0 = c_pointsInRightQuadrant_size_id - 1;
+    targetPointY_size_idx_0 = pointsInRightQuadrant_size_idx_0 - 1;
     targetPointX_size_idx_0 = 0;
     for (i = 0; i <= targetPointY_size_idx_0; i++) {
       if (pointsInRightQuadrant_data[i] && tmp_data[i]) {
@@ -390,12 +390,14 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (i = 0; i < loop_ub; i++) {
-      c_distanceTargetPointToSignular[i] = targetPointX_data[c_tmp_data[i] - 1];
+      distanceTargetPointToSignularityPoint_data[i] =
+        targetPointX_data[c_tmp_data[i] - 1];
     }
 
     if (0 <= loop_ub - 1) {
-      std::memcpy(&targetPointX_data[0], &c_distanceTargetPointToSignular[0],
-                  loop_ub * sizeof(double));
+      std::memcpy(&targetPointX_data[0],
+                  &distanceTargetPointToSignularityPoint_data[0], loop_ub *
+                  sizeof(double));
     }
 
     if (1 > y) {
@@ -404,7 +406,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
       loop_ub = nz + 1;
     }
 
-    targetPointY_size_idx_0 = c_pointsInRightQuadrant_size_id - 1;
+    targetPointY_size_idx_0 = pointsInRightQuadrant_size_idx_0 - 1;
     targetPointX_size_idx_0 = 0;
     for (i = 0; i <= targetPointY_size_idx_0; i++) {
       if (pointsInRightQuadrant_data[i] && tmp_data[i]) {
@@ -414,12 +416,14 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (i = 0; i < loop_ub; i++) {
-      c_distanceTargetPointToSignular[i] = normalPointY_data[d_tmp_data[i] - 1];
+      distanceTargetPointToSignularityPoint_data[i] =
+        normalPointY_data[d_tmp_data[i] - 1];
     }
 
     if (0 <= loop_ub - 1) {
-      std::memcpy(&normalPointY_data[0], &c_distanceTargetPointToSignular[0],
-                  loop_ub * sizeof(double));
+      std::memcpy(&normalPointY_data[0],
+                  &distanceTargetPointToSignularityPoint_data[0], loop_ub *
+                  sizeof(double));
     }
 
     if (1 > y) {
@@ -428,7 +432,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
       loop_ub = nz + 1;
     }
 
-    targetPointY_size_idx_0 = c_pointsInRightQuadrant_size_id - 1;
+    targetPointY_size_idx_0 = pointsInRightQuadrant_size_idx_0 - 1;
     targetPointX_size_idx_0 = 0;
     for (i = 0; i <= targetPointY_size_idx_0; i++) {
       if (pointsInRightQuadrant_data[i] && tmp_data[i]) {
@@ -438,12 +442,14 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     for (i = 0; i < loop_ub; i++) {
-      c_distanceTargetPointToSignular[i] = normalPointX_data[e_tmp_data[i] - 1];
+      distanceTargetPointToSignularityPoint_data[i] =
+        normalPointX_data[e_tmp_data[i] - 1];
     }
 
     if (0 <= loop_ub - 1) {
-      std::memcpy(&normalPointX_data[0], &c_distanceTargetPointToSignular[0],
-                  loop_ub * sizeof(double));
+      std::memcpy(&normalPointX_data[0],
+                  &distanceTargetPointToSignularityPoint_data[0], loop_ub *
+                  sizeof(double));
     }
 
     if (0 < nz + 1) {
@@ -491,16 +497,15 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
         }
 
         if (b_guard1) {
-          double scale;
           double absxk;
           double t;
 
           // Calculate the distances from the normals to the singularity point.
           // Pick the first distance in the list that is lower than the error margin 
           scale = 3.3121686421112381E-170;
-          b = normalPointX_data[i] - targetPointX_data[i];
-          b_b[0] = b * static_cast<double>(YdistanceTosingularity);
-          absxk = std::abs(b);
+          d = normalPointX_data[i] - targetPointX_data[i];
+          b[0] = d * static_cast<double>(YdistanceTosingularity);
+          absxk = std::abs(d);
           if (absxk > 3.3121686421112381E-170) {
             b_y = 1.0;
             scale = absxk;
@@ -509,8 +514,8 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
             b_y = t * t;
           }
 
-          b = normalPointY_data[i] - targetPointY_data[i];
-          absxk = std::abs(b);
+          d = normalPointY_data[i] - targetPointY_data[i];
+          absxk = std::abs(d);
           if (absxk > scale) {
             t = scale / absxk;
             b_y = b_y * t * t + 1.0;
@@ -521,7 +526,7 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
           }
 
           b_y = scale * std::sqrt(b_y);
-          if (std::abs(((b * -23.0 - b_b[0]) + normalPointX_data[i] *
+          if (std::abs(((d * -23.0 - b[0]) + normalPointX_data[i] *
                         targetPointY_data[i]) - normalPointY_data[i] *
                        targetPointX_data[i]) / b_y < 6.0) {
             //  Set the return value.
@@ -538,11 +543,11 @@ void GetValidGripPoints(const double targetPointYPixel_data[], const int
     }
 
     //  Return the motor steps for the current.
-    b_b[0] = *bestTargetPointX;
-    b_b[1] = *bestTargetPointY;
+    b[0] = *bestTargetPointX;
+    b[1] = *bestTargetPointY;
     normalPointX[0] = *bestNormalPointX;
     normalPointX[1] = *bestNormalPointY;
-    InverseKinematicsPreshape(b_b, normalPointX, fingerNumber, motorSteps);
+    InverseKinematicsPreshape(b, normalPointX, fingerNumber, offset, motorSteps);
   }
 }
 

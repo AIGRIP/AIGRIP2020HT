@@ -4,21 +4,16 @@
 // government, commercial, or other organizational use.
 // File: GetValidGripPoints_data.h
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 13:40:33
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
 //
 #ifndef GETVALIDGRIPPOINTS_DATA_H
 #define GETVALIDGRIPPOINTS_DATA_H
 
 // Include Files
+#include "rtwtypes.h"
 #include <cstddef>
 #include <cstdlib>
-#include "rtwtypes.h"
-#include "GetValidGripPoints_types.h"
-
-// Variable Declarations
-extern bool isInitialized_GetValidGripPoints;
-
 #endif
 
 //

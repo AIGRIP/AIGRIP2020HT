@@ -1,18 +1,20 @@
 //
-//  Academic License - for use in teaching, academic research, and meeting
-//  course requirements at degree granting institutions only.  Not for
-//  government, commercial, or other organizational use.
-//  File: rtGetInf.cpp
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
+// File: rtGetInf.cpp
 //
-//  MATLAB Coder version            : 5.0
-//  C/C++ source code generated on  : 02-Dec-2020 13:40:33
-
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
+//
 
 //
 //  Abstract:
 //        MATLAB for code generation function to initialize non-finite, Inf and MinusInf
 
+// Include Files
 #include "rtGetInf.h"
+#include "rt_nonfinite.h"
 
 // Function: rtGetInf ==================================================================
 //  Abstract:
@@ -51,7 +53,7 @@ real32_T rtGetMinusInfF(void)
 }
 
 //
-//  File trailer for rtGetInf.cpp
+// File trailer for rtGetInf.cpp
 //
-//  [EOF]
-
+// [EOF]
+//
