@@ -4,8 +4,8 @@
 // government, commercial, or other organizational use.
 // File: main.cpp
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 02-Dec-2020 13:40:33
+// MATLAB Coder version            : 5.1
+// C/C++ source code generated on  : 03-Dec-2020 12:39:31
 //
 
 //***********************************************************************
@@ -45,7 +45,6 @@ static double argInit_real_T();
 static void main_GetValidGripPoints();
 
 // Function Definitions
-
 //
 // Arguments    : double result_data[]
 //                int result_size[1]
@@ -80,20 +79,20 @@ static double argInit_real_T()
 //
 static void main_GetValidGripPoints()
 {
-  double targetPointYPixel_data[11];
-  int targetPointYPixel_size[1];
-  double targetPointXPixel_data[11];
-  int targetPointXPixel_size[1];
-  double normalPointYPixel_data[11];
-  int normalPointYPixel_size[1];
   double normalPointXPixel_data[11];
-  int normalPointXPixel_size[1];
-  double distanceToObject_tmp;
-  unsigned short motorSteps[3];
-  double bestTargetPointY;
-  double bestTargetPointX;
-  double bestNormalPointY;
+  double normalPointYPixel_data[11];
+  double targetPointXPixel_data[11];
+  double targetPointYPixel_data[11];
   double bestNormalPointX;
+  double bestNormalPointY;
+  double bestTargetPointX;
+  double bestTargetPointY;
+  double distanceToObject_tmp;
+  int normalPointXPixel_size[1];
+  int normalPointYPixel_size[1];
+  int targetPointXPixel_size[1];
+  int targetPointYPixel_size[1];
+  unsigned short motorSteps[3];
 
   // Initialize function 'GetValidGripPoints' input arguments.
   // Initialize function input argument 'targetPointYPixel'.
@@ -114,9 +113,9 @@ static void main_GetValidGripPoints()
                      targetPointXPixel_data, targetPointXPixel_size,
                      normalPointYPixel_data, normalPointYPixel_size,
                      normalPointXPixel_data, normalPointXPixel_size,
-                     distanceToObject_tmp, distanceToObject_tmp, motorSteps,
-                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY,
-                     &bestNormalPointX);
+                     distanceToObject_tmp, distanceToObject_tmp,
+                     distanceToObject_tmp, motorSteps, &bestTargetPointY,
+                     &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 }
 
 //

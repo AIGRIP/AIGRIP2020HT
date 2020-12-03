@@ -24,7 +24,7 @@
 // Main function for communication.
 void* controlThread(void* arg)
 {
-    int width = 740, height = 984;
+    int width = 740, height = 984, offset = 10;
     bool binIm1[728160];
     bool binIm2[728160];
     unsigned char outputImg[2184480];
@@ -149,7 +149,7 @@ void* controlThread(void* arg)
                     &targetPointF0X, &nrTargetPointsFinger[0],
                     &normalPointF0Y, &nrTargetPointsFinger[0],
                     &normalPointF0X, &nrTargetPointsFinger[0],
-                    distanceToObject, 0, motorSteps,
+                    distanceToObject, 0, offset, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
@@ -160,7 +160,7 @@ void* controlThread(void* arg)
                     targetPointF1X, &nrTargetPointsFinger[1],
                     normalPointF1Y, &nrTargetPointsFinger[1],
                     normalPointF1X, &nrTargetPointsFinger[1],
-                    distanceToObject, 1, motorSteps,
+                    distanceToObject, 1, offset, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
@@ -171,7 +171,7 @@ void* controlThread(void* arg)
                     targetPointF2X, &nrTargetPointsFinger[2],
                     normalPointF2Y, &nrTargetPointsFinger[2],
                     normalPointF2X, &nrTargetPointsFinger[2],
-                    distanceToObject, 2, motorSteps,
+                    distanceToObject, 2, offset, motorSteps,
                     &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
                 printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);

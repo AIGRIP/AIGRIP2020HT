@@ -4,8 +4,8 @@
  * government, commercial, or other organizational use.
  * File: _coder_GetValidGripPoints_info.h
  *
- * MATLAB Coder version            : 5.0
- * C/C++ source code generated on  : 02-Dec-2020 13:40:33
+ * MATLAB Coder version            : 5.1
+ * C/C++ source code generated on  : 03-Dec-2020 12:39:31
  */
 
 #ifndef _CODER_GETVALIDGRIPPOINTS_INFO_H
@@ -13,10 +13,19 @@
 
 /* Include Files */
 #include "mex.h"
+#ifdef __cplusplus
 
-/* Function Declarations */
-MEXFUNCTION_LINKAGE mxArray *emlrtMexFcnProperties(void);
+extern "C" {
 
+#endif
+
+  /* Function Declarations */
+  MEXFUNCTION_LINKAGE mxArray *emlrtMexFcnProperties(void);
+
+#ifdef __cplusplus
+
+}
+#endif
 #endif
 
 /*

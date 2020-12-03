@@ -1,5 +1,5 @@
 function [motorSteps, bestTargetPointY, bestTargetPointX,bestNormalPointY,bestNormalPointX] = ...
-GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalPointXPixel,distanceToObject,fingerNumber)
+GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalPointXPixel,distanceToObject,fingerNumber,offset)
 %getValidGripPoints checks if the target points is possible for the gripper
 %to grasp correctly. Consider to the mouse sensor and the workspace of the
 %gripper. It return motor values for the current finger and the best target
@@ -14,6 +14,7 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
 %   fingerNumber        - Is the finger of the gripper. Finger 0 is the
 %                           thumb. Finger 1 is the "first finger". Finger 2
 %                           is the "long finger".
+%   offset              - distance the motor should move back. offset is in mm
 %   motorSteps          - Returns the position for the motors.
 %   bestTargetPointY    - Returns the best point in Y-direction.
 %   bestTargetPointX    - Returns the best point in X-direction.
@@ -85,7 +86,7 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
             if atand(abs(normalPointY(1))/abs(targetPointX(1)-normalPointX(1))) < 60
 
                 motorSteps = InverseKinematicsPreshape(linkLengths, ... 
-                    [targetPointX(1),0], [normalPointX(1),normalPointY(1)], fingerNumber);
+                    [targetPointX(1),0], [normalPointX(1),normalPointY(1)], fingerNumber,offset);
                 % Return the coordinate for the finger 0 to grip.
                 bestTargetPointY = targetPointY(1);
                 bestTargetPointX = targetPointX(1);
@@ -103,7 +104,7 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
         bestNormalPointX = 0;
         % If there was no valid target point.
         motorSteps = InverseKinematicsPreshape(linkLengths, ... 
-            [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber);
+            [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber,offset);
         return
     end
     
@@ -162,6 +163,6 @@ GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalP
 
     % Return the motor steps for the current.
     motorSteps = InverseKinematicsPreshape(linkLengths, ... 
-        [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber);
+        [bestTargetPointX,bestTargetPointY], [bestNormalPointX,bestNormalPointY], fingerNumber,offset);
 end
 

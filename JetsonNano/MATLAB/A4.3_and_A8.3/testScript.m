@@ -18,6 +18,7 @@ imagePixelColumns = size(originalImage,2);
 centerOfObjectX = round( imagePixelRows/2 );
 centerOfObjectY = round( imagePixelColumns/2 );
 
+offset = 10;
 
 % colourBalancedImage = colourBalance(originalImage);
 % 
@@ -88,16 +89,16 @@ axis([-600,600,-600,600]);
 
 % Get valid points
 [motorStepF1,BestPointF1Y,BestPointF1X,BestNormalF1Y,BestNormalF1X] = ...
-GetValidGripPoints(targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X,distanceToObject,1);
+GetValidGripPoints(targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X,distanceToObject,1,offset);
 
 % Get valid points
 [motorStepF2,BestPointF2Y,BestPointF2X,BestNormalF2Y,BestNormalF2X] = ...
-GetValidGripPoints(targetPointF2Y,targetPointF2X, normalPointF2Y,normalPointF2X,distanceToObject,2);
+GetValidGripPoints(targetPointF2Y,targetPointF2X, normalPointF2Y,normalPointF2X,distanceToObject,2,offset);
 
 
 % Get valid points
 [motorStepF0,BestPointF0Y,BestPointF0X,BestNormalF0Y,BestNormalF0X] = ...
-GetValidGripPoints(targetPointF0Y,targetPointF0X, normalPointF0Y,normalPointF0X,distanceToObject,0);
+GetValidGripPoints(targetPointF0Y,targetPointF0X, normalPointF0Y,normalPointF0X,distanceToObject,0,offset);
 
 figure(4)
 
