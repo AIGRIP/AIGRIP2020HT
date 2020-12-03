@@ -20,9 +20,9 @@ if PointToLine([-23,36], desiredPosition, desiredAngle) == 1
 
     [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, desiredAngle,1)
 
-    motorAnglesDegree = motorAngles * (300/65535) 
+    motorAnglesDegree = motorAngles * (300/65535);
 
-    motorAngles = motorAngles * (1023/65535) 
+    motorAngles = motorAngles * (1023/65535);
 end
 % % 
 % % % [jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
