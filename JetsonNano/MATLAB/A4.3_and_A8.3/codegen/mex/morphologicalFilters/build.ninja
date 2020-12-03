@@ -1,0 +1,62 @@
+# CompilerName=mingw64
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/win64
+matlabdir = C:/Program Files/MATLAB/R2020b
+startdir = C:/Users/SW Team Leader/Documents/GitHub/AIGRIP2020HT/JetsonNano/MATLAB/A4.3_and_A8.3
+
+# Toolchain information
+cc = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\gcc
+cxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\g++
+linker = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\gcc
+linkerxx = C:\ProgramData\MATLAB\SupportPackages\R2020b\3P.instrset\mingw_w64.instrset\bin\g++
+
+cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3\codegen\mex\MorphologicalFilters" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3\codegen\mex\MorphologicalFilters\interface" -I "." -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1  
+
+cxxflags =  -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3\codegen\mex\MorphologicalFilters" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3" -I "C:\Program Files\MATLAB\R2020b\extern\include" -I "C:\Users\SW Team Leader\Documents\GitHub\AIGRIP2020HT\JetsonNano\MATLAB\A4.3_and_A8.3\codegen\mex\MorphologicalFilters\interface" -I "." -DMODEL=MorphologicalFilters_mex -D__USE_MINGW_ANSI_STDIO=1  
+
+ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2020b\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -o "MorphologicalFilters_mex.mexw64" -llibemlrt -llibcovrt -llibut -llibmwmathutil  "$matlabdir\extern\lib\win64\mingw64\libmwbwlookup_tbb.lib" "$matlabdir\extern\lib\win64\mingw64\libmwbwpackctbb.lib" "$matlabdir\extern\lib\win64\mingw64\libmwbwunpackctbb.lib" "$matlabdir\extern\lib\win64\mingw64\libmwmorphop_binary_tbb.lib" "$matlabdir\extern\lib\win64\mingw64\libmwmorphop_packed.lib" "$matlabdir\extern\lib\win64\mingw64\libmwippreconstruct.lib" -Wl,--version-script,MorphologicalFilters_mex.map
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir/MorphologicalFilters_data.o : cc $root/MorphologicalFilters_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/MorphologicalFilters_initialize.o : cc $root/MorphologicalFilters_initialize.c
+build $builddir/MorphologicalFilters_terminate.o : cc $root/MorphologicalFilters_terminate.c
+build $builddir/MorphologicalFilters.o : cc $root/MorphologicalFilters.c
+build $builddir/imfill.o : cc $root/imfill.c
+build $builddir/eml_int_forloop_overflow_check.o : cc $root/eml_int_forloop_overflow_check.c
+build $builddir/regionprops.o : cc $root/regionprops.c
+build $builddir/bwconncomp.o : cc $root/bwconncomp.c
+build $builddir/assertValidSizeArg.o : cc $root/assertValidSizeArg.c
+build $builddir/horzcatStructList.o : cc $root/horzcatStructList.c
+build $builddir/sum.o : cc $root/sum.c
+build $builddir/imerode.o : cc $root/imerode.c
+build $builddir/imdilate.o : cc $root/imdilate.c
+build $builddir/MorphologicalEdgeFilter.o : cc $root/MorphologicalEdgeFilter.c
+build $builddir/_coder_MorphologicalFilters_api.o : cc $root/interface/_coder_MorphologicalFilters_api.c
+build $builddir/_coder_MorphologicalFilters_mex.o : cc $root/interface/_coder_MorphologicalFilters_mex.c
+build $builddir/useConstantDim.o : cc $root/useConstantDim.c
+build $builddir/MorphologicalFilters_emxutil.o : cc $root/MorphologicalFilters_emxutil.c
+build $builddir/_coder_MorphologicalFilters_info.o : cc $root/interface/_coder_MorphologicalFilters_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root\MorphologicalFilters_mex.mexw64 : link $builddir/MorphologicalFilters_data.o $builddir/rt_nonfinite.o $builddir/MorphologicalFilters_initialize.o $builddir/MorphologicalFilters_terminate.o $builddir/MorphologicalFilters.o $builddir/imfill.o $builddir/eml_int_forloop_overflow_check.o $builddir/regionprops.o $builddir/bwconncomp.o $builddir/assertValidSizeArg.o $builddir/horzcatStructList.o $builddir/sum.o $builddir/imerode.o $builddir/imdilate.o $builddir/MorphologicalEdgeFilter.o $builddir/_coder_MorphologicalFilters_api.o $builddir/_coder_MorphologicalFilters_mex.o $builddir/useConstantDim.o $builddir/MorphologicalFilters_emxutil.o $builddir/_coder_MorphologicalFilters_info.o $builddir/c_mexapi_version.o 
