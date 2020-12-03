@@ -2,7 +2,8 @@ function [motorSteps, bestTargetPointY, bestTargetPointX,bestNormalPointY,bestNo
 GetValidGripPoints(targetPointYPixel,targetPointXPixel,normalPointYPixel,normalPointXPixel,distanceToObject,fingerNumber)
 %getValidGripPoints checks if the target points is possible for the gripper
 %to grasp correctly. Consider to the mouse sensor and the workspace of the
-%gripper. 
+%gripper. It return motor values for the current finger and the best target
+%point and its normal.
 %   targetPointYPixel   - Is the desired point for the gripper to grasp in
 %   y direction.
 %   targetPointXPixel   - Is the desired point for the gripper to grasp in

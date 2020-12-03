@@ -2,7 +2,9 @@ function [targetPointF1Y,targetPointF1X, normalPointF1Y,normalPointF1X, ...
     targetPointF2Y, targetPointF2X, normalPointF2Y,normalPointF2X,targetPointF0Y,targetPointF0X,normalPointF0Y,normalPointF0X, ... 
     signatureRadiusTargetF1,signatureRadiusTargetF2] = ...
     StableLine(degreesMeasured,YCoordinates,XCoordinates,signatureRadius)
-%stableLine finds the required orientaions for the gripper to grasp an object.
+%stableLine finds the required orientaions for the gripper to grasp an
+%object. And set priority of the gripper points based on the signature. It
+%calcculate target point and normal for all of the fingers.
 %   degreesMeasured - Containes the angles for each measurement point.
 %   YCoordinates    - Containes the cartesean Y-coordinate for each angle.
 %                   It has the same indexes as degreesMeasured.
