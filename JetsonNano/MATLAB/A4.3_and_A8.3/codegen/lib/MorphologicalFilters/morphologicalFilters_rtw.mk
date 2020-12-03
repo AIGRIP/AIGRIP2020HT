@@ -2,7 +2,7 @@
 ## Makefile generated for component 'MorphologicalFilters'. 
 ## 
 ## Makefile     : MorphologicalFilters_rtw.mk
-## Generated on : Wed Dec 02 13:31:53 2020
+## Generated on : Thu Dec 03 08:30:42 2020
 ## Final product: ./MorphologicalFilters.lib
 ## Product type : static-library
 ## 
@@ -184,7 +184,7 @@ DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MORPHO~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/RT_NON~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/rtGetNaN.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/rtGetInf.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MORPHO~2.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MORPHO~3.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MORPHO~4.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/imfill.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/minOrMax.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/REGION~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/BWCONN~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/bsxfun.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MO45FA~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/imerode.cpp C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/IMRECO~1.CPP C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/NEIGHB~1.CPP
+SRCS = $(START_DIR)/MorphologicalFilters_data.cpp $(START_DIR)/rt_nonfinite.cpp $(START_DIR)/rtGetNaN.cpp $(START_DIR)/rtGetInf.cpp $(START_DIR)/MorphologicalFilters_initialize.cpp $(START_DIR)/MorphologicalFilters_terminate.cpp $(START_DIR)/MorphologicalFilters.cpp $(START_DIR)/imfill.cpp $(START_DIR)/minOrMax.cpp $(START_DIR)/regionprops.cpp $(START_DIR)/bwconncomp.cpp $(START_DIR)/bsxfun.cpp $(START_DIR)/morphopAlgo.cpp $(START_DIR)/imerode.cpp $(START_DIR)/imreconstruct.cpp $(START_DIR)/NeighborhoodProcessor.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -337,6 +337,14 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 # SOURCE-TO-OBJECT
 #---------------------
 
+%.obj : %.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.obj : %.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
 %.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
@@ -345,11 +353,11 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/%.c
+%.obj : $(START_DIR)/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/%.cpp
+%.obj : $(START_DIR)/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -361,67 +369,67 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-MorphologicalFilters_data.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MorphologicalFilters_data.cpp
+MorphologicalFilters_data.obj : $(START_DIR)/MorphologicalFilters_data.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rt_nonfinite.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/rt_nonfinite.cpp
+rt_nonfinite.obj : $(START_DIR)/rt_nonfinite.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rtGetNaN.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/rtGetNaN.cpp
+rtGetNaN.obj : $(START_DIR)/rtGetNaN.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rtGetInf.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/rtGetInf.cpp
+rtGetInf.obj : $(START_DIR)/rtGetInf.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-MorphologicalFilters_initialize.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MorphologicalFilters_initialize.cpp
+MorphologicalFilters_initialize.obj : $(START_DIR)/MorphologicalFilters_initialize.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-MorphologicalFilters_terminate.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MorphologicalFilters_terminate.cpp
+MorphologicalFilters_terminate.obj : $(START_DIR)/MorphologicalFilters_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-MorphologicalFilters.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/MorphologicalFilters.cpp
+MorphologicalFilters.obj : $(START_DIR)/MorphologicalFilters.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-imfill.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/imfill.cpp
+imfill.obj : $(START_DIR)/imfill.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-minOrMax.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/minOrMax.cpp
+minOrMax.obj : $(START_DIR)/minOrMax.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-regionprops.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/regionprops.cpp
+regionprops.obj : $(START_DIR)/regionprops.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-bwconncomp.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/bwconncomp.cpp
+bwconncomp.obj : $(START_DIR)/bwconncomp.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-bsxfun.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/bsxfun.cpp
+bsxfun.obj : $(START_DIR)/bsxfun.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-morphopAlgo.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/morphopAlgo.cpp
+morphopAlgo.obj : $(START_DIR)/morphopAlgo.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-imerode.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/imerode.cpp
+imerode.obj : $(START_DIR)/imerode.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-imreconstruct.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/imreconstruct.cpp
+imreconstruct.obj : $(START_DIR)/imreconstruct.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-NeighborhoodProcessor.obj : C:/Users/SWTEAM~1/DOCUME~1/GitHub/AIGRIP~1/JETSON~1/MATLAB/A43_AN~1.3/codegen/lib/MORPHO~1/NeighborhoodProcessor.cpp
+NeighborhoodProcessor.obj : $(START_DIR)/NeighborhoodProcessor.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
