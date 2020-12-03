@@ -42,15 +42,23 @@ add_subdirectory(codegen/lib/PointToLineCPU/)
 
 add_subdirectory(codegen/lib/colourSegmentationGPU/) # colourSegmentationGPU is a static library
 
-add_subdirectory(codegen/lib/morphologicalFiltersCPU/) # 
+add_subdirectory(codegen/lib/MorphologicalFiltersCPU/) # 
 
 add_subdirectory(codegen/lib/colourBalanceGPU/) # colourBalanceCPU is a static library
+
+add_subdirectory(codegen/lib/StableLineCPU/)
+
+add_subdirectory(codegen/lib/GetValidGripPointsCPU/)
+
+add_subdirectory(codegen/lib/GetSignatureCPU/)
 
 add_subdirectory(imageCapture/)
 
 #add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 
 add_subdirectory(communication/)
+
+add_subdirectory(control/)
 
 add_subdirectory(Executable/) # Executable on all included libraries/functions
 

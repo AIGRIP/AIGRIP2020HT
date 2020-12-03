@@ -10,14 +10,25 @@ target_link_libraries(RUN_AIGRIP_NANO InverseKinematicsPreshapeCPU)
 target_link_libraries(RUN_AIGRIP_NANO ApproachObjectCPU)
 target_link_libraries(RUN_AIGRIP_NANO PointToLineCPU)
 target_link_libraries(RUN_AIGRIP_NANO ForwardKinematicsCPU)
+
+# Libraries for image processing.
 target_link_libraries(RUN_AIGRIP_NANO colourBalanceGPU)
 target_link_libraries(RUN_AIGRIP_NANO colourSegmentationGPU)
-target_link_libraries(RUN_AIGRIP_NANO morphologicalFiltersCPU)
+target_link_libraries(RUN_AIGRIP_NANO MorphologicalFiltersCPU)
+
+# Libraries to find the best gripping points.
+target_link_libraries(RUN_AIGRIP_NANO StableLineCPU)
+target_link_libraries(RUN_AIGRIP_NANO GetSignatureCPU)
+target_link_libraries(RUN_AIGRIP_NANO GetValidGripPointsCPU)
+
+# Library to get an image from camera.
 target_link_libraries(RUN_AIGRIP_NANO imageCapture)
 
-#target_link_libraries(RUN_AIGRIP_NANO colourBalanceCPU)
-#target_link_libraries(RUN_AIGRIP_NANO colourSegmentationCPU)
+# Library for external communication.
 target_link_libraries(RUN_AIGRIP_NANO communicationBT_I2C)
+
+# Library for external communication.
+target_link_libraries(RUN_AIGRIP_NANO controlGriperNano)
 
 # Set CUDA properties to the executable.
 set_target_properties(RUN_AIGRIP_NANO PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
