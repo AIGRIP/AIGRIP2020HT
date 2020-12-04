@@ -48,14 +48,14 @@ struct motorPair
 struct motorPositions
 {
 	uint16_t controlCommand;
-	uint16_t posThumbMotor1;
-	uint16_t posThumbMotor2;
-	uint16_t posFinger1Motor0;
-	uint16_t posFinger1Motor1;
-	uint16_t posFinger1Motor2;
-	uint16_t posFinger2Motor0;
-	uint16_t posFinger2Motor1;
-	uint16_t posFinger2Motor2;
+	uint16_t *posThumbMotor1;
+	uint16_t *posThumbMotor2;
+	uint16_t *posFinger1Motor0;
+	uint16_t *posFinger1Motor1;
+	uint16_t *posFinger1Motor2;
+	uint16_t *posFinger2Motor0;
+	uint16_t *posFinger2Motor1;
+	uint16_t *posFinger2Motor2;
 }typedef motorPositions;
 
 
@@ -69,9 +69,9 @@ struct motorPositions
 
 
 uint16_t MotorConvertPosToShort (uint16_t pos);
-void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *finger);
+void GripperStartupConfiguration (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, gripperStruct *finger);
 void MotorControlThread (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, osMessageQueueId_t nanoMsgQueue, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART);
-void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors, UART_HandleTypeDef *debugUART);
+void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors);
 
 
 

@@ -31,7 +31,7 @@ uint16_t MotorConvertPosToShort (uint16_t pos)
 }
 
 
-void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *motors)
+void GripperStartupConfiguration (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, gripperStruct *motors)
 {
 
 	/* -------------------
@@ -55,8 +55,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->thumbM1.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->thumbM1.torqueEnable = 1;
-	motors->thumbM1.cwComplianceMargin = 1;
-	motors->thumbM1.ccwComplianceMargin = 1;
+	motors->thumbM1.cwComplianceMargin = 0;
+	motors->thumbM1.ccwComplianceMargin = 0;
 	motors->thumbM1.cwComplianceSlope = 32;
 	motors->thumbM1.ccwComplianceSlope = 32;
 	motors->thumbM1.goalPosition = motors->thumbM1.startPosition + 50;
@@ -64,7 +64,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->thumbM1.torqueLimitRAM = motors->thumbM1.startTorqueLimitRAM;
 	motors->thumbM1.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->thumbM1.id, &motors->thumbM1);
+	MotorInitConfig(uart_Thumb, &motors->thumbM1.id, &motors->thumbM1);
 
 
 	// ----- Motor 2 -----
@@ -84,8 +84,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->thumbM2.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->thumbM2.torqueEnable = 1;
-	motors->thumbM2.cwComplianceMargin = 1;
-	motors->thumbM2.ccwComplianceMargin = 1;
+	motors->thumbM2.cwComplianceMargin = 0;
+	motors->thumbM2.ccwComplianceMargin = 0;
 	motors->thumbM2.cwComplianceSlope = 32;
 	motors->thumbM2.ccwComplianceSlope = 32;
 	motors->thumbM2.goalPosition = motors->thumbM2.startPosition;
@@ -93,7 +93,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->thumbM2.torqueLimitRAM = motors->thumbM2.startTorqueLimitRAM;
 	motors->thumbM2.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->thumbM2.id, &motors->thumbM2);
+	MotorInitConfig(uart_Thumb, &motors->thumbM2.id, &motors->thumbM2);
 
 
 
@@ -119,8 +119,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor0.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger1Motor0.torqueEnable = 1;
-	motors->finger1Motor0.cwComplianceMargin = 1;
-	motors->finger1Motor0.ccwComplianceMargin = 1;
+	motors->finger1Motor0.cwComplianceMargin = 0;
+	motors->finger1Motor0.ccwComplianceMargin = 0;
 	motors->finger1Motor0.cwComplianceSlope = 32;
 	motors->finger1Motor0.ccwComplianceSlope = 32;
 	motors->finger1Motor0.goalPosition = motors->finger1Motor0.startPosition;
@@ -128,7 +128,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor0.torqueLimitRAM = motors->finger1Motor0.startTorqueLimitRAM;
 	motors->finger1Motor0.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger1Motor0.id, &motors->finger1Motor0);
+	MotorInitConfig(uart_DynamicGrasp, &motors->finger1Motor0.id, &motors->finger1Motor0);
 
 
 	// ----- Motor 1 -----
@@ -148,8 +148,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor1.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger1Motor1.torqueEnable = 1;
-	motors->finger1Motor1.cwComplianceMargin = 1;
-	motors->finger1Motor1.ccwComplianceMargin = 1;
+	motors->finger1Motor1.cwComplianceMargin = 0;
+	motors->finger1Motor1.ccwComplianceMargin = 0;
 	motors->finger1Motor1.cwComplianceSlope = 32;
 	motors->finger1Motor1.ccwComplianceSlope = 32;
 	motors->finger1Motor1.goalPosition = motors->finger1Motor1.startPosition;
@@ -157,7 +157,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor1.torqueLimitRAM = motors->finger1Motor1.startTorqueLimitRAM;
 	motors->finger1Motor1.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger1Motor1.id, &motors->finger1Motor1);
+	MotorInitConfig(uart_Finger1, &motors->finger1Motor1.id, &motors->finger1Motor1);
 
 
 	// ----- Motor 2 -----
@@ -177,8 +177,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor2.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger1Motor2.torqueEnable = 1;
-	motors->finger1Motor2.cwComplianceMargin = 1;
-	motors->finger1Motor2.ccwComplianceMargin = 1;
+	motors->finger1Motor2.cwComplianceMargin = 0;
+	motors->finger1Motor2.ccwComplianceMargin = 0;
 	motors->finger1Motor2.cwComplianceSlope = 32;
 	motors->finger1Motor2.ccwComplianceSlope = 32;
 	motors->finger1Motor2.goalPosition = motors->finger1Motor2.startPosition;
@@ -186,7 +186,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger1Motor2.torqueLimitRAM = motors->finger1Motor2.startTorqueLimitRAM;
 	motors->finger1Motor2.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger1Motor2.id, &motors->finger1Motor2);
+	MotorInitConfig(uart_Finger1, &motors->finger1Motor2.id, &motors->finger1Motor2);
 
 
 
@@ -211,8 +211,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor0.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger2Motor0.torqueEnable = 1;
-	motors->finger2Motor0.cwComplianceMargin = 1;
-	motors->finger2Motor0.ccwComplianceMargin = 1;
+	motors->finger2Motor0.cwComplianceMargin = 0;
+	motors->finger2Motor0.ccwComplianceMargin = 0;
 	motors->finger2Motor0.cwComplianceSlope = 32;
 	motors->finger2Motor0.ccwComplianceSlope = 32;
 	motors->finger2Motor0.goalPosition = motors->finger2Motor0.startPosition;
@@ -220,7 +220,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor0.torqueLimitRAM = motors->finger2Motor0.startTorqueLimitRAM;
 	motors->finger2Motor0.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger2Motor0.id, &motors->finger2Motor0);
+	MotorInitConfig(uart_DynamicGrasp, &motors->finger2Motor0.id, &motors->finger2Motor0);
 
 
 
@@ -241,8 +241,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor1.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger2Motor1.torqueEnable = 1;
-	motors->finger2Motor1.cwComplianceMargin = 1;
-	motors->finger2Motor1.ccwComplianceMargin = 1;
+	motors->finger2Motor1.cwComplianceMargin = 0;
+	motors->finger2Motor1.ccwComplianceMargin = 0;
 	motors->finger2Motor1.cwComplianceSlope = 32;
 	motors->finger2Motor1.ccwComplianceSlope = 32;
 	motors->finger2Motor1.goalPosition = motors->finger2Motor1.startPosition;
@@ -250,7 +250,7 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor1.torqueLimitRAM = motors->finger2Motor1.startTorqueLimitRAM;
 	motors->finger2Motor1.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger2Motor1.id, &motors->finger2Motor1);
+	MotorInitConfig(uart_Finger2, &motors->finger2Motor1.id, &motors->finger2Motor1);
 
 
 	// ----- Motor 2 -----
@@ -270,8 +270,8 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor2.startTorqueLimitRAM = DEFAULT_TORQUE;
 	// Runtime values
 	motors->finger2Motor2.torqueEnable = 1;
-	motors->finger2Motor2.cwComplianceMargin = 1;
-	motors->finger2Motor2.ccwComplianceMargin = 1;
+	motors->finger2Motor2.cwComplianceMargin = 0;
+	motors->finger2Motor2.ccwComplianceMargin = 0;
 	motors->finger2Motor2.cwComplianceSlope = 32;
 	motors->finger2Motor2.ccwComplianceSlope = 32;
 	motors->finger2Motor2.goalPosition = motors->finger2Motor2.startPosition;
@@ -279,12 +279,12 @@ void GripperStartupConfiguration (UART_HandleTypeDef *huart, gripperStruct *moto
 	motors->finger2Motor2.torqueLimitRAM = motors->finger2Motor2.startTorqueLimitRAM;
 	motors->finger2Motor2.lockEEPROM = 0;
 
-	MotorInitConfig(huart, &motors->finger2Motor2.id, &motors->finger2Motor2);
+	MotorInitConfig(uart_Finger2, &motors->finger2Motor2.id, &motors->finger2Motor2);
 
 }
 
 
-void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors, UART_HandleTypeDef *debugUART)
+void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors)
 {
 	uint16_t tempPos = 0, controlCommand = 0;
 
@@ -326,51 +326,51 @@ void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions 
 		if (motors->gripperState == GRIPPER_START)
 		{
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posThumbMotor1)
+			if (tempPos != *positions->posThumbMotor1)
 			{
-				positions->posThumbMotor1 = tempPos;
+				*positions->posThumbMotor1 = tempPos;
 				thumb->changedPosMotor1 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posThumbMotor2)
+			if (tempPos != *positions->posThumbMotor2)
 			{
-				positions->posThumbMotor2 = tempPos;
+				*positions->posThumbMotor2 = tempPos;
 				thumb->changedPosMotor2 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger1Motor0)
+			if (tempPos != *positions->posFinger1Motor0)
 			{
-				positions->posFinger1Motor0 = tempPos;
+				*positions->posFinger1Motor0 = tempPos;
 				dynamicGrasp->changedPosMotor1 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger1Motor1)
+			if (tempPos != *positions->posFinger1Motor1)
 			{
-				positions->posFinger1Motor1 = tempPos;
+				*positions->posFinger1Motor1 = tempPos;
 				finger1->changedPosMotor1 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger1Motor2)
+			if (tempPos != *positions->posFinger1Motor2)
 			{
-				positions->posFinger1Motor2 = tempPos;
+				*positions->posFinger1Motor2 = tempPos;
 				finger1->changedPosMotor2 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger2Motor0)
+			if (tempPos != *positions->posFinger2Motor0)
 			{
-				positions->posFinger2Motor0 = tempPos;
+				*positions->posFinger2Motor0 = tempPos;
 				dynamicGrasp->changedPosMotor2 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger2Motor1)
+			if (tempPos != *positions->posFinger2Motor1)
 			{
-				positions->posFinger2Motor1 = tempPos;
+				*positions->posFinger2Motor1 = tempPos;
 				finger2->changedPosMotor1 = 1;
 			}
 			osMessageQueueGet(nanoMsgQueue, &tempPos, NULL, 0U);
-			if (tempPos != positions->posFinger2Motor2)
+			if (tempPos != *positions->posFinger2Motor2)
 			{
-				positions->posFinger2Motor2 = tempPos;
+				*positions->posFinger2Motor2 = tempPos;
 				finger2->changedPosMotor2 = 1;
 			}
 		}
@@ -401,10 +401,10 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 	// ---------
 
 	osDelay(5);
-	GripperStartupConfiguration(uart_Finger1, &gripper); // ------- NEED TO FIX APROPRIATE UARTS FOR THE MOTOR INITIALIZATION ----------------
+	GripperStartupConfiguration(uart_Thumb, uart_DynamicGrasp, uart_Finger1, uart_Finger2, &gripper);
 
 	// make positions linked to gripper struct goalPositions
-	motorPositions positions = {0,gripper.thumbM1.startPosition, gripper.thumbM2.startPosition, gripper.finger1Motor0.startPosition, gripper.finger1Motor1.startPosition, gripper.finger1Motor2.startPosition, gripper.finger2Motor0.startPosition, gripper.finger2Motor1.startPosition, gripper.finger2Motor2.startPosition};
+	motorPositions positions = {0,&gripper.thumbM1.startPosition, &gripper.thumbM2.startPosition, &gripper.finger1Motor0.startPosition, &gripper.finger1Motor1.startPosition, &gripper.finger1Motor2.startPosition, &gripper.finger2Motor0.startPosition, &gripper.finger2Motor1.startPosition, &gripper.finger2Motor2.startPosition};
 	motorPair thumb = {uart_Thumb, 0, 0, &gripper.thumbM1, &gripper.thumbM2};
 	motorPair finger1 = {uart_Finger1, 0, 0, &gripper.finger1Motor1, &gripper.finger1Motor2};
 	motorPair finger2 = {uart_Finger2, 0, 0, &gripper.finger2Motor1, &gripper.finger2Motor2};
@@ -430,7 +430,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 	for(;;)
 	{
 
-		MotorReadMsgQueueFromNano(nanoMsgQueue, &positions, &thumb, &finger1, &finger2, &dynamicGrasp, &gripper,debugUART);
+		MotorReadMsgQueueFromNano(nanoMsgQueue, &positions, &thumb, &finger1, &finger2, &dynamicGrasp, &gripper);
 
 
 		switch (gripper.gripperState) {
@@ -440,27 +440,28 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 				break;
 			// SECTION FOR STOP
 			case GRIPPER_STOP:
+				// INVESTIGATE REQUIRED DELAY FOR SUCCESSFUL DATA TRANSFER, AVOID OVERFLOW
 				osKernelLock();
 				MotorSendStop(thumb.huart, &thumb.motor1->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &thumb.motor2->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &dynamicGrasp.motor1->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &dynamicGrasp.motor2->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &finger1.motor1->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &finger1.motor2->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &finger2.motor1->id);
-				HAL_Delay(1);
+				HAL_Delay(5);
 				MotorSendStop(thumb.huart, &finger2.motor2->id);
 				osKernelUnlock();
 				break;
 			// SECTION FOR DEFAULT
 			case GRIPPER_DEFAULT:
-				GripperStartupConfiguration(thumb.huart, &gripper);
+				GripperStartupConfiguration(thumb.huart, dynamicGrasp.huart, finger1.huart, finger2.huart, &gripper);
 				break;
 			default:
 				break;
@@ -473,7 +474,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (thumb.changedPosMotor1)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(thumb.huart, &thumb.motor1->id, &positions.posThumbMotor1);
+			MotorSetGoalPosition(thumb.huart, &thumb.motor1->id, positions.posThumbMotor1);
 			osKernelUnlock();
 			thumb.changedPosMotor1 = 0;
 			osDelay(10);
@@ -482,7 +483,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (thumb.changedPosMotor2)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(thumb.huart, &thumb.motor2->id, &positions.posThumbMotor2);
+			MotorSetGoalPosition(thumb.huart, &thumb.motor2->id, positions.posThumbMotor2);
 			osKernelUnlock();
 			thumb.changedPosMotor2 = 0;
 			osDelay(10);
@@ -491,7 +492,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (finger1.changedPosMotor1)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(finger1.huart, &finger1.motor1->id, &positions.posFinger1Motor1);
+			MotorSetGoalPosition(finger1.huart, &finger1.motor1->id, positions.posFinger1Motor1);
 			osKernelUnlock();
 			finger1.changedPosMotor1 = 0;
 			osDelay(10);
@@ -500,7 +501,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (finger1.changedPosMotor2)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(finger1.huart, &finger1.motor2->id, &positions.posFinger1Motor2);
+			MotorSetGoalPosition(finger1.huart, &finger1.motor2->id, positions.posFinger1Motor2);
 			osKernelUnlock();
 			finger1.changedPosMotor2 = 0;
 			osDelay(10);
@@ -509,7 +510,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (finger2.changedPosMotor1)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(finger2.huart, &finger2.motor1->id, &positions.posFinger2Motor1);
+			MotorSetGoalPosition(finger2.huart, &finger2.motor1->id, positions.posFinger2Motor1);
 			osKernelUnlock();
 			finger2.changedPosMotor1 = 0;
 			osDelay(10);
@@ -518,7 +519,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (finger2.changedPosMotor2)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(finger2.huart, &finger2.motor2->id, &positions.posFinger2Motor2);
+			MotorSetGoalPosition(finger2.huart, &finger2.motor2->id, positions.posFinger2Motor2);
 			osKernelUnlock();
 			finger2.changedPosMotor2 = 0;
 			osDelay(10);
@@ -527,7 +528,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (dynamicGrasp.changedPosMotor1)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor1->id, &positions.posFinger1Motor0);
+			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor1->id, positions.posFinger1Motor0);
 			osKernelUnlock();
 			dynamicGrasp.changedPosMotor1 = 0;
 			osDelay(10);
@@ -536,7 +537,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 		if (dynamicGrasp.changedPosMotor2)
 		{
 			osKernelLock();
-			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor2->id, &positions.posFinger2Motor0);
+			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor2->id, positions.posFinger2Motor0);
 			osKernelUnlock();
 			dynamicGrasp.changedPosMotor2 = 0;
 			osDelay(10);

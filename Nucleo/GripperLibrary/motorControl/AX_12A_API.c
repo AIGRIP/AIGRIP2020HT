@@ -7,7 +7,7 @@
 
 #include "AX_12A_API.h"
 #include "math.h"
-//#include "cmsis_os.h"
+#include "cmsis_os.h"
 
 
 
@@ -184,7 +184,7 @@ uint8_t MotorReturnChecksum(uint8_t *argument, int length)
 // Convert angle given as a unsigned short into steps for the motor
 uint16_t MotorConvertAngle (uint16_t newAngle)
 {
-	if (newAngle > 54765)
+	if (newAngle > 65535)//54765)
 	{
 		return 0;
 	}
@@ -212,6 +212,7 @@ uint16_t MotorConvertShortToDegree (uint16_t ushort)
 // Initialize and configure startup values for the motor
 int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *motor)
 {
+	osKernelLock();
 	// Write to ROM area to reset initial configuration
 	if (ROM_WRITE || FAILURE)
 	{
@@ -219,44 +220,52 @@ int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *
 		{
 			return 1;
 		}
-		HAL_Delay(DELAY_TRANSMIT);
+		//osDelay(DELAY_TRANSMIT);
+		HAL_Delay(10);
 		if (MotorSetMaxTorque(huart, id, &motor->maxTorque))
 		{
 			return 2;
 		}
-		HAL_Delay(DELAY_TRANSMIT);
+		//osDelay(DELAY_TRANSMIT);
+		HAL_Delay(10);
 	}
 
-	HAL_Delay(DELAY_TRANSMIT);
+	//osDelay(DELAY_TRANSMIT);
 	if (MotorSetMovingSpeed(huart, id, &motor->startSpeed))
 	{
 		return 7;
 	}
-	HAL_Delay(DELAY_TRANSMIT);
+	//osDelay(DELAY_TRANSMIT);
+	HAL_Delay(10);
 	if (MotorSetTorqueLimit(huart, id, &motor->startTorqueLimitRAM))
 	{
 		return 8;
 	}
+	HAL_Delay(10);
 	// Write to RAM area to configure start-up values
 	if (MotorSetTorqueEnable(huart, id, &motor->torqueEnable))
 	{
 		return 3;
 	}
-	HAL_Delay(DELAY_TRANSMIT);
+	HAL_Delay(10);
+	//osDelay(DELAY_TRANSMIT);
 	if (MotorSetComplianceMargin(huart, id, &motor->cwComplianceMargin, &motor->ccwComplianceMargin))
 	{
 		return 4;
 	}
-	HAL_Delay(DELAY_TRANSMIT);
+	HAL_Delay(10);
+	//osDelay(DELAY_TRANSMIT);
 	if (MotorSetComplianceSlope(huart, id, &motor->startCwComplianceSlope, &motor->startCcwComplianceSlope))
 	{
 		return 5;
 	}
-	HAL_Delay(DELAY_TRANSMIT);
+	HAL_Delay(10);
+	//osDelay(DELAY_TRANSMIT);
 	if (MotorSetGoalPosition(huart, id, &motor->startPosition))
 	{
 		return 6;
 	}
+	osKernelUnlock();
 
 	return 0;
 }
@@ -276,11 +285,12 @@ int MotorPing (UART_HandleTypeDef *huart, uint8_t *id)
 // Reads bytesToRead bytes at register address addr from motor, and stores it in buf
 int MotorRead (UART_HandleTypeDef *huart, uint8_t *buf, uint8_t id, uint8_t addr, uint8_t bytesToRead)
 {
-	int status = 0, length = bytesToRead + 2;
+	int status = 0, length = 4;
 	uint8_t frame[8] = {MOTOR_HEADER, MOTOR_HEADER, id, length, MOTOR_READ, addr, bytesToRead, MotorInstrChecksum(frame, 1)};
 	//__HAL_UART_FLUSH_DRREGISTER(huart);
 	//  huart->RxXferCount = 0U;
 	//  __HAL_UART_SEND_REQ(huart, UART_RXDATA_FLUSH_REQUEST);
+	osKernelLock();
 	HAL_UART_AbortReceive(huart); // Clear the RX FIFO buffer and counter (neccessary since Rx and Tx are connected, to flush Tx packages from Rx)
 
 	HAL_HalfDuplex_EnableTransmitter(huart); // Disable Rx so that transmitted package is not stored in Rx
@@ -288,7 +298,7 @@ int MotorRead (UART_HandleTypeDef *huart, uint8_t *buf, uint8_t id, uint8_t addr
 
 
 	HAL_HalfDuplex_EnableReceiver(huart); // Enable Rx so that the motor status package can be received
-	status = HAL_UART_Receive(huart, buf, 8 + bytesToRead, 200);
+	status = HAL_UART_Receive(huart, buf, 8 + bytesToRead, 400);
 
 	// Restore UART to Tx-Rx mode
 	__HAL_LOCK(huart);
@@ -301,6 +311,7 @@ int MotorRead (UART_HandleTypeDef *huart, uint8_t *buf, uint8_t id, uint8_t addr
 
 	__HAL_UNLOCK(huart);
 
+	osKernelUnlock();
 	return status;
 }
 
