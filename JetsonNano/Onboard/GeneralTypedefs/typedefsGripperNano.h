@@ -57,7 +57,7 @@ struct structMessageToNucleoMotor{
 
     short motorAngle[NUMBER_OF_MOTORS];
 
-}typedef messageI2CToNucleoMotor;
+}typedef messageMotorStruct;
 
 
 // Mouse sensor information.

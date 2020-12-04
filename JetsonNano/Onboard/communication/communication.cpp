@@ -40,7 +40,7 @@ void communicationHandler()
 
     // Initate message queues.
     int mainMessageBuffer;
-    messageI2CToNucleoMotor motorMessage;
+    messageMotorStruct motorMessage;
     mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
 
     // Create all message queues.
@@ -105,14 +105,14 @@ void communicationHandler()
             case 1:
             {
                 // Send motor data to Nucleo.
-                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageI2CToNucleoMotor),NULL);
+                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageMotorStruct),NULL);
 
                 // Send command to Nucleo.
                 I2CHeaderToNucleo.frameType = 5;
-                I2CHeaderToNucleo.frameLength = sizeof(messageI2CToNucleoMotor);
+                I2CHeaderToNucleo.frameLength = sizeof(messageMotorStruct);
                 writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
                 // Send motorvalues to Nucleo.
-                writeI2C((unsigned char*) &motorMessage, sizeof(messageI2CToNucleoMotor) );
+                writeI2C((unsigned char*) &motorMessage, sizeof(messageMotorStruct) );
             }
             break;
 
@@ -247,7 +247,7 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 	mainAttr.mq_msgsize = messageMainQueueSize;
 
     motorAttr.mq_maxmsg = 10;
-	motorAttr.mq_msgsize = sizeof(messageI2CToNucleoMotor);
+	motorAttr.mq_msgsize = sizeof(messageMotorStruct);
 
     distanceAttr.mq_maxmsg = 10;
 	distanceAttr.mq_msgsize = sizeof(proximitySensorMessage);

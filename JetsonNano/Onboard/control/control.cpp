@@ -81,7 +81,7 @@ void* controlThread(void* arg)
     messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
 
     // Connect to message queue for motors.
-    messageI2CToNucleoMotor motorMessage;
+    messageMotorStruct motorMessage;
     mqd_t messageQueueMotors;
     messageQueueMotors = mq_open(messageMainQueueName, O_RDWR);
 
@@ -212,7 +212,7 @@ void* controlThread(void* arg)
                 printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
                 // Send motor values to communtication.
-                if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageI2CToNucleoMotor),1) !=0 )
+                if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
                 {
                     printf("Failed to send motor values in pre-shape to MQ.\n");
                 }
@@ -242,6 +242,20 @@ void* controlThread(void* arg)
                 motorMessage.motorAngle[5] = motorSteps[0];
                 motorMessage.motorAngle[6] = motorSteps[1];
                 motorMessage.motorAngle[7] = motorSteps[2];
+            
+                // Send motor values to communtication.
+                if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
+                {
+                    printf("Failed to send motor values in pre-shape to MQ.\n");
+                }
+
+                // Tell communication handle that new motor values are available.
+                mainMessageBuffer = 1;
+                if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+                {
+                    printf("Failed to reach main MQ in pre-shape.\n");
+                }
+            
             }
             break;
 
