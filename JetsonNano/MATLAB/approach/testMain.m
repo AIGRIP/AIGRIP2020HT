@@ -12,7 +12,7 @@ linkLengths = [linkLengtha, linkLengthb, linkLengthc, linkLengthd, linkLengthe];
 
 currentMotorM0Steps = 20000;
 currentMotorM1Steps = 50000;
-distanceToObject = 10;
+distanceToObject = 0;
 
 
 [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps,distanceToObject)

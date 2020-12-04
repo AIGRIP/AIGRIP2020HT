@@ -5,7 +5,7 @@
 // File: ApproachObject_initialize.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 20-Nov-2020 11:38:04
+// C/C++ source code generated on  : 04-Dec-2020 11:28:08
 //
 #ifndef APPROACHOBJECT_INITIALIZE_H
 #define APPROACHOBJECT_INITIALIZE_H
