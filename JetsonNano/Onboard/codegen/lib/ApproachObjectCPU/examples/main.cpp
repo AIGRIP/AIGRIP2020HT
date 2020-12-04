@@ -5,7 +5,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 20-Nov-2020 11:38:04
+// C/C++ source code generated on  : 04-Dec-2020 11:28:08
 //
 
 //***********************************************************************
@@ -74,8 +74,8 @@ static double argInit_real_T()
 static void main_ApproachObject()
 {
   double dv[5];
+  double motorAngles[3];
   double currentMotorM0Steps_tmp;
-  unsigned short motorAngles[3];
 
   // Initialize function 'ApproachObject' input arguments.
   // Initialize function input argument 'linkLengths'.

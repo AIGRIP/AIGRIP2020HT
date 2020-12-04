@@ -1,4 +1,4 @@
-function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition, normalStableLine, fingerNum)
+function [motorAngles] = InverseKinematicsPreshape(linkLengths,offset ,desiredPosition, normalStableLine, fingerNum)
 
     %This function calculates how every motor in a finger should be rotated for
     %it to reach a certain point with a certain angle and with the last link
@@ -71,12 +71,23 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     distanceX = desiredPosition(1) - motorPositionM1(1);
     distanceY = desiredPosition(2) - motorPositionM1(2);
     distance = sqrt( distanceX^2 + distanceY^2 );
-
+    
+    forwardLeaning = 1;
+     if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM1)
+        forwardLeaning = 0;
+        distance = distance + offset;
+     else
+         distance = distance - offset;
+         if distance < 0
+            forwardLeaning = 0;
+            distance = abs(distance);
+         end
+     end 
     %Calculate the angle of motor M1 to reach the desired position
     motorAngles(2) = acos(distance / linkLengths(3));
     %Check if the desired point is closer to the center than the motor M0
     %position
-    if norm([0,0]-desiredPosition) > norm([0,0]-motorPositionM1)
+    if forwardLeaning == 0
         motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
     end
 
