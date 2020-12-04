@@ -13,13 +13,13 @@
 /* ----------------------------------------- */
 
 
-/* ----------- Info to mailslots ---------- */
+/* ----------- Info of mailslots ---------- */
 
 // General mailslot to indicate an event to 
 #define messageMainQueueName "/message_main_nano"
 #define messageMainQueueSize sizeof(int)
 
-// Send the recommended motor position from pre-shape. 
+// Send the recommended motor position from control thread. 
 #define messageQueueMotorName "/message_motors"
 
 // Sends the measured distance to the object for pre-shape.
@@ -68,13 +68,17 @@ struct structMouseSensorMessage {
 
 }typedef mouseSensorMessage;
 
+struct structProximitySensorMessage {
+    unsigned short proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
+}typedef proximitySensorMessage;
+
 // Package from Nucleo to nano, contain all sensor information to store and use as input for functions on the Nano.
 struct structMessageStructFromNucelo {
 
     unsigned char statusOfNucelo;
     short motorStatus[NUMBER_OF_MOTORS];
 
-    unsigned char proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
+    proximitySensorMessage proximitySensors;
     mouseSensorMessage mouseSensor[NUMBER_OF_MOUSE_SESNORS];
 
 }typedef messageStructFromNucleo;

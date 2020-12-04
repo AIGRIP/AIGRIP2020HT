@@ -30,7 +30,7 @@ extern "C" {
 
 
 
-// Private (local function).
+// Local function.
 int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqd_t *messageQueueNucleo );
 
 
@@ -40,6 +40,7 @@ void communicationHandler()
 
     // Initate message queues.
     int mainMessageBuffer;
+    messageI2CToNucleoMotor motorMessage;
     mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
 
     // Create all message queues.
@@ -103,22 +104,29 @@ void communicationHandler()
         {
             case 1:
             {
+                // Send motor data to Nucleo.
+                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageI2CToNucleoMotor),NULL);
 
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 5;
+                I2CHeaderToNucleo.frameLength = sizeof(messageI2CToNucleoMotor);
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                // Send motorvalues to Nucleo.
+                writeI2C((unsigned char*) &motorMessage, sizeof(messageI2CToNucleoMotor) );
             }
             break;
 
             case 4:
             {
+                // Handle received message from Nucleo.
                 mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
-
-                /*
-                * Send proximity data to pre-shape.
-                if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer, NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char),1) != 0 )
+                
+                // Send proximity data to control node.
+                if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer.proximitySensorMessage.proximitySensor[0], sizeof(proximitySensorMessage),1) != 0 )
                 {
                     printf("Failed to send distance info to pre-shape.\n");
                 }
-                */
-
+                
                 if(stateOfGripper != messageFromNucleo.statusOfNucelo)
                 {
                     // Change current state of gripper.
@@ -242,7 +250,7 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 	motorAttr.mq_msgsize = sizeof(messageI2CToNucleoMotor);
 
     distanceAttr.mq_maxmsg = 10;
-	distanceAttr.mq_msgsize = NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char); /* Change to the correct size of the proximity sensor. */
+	distanceAttr.mq_msgsize = sizeof(proximitySensorMessage);
 
     nucleoAttr.mq_maxmsg = 10;
 	nucleoAttr.mq_msgsize = sizeof(messageStructFromNucleo);

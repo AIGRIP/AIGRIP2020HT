@@ -42,8 +42,9 @@ void setupI2C()
         fflush(stdout);
     }
 
-    FD_ZERO(&set); /* clear the set */
-    FD_SET(i2cfd, &set); /* add our file descriptor to the set */
+    
+    FD_ZERO(&set); // clear the set 
+    FD_SET(i2cfd, &set); // add the file descriptor to the set 
 
     // Set timeout for I2C.
     timeout.tv_sec = 0;
