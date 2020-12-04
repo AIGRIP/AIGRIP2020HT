@@ -5,7 +5,7 @@
  * File: _coder_ApproachObject_api.c
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 20-Nov-2020 11:38:04
+ * C/C++ source code generated on  : 04-Dec-2020 11:28:08
  */
 
 /* Include Files */
@@ -36,7 +36,7 @@ static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId))[5];
 static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *linkLengths, const char_T *identifier))[5];
-static const mxArray *emlrt_marshallOut(const uint16_T u[3]);
+static const mxArray *emlrt_marshallOut(const real_T u[3]);
 static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 
@@ -126,10 +126,10 @@ static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
 }
 
 /*
- * Arguments    : const uint16_T u[3]
+ * Arguments    : const real_T u[3]
  * Return Type  : const mxArray *
  */
-static const mxArray *emlrt_marshallOut(const uint16_T u[3])
+static const mxArray *emlrt_marshallOut(const real_T u[3])
 {
   static const int32_T iv[2] = { 0, 0 };
 
@@ -138,7 +138,7 @@ static const mxArray *emlrt_marshallOut(const uint16_T u[3])
   const mxArray *m;
   const mxArray *y;
   y = NULL;
-  m = emlrtCreateNumericArray(2, &iv[0], mxUINT16_CLASS, mxREAL);
+  m = emlrtCreateNumericArray(2, &iv[0], mxDOUBLE_CLASS, mxREAL);
   emlrtMxSetData((mxArray *)m, (void *)&u[0]);
   emlrtSetDimensions((mxArray *)m, iv1, 2);
   emlrtAssign(&y, m);
@@ -175,12 +175,12 @@ void ApproachObject_api(const mxArray * const prhs[4], const mxArray *plhs[1])
   };
 
   real_T (*linkLengths)[5];
+  real_T (*motorAngles)[3];
   real_T currentMotorM0Steps;
   real_T currentMotorM1Steps;
   real_T distanceToObject;
-  uint16_T (*motorAngles)[3];
   st.tls = emlrtRootTLSGlobal;
-  motorAngles = (uint16_T (*)[3])mxMalloc(sizeof(uint16_T [3]));
+  motorAngles = (real_T (*)[3])mxMalloc(sizeof(real_T [3]));
 
   /* Marshall function inputs */
   linkLengths = emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "linkLengths");

@@ -5,7 +5,7 @@
  * File: _coder_ApproachObject_api.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 20-Nov-2020 11:38:04
+ * C/C++ source code generated on  : 04-Dec-2020 11:28:08
  */
 
 #ifndef _CODER_APPROACHOBJECT_API_H
@@ -28,7 +28,7 @@ extern "C" {
 
   /* Function Declarations */
   void ApproachObject(real_T linkLengths[5], real_T currentMotorM0Steps, real_T
-                      currentMotorM1Steps, real_T distanceToObject, uint16_T
+                      currentMotorM1Steps, real_T distanceToObject, real_T
                       motorAngles[3]);
   void ApproachObject_api(const mxArray * const prhs[4], const mxArray *plhs[1]);
   void ApproachObject_atexit(void);
