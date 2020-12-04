@@ -441,26 +441,26 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			// SECTION FOR STOP
 			case GRIPPER_STOP:
 				osKernelLock();
-				MotorSendStop(thumb.huart, thumb.motor1->id);
+				MotorSendStop(thumb.huart, &thumb.motor1->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, thumb.motor2->id);
+				MotorSendStop(thumb.huart, &thumb.motor2->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, dynamicGrasp.motor1->id);
+				MotorSendStop(thumb.huart, &dynamicGrasp.motor1->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, dynamicGrasp.motor2->id);
+				MotorSendStop(thumb.huart, &dynamicGrasp.motor2->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, finger1.motor1->id);
+				MotorSendStop(thumb.huart, &finger1.motor1->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, finger1.motor2->id);
+				MotorSendStop(thumb.huart, &finger1.motor2->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, finger2.motor1->id);
+				MotorSendStop(thumb.huart, &finger2.motor1->id);
 				HAL_Delay(1);
-				MotorSendStop(thumb.huart, finger2.motor2->id);
+				MotorSendStop(thumb.huart, &finger2.motor2->id);
 				osKernelUnlock();
 				break;
 			// SECTION FOR DEFAULT
 			case GRIPPER_DEFAULT:
-				GripperStartupConfiguration(thumb->huart, motors);
+				GripperStartupConfiguration(thumb.huart, &gripper);
 				break;
 			default:
 				break;
