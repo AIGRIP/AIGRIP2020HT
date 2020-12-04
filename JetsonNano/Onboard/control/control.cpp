@@ -232,13 +232,16 @@ void* controlThread(void* arg)
             {
                 //Recive current motor angle and distance
                 //Approach
+                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps)
                 motorMessage.motorAngle[0] = motorSteps[1];
                 motorMessage.motorAngle[1] = motorSteps[2];
 
+                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps)
                 motorMessage.motorAngle[2] = motorSteps[0];
                 motorMessage.motorAngle[3] = motorSteps[1];
                 motorMessage.motorAngle[4] = motorSteps[2];
 
+                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps)
                 motorMessage.motorAngle[5] = motorSteps[0];
                 motorMessage.motorAngle[6] = motorSteps[1];
                 motorMessage.motorAngle[7] = motorSteps[2];
