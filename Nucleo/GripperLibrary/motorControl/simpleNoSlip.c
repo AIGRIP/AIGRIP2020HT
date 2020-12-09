@@ -19,17 +19,7 @@
 #define SLIP_THRESHOLD 512      // Threshold for interpreting output from optical sensors as slippage
 
 
-struct motorValues
-{
-	uint16_t thumbMotor1;
-	uint16_t thumbMotor2;
 
-	uint16_t finger1Motor1;
-	uint16_t finger1Motor2;
-
-	uint16_t finger2Motor1;
-	uint16_t finger2Motor2;
-}typedef motorValues;
 
 
 
@@ -45,20 +35,20 @@ uint8_t[NR_GRASP_MOTORS] MotorReadForce();
 // Task function for NoSlip
 void IfSlipIncreaseForce(motorPair thumb, motorPair finger1, motorPair finger2, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART)
 {
-	uint8_t torqueLimit                      = 10;           // Aplied force versus instructed force, for when increase of force should be performed
+	//uint8_t torqueLimit                      = 10;           // Aplied force versus instructed force, for when increase of force should be performed
 	uint8_t posIncrement                    = 2;            // Incrementation step for increasing motor position
-	uint8_t torqueIncrement                  = 2;            // Incrementation step for increasing motor force
-	uint8_t currentForce;
-	uint8_t currentPos;
+	//uint8_t torqueIncrement                  = 2;            // Incrementation step for increasing motor force
+	//uint8_t currentForce;
+	//uint8_t currentPos;
 
 	uint8_t buf[18] = {0};
 	uint8_t newSlip = 0;
-	int32_t slip = 0;
-	uint16_t tempPos;
+	float slip = 0;
+	//uint16_t tempPos;
 
 	sensValue sens1, sens2, sens3, sens4, sens5, sens6;
 	motorValues currentPositions = {0};
-	motorValues currentLoads = {0};
+	motorValues currentLoads;
 
 
 	//const char str1[] = "Went to get mesage count.\n\r";
@@ -98,7 +88,7 @@ void IfSlipIncreaseForce(motorPair thumb, motorPair finger1, motorPair finger2, 
 
 
 			// CALCULATE AVERAGE MOVEMENT VECTOR MAGNITUDE -- SHOULD ADD FAILSAFE IF A SENSOR IS NOT WORKING/ALIGNED --------------
-			slip = (sqrt(pow(sens1.mouse_D_X, 2) + pow(sens1.mouse_D_Y, 2)) + sqrt(pow(sens2.mouse_D_X, 2) + pow(sens2.mouse_D_Y, 2)) + sqrt(pow(sens3.mouse_D_X, 2) + pow(sens3.mouse_D_Y, 2))) / 3;
+			slip = (float) (sqrt(pow((double) sens1.mouse_D_X, 2) + pow((double) sens1.mouse_D_Y, 2)) + sqrt(pow((double) sens2.mouse_D_X, 2) + pow((double) sens2.mouse_D_Y, 2)) + sqrt(pow((double) sens3.mouse_D_X, 2) + pow((double) sens3.mouse_D_Y, 2))) / 3;
 
 			// READ: Gather data of each motor regarding grasp
 			MotorRead(thumb.huart, buf, thumb.motor1->id, ADDR_PRESENT_POSITION, 2);
@@ -147,7 +137,7 @@ void IfSlipIncreaseForce(motorPair thumb, motorPair finger1, motorPair finger2, 
 				//else
 				//if (currentPositions.thumbMotor1 < (thumb.motor1->goalPosition - thumb.motor1->cwComplianceMargin - posIncrement))
 				//{
-					tempPos = thumb.motor1->goalPosition + posIncrement;
+					//tempPos = thumb.motor1->goalPosition + posIncrement;
 
 					/*
 					sprintf(messageBuffer, "Updating motor position: %u \n\r", tempPos);
@@ -157,20 +147,31 @@ void IfSlipIncreaseForce(motorPair thumb, motorPair finger1, motorPair finger2, 
 					 */
 
 
-					thumb.motor1->goalPosition -= posIncrement;
-					MotorSetGoalPosition(thumb.huart, &thumb.motor1->id, &thumb.motor1->goalPosition);
-					thumb.motor2->goalPosition -= 1;
-					MotorSetGoalPosition(thumb.huart, &thumb.motor2->id, &thumb.motor2->goalPosition);
+				/***************************************************
+				 * *************************************************
+				 * ADD DIFFERENT CASES FOR BDG, SDG AND BFDLR GRASPS
+				 * *************************************************
+				 ***************************************************/
+				thumb.changedPosMotor1 = 1;
+				thumb.motor1->goalPosition -= posIncrement;
+				//MotorSetGoalPosition(thumb.huart, &thumb.motor1->id, &thumb.motor1->goalPosition);
+				thumb.motor2->goalPosition -= 1;
+				thumb.changedPosMotor2 = 1;
+				//MotorSetGoalPosition(thumb.huart, &thumb.motor2->id, &thumb.motor2->goalPosition);
 
-					finger1.motor1->goalPosition -= posIncrement;
-					MotorSetGoalPosition(finger1.huart, &finger1.motor1->id, &finger1.motor1->goalPosition);
-					finger1.motor2->goalPosition -= 1;
-					MotorSetGoalPosition(finger2.huart, &finger1.motor2->id, &finger2.motor2->goalPosition);
+				finger1.motor1->goalPosition -= posIncrement;
+				finger1.changedPosMotor1 = 1;
+				//MotorSetGoalPosition(finger1.huart, &finger1.motor1->id, &finger1.motor1->goalPosition);
+				finger1.motor2->goalPosition -= 1;
+				finger1.changedPosMotor2 = 1;
+				//MotorSetGoalPosition(finger2.huart, &finger1.motor2->id, &finger2.motor2->goalPosition);
 
-					finger2.motor1->goalPosition -= posIncrement;
-					MotorSetGoalPosition(finger2.huart, &finger2.motor1->id, &finger2.motor1->goalPosition);
-					finger2.motor2->goalPosition -= 1;
-					MotorSetGoalPosition(finger2.huart, &finger2.motor2->id, &finger2.motor2->goalPosition);
+				finger2.motor1->goalPosition -= posIncrement;
+				finger2.changedPosMotor1 = 1;
+				//MotorSetGoalPosition(finger2.huart, &finger2.motor1->id, &finger2.motor1->goalPosition);
+				finger2.motor2->goalPosition -= 1;
+				finger2.changedPosMotor2 = 1;
+				//MotorSetGoalPosition(finger2.huart, &finger2.motor2->id, &finger2.motor2->goalPosition);
 
 				//}
 

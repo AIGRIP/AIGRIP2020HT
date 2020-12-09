@@ -58,6 +58,17 @@ struct motorPositions
 	uint16_t *posFinger2Motor2;
 }typedef motorPositions;
 
+struct motorValues
+{
+	uint16_t thumbMotor1;
+	uint16_t thumbMotor2;
+
+	uint16_t finger1Motor1;
+	uint16_t finger1Motor2;
+
+	uint16_t finger2Motor1;
+	uint16_t finger2Motor2;
+}typedef motorValues;
 
 
 #define GRIPPER_START 	1
