@@ -84,7 +84,7 @@ struct structMessageStructHeaderFromNano {
 // Send motor commands to Nucleo.
 struct structMessageToNucleoMotor{
 
-    short motorAngle[NUMBER_OF_MOTORS];
+    unsigned short motorAngle[NUMBER_OF_MOTORS];
 
 }typedef messageMotorStruct;
 
@@ -105,7 +105,7 @@ struct structProximitySensorMessage {
 struct structMessageStructFromNucelo {
 
     unsigned char statusOfNucelo;
-    short motorStatus[NUMBER_OF_MOTORS];
+    messageMotorStruct motorStatus;
 
     proximitySensorMessage proximitySensors;
     mouseSensorMessage mouseSensor[NUMBER_OF_MOUSE_SESNORS];
