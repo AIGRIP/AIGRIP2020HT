@@ -775,61 +775,6 @@ clean: imageCapture/CMakeFiles/imageCapture.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory communication
-
-# Convenience name for "all" pass in the directory.
-communication/all: communication/CMakeFiles/communicationBT_I2C.dir/all
-
-.PHONY : communication/all
-
-# Convenience name for "clean" pass in the directory.
-communication/clean: communication/CMakeFiles/communicationBT_I2C.dir/clean
-
-.PHONY : communication/clean
-
-# Convenience name for "preinstall" pass in the directory.
-communication/preinstall:
-
-.PHONY : communication/preinstall
-
-#=============================================================================
-# Target rules for target communication/CMakeFiles/communicationBT_I2C.dir
-
-# All Build rule for target.
-communication/CMakeFiles/communicationBT_I2C.dir/all: GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/all
-	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/depend
-	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=92,93,94,95 "Built target communicationBT_I2C"
-.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/all
-
-# Include target in all.
-all: communication/CMakeFiles/communicationBT_I2C.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-communication/CMakeFiles/communicationBT_I2C.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 0
-.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/rule
-
-# Convenience name for target.
-communicationBT_I2C: communication/CMakeFiles/communicationBT_I2C.dir/rule
-
-.PHONY : communicationBT_I2C
-
-# clean rule for target.
-communication/CMakeFiles/communicationBT_I2C.dir/clean:
-	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/clean
-.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/clean
-
-# clean rule for target.
-clean: communication/CMakeFiles/communicationBT_I2C.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Directory level rules for directory control
 
 # Convenience name for "all" pass in the directory.
@@ -852,6 +797,7 @@ control/preinstall:
 
 # All Build rule for target.
 control/CMakeFiles/controlGriperNano.dir/all: GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/all
+control/CMakeFiles/controlGriperNano.dir/all: codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/all
 control/CMakeFiles/controlGriperNano.dir/all: codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
 control/CMakeFiles/controlGriperNano.dir/all: codegen/lib/MorphologicalFiltersCPU/CMakeFiles/MorphologicalFiltersCPU.dir/all
 control/CMakeFiles/controlGriperNano.dir/all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
@@ -871,7 +817,7 @@ all: control/CMakeFiles/controlGriperNano.dir/all
 
 # Build rule for subdir invocation for target.
 control/CMakeFiles/controlGriperNano.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 67
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 71
 	$(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/controlGriperNano.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 0
 .PHONY : control/CMakeFiles/controlGriperNano.dir/rule
@@ -888,6 +834,70 @@ control/CMakeFiles/controlGriperNano.dir/clean:
 
 # clean rule for target.
 clean: control/CMakeFiles/controlGriperNano.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory communication
+
+# Convenience name for "all" pass in the directory.
+communication/all: communication/CMakeFiles/communicationBT_I2C.dir/all
+
+.PHONY : communication/all
+
+# Convenience name for "clean" pass in the directory.
+communication/clean: communication/CMakeFiles/communicationBT_I2C.dir/clean
+
+.PHONY : communication/clean
+
+# Convenience name for "preinstall" pass in the directory.
+communication/preinstall:
+
+.PHONY : communication/preinstall
+
+#=============================================================================
+# Target rules for target communication/CMakeFiles/communicationBT_I2C.dir
+
+# All Build rule for target.
+communication/CMakeFiles/communicationBT_I2C.dir/all: GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/MorphologicalFiltersCPU/CMakeFiles/MorphologicalFiltersCPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/StableLineCPU/CMakeFiles/StableLineCPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/GetValidGripPointsCPU/CMakeFiles/GetValidGripPointsCPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: imageCapture/CMakeFiles/imageCapture.dir/all
+communication/CMakeFiles/communicationBT_I2C.dir/all: control/CMakeFiles/controlGriperNano.dir/all
+	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/depend
+	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=92,93,94,95 "Built target communicationBT_I2C"
+.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/all
+
+# Include target in all.
+all: communication/CMakeFiles/communicationBT_I2C.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+communication/CMakeFiles/communicationBT_I2C.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 75
+	$(MAKE) -f CMakeFiles/Makefile2 communication/CMakeFiles/communicationBT_I2C.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles 0
+.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/rule
+
+# Convenience name for target.
+communicationBT_I2C: communication/CMakeFiles/communicationBT_I2C.dir/rule
+
+.PHONY : communicationBT_I2C
+
+# clean rule for target.
+communication/CMakeFiles/communicationBT_I2C.dir/clean:
+	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/clean
+.PHONY : communication/CMakeFiles/communicationBT_I2C.dir/clean
+
+# clean rule for target.
+clean: communication/CMakeFiles/communicationBT_I2C.dir/clean
 
 .PHONY : clean
 
@@ -926,8 +936,8 @@ Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/StableLineCPU/CMakeFi
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/GetValidGripPointsCPU/CMakeFiles/GetValidGripPointsCPU.dir/all
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir/all
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: imageCapture/CMakeFiles/imageCapture.dir/all
-Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: communication/CMakeFiles/communicationBT_I2C.dir/all
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: control/CMakeFiles/controlGriperNano.dir/all
+Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/all: communication/CMakeFiles/communicationBT_I2C.dir/all
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/depend
 	$(MAKE) -f Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build.make Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles --progress-num=63,64 "Built target RUN_AIGRIP_NANO"

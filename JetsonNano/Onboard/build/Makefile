@@ -280,19 +280,6 @@ imageCapture/fast:
 .PHONY : imageCapture/fast
 
 #=============================================================================
-# Target rules for targets named communicationBT_I2C
-
-# Build rule for target.
-communicationBT_I2C: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 communicationBT_I2C
-.PHONY : communicationBT_I2C
-
-# fast build rule for target.
-communicationBT_I2C/fast:
-	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
-.PHONY : communicationBT_I2C/fast
-
-#=============================================================================
 # Target rules for targets named controlGriperNano
 
 # Build rule for target.
@@ -304,6 +291,19 @@ controlGriperNano: cmake_check_build_system
 controlGriperNano/fast:
 	$(MAKE) -f control/CMakeFiles/controlGriperNano.dir/build.make control/CMakeFiles/controlGriperNano.dir/build
 .PHONY : controlGriperNano/fast
+
+#=============================================================================
+# Target rules for targets named communicationBT_I2C
+
+# Build rule for target.
+communicationBT_I2C: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 communicationBT_I2C
+.PHONY : communicationBT_I2C
+
+# fast build rule for target.
+communicationBT_I2C/fast:
+	$(MAKE) -f communication/CMakeFiles/communicationBT_I2C.dir/build.make communication/CMakeFiles/communicationBT_I2C.dir/build
+.PHONY : communicationBT_I2C/fast
 
 #=============================================================================
 # Target rules for targets named RUN_AIGRIP_NANO
@@ -339,8 +339,8 @@ help:
 	@echo "... GetValidGripPointsCPU"
 	@echo "... GetSignatureCPU"
 	@echo "... imageCapture"
-	@echo "... communicationBT_I2C"
 	@echo "... controlGriperNano"
+	@echo "... communicationBT_I2C"
 	@echo "... RUN_AIGRIP_NANO"
 .PHONY : help
 

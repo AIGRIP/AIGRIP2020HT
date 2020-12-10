@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.o"
   "CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.o"
   "libApproachObjectCPU.pdb"
-  "libApproachObjectCPU.a"
+  "libApproachObjectCPU.so"
 )
 
 # Per-language clean rules from dependency scanning.

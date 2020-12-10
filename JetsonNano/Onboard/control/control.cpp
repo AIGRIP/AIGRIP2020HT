@@ -6,6 +6,8 @@
 #include <math.h>
 #include <unistd.h>
 
+#include <mqueue.h>
+
 #include "typedefsGripperNano.h"
 
 #include "imageCapture.h"

@@ -94,14 +94,15 @@ Executable/RUN_AIGRIP_NANO: /usr/local/cuda/lib64/libcudart_static.a
 Executable/RUN_AIGRIP_NANO: /usr/lib/aarch64-linux-gnu/librt.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/ParallelMotorAnglet2CPU/libParallelMotorAnglet2CPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/InverseKinematicsPreshapeCPU/libInverseKinematicsPreshapeCPU.a
-Executable/RUN_AIGRIP_NANO: codegen/lib/ApproachObjectCPU/libApproachObjectCPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/PointToLineCPU/libPointToLineCPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
 Executable/RUN_AIGRIP_NANO: imageCapture/libimageCapture.a
+Executable/RUN_AIGRIP_NANO: control/libcontrolGriperNano.a
 Executable/RUN_AIGRIP_NANO: communication/libcommunicationBT_I2C.a
 Executable/RUN_AIGRIP_NANO: control/libcontrolGriperNano.a
+Executable/RUN_AIGRIP_NANO: codegen/lib/ApproachObjectCPU/libApproachObjectCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/MorphologicalFiltersCPU/libMorphologicalFiltersCPU.so

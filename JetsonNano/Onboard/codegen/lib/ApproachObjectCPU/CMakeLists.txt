@@ -14,7 +14,7 @@ file(GLOB cu *.c *.cpp)
 
 
 # Create a library and choose the name (linking name) for the library.
-CUDA_ADD_LIBRARY(ApproachObjectCPU STATIC ${cu})
+CUDA_ADD_LIBRARY(ApproachObjectCPU SHARED ${cu})
 
 # Make library public.
 target_compile_features(ApproachObjectCPU PUBLIC cxx_std_11)
