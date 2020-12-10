@@ -21,6 +21,7 @@
 
 #include <cstring>
 
+#include "control.h"
 #include "communication.h"
 #include "communicationI2C.h"
 
