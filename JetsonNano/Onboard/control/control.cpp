@@ -269,6 +269,7 @@ void* controlThread(void* arg)
             // Approach
             case 2:
             {
+		/*
                 //Recive current motor angle and distance
                 //Approach
                 ApproachObject(linkLengths,currentMotorPosition.motorAngle[0], currentMotorPosition.motorAngle[1], distanceToObject, motorSteps);
@@ -297,7 +298,7 @@ void* controlThread(void* arg)
                 {
                     printf("Failed to reach main MQ in pre-shape.\n");
                 }
-            
+            */
             }
             break;
 

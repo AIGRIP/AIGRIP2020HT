@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../GeneralTypedefs/typedefsGripperNano.h
+
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/communication/communicationBLT.c
+stdio.h
+-
+unistd.h
+-
+sys/socket.h
+-
+bluetooth/bluetooth.h
+-
+bluetooth/rfcomm.h
+-
+pthread.h
+-
+mqueue.h
+-
+communicationBLT.h
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/communication/communicationBLT.h
+
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/communication/communicationBLT.h
+typedefsGripperNano.h
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/communication/typedefsGripperNano.h
+
