@@ -1,28 +1,22 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: ApproachObject_terminate.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 04-Dec-2020 11:28:08
+//  ApproachObject_terminate.cpp
+//
+//  Code generation for function 'ApproachObject_terminate'
 //
 
-// Include Files
+
+// Include files
 #include "ApproachObject_terminate.h"
+#include "ApproachObject.h"
 
 // Function Definitions
-//
-// Arguments    : void
-// Return Type  : void
-//
 void ApproachObject_terminate()
 {
   // (no terminate code required)
 }
 
-//
-// File trailer for ApproachObject_terminate.cpp
-//
-// [EOF]
-//
+// End of code generation (ApproachObject_terminate.cpp)

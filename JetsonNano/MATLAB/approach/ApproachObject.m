@@ -18,12 +18,11 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
     %motorAngles = 1X3 array with three motor angles one for each motro in a
     %finger. The order of the motors in the array is M0,M1,M2.
     
-    motorAngles = zeros(1,3);
-
+    motorAngles = uint16(zeros(1,3));
+    currentMotorM1Degrees = double(currentMotorM1Steps *(300/65535) - 150);
     %Convert the steps into radians
-    currentmotorAnglet1 = deg2rad(currentMotorM1Steps *(300/65535) - 150);
+    currentmotorAnglet1 = deg2rad(currentMotorM1Degrees);
     motorAngles(1) = currentMotorM0Steps;
-    
     %Calculate the new angle of motor M1
     if currentmotorAnglet1 > pi/2
         %Calculate current distance from the joint position c to
@@ -32,9 +31,9 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
         currentDistance =  sin(angleInTriangle) * linkLengths(3);
         distance = currentDistance - distanceToObject;
         %Check if the new angle goes over pi/2 radians
-        motorAngles(2) = acos(abs(distance) / linkLengths(3));
+        newMotorM1Rad = acos(abs(distance) / linkLengths(3));
         if distance > 0
-            motorAngles(2) = pi/2 + (pi/2 - motorAngles(2));
+            newMotorM1Rad = pi/2 + (pi/2 - newMotorM1Rad);
         end
     else
         %Calculate current distance from the joint position c to
@@ -42,22 +41,22 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
         angleInTriangle = pi/2 - currentmotorAnglet1;
         currentDistance =  sin(angleInTriangle) * linkLengths(3);
         distance = currentDistance + distanceToObject;
-        motorAngles(2) = acos(distance / linkLengths(3));
+        newMotorM1Rad = acos(distance / linkLengths(3));
     end 
    
 
     motorPositionM1 = [0,0];
     motorPositionM2 = [-29,-38];
     %Calculate the angle of motor M2 so that link e is parallel
-    motorAngles(3) = ParallelMotorAnglet2(motorAngles(2),motorPositionM1,motorPositionM2,linkLengths);
+    newMotorM2Rad = ParallelMotorAnglet2(newMotorM1Rad,motorPositionM1,motorPositionM2,linkLengths);
 
     %Add offset for the motors and change radians to degree
-    motorAngles(2) = rad2deg(motorAngles(2)) + 150;
-    motorAngles(3) = rad2deg(motorAngles(3)) + 60;
+    newMotorM1Rad = rad2deg(newMotorM1Rad) + 150;
+    newMotorM2Rad = rad2deg(newMotorM2Rad) + 60;
     
     %Convert the motor angles to an uint16 and remap the angles from 0-300 to 0-65535
-    motorAngles(2) = uint16(motorAngles(2) * 65535 / 300);
-    motorAngles(3) = uint16(motorAngles(3) * 65535 / 300);
+    motorAngles(2) = uint16(newMotorM1Rad * 65535 / 300);
+    motorAngles(3) = uint16(newMotorM2Rad * 65535 / 300);
 
 
 end

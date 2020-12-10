@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: ApproachObject.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 04-Dec-2020 11:28:08
+//  ApproachObject.cpp
+//
+//  Code generation for function 'ApproachObject'
 //
 
-// Include Files
+
+// Include files
 #include "ApproachObject.h"
 #include <cmath>
 
@@ -16,10 +17,6 @@
 static double rt_roundd_snf(double u);
 
 // Function Definitions
-//
-// Arguments    : double u
-// Return Type  : double
-//
 static double rt_roundd_snf(double u)
 {
   double y;
@@ -38,28 +35,24 @@ static double rt_roundd_snf(double u)
   return y;
 }
 
-//
-// This function calculates how every motor in a finger should be rotated for
-// it to reach a certain point with a certain angle and with the last link
-// being parallel to the palm of the gripper
-// Arguments    : const double linkLengths[5]
-//                double currentMotorM0Steps
-//                double currentMotorM1Steps
-//                double distanceToObject
-//                double motorAngles[3]
-// Return Type  : void
-//
-void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
-                    double currentMotorM1Steps, double distanceToObject, double
-                    motorAngles[3])
+void ApproachObject(const double linkLengths[5], unsigned short
+                    currentMotorM0Steps, unsigned short currentMotorM1Steps,
+                    double distanceToObject, unsigned short motorAngles[3])
 {
-  double absxk_tmp;
+  int q0;
+  unsigned int qY;
   double currentmotorAnglet1;
+  double newMotorM1Rad;
   double jointPositionB_idx_0;
-  double normBM2;
   double scale;
+  double normBM2;
+  double absxk_tmp;
+  double motorAnglet2FirHalf;
   unsigned short u;
 
+  // This function calculates how every motor in a finger should be rotated for
+  // it to reach a certain point with a certain angle and with the last link
+  // being parallel to the palm of the gripper
   // Input:
   // linkLengths = 1x5 array with the lengths of all five links in the order
   // a,b,c,d,e
@@ -71,8 +64,15 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
   // motorAngles = 1X3 array with three motor angles one for each motro in a
   // finger. The order of the motors in the array is M0,M1,M2.
   // Convert the steps into radians
-  currentmotorAnglet1 = 0.017453292519943295 * (currentMotorM1Steps *
-    0.0045777065690089267 - 150.0);
+  q0 = static_cast<int>(rt_roundd_snf(static_cast<double>(currentMotorM1Steps) *
+    0.0045777065690089267));
+  qY = q0 - 150U;
+  if (qY > static_cast<unsigned int>(q0)) {
+    qY = 0U;
+  }
+
+  currentmotorAnglet1 = 0.017453292519943295 * static_cast<double>(static_cast<
+    int>(qY));
   motorAngles[0] = currentMotorM0Steps;
 
   // Calculate the new angle of motor M1
@@ -83,16 +83,15 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
       linkLengths[2] - distanceToObject;
 
     // Check if the new angle goes over pi/2 radians
-    motorAngles[1] = std::acos(std::abs(currentmotorAnglet1) / linkLengths[2]);
+    newMotorM1Rad = std::acos(std::abs(currentmotorAnglet1) / linkLengths[2]);
     if (currentmotorAnglet1 > 0.0) {
-      motorAngles[1] = (1.5707963267948966 - motorAngles[1]) +
-        1.5707963267948966;
+      newMotorM1Rad = (1.5707963267948966 - newMotorM1Rad) + 1.5707963267948966;
     }
   } else {
     // Calculate current distance from the joint position c to
     // position of motor M1
-    motorAngles[1] = std::acos((std::sin(1.5707963267948966 -
-      currentmotorAnglet1) * linkLengths[2] + distanceToObject) / linkLengths[2]);
+    newMotorM1Rad = std::acos((std::sin(1.5707963267948966 - currentmotorAnglet1)
+      * linkLengths[2] + distanceToObject) / linkLengths[2]);
   }
 
   // Calculate the angle of motor M2 so that link e is parallel
@@ -111,8 +110,8 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
   // Set the appropriate lengths for the links
   // Calculate the position of joint B when link d lies
   // perpendicular to link e
-  jointPositionB_idx_0 = linkLengths[2] * std::cos(motorAngles[1]) -
-    linkLengths[3];
+  jointPositionB_idx_0 = linkLengths[2] * std::cos(newMotorM1Rad) - linkLengths
+    [3];
   scale = 3.3121686421112381E-170;
   currentmotorAnglet1 = std::abs(jointPositionB_idx_0 - -29.0);
   if (currentmotorAnglet1 > 3.3121686421112381E-170) {
@@ -123,7 +122,7 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
     normBM2 = currentmotorAnglet1 * currentmotorAnglet1;
   }
 
-  absxk_tmp = std::abs(linkLengths[2] * std::sin(motorAngles[1]) - -38.0);
+  absxk_tmp = std::abs(linkLengths[2] * std::sin(newMotorM1Rad) - -38.0);
   if (absxk_tmp > scale) {
     currentmotorAnglet1 = scale / absxk_tmp;
     normBM2 = normBM2 * currentmotorAnglet1 * currentmotorAnglet1 + 1.0;
@@ -134,19 +133,14 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
   }
 
   normBM2 = scale * std::sqrt(normBM2);
-  scale = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 * normBM2) -
-                     linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
+  motorAnglet2FirHalf = std::acos(((linkLengths[0] * linkLengths[0] + normBM2 *
+    normBM2) - linkLengths[1] * linkLengths[1]) / (2.0 * linkLengths[0] *
     normBM2));
-  currentmotorAnglet1 = std::acos(absxk_tmp / normBM2);
-  if (jointPositionB_idx_0 > -29.0) {
-    motorAngles[2] = scale - currentmotorAnglet1;
-  } else {
-    motorAngles[2] = scale + currentmotorAnglet1;
-  }
+  scale = std::acos(absxk_tmp / normBM2);
 
   // Add offset for the motors and change radians to degree
   // Convert the motor angles to an uint16 and remap the angles from 0-300 to 0-65535 
-  currentmotorAnglet1 = rt_roundd_snf((57.295779513082323 * motorAngles[1] +
+  currentmotorAnglet1 = rt_roundd_snf((57.295779513082323 * newMotorM1Rad +
     150.0) * 65535.0 / 300.0);
   if (currentmotorAnglet1 < 65536.0) {
     if (currentmotorAnglet1 >= 0.0) {
@@ -161,8 +155,14 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
   }
 
   motorAngles[1] = u;
-  currentmotorAnglet1 = rt_roundd_snf((57.295779513082323 * motorAngles[2] +
-    60.0) * 65535.0 / 300.0);
+  if (jointPositionB_idx_0 > -29.0) {
+    jointPositionB_idx_0 = motorAnglet2FirHalf - scale;
+  } else {
+    jointPositionB_idx_0 = motorAnglet2FirHalf + scale;
+  }
+
+  currentmotorAnglet1 = rt_roundd_snf((57.295779513082323 * jointPositionB_idx_0
+    + 60.0) * 65535.0 / 300.0);
   if (currentmotorAnglet1 < 65536.0) {
     if (currentmotorAnglet1 >= 0.0) {
       u = static_cast<unsigned short>(currentmotorAnglet1);
@@ -178,8 +178,4 @@ void ApproachObject(const double linkLengths[5], double currentMotorM0Steps,
   motorAngles[2] = u;
 }
 
-//
-// File trailer for ApproachObject.cpp
-//
-// [EOF]
-//
+// End of code generation (ApproachObject.cpp)

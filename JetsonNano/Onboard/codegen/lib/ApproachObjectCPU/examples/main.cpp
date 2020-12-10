@@ -1,12 +1,13 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: main.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 04-Dec-2020 11:28:08
+//  main.cpp
 //
+//  Code generation for function 'main'
+//
+
 
 //***********************************************************************
 // This automatically generated example C++ main file shows how to call
@@ -33,7 +34,7 @@
 //
 //***********************************************************************
 
-// Include Files
+// Include files
 #include "main.h"
 #include "ApproachObject.h"
 #include "ApproachObject_terminate.h"
@@ -41,13 +42,10 @@
 // Function Declarations
 static void argInit_1x5_real_T(double result[5]);
 static double argInit_real_T();
+static unsigned short argInit_uint16_T();
 static void main_ApproachObject();
 
 // Function Definitions
-//
-// Arguments    : double result[5]
-// Return Type  : void
-//
 static void argInit_1x5_real_T(double result[5])
 {
   // Loop over the array to initialize each element.
@@ -58,40 +56,32 @@ static void argInit_1x5_real_T(double result[5])
   }
 }
 
-//
-// Arguments    : void
-// Return Type  : double
-//
 static double argInit_real_T()
 {
   return 0.0;
 }
 
-//
-// Arguments    : void
-// Return Type  : void
-//
+static unsigned short argInit_uint16_T()
+{
+  return 0U;
+}
+
 static void main_ApproachObject()
 {
+  unsigned short currentMotorM0Steps_tmp;
   double dv[5];
-  double motorAngles[3];
-  double currentMotorM0Steps_tmp;
+  unsigned short motorAngles[3];
 
   // Initialize function 'ApproachObject' input arguments.
   // Initialize function input argument 'linkLengths'.
-  currentMotorM0Steps_tmp = argInit_real_T();
+  currentMotorM0Steps_tmp = argInit_uint16_T();
 
   // Call the entry-point 'ApproachObject'.
   argInit_1x5_real_T(dv);
   ApproachObject(dv, currentMotorM0Steps_tmp, currentMotorM0Steps_tmp,
-                 currentMotorM0Steps_tmp, motorAngles);
+                 argInit_real_T(), motorAngles);
 }
 
-//
-// Arguments    : int argc
-//                const char * const argv[]
-// Return Type  : int
-//
 int main(int, const char * const [])
 {
   // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
@@ -105,8 +95,4 @@ int main(int, const char * const [])
   return 0;
 }
 
-//
-// File trailer for main.cpp
-//
-// [EOF]
-//
+// End of code generation (main.cpp)

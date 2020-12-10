@@ -1,27 +1,21 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: ApproachObject_initialize.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 04-Dec-2020 11:28:08
+//  ApproachObject_initialize.cpp
+//
+//  Code generation for function 'ApproachObject_initialize'
 //
 
-// Include Files
+
+// Include files
 #include "ApproachObject_initialize.h"
+#include "ApproachObject.h"
 
 // Function Definitions
-//
-// Arguments    : void
-// Return Type  : void
-//
 void ApproachObject_initialize()
 {
 }
 
-//
-// File trailer for ApproachObject_initialize.cpp
-//
-// [EOF]
-//
+// End of code generation (ApproachObject_initialize.cpp)
