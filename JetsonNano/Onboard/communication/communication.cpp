@@ -67,6 +67,13 @@ void communicationHandler()
     pthread_create(&threadIDI2C, &attrI2C, I2CReceiveHandler, (void*) NULL);
 
 
+    // Startup control thread on Nano.
+    pthread_attr_t attrControl;
+    pthread_t threadIDControl;
+
+    pthread_attr_init(&attrI2C);
+    pthread_create(&threadIDControl, &attrControl, controlThread, (void*) NULL);
+
     // Communication setup done.
 
     char I2CBufferToSend[1024];
@@ -96,6 +103,8 @@ void communicationHandler()
         {
             case SEND_MOTOR_COMMAND:
             {
+                printf("Sending motor command from command handle.\n");
+
                 // Send motor data to Nucleo.
                 mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageMotorStruct),NULL);
 
@@ -110,6 +119,7 @@ void communicationHandler()
 
             case RECEIVED_DATA_FROM_NUCLEO:
             {
+                printf("Received data from Nucleo in command handle.\n");
                 // Handle received message from Nucleo.
                 mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
                 

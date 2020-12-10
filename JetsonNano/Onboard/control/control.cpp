@@ -99,7 +99,7 @@ void* controlThread(void* arg)
     while(1)
     {
 
-
+        /*
 
         // Recive current distance to obejct. If there is posible to wait for data, add some time to messageDeadline.
         clock_gettime(CLOCK_REALTIME, &messageDeadline);
@@ -134,6 +134,7 @@ void* controlThread(void* arg)
             }
 
         }
+        */
 
         // Debug, test state
         gripperState = 1;

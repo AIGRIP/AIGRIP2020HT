@@ -22,10 +22,8 @@
 int main()
 {
 
-	controlThread(NULL);
-
 	// Communication handle for Nano.
-	//communicationHandler();
+	communicationHandler();
     
     return 0;
 }
