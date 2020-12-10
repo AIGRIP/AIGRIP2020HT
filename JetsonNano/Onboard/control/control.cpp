@@ -65,6 +65,7 @@ void* controlThread(void* arg)
     double distanceToObject = 300;
     double bestTargetPointY, bestTargetPointX, bestNormalPointY, bestNormalPointX;
     unsigned short motorSteps[3];
+    messageMotorStruct currentMotorPosition; 
 
     double resDeg = 1*3.1415/180.0;
 
@@ -110,6 +111,11 @@ void* controlThread(void* arg)
         {
             distanceToObject = controlDataMessage.proximitySensor[0];
 
+            for(int motorIndex=0; motorIndex<NUMBER_OF_MOTORS;motorIndex++)
+            {
+                currentMotorPosition.motorAngle[i] = controlDataMessage.motorData.motorAngle[i];
+            }
+
 
             // Check if it is time to switch state.
             if( distanceToObject < 20 && gripperState == 1 )
@@ -134,7 +140,6 @@ void* controlThread(void* arg)
                     printf("Failed to reach main MQ in pre-shape.\n");
                 }
             }
-
         }
         */
 
@@ -266,16 +271,16 @@ void* controlThread(void* arg)
             {
                 //Recive current motor angle and distance
                 //Approach
-                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps);
+                ApproachObject(linkLengths,currentMotorPosition.motorAngle[0], currentMotorPosition.motorAngle[1], distanceToObject, motorSteps);
                 motorMessage.motorAngle[0] = motorSteps[1];
                 motorMessage.motorAngle[1] = motorSteps[2];
 
-                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps);
+                ApproachObject(linkLengths,currentMotorPosition.motorAngle[2], currentMotorPosition.motorAngle[3], distanceToObject, motorSteps);
                 motorMessage.motorAngle[2] = motorSteps[0];
                 motorMessage.motorAngle[3] = motorSteps[1];
                 motorMessage.motorAngle[4] = motorSteps[2];
 
-                ApproachObject(linkLengths,currentMotorM0Steps, currentMotorM1Steps, distanceToObject, motorSteps);
+                ApproachObject(linkLengths,currentMotorPosition.motorAngle[5], currentMotorPosition.motorAngle[6], distanceToObject, motorSteps);
                 motorMessage.motorAngle[5] = motorSteps[0];
                 motorMessage.motorAngle[6] = motorSteps[1];
                 motorMessage.motorAngle[7] = motorSteps[2];
