@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcolourBalanceGPU.a  CMakeFiles/colourBalanceGPU.dir/colourBalanceGPU_generated_colourBalance.cu.o CMakeFiles/colourBalanceGPU.dir/colourBalanceGPU_generated_colourBalance_data.cu.o CMakeFiles/colourBalanceGPU.dir/colourBalanceGPU_generated_colourBalance_initialize.cu.o CMakeFiles/colourBalanceGPU.dir/colourBalanceGPU_generated_colourBalance_terminate.cu.o CMakeFiles/colourBalanceGPU.dir/colourBalanceGPU_intermediate_link.o
+/usr/bin/ranlib libcolourBalanceGPU.a
