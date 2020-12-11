@@ -2,16 +2,17 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_MorphologicalFilters_api.h
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 03-Dec-2020 08:29:52
+ * _coder_MorphologicalFilters_api.h
+ *
+ * Code generation for function 'MorphologicalFilters'
+ *
  */
 
 #ifndef _CODER_MORPHOLOGICALFILTERS_API_H
 #define _CODER_MORPHOLOGICALFILTERS_API_H
 
-/* Include Files */
+/* Include files */
 #include "emlrt.h"
 #include "tmwtypes.h"
 #include <string.h>
@@ -28,9 +29,10 @@ extern "C" {
 
   /* Function Declarations */
   void MorphologicalFilters(boolean_T colourSegmentationMask[728160], real_T
-    centerOfObjectX, real_T centerOfObjectY, boolean_T segmentationMask[728160]);
-  void MorphologicalFilters_api(const mxArray * const prhs[3], const mxArray
-    *plhs[1]);
+    centerOfObjectX, real_T centerOfObjectY, real_T *errorNoImage, boolean_T
+    segmentationMask[728160]);
+  void MorphologicalFilters_api(const mxArray * const prhs[3], int32_T nlhs,
+    const mxArray *plhs[2]);
   void MorphologicalFilters_atexit(void);
   void MorphologicalFilters_initialize(void);
   void MorphologicalFilters_terminate(void);
@@ -43,8 +45,4 @@ extern "C" {
 #endif
 #endif
 
-/*
- * File trailer for _coder_MorphologicalFilters_api.h
- *
- * [EOF]
- */
+/* End of code generation (_coder_MorphologicalFilters_api.h) */

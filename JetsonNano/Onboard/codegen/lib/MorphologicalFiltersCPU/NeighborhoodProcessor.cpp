@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: NeighborhoodProcessor.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  NeighborhoodProcessor.cpp
+//
+//  Code generation for function 'NeighborhoodProcessor'
 //
 
-// Include Files
+
+// Include files
 #include "NeighborhoodProcessor.h"
 #include "minOrMax.h"
 #include "rt_nonfinite.h"
@@ -23,11 +24,6 @@ static int div_s32(int numerator, int denominator);
 static double rt_remd_snf(double u0, double u1);
 
 // Function Definitions
-//
-// Arguments    : int numerator
-//                int denominator
-// Return Type  : int
-//
 static int div_s32(int numerator, int denominator)
 {
   unsigned int b_numerator;
@@ -63,11 +59,6 @@ static int div_s32(int numerator, int denominator)
   return quotient;
 }
 
-//
-// Arguments    : double u0
-//                double u1
-// Return Type  : double
-//
 static double rt_remd_snf(double u0, double u1)
 {
   double y;
@@ -98,16 +89,6 @@ static double rt_remd_snf(double u0, double u1)
   return y;
 }
 
-//
-// Arguments    : const int imSize[2]
-//                const bool nhConn[9]
-//                int loffsets[9]
-//                int linds[9]
-//                int soffsets[18]
-//                double interiorStart[2]
-//                int interiorEnd[2]
-// Return Type  : void
-//
 namespace coder
 {
   namespace images
@@ -175,16 +156,6 @@ namespace coder
           }
         }
 
-        //
-        // Arguments    : const int imSize[2]
-        //                const bool nhConn[9]
-        //                int loffsets[5]
-        //                int linds[5]
-        //                int soffsets[10]
-        //                double interiorStart[2]
-        //                int interiorEnd[2]
-        // Return Type  : void
-        //
         void NeighborhoodProcessor::computeParameters(const int imSize[2], const
           bool nhConn[9], int loffsets[5], int linds[5], int soffsets[10],
           double interiorStart[2], int interiorEnd[2])
@@ -247,11 +218,6 @@ namespace coder
           }
         }
 
-        //
-        // Arguments    : const bool in[728160]
-        //                bool out[728160]
-        // Return Type  : void
-        //
         void NeighborhoodProcessor::process2D(const bool in[728160], bool out
           [728160]) const
         {
@@ -1278,8 +1244,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for NeighborhoodProcessor.cpp
-//
-// [EOF]
-//
+// End of code generation (NeighborhoodProcessor.cpp)

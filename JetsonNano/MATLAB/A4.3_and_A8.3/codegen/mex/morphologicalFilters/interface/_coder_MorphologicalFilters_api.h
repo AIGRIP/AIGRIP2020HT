@@ -3,9 +3,9 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * MorphologicalFilters.h
+ * _coder_MorphologicalFilters_api.h
  *
- * Code generation for function 'MorphologicalFilters'
+ * Code generation for function '_coder_MorphologicalFilters_api'
  *
  */
 
@@ -23,9 +23,7 @@
 #include <string.h>
 
 /* Function Declarations */
-void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
-  *sp, const boolean_T colourSegmentationMask[728160], real_T centerOfObjectX,
-  real_T centerOfObjectY, real_T *errorNoImage, boolean_T segmentationMask
-  [728160]);
+void MorphologicalFilters_api(MorphologicalFiltersStackData *SD, const mxArray *
+  const prhs[3], int32_T nlhs, const mxArray *plhs[2]);
 
-/* End of code generation (MorphologicalFilters.h) */
+/* End of code generation (_coder_MorphologicalFilters_api.h) */

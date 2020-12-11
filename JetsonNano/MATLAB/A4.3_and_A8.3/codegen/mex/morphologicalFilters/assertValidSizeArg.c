@@ -16,19 +16,19 @@
 #include "mwmathutil.h"
 
 /* Variable Definitions */
-static emlrtRTEInfo g_emlrtRTEI = { 58,/* lineNo */
+static emlrtRTEInfo f_emlrtRTEI = { 58,/* lineNo */
   23,                                  /* colNo */
   "assertValidSizeArg",                /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\assertValidSizeArg.m"/* pName */
 };
 
-static emlrtRTEInfo h_emlrtRTEI = { 64,/* lineNo */
+static emlrtRTEInfo g_emlrtRTEI = { 64,/* lineNo */
   15,                                  /* colNo */
   "assertValidSizeArg",                /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\assertValidSizeArg.m"/* pName */
 };
 
-static emlrtRTEInfo i_emlrtRTEI = { 49,/* lineNo */
+static emlrtRTEInfo h_emlrtRTEI = { 49,/* lineNo */
   19,                                  /* colNo */
   "assertValidSizeArg",                /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\assertValidSizeArg.m"/* pName */
@@ -40,7 +40,7 @@ void assertValidSizeArg(const emlrtStack *sp, real_T varargin_1)
   real_T n;
   if ((varargin_1 != varargin_1) || muDoubleScalarIsInf(varargin_1) ||
       (varargin_1 > 2.147483647E+9)) {
-    emlrtErrorWithMessageIdR2018a(sp, &g_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(sp, &f_emlrtRTEI,
       "Coder:MATLAB:NonIntegerInput", "Coder:MATLAB:NonIntegerInput", 4, 12,
       MIN_int32_T, 12, MAX_int32_T);
   }
@@ -52,7 +52,7 @@ void assertValidSizeArg(const emlrtStack *sp, real_T varargin_1)
   }
 
   if (!(n <= 2.147483647E+9)) {
-    emlrtErrorWithMessageIdR2018a(sp, &h_emlrtRTEI, "Coder:MATLAB:pmaxsize",
+    emlrtErrorWithMessageIdR2018a(sp, &g_emlrtRTEI, "Coder:MATLAB:pmaxsize",
       "Coder:MATLAB:pmaxsize", 0);
   }
 }
@@ -96,7 +96,7 @@ void b_assertValidSizeArg(const emlrtStack *sp, const real_T varargin_1[2])
   }
 
   if (guard1) {
-    emlrtErrorWithMessageIdR2018a(sp, &i_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(sp, &h_emlrtRTEI,
       "Coder:toolbox:eml_assert_valid_size_arg_invalidSizeVector",
       "Coder:toolbox:eml_assert_valid_size_arg_invalidSizeVector", 4, 12,
       MIN_int32_T, 12, MAX_int32_T);
@@ -115,7 +115,7 @@ void b_assertValidSizeArg(const emlrtStack *sp, const real_T varargin_1[2])
   }
 
   if (!(n <= 2.147483647E+9)) {
-    emlrtErrorWithMessageIdR2018a(sp, &h_emlrtRTEI, "Coder:MATLAB:pmaxsize",
+    emlrtErrorWithMessageIdR2018a(sp, &g_emlrtRTEI, "Coder:MATLAB:pmaxsize",
       "Coder:MATLAB:pmaxsize", 0);
   }
 }

@@ -5,26 +5,16 @@
  *
  * _coder_MorphologicalFilters_api.c
  *
- * Code generation for function 'MorphologicalFilters'
+ * Code generation for function '_coder_MorphologicalFilters_api'
  *
  */
 
 /* Include files */
 #include "_coder_MorphologicalFilters_api.h"
-#include "_coder_MorphologicalFilters_mex.h"
-
-/* Variable Definitions */
-emlrtCTX emlrtRootTLSGlobal = NULL;
-emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
-  false,                               /* bInitialized */
-  131595U,                             /* fVersionInfo */
-  NULL,                                /* fErrorFunction */
-  "MorphologicalFilters",              /* fFunctionName */
-  NULL,                                /* fRTCallStack */
-  false,                               /* bDebugMode */
-  { 2045744189U, 2170104910U, 2743257031U, 4284093946U },/* fSigWrd */
-  NULL                                 /* fSigMem */
-};
+#include "MorphologicalFilters.h"
+#include "MorphologicalFilters_data.h"
+#include "MorphologicalFilters_types.h"
+#include "rt_nonfinite.h"
 
 /* Function Declarations */
 static boolean_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
@@ -134,8 +124,8 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   return ret;
 }
 
-void MorphologicalFilters_api(const mxArray * const prhs[3], int32_T nlhs, const
-  mxArray *plhs[2])
+void MorphologicalFilters_api(MorphologicalFiltersStackData *SD, const mxArray *
+  const prhs[3], int32_T nlhs, const mxArray *plhs[2])
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -159,57 +149,14 @@ void MorphologicalFilters_api(const mxArray * const prhs[3], int32_T nlhs, const
     "centerOfObjectY");
 
   /* Invoke the target function */
-  MorphologicalFilters(*colourSegmentationMask, centerOfObjectX, centerOfObjectY,
-                       &errorNoImage, *segmentationMask);
+  MorphologicalFilters(SD, &st, *colourSegmentationMask, centerOfObjectX,
+                       centerOfObjectY, &errorNoImage, *segmentationMask);
 
   /* Marshall function outputs */
   plhs[0] = emlrt_marshallOut(errorNoImage);
   if (nlhs > 1) {
     plhs[1] = b_emlrt_marshallOut(*segmentationMask);
   }
-}
-
-void MorphologicalFilters_atexit(void)
-{
-  emlrtStack st = { NULL,              /* site */
-    NULL,                              /* tls */
-    NULL                               /* prev */
-  };
-
-  mexFunctionCreateRootTLS();
-  st.tls = emlrtRootTLSGlobal;
-  emlrtEnterRtStackR2012b(&st);
-  emlrtLeaveRtStackR2012b(&st);
-  emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
-  MorphologicalFilters_xil_terminate();
-  MorphologicalFilters_xil_shutdown();
-  emlrtExitTimeCleanup(&emlrtContextGlobal);
-}
-
-void MorphologicalFilters_initialize(void)
-{
-  emlrtStack st = { NULL,              /* site */
-    NULL,                              /* tls */
-    NULL                               /* prev */
-  };
-
-  mexFunctionCreateRootTLS();
-  st.tls = emlrtRootTLSGlobal;
-  emlrtClearAllocCountR2012b(&st, false, 0U, 0);
-  emlrtEnterRtStackR2012b(&st);
-  emlrtFirstTimeR2012b(emlrtRootTLSGlobal);
-}
-
-void MorphologicalFilters_terminate(void)
-{
-  emlrtStack st = { NULL,              /* site */
-    NULL,                              /* tls */
-    NULL                               /* prev */
-  };
-
-  st.tls = emlrtRootTLSGlobal;
-  emlrtLeaveRtStackR2012b(&st);
-  emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
 }
 
 /* End of code generation (_coder_MorphologicalFilters_api.c) */

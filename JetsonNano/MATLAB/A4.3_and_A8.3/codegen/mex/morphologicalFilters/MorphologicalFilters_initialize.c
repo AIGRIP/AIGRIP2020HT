@@ -31,17 +31,20 @@ static void MorphologicalFilters_once(void)
 
   /* Initialize Coverage Information */
   covrtScriptInit(&emlrtCoverageInstance,
-                  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",
-                  0U, 1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
+                  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",
+                  0U, 1U, 2U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
 
   /* Initialize Function Information */
   covrtFcnInit(&emlrtCoverageInstance, 0U, 0U, "MorphologicalFilters", 0, -1,
-               1694);
+               1844);
 
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 0U, 576, -1, 1688);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 1U, 1818, -1, 1834);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 0U, 550, -1, 1722);
 
   /* Initialize If Information */
+  covrtIfInit(&emlrtCoverageInstance, 0U, 0U, 1777, 1813, -1, 1839);
+
   /* Initialize MCDC Information */
   /* Initialize For Information */
   /* Initialize While Information */
@@ -54,7 +57,7 @@ static void MorphologicalFilters_once(void)
 
   /* Initialize Coverage Information */
   covrtScriptInit(&emlrtCoverageInstance,
-                  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalEdgeFilter.m",
+                  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalEdgeFilter.m",
                   1U, 1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
 
   /* Initialize Function Information */

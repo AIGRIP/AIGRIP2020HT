@@ -3,9 +3,9 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * MorphologicalFilters.h
+ * sqrt.h
  *
- * Code generation for function 'MorphologicalFilters'
+ * Code generation for function 'sqrt'
  *
  */
 
@@ -23,9 +23,6 @@
 #include <string.h>
 
 /* Function Declarations */
-void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
-  *sp, const boolean_T colourSegmentationMask[728160], real_T centerOfObjectX,
-  real_T centerOfObjectY, real_T *errorNoImage, boolean_T segmentationMask
-  [728160]);
+void b_sqrt(const emlrtStack *sp, emxArray_real_T *x);
 
-/* End of code generation (MorphologicalFilters.h) */
+/* End of code generation (sqrt.h) */

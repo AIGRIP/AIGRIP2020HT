@@ -1,25 +1,21 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: imreconstruct.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  imreconstruct.cpp
+//
+//  Code generation for function 'imreconstruct'
 //
 
-// Include Files
+
+// Include files
 #include "imreconstruct.h"
 #include "NeighborhoodProcessor.h"
 #include "minOrMax.h"
 #include "rt_nonfinite.h"
 
 // Function Definitions
-//
-// Arguments    : unsigned char marker[731612]
-//                const unsigned char mask[731612]
-// Return Type  : void
-//
 namespace coder
 {
   void imreconstruct(unsigned char marker[731612], const unsigned char mask
@@ -300,8 +296,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for imreconstruct.cpp
-//
-// [EOF]
-//
+// End of code generation (imreconstruct.cpp)

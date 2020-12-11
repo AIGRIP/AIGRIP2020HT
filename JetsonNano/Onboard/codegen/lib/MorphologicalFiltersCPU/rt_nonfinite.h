@@ -1,16 +1,18 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: rt_nonfinite.h
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  rt_nonfinite.h
 //
+//  Code generation for function 'MorphologicalFilters'
+//
+
+
 #ifndef RT_NONFINITE_H
 #define RT_NONFINITE_H
 
-// Include Files
+// Include files
 #include "rtwtypes.h"
 #ifdef __cplusplus
 
@@ -35,8 +37,4 @@ extern "C" {
 #endif
 #endif
 
-//
-// File trailer for rt_nonfinite.h
-//
-// [EOF]
-//
+// End of code generation (rt_nonfinite.h)

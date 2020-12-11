@@ -330,13 +330,13 @@ static emlrtBCInfo qc_emlrtBCI = { -1, /* iFirst */
   0                                    /* checkKind */
 };
 
-static emlrtRTEInfo j_emlrtRTEI = { 283,/* lineNo */
+static emlrtRTEInfo i_emlrtRTEI = { 283,/* lineNo */
   27,                                  /* colNo */
   "check_non_axis_size",               /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\cat.m"/* pName */
 };
 
-static emlrtRTEInfo k_emlrtRTEI = { 38,/* lineNo */
+static emlrtRTEInfo j_emlrtRTEI = { 38,/* lineNo */
   15,                                  /* colNo */
   "ind2sub_indexClass",                /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\lib\\matlab\\elmat\\ind2sub.m"/* pName */
@@ -534,7 +534,7 @@ static void ComputeCentroid(const emlrtStack *sp, b_emxArray_struct_T *stats,
             if (idx->data[b_k] <= 728160) {
               b_k++;
             } else {
-              emlrtErrorWithMessageIdR2018a(&c_st, &k_emlrtRTEI,
+              emlrtErrorWithMessageIdR2018a(&c_st, &j_emlrtRTEI,
                 "Coder:MATLAB:ind2sub_IndexOutOfRange",
                 "Coder:MATLAB:ind2sub_IndexOutOfRange", 0);
             }
@@ -572,7 +572,7 @@ static void ComputeCentroid(const emlrtStack *sp, b_emxArray_struct_T *stats,
           c_st.site = &dc_emlrtRSI;
           d_st.site = &ec_emlrtRSI;
           if (idx->size[0] != vk->size[0]) {
-            emlrtErrorWithMessageIdR2018a(&d_st, &j_emlrtRTEI,
+            emlrtErrorWithMessageIdR2018a(&d_st, &i_emlrtRTEI,
               "MATLAB:catenate:matrixDimensionMismatch",
               "MATLAB:catenate:matrixDimensionMismatch", 0);
           }

@@ -1,16 +1,18 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: imerode.h
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  imerode.h
 //
+//  Code generation for function 'imerode'
+//
+
+
 #ifndef IMERODE_H
 #define IMERODE_H
 
-// Include Files
+// Include files
 #include "rtwtypes.h"
 #include "omp.h"
 #include <cstddef>
@@ -24,8 +26,4 @@ namespace coder
 
 #endif
 
-//
-// File trailer for imerode.h
-//
-// [EOF]
-//
+// End of code generation (imerode.h)

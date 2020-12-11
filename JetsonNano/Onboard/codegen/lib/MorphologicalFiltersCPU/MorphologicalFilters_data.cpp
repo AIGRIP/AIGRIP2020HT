@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: MorphologicalFilters_data.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  MorphologicalFilters_data.cpp
+//
+//  Code generation for function 'MorphologicalFilters_data'
 //
 
-// Include Files
+
+// Include files
 #include "MorphologicalFilters_data.h"
 #include "rt_nonfinite.h"
 
@@ -16,8 +17,4 @@
 omp_nest_lock_t emlrtNestLockGlobal;
 bool isInitialized_MorphologicalFilters = false;
 
-//
-// File trailer for MorphologicalFilters_data.cpp
-//
-// [EOF]
-//
+// End of code generation (MorphologicalFilters_data.cpp)

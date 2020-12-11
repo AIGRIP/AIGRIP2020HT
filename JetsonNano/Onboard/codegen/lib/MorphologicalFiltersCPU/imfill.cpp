@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: imfill.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  imfill.cpp
+//
+//  Code generation for function 'imfill'
 //
 
-// Include Files
+
+// Include files
 #include "imfill.h"
 #include "imreconstruct.h"
 #include "rt_nonfinite.h"
@@ -16,11 +17,6 @@
 #include <cstring>
 
 // Function Definitions
-//
-// Arguments    : const bool varargin_1[728160]
-//                bool I2[728160]
-// Return Type  : void
-//
 namespace coder
 {
   void imfill(const bool varargin_1[728160], bool I2[728160])
@@ -120,8 +116,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for imfill.cpp
-//
-// [EOF]
-//
+// End of code generation (imfill.cpp)

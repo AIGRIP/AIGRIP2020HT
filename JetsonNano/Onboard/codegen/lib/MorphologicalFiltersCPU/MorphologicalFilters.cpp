@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: MorphologicalFilters.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  MorphologicalFilters.cpp
+//
+//  Code generation for function 'MorphologicalFilters'
 //
 
-// Include Files
+
+// Include files
 #include "MorphologicalFilters.h"
 #include "MorphologicalFilters_data.h"
 #include "MorphologicalFilters_initialize.h"
@@ -25,18 +26,9 @@
 #include <cstring>
 
 // Function Definitions
-//
-// The function takes in a binary image where the colours have been segmentated
-// and a rough postion of the object in the image that should be segmented.
-// and it outputs a a bitmask of the the object.
-// Arguments    : const bool colourSegmentationMask[728160]
-//                double centerOfObjectX
-//                double centerOfObjectY
-//                bool segmentationMask[728160]
-// Return Type  : void
-//
 void MorphologicalFilters(const bool colourSegmentationMask[728160], double
-  centerOfObjectX, double centerOfObjectY, bool segmentationMask[728160])
+  centerOfObjectX, double centerOfObjectY, double *errorNoImage, bool
+  segmentationMask[728160])
 {
   static bool maskFill[728160];
   coder::array<struct_T, 1U> stats;
@@ -48,6 +40,7 @@ void MorphologicalFilters(const bool colourSegmentationMask[728160], double
   coder::array<int, 1U> r1;
   coder::array<bool, 2U> r;
   double b_centerOfObjectY[2];
+  double nz;
   int b_i;
   int i;
   int input_sizes_idx_1;
@@ -57,12 +50,17 @@ void MorphologicalFilters(const bool colourSegmentationMask[728160], double
     MorphologicalFilters_initialize();
   }
 
+  // The function takes in a binary image where the colours have been segmentated  
+  // and a rough postion of the object in the image that should be segmented.
+  // and it outputs a a bitmask of the the object.
   // Input:
   // colourBalancedImage = Binary map 984x740
   // centerOfObjectX = Objects center postion in the x-axis
   // centerOfObjectY = Objects center postion in the y-axis
   // Output:
   // SegmentationMask = Binary map 984x740 of the object
+  *errorNoImage = 0.0;
+
   // Fill up the hole in the binary image.
   coder::imfill(colourSegmentationMask, maskFill);
 
@@ -120,7 +118,7 @@ void MorphologicalFilters(const bool colourSegmentationMask[728160], double
     centroid[i + centroid.size(0)] = varargin_1_tmp[2 * i + 1];
   }
 
-  //  Set all blobs that are samller then 250 pixels to NaN
+  //  Set all blobs that are smaller then 250 pixels to NaN
   r.set_size(area.size(0), 1);
   input_sizes_idx_1 = area.size(0) * area.size(1);
   for (i = 0; i < input_sizes_idx_1; i++) {
@@ -237,15 +235,14 @@ void MorphologicalFilters(const bool colourSegmentationMask[728160], double
     if (input_sizes_idx_1 == 0) {
       b_i = 0;
     } else {
-      double ex;
-      ex = distances[input_sizes_idx_1 - 1];
+      nz = distances[input_sizes_idx_1 - 1];
       b_i = input_sizes_idx_1 - 1;
       i = input_sizes_idx_1 + 1;
       for (j = i; j <= n; j++) {
         double d;
         d = distances[j - 1];
-        if (ex > d) {
-          ex = d;
+        if (nz > d) {
+          nz = d;
           b_i = j - 1;
         }
       }
@@ -288,10 +285,16 @@ void MorphologicalFilters(const bool colourSegmentationMask[728160], double
     maskFill[i] = b;
     segmentationMask[i] = (segmentationMask[i] && b);
   }
+
+  // Check if there is a big enough object in the image
+  nz = segmentationMask[0];
+  for (j = 0; j < 728159; j++) {
+    nz += static_cast<double>(segmentationMask[j + 1]);
+  }
+
+  if (nz < 250.0) {
+    *errorNoImage = 1.0;
+  }
 }
 
-//
-// File trailer for MorphologicalFilters.cpp
-//
-// [EOF]
-//
+// End of code generation (MorphologicalFilters.cpp)

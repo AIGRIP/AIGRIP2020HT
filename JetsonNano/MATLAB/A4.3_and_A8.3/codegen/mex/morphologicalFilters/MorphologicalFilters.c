@@ -23,54 +23,55 @@
 #include "imfill.h"
 #include "regionprops.h"
 #include "rt_nonfinite.h"
+#include "sqrt.h"
 #include "sum.h"
 #include "mwmathutil.h"
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo emlrtRSI = { 16,    /* lineNo */
+static emlrtRSInfo emlrtRSI = { 18,    /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo b_emlrtRSI = { 20,  /* lineNo */
+static emlrtRSInfo b_emlrtRSI = { 22,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo c_emlrtRSI = { 23,  /* lineNo */
+static emlrtRSInfo c_emlrtRSI = { 25,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo d_emlrtRSI = { 25,  /* lineNo */
+static emlrtRSInfo d_emlrtRSI = { 27,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo e_emlrtRSI = { 33,  /* lineNo */
+static emlrtRSInfo e_emlrtRSI = { 37,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo f_emlrtRSI = { 34,  /* lineNo */
+static emlrtRSInfo f_emlrtRSI = { 38,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo g_emlrtRSI = { 41,  /* lineNo */
+static emlrtRSInfo g_emlrtRSI = { 45,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo h_emlrtRSI = { 42,  /* lineNo */
+static emlrtRSInfo h_emlrtRSI = { 46,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
-static emlrtRSInfo i_emlrtRSI = { 45,  /* lineNo */
+static emlrtRSInfo i_emlrtRSI = { 49,  /* lineNo */
   "MorphologicalFilters",              /* fcnName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pathName */
 };
 
 static emlrtRSInfo k_emlrtRSI = { 934, /* lineNo */
@@ -123,16 +124,6 @@ static emlrtRSInfo pc_emlrtRSI = { 18, /* lineNo */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\reshapeSizeChecks.m"/* pathName */
 };
 
-static emlrtRSInfo sc_emlrtRSI = { 16, /* lineNo */
-  "sqrt",                              /* fcnName */
-  "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\lib\\matlab\\elfun\\sqrt.m"/* pathName */
-};
-
-static emlrtRSInfo tc_emlrtRSI = { 33, /* lineNo */
-  "applyScalarFunctionInPlace",        /* fcnName */
-  "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\applyScalarFunctionInPlace.m"/* pathName */
-};
-
 static emlrtRSInfo uc_emlrtRSI = { 16, /* lineNo */
   "min",                               /* fcnName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\lib\\matlab\\datafun\\min.m"/* pathName */
@@ -153,128 +144,122 @@ static emlrtRSInfo xc_emlrtRSI = { 133,/* lineNo */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\unaryMinOrMax.m"/* pathName */
 };
 
-static emlrtRTEInfo emlrtRTEI = { 13,  /* lineNo */
-  9,                                   /* colNo */
-  "sqrt",                              /* fName */
-  "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\lib\\matlab\\elfun\\sqrt.m"/* pName */
-};
-
-static emlrtRTEInfo b_emlrtRTEI = { 97,/* lineNo */
+static emlrtRTEInfo emlrtRTEI = { 97,  /* lineNo */
   27,                                  /* colNo */
   "unaryMinOrMax",                     /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\unaryMinOrMax.m"/* pName */
 };
 
-static emlrtRTEInfo d_emlrtRTEI = { 59,/* lineNo */
+static emlrtRTEInfo c_emlrtRTEI = { 59,/* lineNo */
   23,                                  /* colNo */
   "reshapeSizeChecks",                 /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\reshapeSizeChecks.m"/* pName */
 };
 
-static emlrtRTEInfo e_emlrtRTEI = { 52,/* lineNo */
+static emlrtRTEInfo d_emlrtRTEI = { 52,/* lineNo */
   13,                                  /* colNo */
   "reshapeSizeChecks",                 /* fName */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\reshapeSizeChecks.m"/* pName */
 };
 
 static emlrtECInfo emlrtECI = { -1,    /* nDims */
-  29,                                  /* lineNo */
+  31,                                  /* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtECInfo b_emlrtECI = { -1,  /* nDims */
-  29,                                  /* lineNo */
+  31,                                  /* lineNo */
   17,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtECInfo c_emlrtECI = { -1,  /* nDims */
-  28,                                  /* lineNo */
+  30,                                  /* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtECInfo d_emlrtECI = { -1,  /* nDims */
-  28,                                  /* lineNo */
+  30,                                  /* lineNo */
   17,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtBCInfo emlrtBCI = { -1,    /* iFirst */
   -1,                                  /* iLast */
-  30,                                  /* lineNo */
+  32,                                  /* lineNo */
   1,                                   /* colNo */
   "centroid",                          /* aName */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
   0                                    /* checkKind */
 };
 
 static emlrtBCInfo b_emlrtBCI = { -1,  /* iFirst */
   -1,                                  /* iLast */
-  38,                                  /* lineNo */
+  42,                                  /* lineNo */
   18,                                  /* colNo */
   "stats",                             /* aName */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
   0                                    /* checkKind */
 };
 
 static emlrtBCInfo c_emlrtBCI = { 1,   /* iFirst */
   728160,                              /* iLast */
-  38,                                  /* lineNo */
+  42,                                  /* lineNo */
   18,                                  /* colNo */
   "segmentationMask",                  /* aName */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m",/* pName */
   3                                    /* checkKind */
 };
 
-static emlrtRTEInfo l_emlrtRTEI = { 23,/* lineNo */
+static emlrtRTEInfo l_emlrtRTEI = { 25,/* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo m_emlrtRTEI = { 25,/* lineNo */
+static emlrtRTEInfo m_emlrtRTEI = { 27,/* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo n_emlrtRTEI = { 28,/* lineNo */
+static emlrtRTEInfo n_emlrtRTEI = { 30,/* lineNo */
   35,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo o_emlrtRTEI = { 28,/* lineNo */
+static emlrtRTEInfo o_emlrtRTEI = { 30,/* lineNo */
   17,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo p_emlrtRTEI = { 29,/* lineNo */
+static emlrtRTEInfo p_emlrtRTEI = { 31,/* lineNo */
   35,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo q_emlrtRTEI = { 29,/* lineNo */
+static emlrtRTEInfo q_emlrtRTEI = { 31,/* lineNo */
   17,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtRTEInfo r_emlrtRTEI = { 1, /* lineNo */
-  30,                                  /* colNo */
+  43,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 static emlrtRTEInfo s_emlrtRTEI = { 60,/* lineNo */
@@ -289,46 +274,47 @@ static emlrtRTEInfo t_emlrtRTEI = { 46,/* lineNo */
   "C:\\Program Files\\MATLAB\\R2020b\\toolbox\\eml\\eml\\+coder\\+internal\\applyBinaryScalarFunction.m"/* pName */
 };
 
-static emlrtRTEInfo u_emlrtRTEI = { 38,/* lineNo */
+static emlrtRTEInfo u_emlrtRTEI = { 42,/* lineNo */
   18,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo v_emlrtRTEI = { 20,/* lineNo */
+static emlrtRTEInfo v_emlrtRTEI = { 22,/* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo w_emlrtRTEI = { 33,/* lineNo */
+static emlrtRTEInfo w_emlrtRTEI = { 37,/* lineNo */
   1,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo x_emlrtRTEI = { 30,/* lineNo */
+static emlrtRTEInfo x_emlrtRTEI = { 32,/* lineNo */
   10,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo y_emlrtRTEI = { 23,/* lineNo */
+static emlrtRTEInfo y_emlrtRTEI = { 25,/* lineNo */
   9,                                   /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
-static emlrtRTEInfo ab_emlrtRTEI = { 33,/* lineNo */
+static emlrtRTEInfo ab_emlrtRTEI = { 37,/* lineNo */
   22,                                  /* colNo */
   "MorphologicalFilters",              /* fName */
-  "C:\\Users\\SW Team Leader\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
+  "C:\\Users\\Samue\\Documents\\GitHub\\AIGRIP2020HT\\JetsonNano\\MATLAB\\A4.3_and_A8.3\\MorphologicalFilters.m"/* pName */
 };
 
 /* Function Definitions */
 void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
   *sp, const boolean_T colourSegmentationMask[728160], real_T centerOfObjectX,
-  real_T centerOfObjectY, boolean_T segmentationMask[728160])
+  real_T centerOfObjectY, real_T *errorNoImage, boolean_T segmentationMask
+  [728160])
 {
   emlrtStack b_st;
   emlrtStack c_st;
@@ -348,7 +334,7 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
   emxArray_struct_T *stats;
   real_T b_varargin_1[2];
   real_T d;
-  real_T ex;
+  real_T nz;
   int32_T idx;
   int32_T input_sizes_idx_1;
   int32_T maxdimlen;
@@ -386,6 +372,8 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
   /* centerOfObjectY = Objects center postion in the y-axis */
   /* Output: */
   /* SegmentationMask = Binary map 984x740 of the object */
+  *errorNoImage = 0.0;
+
   /* Fill up the hole in the binary image. */
   st.site = &emlrtRSI;
   imfill(SD, &st, colourSegmentationMask, SD->f1.maskFill);
@@ -443,19 +431,19 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
 
   maxdimlen = muIntScalarMax_sint32(input_sizes_idx_1, n);
   if (2 > maxdimlen) {
-    emlrtErrorWithMessageIdR2018a(&st, &e_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(&st, &d_emlrtRTEI,
       "Coder:toolbox:reshape_emptyReshapeLimit",
       "Coder:toolbox:reshape_emptyReshapeLimit", 0);
   }
 
   if (area->size[0] > maxdimlen) {
-    emlrtErrorWithMessageIdR2018a(&st, &e_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(&st, &d_emlrtRTEI,
       "Coder:toolbox:reshape_emptyReshapeLimit",
       "Coder:toolbox:reshape_emptyReshapeLimit", 0);
   }
 
   if (area->size[0] << 1 != input_sizes_idx_1) {
-    emlrtErrorWithMessageIdR2018a(&st, &d_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(&st, &c_emlrtRTEI,
       "Coder:MATLAB:getReshapeDims_notSameNumel",
       "Coder:MATLAB:getReshapeDims_notSameNumel", 0);
   }
@@ -477,7 +465,7 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
   emxFree_real_T(&varargin_1);
   emxInit_boolean_T(sp, &r, 2, &r_emlrtRTEI, true);
 
-  /*  Set all blobs that are samller then 250 pixels to NaN */
+  /*  Set all blobs that are smaller then 250 pixels to NaN */
   n = r->size[0] * r->size[1];
   r->size[0] = area->size[0];
   r->size[1] = 1;
@@ -615,49 +603,16 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
 
   emxFree_real_T(&c);
   st.site = &e_emlrtRSI;
-  b_st.site = &e_emlrtRSI;
-  sum(&b_st, centroid, distances);
-  overflow = false;
-  n = distances->size[0];
-  emxFree_real_T(&centroid);
-  for (input_sizes_idx_1 = 0; input_sizes_idx_1 < n; input_sizes_idx_1++) {
-    if (overflow || (distances->data[input_sizes_idx_1] < 0.0)) {
-      overflow = true;
-    }
-  }
-
-  if (overflow) {
-    emlrtErrorWithMessageIdR2018a(&st, &emlrtRTEI,
-      "Coder:toolbox:ElFunDomainError", "Coder:toolbox:ElFunDomainError", 3, 4,
-      4, "sqrt");
-  }
-
-  b_st.site = &sc_emlrtRSI;
-  maxdimlen = distances->size[0];
-  c_st.site = &tc_emlrtRSI;
-  if (1 > distances->size[0]) {
-    overflow = false;
-  } else {
-    overflow = (distances->size[0] > 2147483646);
-  }
-
-  if (overflow) {
-    d_st.site = &n_emlrtRSI;
-    check_forloop_overflow_error(&d_st);
-  }
-
-  for (input_sizes_idx_1 = 0; input_sizes_idx_1 < maxdimlen; input_sizes_idx_1++)
-  {
-    distances->data[input_sizes_idx_1] = muDoubleScalarSqrt(distances->
-      data[input_sizes_idx_1]);
-  }
-
+  sum(&st, centroid, distances);
+  st.site = &e_emlrtRSI;
+  b_sqrt(&st, distances);
   st.site = &f_emlrtRSI;
   b_st.site = &uc_emlrtRSI;
   c_st.site = &vc_emlrtRSI;
   d_st.site = &wc_emlrtRSI;
+  emxFree_real_T(&centroid);
   if (distances->size[0] < 1) {
-    emlrtErrorWithMessageIdR2018a(&d_st, &b_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(&d_st, &emlrtRTEI,
       "Coder:toolbox:eml_min_or_max_varDimZero",
       "Coder:toolbox:eml_min_or_max_varDimZero", 0);
   }
@@ -702,7 +657,7 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
       idx = 1;
     } else {
       f_st.site = &k_emlrtRSI;
-      ex = distances->data[idx - 1];
+      nz = distances->data[idx - 1];
       maxdimlen = idx + 1;
       g_st.site = &o_emlrtRSI;
       if (idx + 1 > distances->size[0]) {
@@ -719,8 +674,8 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
       for (input_sizes_idx_1 = maxdimlen; input_sizes_idx_1 <= n;
            input_sizes_idx_1++) {
         d = distances->data[input_sizes_idx_1 - 1];
-        if (ex > d) {
-          ex = d;
+        if (nz > d) {
+          nz = d;
           idx = input_sizes_idx_1;
         }
       }
@@ -776,6 +731,18 @@ void MorphologicalFilters(MorphologicalFiltersStackData *SD, const emlrtStack
   memcpy(&SD->f1.maskFill[0], &segmentationMask[0], 728160U * sizeof(boolean_T));
   st.site = &i_emlrtRSI;
   MorphologicalEdgeFilter(SD->f1.maskFill, segmentationMask);
+
+  /* Check if there is a big enough object in the image */
+  nz = segmentationMask[0];
+  for (input_sizes_idx_1 = 0; input_sizes_idx_1 < 728159; input_sizes_idx_1++) {
+    nz += (real_T)segmentationMask[input_sizes_idx_1 + 1];
+  }
+
+  if (covrtLogIf(&emlrtCoverageInstance, 0U, 0U, 0, nz < 250.0)) {
+    covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 1U);
+    *errorNoImage = 1.0;
+  }
+
   emlrtHeapReferenceStackLeaveFcnR2012b(sp);
 }
 

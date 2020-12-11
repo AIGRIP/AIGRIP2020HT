@@ -2,25 +2,19 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_MorphologicalFilters_mex.c
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 03-Dec-2020 08:29:52
+ * _coder_MorphologicalFilters_mex.c
+ *
+ * Code generation for function 'MorphologicalFilters'
+ *
  */
 
-/* Include Files */
+/* Include files */
 #include "_coder_MorphologicalFilters_mex.h"
 #include "_coder_MorphologicalFilters_api.h"
 
 /* Function Definitions */
-/*
- * Arguments    : int32_T nlhs
- *                mxArray *plhs[1]
- *                int32_T nrhs
- *                const mxArray *prhs[3]
- * Return Type  : void
- */
-void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
+void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T
   nrhs, const mxArray *prhs[3])
 {
   emlrtStack st = { NULL,              /* site */
@@ -28,7 +22,8 @@ void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
     NULL                               /* prev */
   };
 
-  const mxArray *outputs[1];
+  const mxArray *outputs[2];
+  int32_T b_nlhs;
   st.tls = emlrtRootTLSGlobal;
 
   /* Check for proper number of arguments. */
@@ -37,25 +32,24 @@ void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
                         20, "MorphologicalFilters");
   }
 
-  if (nlhs > 1) {
+  if (nlhs > 2) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 20,
                         "MorphologicalFilters");
   }
 
   /* Call the function. */
-  MorphologicalFilters_api(prhs, outputs);
+  MorphologicalFilters_api(prhs, nlhs, outputs);
 
   /* Copy over outputs to the caller. */
-  emlrtReturnArrays(1, plhs, outputs);
+  if (nlhs < 1) {
+    b_nlhs = 1;
+  } else {
+    b_nlhs = nlhs;
+  }
+
+  emlrtReturnArrays(b_nlhs, plhs, outputs);
 }
 
-/*
- * Arguments    : int32_T nlhs
- *                mxArray *plhs[]
- *                int32_T nrhs
- *                const mxArray *prhs[]
- * Return Type  : void
- */
 void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs, const mxArray
                  *prhs[])
 {
@@ -77,18 +71,10 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs, const mxArray
   }
 }
 
-/*
- * Arguments    : void
- * Return Type  : emlrtCTX
- */
 emlrtCTX mexFunctionCreateRootTLS(void)
 {
   emlrtCreateRootTLS(&emlrtRootTLSGlobal, &emlrtContextGlobal, NULL, 1);
   return emlrtRootTLSGlobal;
 }
 
-/*
- * File trailer for _coder_MorphologicalFilters_mex.c
- *
- * [EOF]
- */
+/* End of code generation (_coder_MorphologicalFilters_mex.c) */

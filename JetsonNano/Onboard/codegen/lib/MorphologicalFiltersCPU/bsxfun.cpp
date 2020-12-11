@@ -1,25 +1,20 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: bsxfun.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  bsxfun.cpp
+//
+//  Code generation for function 'bsxfun'
 //
 
-// Include Files
+
+// Include files
 #include "bsxfun.h"
 #include "rt_nonfinite.h"
 #include "coder_array.h"
 
 // Function Definitions
-//
-// Arguments    : const ::coder::array<double, 2U> &a
-//                const double b[2]
-//                ::coder::array<double, 2U> &c
-// Return Type  : void
-//
 namespace coder
 {
   void bsxfun(const ::coder::array<double, 2U> &a, const double b[2], ::coder::
@@ -44,8 +39,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for bsxfun.cpp
-//
-// [EOF]
-//
+// End of code generation (bsxfun.cpp)

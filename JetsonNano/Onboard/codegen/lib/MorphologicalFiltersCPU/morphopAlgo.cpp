@@ -1,23 +1,19 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: morphopAlgo.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  morphopAlgo.cpp
+//
+//  Code generation for function 'morphopAlgo'
 //
 
-// Include Files
+
+// Include files
 #include "morphopAlgo.h"
 #include "rt_nonfinite.h"
 
 // Function Definitions
-//
-// Arguments    : const bool in[728160]
-//                bool o[728160]
-// Return Type  : void
-//
 namespace coder
 {
   namespace images
@@ -86,11 +82,6 @@ namespace coder
           }
         }
 
-        //
-        // Arguments    : const bool in[728160]
-        //                bool o[728160]
-        // Return Type  : void
-        //
         void c_morphop_ver_hor_logical(const bool in[728160], bool o[728160])
         {
           int i;
@@ -155,11 +146,6 @@ namespace coder
           }
         }
 
-        //
-        // Arguments    : const bool in[728160]
-        //                bool o[728160]
-        // Return Type  : void
-        //
         void d_morphop_ver_hor_logical(const bool in[728160], bool o[728160])
         {
           int j;
@@ -220,11 +206,6 @@ namespace coder
           }
         }
 
-        //
-        // Arguments    : const bool in[728160]
-        //                bool o[728160]
-        // Return Type  : void
-        //
         void morphop_ver_hor_logical(const bool in[728160], bool o[728160])
         {
           int i;
@@ -293,8 +274,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for morphopAlgo.cpp
-//
-// [EOF]
-//
+// End of code generation (morphopAlgo.cpp)
