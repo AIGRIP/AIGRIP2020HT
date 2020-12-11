@@ -1,23 +1,23 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ce453/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ce453.dir/build.make CMakeFiles/cmTC_ce453.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_47ab3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_47ab3.dir/build.make CMakeFiles/cmTC_47ab3.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ce453.dir/CheckSymbolExists.c.o
-/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_ce453.dir/CheckSymbolExists.c.o   -c /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_ce453
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce453.dir/link.txt --verbose=1
-/usr/bin/cc -fPIC     CMakeFiles/cmTC_ce453.dir/CheckSymbolExists.c.o  -o cmTC_ce453 
-CMakeFiles/cmTC_ce453.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_47ab3.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_47ab3.dir/CheckSymbolExists.c.o   -c /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_47ab3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47ab3.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_47ab3.dir/CheckSymbolExists.c.o  -o cmTC_47ab3 
+CMakeFiles/cmTC_47ab3.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x14): undefined reference to `pthread_create'
 CheckSymbolExists.c:(.text+0x18): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_ce453.dir/build.make:97: recipe for target 'cmTC_ce453' failed
-make[1]: *** [cmTC_ce453] Error 1
+CMakeFiles/cmTC_47ab3.dir/build.make:97: recipe for target 'cmTC_47ab3' failed
+make[1]: *** [cmTC_47ab3] Error 1
 make[1]: Leaving directory '/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_ce453/fast' failed
-make: *** [cmTC_ce453/fast] Error 2
+Makefile:126: recipe for target 'cmTC_47ab3/fast' failed
+make: *** [cmTC_47ab3/fast] Error 2
 
 File /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -37,20 +37,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ededd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ededd.dir/build.make CMakeFiles/cmTC_ededd.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_5c49e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5c49e.dir/build.make CMakeFiles/cmTC_5c49e.dir/build
 make[1]: Entering directory '/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ededd.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ededd.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_ededd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ededd.dir/link.txt --verbose=1
-/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ededd.dir/CheckFunctionExists.c.o  -o cmTC_ededd -lpthreads 
+Building C object CMakeFiles/cmTC_5c49e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_5c49e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5c49e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c49e.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_5c49e.dir/CheckFunctionExists.c.o  -o cmTC_5c49e -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_ededd.dir/build.make:97: recipe for target 'cmTC_ededd' failed
-make[1]: *** [cmTC_ededd] Error 1
+CMakeFiles/cmTC_5c49e.dir/build.make:97: recipe for target 'cmTC_5c49e' failed
+make[1]: *** [cmTC_5c49e] Error 1
 make[1]: Leaving directory '/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_ededd/fast' failed
-make: *** [cmTC_ededd/fast] Error 2
+Makefile:126: recipe for target 'cmTC_5c49e/fast' failed
+make: *** [cmTC_5c49e/fast] Error 2
 
 

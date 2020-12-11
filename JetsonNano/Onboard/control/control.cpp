@@ -65,7 +65,7 @@ void* controlThread(void* arg)
     double distanceToObject = 300;
     double bestTargetPointY, bestTargetPointX, bestNormalPointY, bestNormalPointX;
     unsigned short motorSteps[3];
-    messageMotorStruct currentMotorPosition; 
+    messageMotorStruct currentMotorPosition;
 
     double resDeg = 1*3.1415/180.0;
 
@@ -88,7 +88,7 @@ void* controlThread(void* arg)
     // Connect to message queue for motors.
     messageMotorStruct motorMessage;
     mqd_t messageQueueMotors;
-    messageQueueMotors = mq_open(messageMainQueueName, O_RDWR);
+    messageQueueMotors = mq_open(messageQueueMotorName, O_RDWR);
 
     // Connect to message queue for motors.
     controlData controlDataMessage;
@@ -97,7 +97,7 @@ void* controlThread(void* arg)
 
     // For timing, might be useful for approach.
     struct timespec messageDeadline;
-    
+
 
     while(1)
     {
@@ -121,7 +121,7 @@ void* controlThread(void* arg)
             if( distanceToObject < 20 && gripperState == 1 )
             {
                 gripperState = 2;
-                
+
                 // Tell communication handle that Nucleo should go to slipNot mode.
                 mainMessageBuffer = 1;
                 if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
@@ -285,7 +285,7 @@ void* controlThread(void* arg)
                 motorMessage.motorAngle[5] = motorSteps[0];
                 motorMessage.motorAngle[6] = motorSteps[1];
                 motorMessage.motorAngle[7] = motorSteps[2];
-            
+
                 // Send motor values to communtication.
                 if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
                 {

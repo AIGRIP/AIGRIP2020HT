@@ -72,7 +72,7 @@ void communicationHandler()
     pthread_attr_t attrControl;
     pthread_t threadIDControl;
 
-    pthread_attr_init(&attrI2C);
+    pthread_attr_init(&attrControl);
     pthread_create(&threadIDControl, &attrControl, controlThread, (void*) NULL);
 
     // Communication setup done.
@@ -100,7 +100,7 @@ void communicationHandler()
         // Receive command from message main queue.
         mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
 
-        printf("Communication handle received a state.\n");
+	printf("\n\nCommunication handle received state %d \n",mainMessageBuffer);
         fflush(stdout);
         switch( mainMessageBuffer )
         {
