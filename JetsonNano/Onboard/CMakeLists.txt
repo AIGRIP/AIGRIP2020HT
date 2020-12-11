@@ -56,9 +56,9 @@ add_subdirectory(imageCapture/)
 
 #add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 
-add_subdirectory(communication/)
-
 add_subdirectory(control/)
+
+add_subdirectory(communication/)
 
 add_subdirectory(Executable/) # Executable on all included libraries/functions
 

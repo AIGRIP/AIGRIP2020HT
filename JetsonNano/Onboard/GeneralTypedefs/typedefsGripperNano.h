@@ -13,22 +13,51 @@
 /* ----------------------------------------- */
 
 
-/* ----------- Info to mailslots ---------- */
+/* ----------- Info of mailslots ---------- */
 
 // General mailslot to indicate an event to 
 #define messageMainQueueName "/message_main_nano"
 #define messageMainQueueSize sizeof(int)
 
-// Send the recommended motor position from pre-shape. 
+// Send the recommended motor position from control thread. 
 #define messageQueueMotorName "/message_motors"
 
 // Sends the measured distance to the object for pre-shape.
-#define messageQueueDistanceName "/message_distance"
+#define messageQueueControlDataName "/message_controlData"
 
 // Sends the measured distance to the object for pre-shape.
 #define messageQueueNucleoName "/nucleo_log"
 /* ----------------------------------------- */
 
+    /*
+    * Defines each command on the Jetson Nano.
+    * Handles all the communication, between other devices.
+    *
+    *   1.  Send motor commands to Nucleo.
+    *   2. 
+    *   3.  
+    *   4.  Received data from Nucleo.
+    *   5.  Send gripper status to bluetooth device.
+    *   6.  Received start command from bluetooth.
+    *   7.  Received stop command from bluetooth.
+    *   8.  User is disconnected from bluetooth.
+    *   9.  Inform user that gripper is in pre-shape mode.
+    *   10. Inform user that gripper is in approach mode.
+    *   11. Send slipNot command to Nucleo and inform the user that gripper is in slipnot mode.
+    */
+
+/* --------- Defines state machine -------- */
+
+#define SEND_MOTOR_COMMAND                  1
+#define RECEIVED_DATA_FROM_NUCLEO           2
+#define RECEIVED_START_COMMAND_BLUETOOTH    3
+#define RECEIVED_STOP_COMMAND_BLUETOOTH     4
+#define USER_DISCONNECTED_BLUETOOTH         5
+#define SEND_PRESHAPE_BLUETOOTH             6
+#define SEND_APPROACH_BLUETOOTH             7
+#define SEND_SLIPNOT_BLUETOOTH              8
+
+/* ----------------------------------------- */
 
 
 /* --- Communication frames I2C between Jetson Nano and Nucleo Board --- */
@@ -42,7 +71,7 @@
 * 3. Release        length 0
 * 4. Pause          length 0
 * 5. Motor Command  length "sizeof(messageI2CToNucleoMotor)"
-* 6. Default state  length 0
+* 6. Slipnot        length 0
 */
 
 struct structMessageStructHeaderFromNano {
@@ -55,9 +84,9 @@ struct structMessageStructHeaderFromNano {
 // Send motor commands to Nucleo.
 struct structMessageToNucleoMotor{
 
-    short motorAngle[NUMBER_OF_MOTORS];
+    unsigned short motorAngle[NUMBER_OF_MOTORS];
 
-}typedef messageI2CToNucleoMotor;
+}typedef messageMotorStruct;
 
 
 // Mouse sensor information.
@@ -68,19 +97,32 @@ struct structMouseSensorMessage {
 
 }typedef mouseSensorMessage;
 
+struct structProximitySensorMessage {
+    unsigned short proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
+}typedef proximitySensorMessage;
+
 // Package from Nucleo to nano, contain all sensor information to store and use as input for functions on the Nano.
 struct structMessageStructFromNucelo {
 
     unsigned char statusOfNucelo;
-    short motorStatus[NUMBER_OF_MOTORS];
+    messageMotorStruct motorStatus;
 
-    unsigned char proximitySensor[NUMBER_OF_PROXIMITY_SENSORS];
+    proximitySensorMessage proximitySensors;
     mouseSensorMessage mouseSensor[NUMBER_OF_MOUSE_SESNORS];
 
 }typedef messageStructFromNucleo;
 
 /* -------------------------------------------------------------------- */
 
+
+// To receive necisary data in control thread.
+struct controlDatastruct {
+
+    proximitySensorMessage distanceData;
+
+    messageMotorStruct motorData;
+
+}typedef controlData;
 
 
 #endif

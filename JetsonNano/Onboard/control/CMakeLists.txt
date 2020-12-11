@@ -36,3 +36,6 @@ target_link_libraries(controlGriperNano GetValidGripPointsCPU)
 
 # Library to get an image from camera.
 target_link_libraries(controlGriperNano imageCapture)
+
+# Library for approach.
+target_link_libraries(controlGriperNano ApproachObjectCPU)
