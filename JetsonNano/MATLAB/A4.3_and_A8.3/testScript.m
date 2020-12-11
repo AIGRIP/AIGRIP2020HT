@@ -29,8 +29,10 @@ subplot(1,2,1),imshow(colourSegmentationMask);
 
 colourSegmentationMask = imbinarize(colourSegmentationMask);
 
-edgeBinaryImage = MorphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
-
+[errorNoImage, edgeBinaryImage] = MorphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
+if errorNoImage == 1
+   disp("No item") 
+end
 subplot(1,2,2),imshow(edgeBinaryImage);
 hold on;
 subplot(1,2,2),scatter(centerOfObjectY,centerOfObjectX);
