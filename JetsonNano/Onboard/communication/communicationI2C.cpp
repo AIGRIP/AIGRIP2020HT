@@ -42,7 +42,7 @@ void setupI2C()
         fflush(stdout);
     }
 
-    
+    // To set time out while receiving I2C massages.
     FD_ZERO(&set); // clear the set 
     FD_SET(i2cfd, &set); // add the file descriptor to the set 
 

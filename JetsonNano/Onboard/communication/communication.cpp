@@ -53,6 +53,8 @@ void communicationHandler()
     // Set up I2C
     setupI2C();
 
+    // The communication handle can manage the following threads on the gripper.
+
     // Startup bluetooth receive thread.
     pthread_attr_t attrBluetooth;
     pthread_t threadIDBluetooth;
@@ -120,6 +122,7 @@ void communicationHandler()
             }
             break;
 
+            // Received data package from Nucleo.
             case RECEIVED_DATA_FROM_NUCLEO:
             {
                 printf("Received data from Nucleo in command handle.\n");
@@ -274,7 +277,7 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
     // Set size and number of messages properties.
 	struct mq_attr mainAttr;
     struct mq_attr motorAttr;
-    struct mq_attr distanceAttr;
+    struct mq_attr controlAttr;
     struct mq_attr nucleoAttr;
 
 	mainAttr.mq_maxmsg = 10;
@@ -283,8 +286,8 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
     motorAttr.mq_maxmsg = 10;
 	motorAttr.mq_msgsize = sizeof(messageMotorStruct);
 
-    distanceAttr.mq_maxmsg = 10;
-	distanceAttr.mq_msgsize = sizeof(controlData);
+    controlAttr.mq_maxmsg = 10;
+	controlAttr.mq_msgsize = sizeof(controlData);
 
     nucleoAttr.mq_maxmsg = 10;
 	nucleoAttr.mq_msgsize = sizeof(messageStructFromNucleo);
@@ -296,7 +299,7 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 	*messageQueueMotors = mq_open(messageQueueMotorName, O_CREAT , 0666, &motorAttr);
 
     // Open distance message queue.
-	*messageQueueControlData = mq_open(messageQueueControlDataName, O_CREAT , 0666, &distanceAttr);
+	*messageQueueControlData = mq_open(messageQueueControlDataName, O_CREAT , 0666, &controlAttr);
 
     // Open distance message queue.
 	*messageQueueNucleo = mq_open(messageQueueNucleoName, O_CREAT , 0666, &nucleoAttr);
