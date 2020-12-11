@@ -31,7 +31,7 @@ void* controlThread(void* arg)
     unsigned char outputImg[2184480];
     unsigned char colourBalancedImage[2184480];
     const double linkLengths[] = {25,95,60,35,50};
-
+    double errorNoImage;
 
     // Variables to get signature
     const int lengthSignature = 360;
@@ -151,10 +151,11 @@ void* controlThread(void* arg)
             // Preshape
             case 1:
             {
+                errorNoImage = 0;
                 imageCaptureFunc(outputImg);
                 colourBalance(outputImg, colourBalancedImage);
                 colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
-                MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2), binIm2);
+                MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
 
                 // Debug
                 for(int i=0;i<(width-5);i=i+5)
@@ -171,96 +172,102 @@ void* controlThread(void* arg)
                     printf("\n");
                 }
 
-
-                //signature
-                GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
-
-                // Debug
-                for(int i=0;i<(lengthSignature-10);i=i+10)
+                if errorNoImage == 1
                 {
-                    printf("%.1lf ",signature[i]);
+                    printf("ERROR, No object detected\n");
                 }
-                printf("\n");
-
-
-                //stable line
-                StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
-                    normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
-                    &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
-
-                // Debug
-                printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
-
-                printf("Suggested gripping points finger 1.\n");
-                for(int i=0;i<nrTargetPointsFinger[1];i++)
+                else
                 {
-                    printf("%.1lf	%.1lf \n",targetPointF1X[i],targetPointF1Y[i]);
-                }
+                    //signature
+                    GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
 
-                printf("Suggested gripping points finger 2.\n");
-                for(int i=0;i<nrTargetPointsFinger[2];i++)
-                {
-                    printf("%.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i]);
-                }
+                    // Debug
+                    for(int i=0;i<(lengthSignature-10);i=i+10)
+                    {
+                        printf("%.1lf ",signature[i]);
+                    }
+                    printf("\n");
 
 
-                //getvalid points
+                    //stable line
+                    StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
+                        normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
+                        &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
 
-                // Get valid point for finger 0, the thumb.
-                GetValidGripPoints(&targetPointF0Y, &nrTargetPointsFinger[0],
-                    &targetPointF0X, &nrTargetPointsFinger[0],
-                    &normalPointF0Y, &nrTargetPointsFinger[0],
-                    &normalPointF0X, &nrTargetPointsFinger[0],
-                    distanceToObject, 0, offset, motorSteps,
-                    &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+                    // Debug
+                    printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
 
-                motorMessage.motorAngle[0] = motorSteps[1];
-                motorMessage.motorAngle[1] = motorSteps[2];
+                    printf("Suggested gripping points finger 1.\n");
+                    for(int i=0;i<nrTargetPointsFinger[1];i++)
+                    {
+                        printf("%.1lf	%.1lf \n",targetPointF1X[i],targetPointF1Y[i]);
+                    }
 
-                printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+                    printf("Suggested gripping points finger 2.\n");
+                    for(int i=0;i<nrTargetPointsFinger[2];i++)
+                    {
+                        printf("%.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i]);
+                    }
 
-                // Get valid point for finger 1, the pointing finger.
-                GetValidGripPoints(targetPointF1Y, &nrTargetPointsFinger[1],
-                    targetPointF1X, &nrTargetPointsFinger[1],
-                    normalPointF1Y, &nrTargetPointsFinger[1],
-                    normalPointF1X, &nrTargetPointsFinger[1],
-                    distanceToObject, 1, offset, motorSteps,
-                    &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
-                motorMessage.motorAngle[2] = motorSteps[0];
-                motorMessage.motorAngle[3] = motorSteps[1];
-                motorMessage.motorAngle[4] = motorSteps[2];
+                    //getvalid points
 
-                printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+                    // Get valid point for finger 0, the thumb.
+                    GetValidGripPoints(&targetPointF0Y, &nrTargetPointsFinger[0],
+                        &targetPointF0X, &nrTargetPointsFinger[0],
+                        &normalPointF0Y, &nrTargetPointsFinger[0],
+                        &normalPointF0X, &nrTargetPointsFinger[0],
+                        distanceToObject, 0, offset, motorSteps,
+                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
-                // Get valid point for finger 2, the long finger.
-                GetValidGripPoints(targetPointF2Y, &nrTargetPointsFinger[2],
-                    targetPointF2X, &nrTargetPointsFinger[2],
-                    normalPointF2Y, &nrTargetPointsFinger[2],
-                    normalPointF2X, &nrTargetPointsFinger[2],
-                    distanceToObject, 2, offset, motorSteps,
-                    &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+                    motorMessage.motorAngle[0] = motorSteps[1];
+                    motorMessage.motorAngle[1] = motorSteps[2];
 
-                motorMessage.motorAngle[5] = motorSteps[0];
-                motorMessage.motorAngle[6] = motorSteps[1];
-                motorMessage.motorAngle[7] = motorSteps[2];
+                    printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                    printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
-                printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+                    // Get valid point for finger 1, the pointing finger.
+                    GetValidGripPoints(targetPointF1Y, &nrTargetPointsFinger[1],
+                        targetPointF1X, &nrTargetPointsFinger[1],
+                        normalPointF1Y, &nrTargetPointsFinger[1],
+                        normalPointF1X, &nrTargetPointsFinger[1],
+                        distanceToObject, 1, offset, motorSteps,
+                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
-                // Send motor values to communtication.
-                if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
-                {
-                    printf("Failed to send motor values in pre-shape to MQ.\n");
-                }
+                    motorMessage.motorAngle[2] = motorSteps[0];
+                    motorMessage.motorAngle[3] = motorSteps[1];
+                    motorMessage.motorAngle[4] = motorSteps[2];
 
-                // Tell communication handle that new motor values are available.
-                mainMessageBuffer = SEND_MOTOR_COMMAND;
-                if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-                {
-                    printf("Failed to reach main MQ in pre-shape.\n");
+                    printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                    printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+
+                    // Get valid point for finger 2, the long finger.
+                    GetValidGripPoints(targetPointF2Y, &nrTargetPointsFinger[2],
+                        targetPointF2X, &nrTargetPointsFinger[2],
+                        normalPointF2Y, &nrTargetPointsFinger[2],
+                        normalPointF2X, &nrTargetPointsFinger[2],
+                        distanceToObject, 2, offset, motorSteps,
+                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+
+                    motorMessage.motorAngle[5] = motorSteps[0];
+                    motorMessage.motorAngle[6] = motorSteps[1];
+                    motorMessage.motorAngle[7] = motorSteps[2];
+
+                    printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                    printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+
+                    // Send motor values to communtication.
+                    if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
+                    {
+                        printf("Failed to send motor values in pre-shape to MQ.\n");
+                    }
+
+                    // Tell communication handle that new motor values are available.
+                    mainMessageBuffer = SEND_MOTOR_COMMAND;
+                    if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+                    {
+                        printf("Failed to reach main MQ in pre-shape.\n");
+                    }
                 }
             }
             break;
@@ -272,15 +279,18 @@ void* controlThread(void* arg)
 		/*
                 //Recive current motor angle and distance
                 //Approach
-                ApproachObject(linkLengths,currentMotorPosition.motorAngle[0], currentMotorPosition.motorAngle[1], distanceToObject, motorSteps);
+                //get new motor angles for finger 0
+                ApproachObject(linkLengths,0 , currentMotorPosition.motorAngle[0], distanceToObject, motorSteps);
                 motorMessage.motorAngle[0] = motorSteps[1];
                 motorMessage.motorAngle[1] = motorSteps[2];
 
+                //get new motor angles for finger 1
                 ApproachObject(linkLengths,currentMotorPosition.motorAngle[2], currentMotorPosition.motorAngle[3], distanceToObject, motorSteps);
                 motorMessage.motorAngle[2] = motorSteps[0];
                 motorMessage.motorAngle[3] = motorSteps[1];
                 motorMessage.motorAngle[4] = motorSteps[2];
 
+                //get new motor angles for finger 2
                 ApproachObject(linkLengths,currentMotorPosition.motorAngle[5], currentMotorPosition.motorAngle[6], distanceToObject, motorSteps);
                 motorMessage.motorAngle[5] = motorSteps[0];
                 motorMessage.motorAngle[6] = motorSteps[1];
