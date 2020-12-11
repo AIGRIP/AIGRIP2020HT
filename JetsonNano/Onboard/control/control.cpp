@@ -280,7 +280,7 @@ void* controlThread(void* arg)
                 //Recive current motor angle and distance
                 //Approach
                 //get new motor angles for finger 0
-                ApproachObject(linkLengths,0 , currentMotorPosition.motorAngle[0], distanceToObject, motorSteps);
+                ApproachObject(linkLengths, 0, currentMotorPosition.motorAngle[0], distanceToObject, motorSteps);
                 motorMessage.motorAngle[0] = motorSteps[1];
                 motorMessage.motorAngle[1] = motorSteps[2];
 
