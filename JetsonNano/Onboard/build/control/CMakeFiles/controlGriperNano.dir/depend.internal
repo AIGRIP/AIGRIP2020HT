@@ -4,6 +4,7 @@
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o
  ../GeneralTypedefs/typedefsGripperNano.h
  ../codegen/lib/ApproachObjectCPU/ApproachObject.h
+ ../codegen/lib/ApproachObjectCPU/ApproachObject_types.h
  ../codegen/lib/GetSignatureCPU/GetSignature.h
  ../codegen/lib/GetSignatureCPU/GetSignature_types.h
  ../codegen/lib/GetSignatureCPU/coder_array.h

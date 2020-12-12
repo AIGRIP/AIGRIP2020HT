@@ -152,33 +152,6 @@ ApproachObject.cpp.s:
 	cd /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.s
 .PHONY : ApproachObject.cpp.s
 
-ApproachObject_data.o: ApproachObject_data.cpp.o
-
-.PHONY : ApproachObject_data.o
-
-# target to build an object file
-ApproachObject_data.cpp.o:
-	cd /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.o
-.PHONY : ApproachObject_data.cpp.o
-
-ApproachObject_data.i: ApproachObject_data.cpp.i
-
-.PHONY : ApproachObject_data.i
-
-# target to preprocess a source file
-ApproachObject_data.cpp.i:
-	cd /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.i
-.PHONY : ApproachObject_data.cpp.i
-
-ApproachObject_data.s: ApproachObject_data.cpp.s
-
-.PHONY : ApproachObject_data.s
-
-# target to generate assembly for a file
-ApproachObject_data.cpp.s:
-	cd /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build && $(MAKE) -f codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/build.make codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.s
-.PHONY : ApproachObject_data.cpp.s
-
 ApproachObject_initialize.o: ApproachObject_initialize.cpp.o
 
 .PHONY : ApproachObject_initialize.o
@@ -245,9 +218,6 @@ help:
 	@echo "... ApproachObject.o"
 	@echo "... ApproachObject.i"
 	@echo "... ApproachObject.s"
-	@echo "... ApproachObject_data.o"
-	@echo "... ApproachObject_data.i"
-	@echo "... ApproachObject_data.s"
 	@echo "... ApproachObject_initialize.o"
 	@echo "... ApproachObject_initialize.i"
 	@echo "... ApproachObject_initialize.s"

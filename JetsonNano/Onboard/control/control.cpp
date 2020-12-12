@@ -172,7 +172,7 @@ void* controlThread(void* arg)
                     printf("\n");
                 }
 
-                if errorNoImage == 1
+                if(errorNoImage == 1)
                 {
                     printf("ERROR, No object detected\n");
                 }

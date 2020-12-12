@@ -9,12 +9,18 @@
 ../GeneralTypedefs/typedefsGripperNano.h
 
 ../codegen/lib/ApproachObjectCPU/ApproachObject.h
-rtwtypes.h
-../codegen/lib/ApproachObjectCPU/rtwtypes.h
 cstddef
 -
 cstdlib
 -
+rtwtypes.h
+../codegen/lib/ApproachObjectCPU/rtwtypes.h
+ApproachObject_types.h
+../codegen/lib/ApproachObjectCPU/ApproachObject_types.h
+
+../codegen/lib/ApproachObjectCPU/ApproachObject_types.h
+rtwtypes.h
+../codegen/lib/ApproachObjectCPU/rtwtypes.h
 
 ../codegen/lib/GetSignatureCPU/GetSignature.h
 cstddef

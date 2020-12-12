@@ -3,6 +3,7 @@
 
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../GeneralTypedefs/typedefsGripperNano.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/ApproachObjectCPU/ApproachObject.h
+control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/ApproachObjectCPU/ApproachObject_types.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/GetSignatureCPU/GetSignature.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/GetSignatureCPU/GetSignature_types.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/GetSignatureCPU/coder_array.h

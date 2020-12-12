@@ -128,7 +128,7 @@ void communicationHandler()
                 printf("Received data from Nucleo in command handle.\n");
                 // Handle received message from Nucleo.
                 mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
-                
+
                 // Copy the data for the control task.
                 memcpy(&dataToControlThread.motorData.motorAngle[0],&messageFromNucleo.motorStatus.motorAngle[0],sizeof(messageMotorStruct) );
                 memcpy(&dataToControlThread.distanceData.proximitySensor[0],&messageFromNucleo.proximitySensors.proximitySensor[0],sizeof(messageMotorStruct) );
@@ -138,7 +138,7 @@ void communicationHandler()
                 {
                     printf("Failed to send data info to control thread.\n");
                 }
-                
+
                 // Check if the gripper has received a new state.
                 if(stateOfGripper != messageFromNucleo.statusOfNucelo)
                 {

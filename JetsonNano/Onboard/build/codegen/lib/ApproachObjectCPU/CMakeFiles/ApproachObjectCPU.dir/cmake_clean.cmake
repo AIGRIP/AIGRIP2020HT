@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ApproachObjectCPU.dir/ApproachObject.cpp.o"
-  "CMakeFiles/ApproachObjectCPU.dir/ApproachObject_data.cpp.o"
   "CMakeFiles/ApproachObjectCPU.dir/ApproachObject_initialize.cpp.o"
   "CMakeFiles/ApproachObjectCPU.dir/ApproachObject_terminate.cpp.o"
   "libApproachObjectCPU.pdb"
