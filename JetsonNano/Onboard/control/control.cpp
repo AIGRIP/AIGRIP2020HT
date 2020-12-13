@@ -22,6 +22,11 @@
 
 #include "ApproachObject.h"
 
+#include <time.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
+
+
 // Main function for communication.
 void* controlThread(void* arg)
 {
@@ -32,6 +37,7 @@ void* controlThread(void* arg)
     unsigned char colourBalancedImage[2184480];
     const double linkLengths[] = {25,95,60,35,50};
     double errorNoImage;
+    int count;
 
     // Variables to get signature
     const int lengthSignature = 360;
@@ -99,6 +105,43 @@ void* controlThread(void* arg)
     struct timespec messageDeadline;
 
 
+    //Gstreamer multimedia framework
+    std::string gstreamer_pipeline (int capture_width, int capture_height, int display_width, int display_height, int framerate, int flip_method) {
+    return "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(capture_width) + ", height=(int)" +
+           std::to_string(capture_height) + ", format=(string)NV12, framerate=(fraction)" + std::to_string(framerate) +
+           "/1 ! nvvidconv flip-method=" + std::to_string(flip_method) + " ! video/x-raw, width=(int)" + std::to_string(display_width) + ", height=(int)" +
+           std::to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+    }
+
+    //Image capturing varibles
+    int capture_width = 740 ;
+    int capture_height = 984 ;
+    int display_width = 740 ;
+    int display_height = 984 ;
+    int framerate = 20 ;
+    int flip_method = 1 ;
+
+    // call to gstream func
+    std::string pipeline = gstreamer_pipeline(capture_width, 
+	capture_height,
+	display_width,
+	display_height,
+	framerate,
+	flip_method);
+
+    //Opening camera
+    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER); 
+
+    if(!cap.isOpened()) 
+    {
+	std::cout<<"Failed to open camera."<<std::endl;
+    }
+    
+    //Create image variables
+    cv::Mat img;
+    cv::Vec3b tempVar;
+    std::vector<cv::Mat> channels;
+
     while(1)
     {
 
@@ -152,7 +195,23 @@ void* controlThread(void* arg)
             case 1:
             {
                 errorNoImage = 0;
-                imageCaptureFunc(outputImg);
+                //Read an image frame
+                if (!cap.read(img)) 
+                {                                  
+                std::cout<<"Capture read error"<<std::endl; 
+                }
+
+                //Transform cv image format to an array of unsigned char
+                count = 0;
+                for(int k=0; k<3; k++){
+                    for(int i=0; i<(img.cols); i++){
+                        for(int j = 0; j<(img.rows); j++){
+                            tempVar = img.at<cv::Vec3b>(j,i);
+                            outputImg[count] = tempVar[2-k];   
+                            count++;
+                        }
+                    }
+                }
                 colourBalance(outputImg, colourBalancedImage);
                 colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
                 MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
@@ -325,6 +384,8 @@ void* controlThread(void* arg)
 	    usleep(10000);
 
     }
+    //Turn off the camera
+    cap.release();
 
 }
 
