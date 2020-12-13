@@ -32,7 +32,7 @@ void *receiveBluetoothMessages(void *arg)
     int mainMessageBuffer;
     mqd_t messageQueueMain;
     messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
-    
+
     if( messageQueueMain == (mqd_t) -1){
 		printf("Failed to connect to main message queue from bluetooth.\n");
 	}
@@ -72,9 +72,8 @@ void *receiveBluetoothMessages(void *arg)
                 }
             }
         }
-
         // Let it sleep.
-        usleep(10000);
+        //usleep(10000);
     }
 }
 
@@ -121,13 +120,13 @@ int sendBluetoothMessage(char bufferToSend[1024])
 void setupBluetooth()
 {
     /*
-    * Setup the connection to a bluetooth device via rfcomm. 
+    * Setup the connection to a bluetooth device via rfcomm.
     */
 
     // Allocate size for local address and remot address.
     struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
-    
-    // Allocate size to print device address. 
+
+    // Allocate size to print device address.
     char printAddress[1024] = { 0 };
 
     // Define socket variable.
@@ -136,7 +135,7 @@ void setupBluetooth()
     // allocate socket
     bluetoothSocketNano = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
 
-    // bind socket to port 1 of the first available 
+    // bind socket to port 1 of the first available
     // local bluetooth adapter
     loc_addr.rc_family = AF_BLUETOOTH;
     loc_addr.rc_bdaddr = *BDADDR_ANY; //"F8:1F:32:35:83:D9";

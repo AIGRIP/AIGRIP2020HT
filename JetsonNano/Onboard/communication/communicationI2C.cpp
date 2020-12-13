@@ -41,7 +41,7 @@ void setupI2C()
         printf("Open I2C file successfully.\n");
         fflush(stdout);
     }
-
+/*
     // To set time out while receiving I2C massages.
     FD_ZERO(&set); // clear the set 
     FD_SET(i2cfd, &set); // add the file descriptor to the set 
@@ -50,7 +50,7 @@ void setupI2C()
     timeout.tv_sec = 0;
     timeout.tv_usec = 100000;
     rv = select(i2cfd + 1, &set, NULL, NULL, &timeout);
-
+*/
     // Control timeout setting.
     if(rv == -1)
     {
@@ -166,7 +166,7 @@ void *I2CReceiveHandler(void *arg)
             lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
 
             // If there was data received send it to the command handle.
-	        if(readSize > 0)
+	    if(readSize > 0)
             {
 		/*
                 printf("ReadSize %d\n",readSize);
@@ -193,8 +193,7 @@ void *I2CReceiveHandler(void *arg)
                 }
             }
         }
-        
         // Sleep 10 ms.
-        usleep(sleepTime);
+        //usleep(sleepTime);
     }
 }
