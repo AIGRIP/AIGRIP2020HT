@@ -52,7 +52,7 @@ add_subdirectory(codegen/lib/GetValidGripPointsCPU/)
 
 add_subdirectory(codegen/lib/GetSignatureCPU/)
 
-add_subdirectory(imageCapture/)
+#add_subdirectory(imageCapture/)
 
 #add_subdirectory(codegen/lib/colourSegmentationCPU/) # colourBalanceCPU is a static library
 

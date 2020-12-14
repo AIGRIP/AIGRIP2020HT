@@ -21,9 +21,6 @@ target_link_libraries(RUN_AIGRIP_NANO StableLineCPU)
 target_link_libraries(RUN_AIGRIP_NANO GetSignatureCPU)
 target_link_libraries(RUN_AIGRIP_NANO GetValidGripPointsCPU)
 
-# Library to get an image from camera.
-target_link_libraries(RUN_AIGRIP_NANO imageCapture)
-
 # Library for external communication.
 target_link_libraries(RUN_AIGRIP_NANO controlGriperNano)
 

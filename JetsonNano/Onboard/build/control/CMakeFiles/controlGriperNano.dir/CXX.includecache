@@ -104,8 +104,6 @@ cstdlib
 stdbool.h
 -
 
-../imageCapture/imageCapture.h
-
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/control.cpp
 control.h
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/control.h
@@ -121,8 +119,6 @@ mqueue.h
 -
 typedefsGripperNano.h
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/typedefsGripperNano.h
-imageCapture.h
-/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/imageCapture.h
 colourSegmentation.h
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/colourSegmentation.h
 colourBalance.h

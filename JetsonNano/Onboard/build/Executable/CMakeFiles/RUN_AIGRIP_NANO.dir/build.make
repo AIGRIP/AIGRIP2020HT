@@ -98,10 +98,8 @@ Executable/RUN_AIGRIP_NANO: codegen/lib/PointToLineCPU/libPointToLineCPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/ForwardKinematicsCPU/libForwardKinematicsCPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
-Executable/RUN_AIGRIP_NANO: imageCapture/libimageCapture.a
-Executable/RUN_AIGRIP_NANO: control/libcontrolGriperNano.a
 Executable/RUN_AIGRIP_NANO: communication/libcommunicationBT_I2C.a
-Executable/RUN_AIGRIP_NANO: control/libcontrolGriperNano.a
+Executable/RUN_AIGRIP_NANO: control/libcontrolGriperNano.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/ApproachObjectCPU/libApproachObjectCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourBalanceGPU/libcolourBalanceGPU.a
 Executable/RUN_AIGRIP_NANO: codegen/lib/colourSegmentationGPU/libcolourSegmentationGPU.a
@@ -109,7 +107,6 @@ Executable/RUN_AIGRIP_NANO: codegen/lib/MorphologicalFiltersCPU/libMorphological
 Executable/RUN_AIGRIP_NANO: codegen/lib/StableLineCPU/libStableLineCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/GetSignatureCPU/libGetSignatureCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/GetValidGripPointsCPU/libGetValidGripPointsCPU.so
-Executable/RUN_AIGRIP_NANO: imageCapture/libimageCapture.a
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_gapi.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_stitching.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_aruco.so.4.1.0

@@ -10,7 +10,7 @@
 
 #include "typedefsGripperNano.h"
 
-#include "imageCapture.h"
+//#include "imageCapture.h"
 
 #include "colourSegmentation.h"
 #include "colourBalance.h"
@@ -124,7 +124,7 @@ void* controlThread(void* arg)
     int capture_height = 984 ;
     int display_width = 740 ;
     int display_height = 984 ;
-    int framerate = 1 ;
+    int framerate = 20 ;
     int flip_method = 1 ;
 
     // call to gstream func
@@ -136,7 +136,10 @@ void* controlThread(void* arg)
 	flip_method);
 
     //Opening camera
-    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
+    cv::VideoCapture cap;
+
+    cap.set(cv::CAP_PROP_BUFFERSIZE, 1);
+    cap(pipeline, cv::CAP_GSTREAMER);
 
     if(!cap.isOpened())
     {

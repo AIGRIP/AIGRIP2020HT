@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/controlGriperNano.dir/control.cpp.o"
   "libcontrolGriperNano.pdb"
-  "libcontrolGriperNano.a"
+  "libcontrolGriperNano.so"
 )
 
 # Per-language clean rules from dependency scanning.

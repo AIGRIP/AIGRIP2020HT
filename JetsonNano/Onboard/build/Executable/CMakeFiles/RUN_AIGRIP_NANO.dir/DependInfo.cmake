@@ -22,10 +22,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../codegen/lib/StableLineCPU"
   "../codegen/lib/GetSignatureCPU"
   "../codegen/lib/GetValidGripPointsCPU"
-  "../imageCapture"
-  "/usr/local/include/opencv4"
   "../control"
   "../GeneralTypedefs"
+  "/usr/local/include/opencv4"
   "../communication"
   )
 
@@ -37,9 +36,8 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/ForwardKinematicsCPU/CMakeFiles/ForwardKinematicsCPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/colourBalanceGPU/CMakeFiles/colourBalanceGPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/colourSegmentationGPU/CMakeFiles/colourSegmentationGPU.dir/DependInfo.cmake"
-  "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/DependInfo.cmake"
-  "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/control/CMakeFiles/controlGriperNano.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/communication/CMakeFiles/communicationBT_I2C.dir/DependInfo.cmake"
+  "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/control/CMakeFiles/controlGriperNano.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/ApproachObjectCPU/CMakeFiles/ApproachObjectCPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/MorphologicalFiltersCPU/CMakeFiles/MorphologicalFiltersCPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/StableLineCPU/CMakeFiles/StableLineCPU.dir/DependInfo.cmake"

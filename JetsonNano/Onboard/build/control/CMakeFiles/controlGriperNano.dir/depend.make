@@ -14,7 +14,6 @@ control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/StableLin
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/colourBalanceGPU/colourBalance.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/colourSegmentationGPU/colourSegmentation.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../codegen/lib/colourSegmentationGPU/rtwtypes.h
-control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../imageCapture/imageCapture.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../control/control.cpp
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: ../control/control.h
 control/CMakeFiles/controlGriperNano.dir/control.cpp.o: /usr/local/include/opencv4/opencv2/calib3d.hpp

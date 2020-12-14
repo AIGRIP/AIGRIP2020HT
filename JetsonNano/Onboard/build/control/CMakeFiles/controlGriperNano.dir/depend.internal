@@ -15,7 +15,6 @@ control/CMakeFiles/controlGriperNano.dir/control.cpp.o
  ../codegen/lib/colourBalanceGPU/colourBalance.h
  ../codegen/lib/colourSegmentationGPU/colourSegmentation.h
  ../codegen/lib/colourSegmentationGPU/rtwtypes.h
- ../imageCapture/imageCapture.h
  /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/control.cpp
  /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/control/control.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
