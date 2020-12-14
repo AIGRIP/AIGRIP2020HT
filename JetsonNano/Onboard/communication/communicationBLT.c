@@ -89,7 +89,7 @@ int sendBluetoothMessage(char bufferToSend[1024])
 
     // Get the length of the string.
     int stringLength;
-    stringLength =strlen(bufferToSend);
+    stringLength = strlen(bufferToSend);
 
     // Write bluetooth message.
     bytes_sent = write(client, bufferToSend, stringLength);

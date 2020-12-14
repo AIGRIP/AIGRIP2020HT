@@ -27,6 +27,15 @@
 #include <opencv2/core/mat.hpp>
 
 
+    //Gstreamer multimedia framework
+    std::string gstreamer_pipeline (int capture_width, int capture_height, int display_width, int display_height, int framerate, int flip_method) {
+    return "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(capture_width) + ", height=(int)" +
+           std::to_string(capture_height) + ", format=(string)NV12, framerate=(fraction)" + std::to_string(framerate) +
+           "/1 ! nvvidconv flip-method=" + std::to_string(flip_method) + " ! video/x-raw, width=(int)" + std::to_string(display_width) + ", height=(int)" +
+           std::to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+    }
+
+
 // Main function for communication.
 void* controlThread(void* arg)
 {
@@ -105,24 +114,17 @@ void* controlThread(void* arg)
     struct timespec messageDeadline;
 
 
-    //Gstreamer multimedia framework
-    std::string gstreamer_pipeline (int capture_width, int capture_height, int display_width, int display_height, int framerate, int flip_method) {
-    return "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(capture_width) + ", height=(int)" +
-           std::to_string(capture_height) + ", format=(string)NV12, framerate=(fraction)" + std::to_string(framerate) +
-           "/1 ! nvvidconv flip-method=" + std::to_string(flip_method) + " ! video/x-raw, width=(int)" + std::to_string(display_width) + ", height=(int)" +
-           std::to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
-    }
 
     //Image capturing varibles
     int capture_width = 740 ;
     int capture_height = 984 ;
     int display_width = 740 ;
     int display_height = 984 ;
-    int framerate = 20 ;
+    int framerate = 1 ;
     int flip_method = 1 ;
 
     // call to gstream func
-    std::string pipeline = gstreamer_pipeline(capture_width, 
+    std::string pipeline = gstreamer_pipeline(capture_width,
 	capture_height,
 	display_width,
 	display_height,
@@ -130,13 +132,13 @@ void* controlThread(void* arg)
 	flip_method);
 
     //Opening camera
-    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER); 
+    cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER);
 
-    if(!cap.isOpened()) 
+    if(!cap.isOpened())
     {
 	std::cout<<"Failed to open camera."<<std::endl;
     }
-    
+
     //Create image variables
     cv::Mat img;
     cv::Vec3b tempVar;
@@ -194,11 +196,10 @@ void* controlThread(void* arg)
             // Preshape
             case 1:
             {
-                errorNoImage = 0;
                 //Read an image frame
-                if (!cap.read(img)) 
-                {                                  
-                std::cout<<"Capture read error"<<std::endl; 
+                if (!cap.read(img))
+                {
+                    std::cout<<"Capture read error"<<std::endl;
                 }
 
                 //Transform cv image format to an array of unsigned char
@@ -207,7 +208,7 @@ void* controlThread(void* arg)
                     for(int i=0; i<(img.cols); i++){
                         for(int j = 0; j<(img.rows); j++){
                             tempVar = img.at<cv::Vec3b>(j,i);
-                            outputImg[count] = tempVar[2-k];   
+                            outputImg[count] = tempVar[2-k];
                             count++;
                         }
                     }
@@ -217,11 +218,11 @@ void* controlThread(void* arg)
                 MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
 
                 // Debug
-                for(int i=0;i<(width-5);i=i+5)
+                for(int i=0;i<(width-20);i=i+20)
                 {
-                    for(int j=0;j<(height-5);j=j+5)
+                    for(int j=0;j<(height-20);j=j+20)
                     {
-                        if( binIm2[j*height + i] == 0)
+                        if( binIm1[j*height + i] == 0)
                         {
                             printf(" ");
                         }else{
@@ -230,6 +231,7 @@ void* controlThread(void* arg)
                     }
                     printf("\n");
                 }
+		fflush(stdout);
 
                 if(errorNoImage == 1)
                 {
@@ -381,15 +383,11 @@ void* controlThread(void* arg)
 
 
 
-	    usleep(10000);
+	    usleep(1000000);
 
     }
     //Turn off the camera
     cap.release();
 
 }
-
-
-
-
 

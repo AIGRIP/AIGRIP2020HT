@@ -260,7 +260,7 @@ void communicationHandler()
 
 
 
-	    usleep(10000);
+//	    usleep(10000);
 
     }
 
