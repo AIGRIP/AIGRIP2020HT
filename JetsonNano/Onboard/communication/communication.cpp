@@ -256,14 +256,11 @@ void communicationHandler()
 
             }
             break;
-       }
+        }
 
-
-
-//	    usleep(10000);
+	usleep(10000);
 
     }
-
 }
 
 
@@ -275,7 +272,7 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
     // Creates a mailslot with the specified name. Return 0 on success and 1 on failure.
 
     // Set size and number of messages properties.
-	struct mq_attr mainAttr;
+    struct mq_attr mainAttr;
     struct mq_attr motorAttr;
     struct mq_attr controlAttr;
     struct mq_attr nucleoAttr;
