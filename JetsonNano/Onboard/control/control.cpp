@@ -355,7 +355,7 @@ void* controlThread(void* arg)
 
 
 
-	    usleep(1000000);
+	    usleep(10000);
 
     }
 
