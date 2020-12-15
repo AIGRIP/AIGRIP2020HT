@@ -53,7 +53,7 @@ int imageCaptureFunc(unsigned char *outputImg){
 
 	cap.grab();
 	cap.retrieve(img);
-	
+
 cv::Vec3b tempVar;
 int count = 0;
 
