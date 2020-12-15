@@ -27,7 +27,8 @@
 // Main function for communication.
 void* controlThread(void* arg)
 {
-    int width = 740, height = 984, offset = 10;
+    int width = 740, height = 984;
+    double offset = 10;
     bool binIm1[728160];
     bool binIm2[728160];
     unsigned char outputImg[2184480];
@@ -64,7 +65,7 @@ void* controlThread(void* arg)
     double signatureRadiusTargetF2[nrTargetPointsFinger[2]];
 
     // Variables for valid grip points.
-    double distanceToObject = 300;
+    double distanceToObject = 300.0;
     double bestTargetPointY, bestTargetPointX, bestNormalPointY, bestNormalPointX;
     unsigned short motorSteps[3];
     messageMotorStruct currentMotorPosition;
@@ -265,29 +266,28 @@ void* controlThread(void* arg)
                     printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
 
                     // Send motor values to communtication.
-		    mq_getattr(messageQueueMotors, &attributeMotorQueue);
-                    mainMessageBuffer = SEND_MOTOR_COMMAND;
-		    mq_getattr(messageQueueMain, &attributeMainQueue);
+                    mq_getattr(messageQueueMotors, &attributeMotorQueue);
+                            mainMessageBuffer = SEND_MOTOR_COMMAND;
+                    mq_getattr(messageQueueMain, &attributeMainQueue);
 
-		    if( attributeMotorQueue.mq_curmsgs < attributeMotorQueue.mq_maxmsg &&  attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg )
-		    {
-			// Send motor values.
-                    	if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
-                    	{
-                       	    printf("Failed to send motor values in pre-shape to MQ.\n");
-                    	}
-			// Inform that there are motor values available.
-                    	if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-                    	{
+                    if( attributeMotorQueue.mq_curmsgs < attributeMotorQueue.mq_maxmsg &&  attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg )
+                    {
+                        // Send motor values.
+                        if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
+                        {
+                            printf("Failed to send motor values in pre-shape to MQ.\n");
+                        }
+                        // Inform that there are motor values available.
+                        if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+                        {
                             printf("Failed to reach main MQ in pre-shape.\n");
-                    	}
+                        }
 
-		    }else{
-			printf("Motor Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMotorQueue.mq_curmsgs );
-			printf("Main Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMainQueue.mq_curmsgs );
+                    }else{
+                        printf("Motor Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMotorQueue.mq_curmsgs );
+                        printf("Main Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMainQueue.mq_curmsgs );
 
-		    }
-
+		            }
 
                 }
             }
