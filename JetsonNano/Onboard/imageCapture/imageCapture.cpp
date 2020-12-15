@@ -46,12 +46,14 @@ int imageCaptureFunc(unsigned char *outputImg){
     cv::Mat img;
     std::vector<cv::Mat> channels;
 
-    	if (!cap.read(img)) {                                   //image capture every frame
-		std::cout<<"Capture read error"<<std::endl;
+    // if (!cap.read(img)) {                                   //image capture every frame
+	// 	std::cout<<"Capture read error"<<std::endl;
 
-	}
+	// }
 
-
+	cap.grab();
+	cap.retrieve(img);
+	
 cv::Vec3b tempVar;
 int count = 0;
 

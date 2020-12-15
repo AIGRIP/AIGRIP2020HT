@@ -23,7 +23,7 @@
 
 #include <sys/time.h>
 #include <time.h>
-
+#include <sys/time.h>
 
 // Main function for communication.
 void* controlThread(void* arg)
@@ -175,7 +175,11 @@ void* controlThread(void* arg)
                 gettimeofday(&stopTimeStruct, NULL);
                 startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
                 stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+<<<<<<< HEAD
                 printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
+=======
+                printf("ColourSegmentation took: %lldu nanoseconds.\n",(stopTime-startTime));
+>>>>>>> bb57e38065711b78d229dd67a7d4ae3ea37e267c
 
 
                 // Take time of colourSegmentation.
@@ -184,7 +188,11 @@ void* controlThread(void* arg)
                 gettimeofday(&stopTimeStruct, NULL);
                 startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
                 stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+<<<<<<< HEAD
                 printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
+=======
+                printf("ColourSegmentation took: %lldu nanoseconds.\n",(stopTime-startTime));
+>>>>>>> bb57e38065711b78d229dd67a7d4ae3ea37e267c
                 
                 // Take time of MorphologicalFilters.
                 gettimeofday(&startTimeStruct, NULL);
@@ -192,8 +200,13 @@ void* controlThread(void* arg)
                 gettimeofday(&stopTimeStruct, NULL);
                 startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
                 stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+<<<<<<< HEAD
                 printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
                 
+=======
+                printf("ColourSegmentation took: %lldu nanoseconds.\n",(stopTime-startTime));
+
+>>>>>>> bb57e38065711b78d229dd67a7d4ae3ea37e267c
                 // Debug
                 for(int i=0;i<(width-20);i=i+20)
                 {
