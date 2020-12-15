@@ -173,26 +173,26 @@ void* controlThread(void* arg)
                 gettimeofday(&startTimeStruct, NULL);
                 colourBalance(outputImg, colourBalancedImage);
                 gettimeofday(&stopTimeStruct, NULL);
-                lastTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                lastTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-                printf("ColourSegmentation took: %lldu nanoseconds.\n",(lastTime-lastTime));
+                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+                printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
 
 
                 // Take time of colourSegmentation.
                 gettimeofday(&startTimeStruct, NULL);
                 colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
                 gettimeofday(&stopTimeStruct, NULL);
-                lastTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                lastTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-                printf("ColourSegmentation took: %lldu nanoseconds.\n",(lastTime-lastTime));
+                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+                printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
                 
                 // Take time of MorphologicalFilters.
                 gettimeofday(&startTimeStruct, NULL);
                 MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
                 gettimeofday(&stopTimeStruct, NULL);
-                lastTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                lastTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-                printf("ColourSegmentation took: %lldu nanoseconds.\n",(lastTime-lastTime));
+                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+                printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
                 
                 // Debug
                 for(int i=0;i<(width-20);i=i+20)
