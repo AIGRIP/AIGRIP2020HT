@@ -30,7 +30,8 @@ int main()
 
 	for(int i=0;i<3;i++)
 		printf("%hu    ",motorSteps[i]);
-
+	printf("\n");
+	fflush(stdout);
 	// Communication handle for Nano.
 	communicationHandler();
 
