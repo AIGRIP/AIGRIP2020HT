@@ -222,10 +222,10 @@ void* controlThread(void* arg)
                     //getvalid points
 
                     // Get valid point for finger 0, the thumb.
-                    GetValidGripPoints(&targetPointF0Y, &nrTargetPointsFinger[0],
-                        &targetPointF0X, &nrTargetPointsFinger[0],
-                        &normalPointF0Y, &nrTargetPointsFinger[0],
-                        &normalPointF0X, &nrTargetPointsFinger[0],
+                    GetValidGripPoints(&targetPointF0Y,(int*) &nrTargetPointsFinger[0],
+                        &targetPointF0X,(int*) &nrTargetPointsFinger[0],
+                        &normalPointF0Y,(int*) &nrTargetPointsFinger[0],
+                        &normalPointF0X,(int*) &nrTargetPointsFinger[0],
                         distanceToObject, 0, offset, motorSteps,
                         &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
@@ -236,10 +236,10 @@ void* controlThread(void* arg)
                     printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
 
                     // Get valid point for finger 1, the pointing finger.
-                    GetValidGripPoints(targetPointF1Y, &nrTargetPointsFinger[1],
-                        targetPointF1X, &nrTargetPointsFinger[1],
-                        normalPointF1Y, &nrTargetPointsFinger[1],
-                        normalPointF1X, &nrTargetPointsFinger[1],
+                    GetValidGripPoints(targetPointF1Y,(int*) &nrTargetPointsFinger[1],
+                        targetPointF1X,(int*) &nrTargetPointsFinger[1],
+                        normalPointF1Y,(int*) &nrTargetPointsFinger[1],
+                        normalPointF1X,(int*) &nrTargetPointsFinger[1],
                         distanceToObject, 1, offset, motorSteps,
                         &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
@@ -251,10 +251,10 @@ void* controlThread(void* arg)
                     printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
 
                     // Get valid point for finger 2, the long finger.
-                    GetValidGripPoints(targetPointF2Y, &nrTargetPointsFinger[2],
-                        targetPointF2X, &nrTargetPointsFinger[2],
-                        normalPointF2Y, &nrTargetPointsFinger[2],
-                        normalPointF2X, &nrTargetPointsFinger[2],
+                    GetValidGripPoints(targetPointF2Y,(int*) &nrTargetPointsFinger[2],
+                        targetPointF2X,(int*) &nrTargetPointsFinger[2],
+                        normalPointF2Y,(int*) &nrTargetPointsFinger[2],
+                        normalPointF2X,(int*) &nrTargetPointsFinger[2],
                         distanceToObject, 2, offset, motorSteps,
                         &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
