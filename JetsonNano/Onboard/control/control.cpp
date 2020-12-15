@@ -267,8 +267,17 @@ void* controlThread(void* arg)
                 }
                 else
                 {
-                    //signature
+
+                    // Take time of Signature.
+                    gettimeofday(&startTimeStruct, NULL);
                     GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
+                    gettimeofday(&stopTimeStruct, NULL);
+                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+	            printf("Signature took: %llu nanoseconds.\n",(stopTime-startTime));
+
+
 
                     // Debug
                     for(int i=0;i<(lengthSignature-10);i=i+10)
@@ -279,9 +288,17 @@ void* controlThread(void* arg)
 
 
                     //stable line
+                    // Take time of Signature.
+                    gettimeofday(&startTimeStruct, NULL);
                     StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
                         normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
                         &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
+                    gettimeofday(&stopTimeStruct, NULL);
+                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+	            printf("StableLine took: %llu nanoseconds.\n",(stopTime-startTime));
+
 
                     // Debug
                     printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
@@ -300,6 +317,10 @@ void* controlThread(void* arg)
 
 
                     //getvalid points
+
+
+                    // Take time of Signature.
+                    gettimeofday(&startTimeStruct, NULL);
 
                     // Get valid point for finger 0, the thumb.
                     GetValidGripPoints(&targetPointF0Y,(int*) &nrTargetPointsFinger[0],
@@ -344,6 +365,14 @@ void* controlThread(void* arg)
 
                     printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
                     printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
+
+
+                    gettimeofday(&stopTimeStruct, NULL);
+                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+	            printf("GetValidGripPoints took: %llu nanoseconds.\n",(stopTime-startTime));
+
 
                     // Send motor values to communtication.
                     mq_getattr(messageQueueMotors, &attributeMotorQueue);
