@@ -95,14 +95,19 @@ void communicationHandler()
     * Those commands below are the 
     *
     */
+    int bytesReceived;
+    unsigned int msgMainPrio = 1;
+    unsigned int msgMotorPrio = 1;
+    unsigned int msgNucleoPrio = 1;
+    
 
     while(1)
     {
-
+        mainMessageBuffer = -1;
         // Receive command from message main queue.
-        mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
+        bytesReceived = mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,&msgMainPrio);
 
-	printf("\n\nCommunication handle received state %d \n",mainMessageBuffer);
+	    printf("\n\nCommunication handle received state %d \n",mainMessageBuffer);
         fflush(stdout);
         switch( mainMessageBuffer )
         {
@@ -111,7 +116,7 @@ void communicationHandler()
                 printf("Sending motor command from command handle.\n");
 
                 // Send motor data to Nucleo.
-                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageMotorStruct),NULL);
+                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageMotorStruct),&msgMotorPrio);
 
                 // Send command to Nucleo.
                 I2CHeaderToNucleo.frameType = 5;
@@ -135,7 +140,7 @@ void communicationHandler()
             {
                 printf("Received data from Nucleo in command handle.\n");
                 // Handle received message from Nucleo.
-                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
+                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), &msgNucleoPrio);
 
                 // Copy the data for the control task.
                 memcpy(&dataToControlThread.motorData.motorAngle[0],&messageFromNucleo.motorStatus.motorAngle[0],sizeof(messageMotorStruct) );
