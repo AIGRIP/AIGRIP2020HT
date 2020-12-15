@@ -107,6 +107,7 @@ Executable/RUN_AIGRIP_NANO: codegen/lib/MorphologicalFiltersCPU/libMorphological
 Executable/RUN_AIGRIP_NANO: codegen/lib/StableLineCPU/libStableLineCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/GetSignatureCPU/libGetSignatureCPU.so
 Executable/RUN_AIGRIP_NANO: codegen/lib/GetValidGripPointsCPU/libGetValidGripPointsCPU.so
+Executable/RUN_AIGRIP_NANO: imageCapture/libimageCapture.a
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_gapi.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_stitching.so.4.1.0
 Executable/RUN_AIGRIP_NANO: /usr/local/lib/libopencv_aruco.so.4.1.0

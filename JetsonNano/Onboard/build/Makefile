@@ -267,6 +267,19 @@ GetSignatureCPU/fast:
 .PHONY : GetSignatureCPU/fast
 
 #=============================================================================
+# Target rules for targets named imageCapture
+
+# Build rule for target.
+imageCapture: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 imageCapture
+.PHONY : imageCapture
+
+# fast build rule for target.
+imageCapture/fast:
+	$(MAKE) -f imageCapture/CMakeFiles/imageCapture.dir/build.make imageCapture/CMakeFiles/imageCapture.dir/build
+.PHONY : imageCapture/fast
+
+#=============================================================================
 # Target rules for targets named controlGriperNano
 
 # Build rule for target.
@@ -325,6 +338,7 @@ help:
 	@echo "... StableLineCPU"
 	@echo "... GetValidGripPointsCPU"
 	@echo "... GetSignatureCPU"
+	@echo "... imageCapture"
 	@echo "... controlGriperNano"
 	@echo "... communicationBT_I2C"
 	@echo "... RUN_AIGRIP_NANO"

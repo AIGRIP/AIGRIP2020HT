@@ -24,6 +24,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../codegen/lib/GetValidGripPointsCPU"
   "../control"
   "../GeneralTypedefs"
+  "../imageCapture"
   "/usr/local/include/opencv4"
   "../communication"
   )
@@ -43,6 +44,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/StableLineCPU/CMakeFiles/StableLineCPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/GetValidGripPointsCPU/CMakeFiles/GetValidGripPointsCPU.dir/DependInfo.cmake"
+  "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir/DependInfo.cmake"
   "/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/GeneralTypedefs/CMakeFiles/typedefsGripperNano.dir/DependInfo.cmake"
   )
 

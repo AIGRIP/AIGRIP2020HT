@@ -24,9 +24,6 @@ target_include_directories(controlGriperNano PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}
 # Link the library.
 target_link_libraries(controlGriperNano typedefsGripperNano -lpthread)
 
-# Link the library.
-target_link_libraries(controlGriperNano ${OpenCV_LIBS})
-
 # Libraries for image processing.
 target_link_libraries(controlGriperNano colourBalanceGPU)
 target_link_libraries(controlGriperNano colourSegmentationGPU)
@@ -38,7 +35,7 @@ target_link_libraries(controlGriperNano GetSignatureCPU)
 target_link_libraries(controlGriperNano GetValidGripPointsCPU)
 
 # Library to get an image from camera.
-#target_link_libraries(controlGriperNano imageCapture)
+target_link_libraries(controlGriperNano imageCapture)
 
 # Library for approach.
 target_link_libraries(controlGriperNano ApproachObjectCPU)

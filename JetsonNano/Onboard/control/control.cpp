@@ -208,13 +208,13 @@ void* controlThread(void* arg)
                     printf("Suggested gripping points finger 1.\n");
                     for(int i=0;i<nrTargetPointsFinger[1];i++)
                     {
-                        printf("%.1lf	%.1lf \n",targetPointF1X[i],targetPointF1Y[i]);
+                        printf("%.1lf	%.1lf   %.1lf   %.1lf \n",targetPointF1X[i],targetPointF1Y[i],normalPointF1Y[i], normalPointF1X[i]);
                     }
 
                     printf("Suggested gripping points finger 2.\n");
                     for(int i=0;i<nrTargetPointsFinger[2];i++)
                     {
-                        printf("%.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i]);
+                        printf("%.1lf   %.1lf   %.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i],normalPointF2Y[i], normalPointF2X[i]);
                     }
 
 
@@ -232,7 +232,7 @@ void* controlThread(void* arg)
                     motorMessage.motorAngle[1] = motorSteps[2];
 
                     printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                    printf("The target points are: %lf    %lf\n",bestTargetPointY,bestTargetPointX);
+                    printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
 
                     // Get valid point for finger 1, the pointing finger.
                     GetValidGripPoints(targetPointF1Y, &nrTargetPointsFinger[1],

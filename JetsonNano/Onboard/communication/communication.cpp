@@ -119,6 +119,14 @@ void communicationHandler()
                 writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
                 // Send motorvalues to Nucleo.
                 writeI2C((unsigned char*) &motorMessage, sizeof(messageMotorStruct) );
+
+		printf("Motor values sent to I2C.\n");
+
+		for(int i=0;i<NUMBER_OF_MOTORS;i++)
+		{
+		    printf("%hu\n",motorMessage.motorAngle[i]);
+		}
+		fflush(stdout);
             }
             break;
 

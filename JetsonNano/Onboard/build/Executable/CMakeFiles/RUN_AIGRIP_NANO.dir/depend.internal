@@ -3,6 +3,8 @@
 
 Executable/CMakeFiles/RUN_AIGRIP_NANO.dir/main.cpp.o
  ../GeneralTypedefs/typedefsGripperNano.h
+ ../codegen/lib/GetValidGripPointsCPU/GetValidGripPoints.h
+ ../codegen/lib/GetValidGripPointsCPU/rtwtypes.h
  ../communication/communication.h
  ../control/control.h
  /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/Executable/main.cpp

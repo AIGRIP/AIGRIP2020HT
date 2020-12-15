@@ -8,6 +8,18 @@
 
 ../GeneralTypedefs/typedefsGripperNano.h
 
+../codegen/lib/GetValidGripPointsCPU/GetValidGripPoints.h
+rtwtypes.h
+../codegen/lib/GetValidGripPointsCPU/rtwtypes.h
+cstddef
+-
+cstdlib
+-
+
+../codegen/lib/GetValidGripPointsCPU/rtwtypes.h
+stdbool.h
+-
+
 ../communication/communication.h
 typedefsGripperNano.h
 ../communication/typedefsGripperNano.h
@@ -29,4 +41,6 @@ communication.h
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/Executable/communication.h
 control.h
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/Executable/control.h
+GetValidGripPoints.h
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/Executable/GetValidGripPoints.h
 

@@ -36,6 +36,9 @@
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/GetSignatureCPU/CMakeFiles/rebuild_cache.dir
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/GetSignatureCPU/CMakeFiles/GetSignatureCPU.dir
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/codegen/lib/GetSignatureCPU/CMakeFiles/edit_cache.dir
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/rebuild_cache.dir
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/imageCapture.dir
+/home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/imageCapture/CMakeFiles/edit_cache.dir
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/control/CMakeFiles/rebuild_cache.dir
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/control/CMakeFiles/controlGriperNano.dir
 /home/aigrip/Documents/communicationControlJetsonNano/JetsonNano/Onboard/build/control/CMakeFiles/edit_cache.dir
