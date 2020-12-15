@@ -204,201 +204,210 @@ void* controlThread(void* arg)
             // Preshape
             case 1:
             {
-                cap.grab();
-                cap.retrieve(img);
-                count = 0;
 
-                for(int k=0; k<3; k++){
-                    for(int i=0; i<(img.cols); i++){
-                        for(int j = 0; j<(img.rows); j++){
-                            tempVar = img.at<cv::Vec3b>(j,i);
-                            outputImg[count] = tempVar[2-k];   //Create output image
-                            count++;
-                        }
-                    }
-                }
-
-                // Take time of colourBalance.
-                gettimeofday(&startTimeStruct, NULL);
-                colourBalance(outputImg, colourBalancedImage);
-                gettimeofday(&stopTimeStruct, NULL);
-                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-
-                printf("ColourBalance took: %llu nanoseconds.\n",(stopTime-startTime));
-
-                // Take time of colourSegmentation.
-                gettimeofday(&startTimeStruct, NULL);
-                colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
-                gettimeofday(&stopTimeStruct, NULL);
-                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-
-                printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
-
-                // Take time of MorphologicalFilters.
-                gettimeofday(&startTimeStruct, NULL);
-                MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
-                gettimeofday(&stopTimeStruct, NULL);
-                startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-
-                printf("Morphological took: %llu nanoseconds.\n",(stopTime-startTime));
-
-                // Debug
-                for(int i=0;i<(width-20);i=i+20)
-                {
-                    for(int j=0;j<(height-20);j=j+20)
-                    {
-                        if( binIm1[j*height + i] == 0)
-                        {
-                            printf(" ");
-                        }else{
-                            printf("1");
-                        }
-                    }
-                    printf("\n");
-                }
-		fflush(stdout);
-
-                if(errorNoImage == 1)
-                {
-                    printf("ERROR, No object detected\n");
-                }
+                if (cap.grab() == 0) //image capture every frame
+                {    
+                    std::cout<<"Capture read error"<<std::endl;                               
+	            }
                 else
                 {
+                    cap.retrieve(img);
+                    count = 0;
 
-                    // Take time of Signature.
+                    for(int k=0; k<3; k++){
+                        for(int i=0; i<(img.cols); i++){
+                            for(int j = 0; j<(img.rows); j++){
+                                tempVar = img.at<cv::Vec3b>(j,i);
+                                outputImg[count] = tempVar[2-k];   //Create output image
+                                count++;
+                            }
+                        }
+                    }
+
+                    // Take time of colourBalance.
                     gettimeofday(&startTimeStruct, NULL);
-                    GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
+                    colourBalance(outputImg, colourBalancedImage);
                     gettimeofday(&stopTimeStruct, NULL);
                     startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
                     stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
 
-	            printf("Signature took: %llu nanoseconds.\n",(stopTime-startTime));
+                    printf("ColourBalance took: %llu nanoseconds.\n",(stopTime-startTime));
 
+                    // Take time of colourSegmentation.
+                    gettimeofday(&startTimeStruct, NULL);
+                    colourSegmentation( colourBalancedImage,(double) round(height/2),(double) round(width/2) ,binIm1);
+                    gettimeofday(&stopTimeStruct, NULL);
+                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
 
+                    printf("ColourSegmentation took: %llu nanoseconds.\n",(stopTime-startTime));
+
+                    // Take time of MorphologicalFilters.
+                    gettimeofday(&startTimeStruct, NULL);
+                    MorphologicalFilters(binIm1,(double) round(height/2),(double) round(width/2),&errorNoImage, binIm2);
+                    gettimeofday(&stopTimeStruct, NULL);
+                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+                    printf("Morphological took: %llu nanoseconds.\n",(stopTime-startTime));
 
                     // Debug
-                    for(int i=0;i<(lengthSignature-10);i=i+10)
+                    for(int i=0;i<(width-20);i=i+20)
                     {
-                        printf("%.1lf ",signature[i]);
-                    }
-                    printf("\n");
-
-
-                    //stable line
-                    // Take time of Signature.
-                    gettimeofday(&startTimeStruct, NULL);
-                    StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
-                        normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
-                        &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
-                    gettimeofday(&stopTimeStruct, NULL);
-                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-
-	            printf("StableLine took: %llu nanoseconds.\n",(stopTime-startTime));
-
-
-                    // Debug
-                    printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
-
-                    printf("Suggested gripping points finger 1.\n");
-                    for(int i=0;i<nrTargetPointsFinger[1];i++)
-                    {
-                        printf("%.1lf	%.1lf   %.1lf   %.1lf \n",targetPointF1X[i],targetPointF1Y[i],normalPointF1Y[i], normalPointF1X[i]);
-                    }
-
-                    printf("Suggested gripping points finger 2.\n");
-                    for(int i=0;i<nrTargetPointsFinger[2];i++)
-                    {
-                        printf("%.1lf   %.1lf   %.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i],normalPointF2Y[i], normalPointF2X[i]);
-                    }
-
-
-                    //getvalid points
-
-
-                    // Take time of Signature.
-                    gettimeofday(&startTimeStruct, NULL);
-
-                    // Get valid point for finger 0, the thumb.
-                    GetValidGripPoints(&targetPointF0Y,(int*) &nrTargetPointsFinger[0],
-                        &targetPointF0X,(int*) &nrTargetPointsFinger[0],
-                        &normalPointF0Y,(int*) &nrTargetPointsFinger[0],
-                        &normalPointF0X,(int*) &nrTargetPointsFinger[0],
-                        distanceToObject, 0, offset, motorSteps,
-                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
-
-                    motorMessage.motorAngle[0] = motorSteps[1];
-                    motorMessage.motorAngle[1] = motorSteps[2];
-
-                    printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                    printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
-
-                    // Get valid point for finger 1, the pointing finger.
-                    GetValidGripPoints(targetPointF1Y,(int*) &nrTargetPointsFinger[1],
-                        targetPointF1X,(int*) &nrTargetPointsFinger[1],
-                        normalPointF1Y,(int*) &nrTargetPointsFinger[1],
-                        normalPointF1X,(int*) &nrTargetPointsFinger[1],
-                        distanceToObject, 1, offset, motorSteps,
-                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
-
-                    motorMessage.motorAngle[2] = motorSteps[0];
-                    motorMessage.motorAngle[3] = motorSteps[1];
-                    motorMessage.motorAngle[4] = motorSteps[2];
-
-                    printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                    printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
-
-                    // Get valid point for finger 2, the long finger.
-                    GetValidGripPoints(targetPointF2Y,(int*) &nrTargetPointsFinger[2],
-                        targetPointF2X,(int*) &nrTargetPointsFinger[2],
-                        normalPointF2Y,(int*) &nrTargetPointsFinger[2],
-                        normalPointF2X,(int*) &nrTargetPointsFinger[2],
-                        distanceToObject, 2, offset, motorSteps,
-                        &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
-
-                    motorMessage.motorAngle[5] = motorSteps[0];
-                    motorMessage.motorAngle[6] = motorSteps[1];
-                    motorMessage.motorAngle[7] = motorSteps[2];
-
-                    printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
-                    printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
-
-
-                    gettimeofday(&stopTimeStruct, NULL);
-                    startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
-                    stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
-
-	            printf("GetValidGripPoints took: %llu nanoseconds.\n",(stopTime-startTime));
-
-
-                    // Send motor values to communtication.
-                    mq_getattr(messageQueueMotors, &attributeMotorQueue);
-                    mq_getattr(messageQueueMain, &attributeMainQueue);
-
-                    if( (attributeMotorQueue.mq_curmsgs < attributeMotorQueue.mq_maxmsg) && (attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg) )
-                    {
-                        mainMessageBuffer = SEND_MOTOR_COMMAND;
-                        // Send motor values.
-                        if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
+                        for(int j=0;j<(height-20);j=j+20)
                         {
-                            printf("Failed to send motor values in pre-shape to MQ.\n");
+                            if( binIm1[j*height + i] == 0)
+                            {
+                                printf(" ");
+                            }else{
+                                printf("1");
+                            }
                         }
-                        // Inform that there are motor values available.
-                        if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-                        {
-                            printf("Failed to reach main MQ in pre-shape.\n");
-                        }
-                        
+                        printf("\n");
+                    }
+                    fflush(stdout);
 
-                    }else{
-                        printf("Motor Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMotorQueue.mq_curmsgs );
-                        printf("Main Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMainQueue.mq_curmsgs );
-		            }
+                    if(errorNoImage == 1)
+                    {
+                        printf("ERROR, No object detected\n");
+                    }
+                    else
+                    {
+
+                        // Take time of Signature.
+                        gettimeofday(&startTimeStruct, NULL);
+                        GetSignature(binIm2, degreesToMeasure, (double) height, (double) width, signature, YCoordToStore, XCoordToStore);
+                        gettimeofday(&stopTimeStruct, NULL);
+                        startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                        stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+                        printf("Signature took: %llu nanoseconds.\n",(stopTime-startTime));
+
+
+
+                        // Debug
+                        for(int i=0;i<(lengthSignature-10);i=i+10)
+                        {
+                            printf("%.1lf ",signature[i]);
+                        }
+                        printf("\n");
+
+
+                        //stable line
+                        // Take time of Signature.
+                        gettimeofday(&startTimeStruct, NULL);
+                        StableLine(degreesToMeasure, YCoordToStore, XCoordToStore, signature, targetPointF1Y, targetPointF1X,
+                            normalPointF1Y, normalPointF1X, targetPointF2Y, targetPointF2X, normalPointF2Y, normalPointF2X,
+                            &targetPointF0Y, &targetPointF0X, &normalPointF0Y, &normalPointF0X, signatureRadiusTargetF1, signatureRadiusTargetF2);
+                        gettimeofday(&stopTimeStruct, NULL);
+                        startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                        stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+                        printf("StableLine took: %llu nanoseconds.\n",(stopTime-startTime));
+
+
+                        // Debug
+                        printf("Target point finger 0: %.1lf 	%.1lf \n",targetPointF0X,targetPointF0Y);
+
+                        printf("Suggested gripping points finger 1.\n");
+                        for(int i=0;i<nrTargetPointsFinger[1];i++)
+                        {
+                            printf("%.1lf	%.1lf   %.1lf   %.1lf \n",targetPointF1X[i],targetPointF1Y[i],normalPointF1Y[i], normalPointF1X[i]);
+                        }
+
+                        printf("Suggested gripping points finger 2.\n");
+                        for(int i=0;i<nrTargetPointsFinger[2];i++)
+                        {
+                            printf("%.1lf   %.1lf   %.1lf   %.1lf \n",targetPointF2X[i],targetPointF2Y[i],normalPointF2Y[i], normalPointF2X[i]);
+                        }
+
+
+                        //getvalid points
+
+
+                        // Take time of Signature.
+                        gettimeofday(&startTimeStruct, NULL);
+
+                        // Get valid point for finger 0, the thumb.
+                        GetValidGripPoints(&targetPointF0Y,(int*) &nrTargetPointsFinger[0],
+                            &targetPointF0X,(int*) &nrTargetPointsFinger[0],
+                            &normalPointF0Y,(int*) &nrTargetPointsFinger[0],
+                            &normalPointF0X,(int*) &nrTargetPointsFinger[0],
+                            distanceToObject, 0, offset, motorSteps,
+                            &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+
+                        motorMessage.motorAngle[0] = motorSteps[1];
+                        motorMessage.motorAngle[1] = motorSteps[2];
+
+                        printf("For finger 0 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                        printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
+
+                        // Get valid point for finger 1, the pointing finger.
+                        GetValidGripPoints(targetPointF1Y,(int*) &nrTargetPointsFinger[1],
+                            targetPointF1X,(int*) &nrTargetPointsFinger[1],
+                            normalPointF1Y,(int*) &nrTargetPointsFinger[1],
+                            normalPointF1X,(int*) &nrTargetPointsFinger[1],
+                            distanceToObject, 1, offset, motorSteps,
+                            &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+
+                        motorMessage.motorAngle[2] = motorSteps[0];
+                        motorMessage.motorAngle[3] = motorSteps[1];
+                        motorMessage.motorAngle[4] = motorSteps[2];
+
+                        printf("For finger 1 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                        printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
+
+                        // Get valid point for finger 2, the long finger.
+                        GetValidGripPoints(targetPointF2Y,(int*) &nrTargetPointsFinger[2],
+                            targetPointF2X,(int*) &nrTargetPointsFinger[2],
+                            normalPointF2Y,(int*) &nrTargetPointsFinger[2],
+                            normalPointF2X,(int*) &nrTargetPointsFinger[2],
+                            distanceToObject, 2, offset, motorSteps,
+                            &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
+
+                        motorMessage.motorAngle[5] = motorSteps[0];
+                        motorMessage.motorAngle[6] = motorSteps[1];
+                        motorMessage.motorAngle[7] = motorSteps[2];
+
+                        printf("For finger 2 the motor values are:\n %hu    %hu    %hu\n",motorSteps[0],motorSteps[1],motorSteps[2]);
+                        printf("The target points are: %.1lf    %.1lf\n",bestTargetPointY,bestTargetPointX);
+
+
+                        gettimeofday(&stopTimeStruct, NULL);
+                        startTime = startTimeStruct.tv_sec*1000000 + startTimeStruct.tv_usec;
+                        stopTime = stopTimeStruct.tv_sec*1000000 + stopTimeStruct.tv_usec;
+
+                        printf("GetValidGripPoints took: %llu nanoseconds.\n",(stopTime-startTime));
+
+
+                        // Send motor values to communtication.
+                        mq_getattr(messageQueueMotors, &attributeMotorQueue);
+                        mq_getattr(messageQueueMain, &attributeMainQueue);
+
+                        if( (attributeMotorQueue.mq_curmsgs < attributeMotorQueue.mq_maxmsg) && (attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg) )
+                        {
+                            mainMessageBuffer = SEND_MOTOR_COMMAND;
+                            // Send motor values.
+                            if( mq_send(messageQueueMotors, (char*) &motorMessage, sizeof(messageMotorStruct),1) !=0 )
+                            {
+                                printf("Failed to send motor values in pre-shape to MQ.\n");
+                            }
+                            // Inform that there are motor values available.
+                            if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
+                            {
+                                printf("Failed to reach main MQ in pre-shape.\n");
+                            }
+                            
+
+                        }
+                        else
+                        {
+                            printf("Motor Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMotorQueue.mq_curmsgs );
+                            printf("Main Queue is full, number of messages is: %ld. From control pre-shape.\n",attributeMainQueue.mq_curmsgs );
+                        }
+                    }
+                    memset(&motorMessage, 0, sizeof(messageMotorStruct));
                 }
-                memset(&motorMessage, 0, sizeof(messageMotorStruct));
             }
             break;
 

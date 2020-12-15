@@ -34,8 +34,8 @@ function [jointPostions , opticalSensorPosition] = ForwardKinematics(linkLengths
 
     
     %Calculate the postions of joint A and C
-    jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)];   
-    jointPositionC = [motorPositionM1(1)+linkLengthc*sin(motorAnglet1) motorPositionM1(2)+linkLengthc*cos(motorAnglet1)];
+    jointPositionA = [motorPositionM2(1)+linkLengtha*cos(motorAnglet2) motorPositionM2(2)+linkLengtha*sin(motorAnglet2)]   
+    jointPositionC = [motorPositionM1(1)+linkLengthc*cos(motorAnglet1) motorPositionM1(2)+linkLengthc*sin(motorAnglet1)]
 
     %Calculate the norm for joint A to joint C
     normAC = norm(jointPositionA - jointPositionC);
