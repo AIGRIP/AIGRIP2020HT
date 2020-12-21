@@ -101,7 +101,7 @@ void* controlThread(void* arg)
     struct mq_attr attributeMainQueue;
 
     // Connect to message queue for motors.
-    messageMotorStruct motorMessage;
+    messageMotorStruct motorMessage = {777};
     mqd_t messageQueueMotors;
     messageQueueMotors = mq_open(messageQueueMotorName, O_RDWR);
     // To get the number of messages in the motor queue.
