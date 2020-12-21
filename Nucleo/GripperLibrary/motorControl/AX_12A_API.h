@@ -126,6 +126,7 @@ int MotorSetId(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *newId); // Rewri
 int MotorPing(UART_HandleTypeDef *huart, uint8_t *id); // Send a ping request to motor, returns '1' if the motor responds and '0' otherwise
 int MotorRead(UART_HandleTypeDef *huart, uint8_t *buf, uint8_t id, uint8_t addr, uint8_t bytesToRead); // Reads bytesToRead bytes at register address addr from motor, and stores it in buf
 int MotorSendStop(UART_HandleTypeDef *huart, uint8_t *id); // Send a torque off instruction to motor
+int MotorSetBaudRate(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *baudRate);
 
 
 

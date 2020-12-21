@@ -7,12 +7,11 @@
 
 #include "I2CCommunication.h"
 
+// Change to a general header!!!!!!
 
 
 
-
-
-void I2CCommunicationHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *uartDebugHandle )
+void I2CCommunicationHandle( I2C_HandleTypeDef *hi2cHandle, osSemaphoreId_t semaforMotorCommand, osMessageQueueId_t messageQueueControlHandle )
 {
 	/*
 	 * Take care of all I2C communication between Nucleo and other boards.
@@ -20,83 +19,71 @@ void I2CCommunicationHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *
 
 	// Set up time variables.
 	const uint32_t deadlineCommunication = 2000;
-	const uint32_t communicationSleepTime = 25;
+	const uint32_t communicationSleepTime = 300;
 	uint32_t transmitionStatus;
 	uint32_t lastTransmitTime = osKernelGetTickCount();
 
-	// Indicate that I2C communication is started.
-	const char str0[] = "Starting I2C Communication.\n\r";
-	HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str0, sizeof(str0), 50);
+	uint64_t currTick1, currTick2, executionTicks = 0;
 
 	while(1)
 	{
+		currTick1 = osKernelGetTickCount();
 
 		// Check if for new incoming I2C messages.
 
 		// Handle received I2C data.
-		I2CCommandHandle(hi2cHandle,uartDebugHandle);
+		I2CCommandHandle(hi2cHandle,semaforMotorCommand, messageQueueControlHandle);
 
+		currTick2 = osKernelGetTickCount();
+
+		if ((currTick2 - currTick1) > executionTicks)
+		{
+			executionTicks = currTick2 - currTick1;
+		}
+/*
 		// Check if it is time to do a new transmit.
 		if( (lastTransmitTime + deadlineCommunication) <= osKernelGetTickCount() )
 		{
 
-
 			// Transmit data from Nucleo.
-			transmitionStatus = I2CTransmitHandle(hi2cHandle,uartDebugHandle);
+			transmitionStatus = I2CTransmitHandle(hi2cHandle);
 
 			// Check if the data were transmitted.
-			if(transmitionStatus != 0)
+			if(transmitionStatus == 0)
 			{
-				lastTransmitTime = transmitionStatus;
+				lastTransmitTime = osKernelGetTickCount();
 			}
 		}
-
+*/
 		// Communication task sleep.
 		osDelay(communicationSleepTime);
 
-
 	}
-
-
-
 }
 
 
 
 
-void I2CCommandHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *uartDebugHandle )
+void I2CCommandHandle( I2C_HandleTypeDef *hi2cHandle, osSemaphoreId_t semaforMotorCommand, osMessageQueueId_t messageQueueControlHandle )
 {
 	/*
 	 * Handles all received I2C messages. It reads the first 2 bytes as a frame.
 	 * Then depending on the frame type it handle the command requested from the master.
 	 */
 
-	// Debug messages.
-	const char strF[] = "I2C buffer is empty.\n\r";
-	const char str0[] = "Undefined command.\n\r";
-	const char str1[] = "Start the gripper.\n\r";
-	const char str2[] = "Stop the gripper.\n\r";
-	const char str3[] = "Release object.\n\r";
-	const char str4[] = "Pause the gripper.\n\r";
-	const char str5[] = "Set motor angle.\n\r";
-
-	//int arrSize = 30;
-	//char nrBuff[arrSize];
-
 	// Standard receive packages.
 	messageStructHeaderFromNano messageHeaderFromNano;
-
+	messageI2CToNucleoMotor motorValues;
 
 	// Indicate status of I2C.
-	int I2CReceiveStatus;
+	int I2CReceiveStatus,i;
 
 
 	// Suspend all other task from interrupt while reading.
 	osKernelLock();
 	// Check if new I2C messages is available.
-	I2CReceiveStatus = HAL_I2C_Slave_Receive(hi2cHandle, (uint8_t *) &messageHeaderFromNano, (uint16_t) sizeof(messageStructHeaderFromNano), (uint32_t) 1);
+	I2CReceiveStatus = HAL_I2C_Slave_Receive(hi2cHandle, (uint8_t *) &messageHeaderFromNano, (uint16_t) sizeof(messageStructHeaderFromNano), (uint32_t) 100);
 	osKernelUnlock();
-
 
 
 	// If there is a message, follow the instructions dependent of the type of message.
@@ -110,60 +97,111 @@ void I2CCommandHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *uartDe
 			case 1:
 			{
 				// Should start the gripper
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str1, sizeof(str1), 50);
+				uint16_t sendBuff = 1;
+
+				if (osMessageQueueGetSpace(messageQueueControlHandle) > 0)
+				{
+					if (osSemaphoreAcquire( semaforMotorCommand, 200) == osOK)
+					{
+						osMessageQueuePut(messageQueueControlHandle,(uint16_t *) &sendBuff, 1, 10);
+					}
+					osSemaphoreRelease(semaforMotorCommand);
+				}
+
 			}
 				break;
 
 			case 2:
 			{
 				// Should stop the gripper and set it to the standby mode.
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str2, sizeof(str2), 100);
+				uint16_t sendBuff = 2;
+
+				if (osMessageQueueGetSpace(messageQueueControlHandle) > 0)
+				{
+					if (osSemaphoreAcquire( semaforMotorCommand, 200) == osOK)
+					{
+						osMessageQueuePut(messageQueueControlHandle,(uint16_t *) &sendBuff, 1, 10);
+					}
+					osSemaphoreRelease(semaforMotorCommand);
+				}
+
 			}
 				break;
 
 			case 3:
 			{
 				// Should set the gripper to release mode.
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str3, sizeof(str3), 100);
 			}
 				break;
 
 			case 4:
 			{
 				// Should pause the gripper in its current stage.
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str4, sizeof(str4), 100);
 			}
 				break;
 
 			case 5:
 			{
 				// Should handle recommended motor commands from the Nano.
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str5, sizeof(str5), 100);
+
+				osKernelLock();
+				// Check if new I2C messages is available.
+				I2CReceiveStatus = HAL_I2C_Slave_Receive(hi2cHandle, (uint8_t *) &motorValues, (uint16_t) sizeof(messageI2CToNucleoMotor), (uint32_t) 2000);
+				osKernelUnlock();
+				for (int i = 0; i < NUMBER_OF_MOTORS; i++)
+				{
+					if (motorValues.motorAngle[i] == 0)
+					{
+						return;
+					}
+				}
+
+  				uint16_t sendBuff = 5;
+
+				// Prevent the control task to preempt while sending motor commands to it,
+
+				if (osMessageQueueGetSpace(messageQueueControlHandle) >= (1 + NUMBER_OF_MOTORS) )
+				{
+					if (osSemaphoreAcquire( semaforMotorCommand, 100) == osOK)
+					{
+						// Send message frame to control task.
+						osMessageQueuePut(messageQueueControlHandle,(uint16_t *) &sendBuff, 1, 10);
+						// Send desired motor position to the control task.
+						for( i=0;i<NUMBER_OF_MOTORS;i++)
+						{
+							osMessageQueuePut(messageQueueControlHandle,(uint16_t *) &motorValues.motorAngle[i], 1, 10);
+						}
+
+						// Release semaphore.
+						osSemaphoreRelease(semaforMotorCommand);
+					}
+				}
+
 			}
-				break;
+			break;
 
 			default:
 			{
 				// Should Flush all I2C messages.
 				HAL_I2C_Init(hi2cHandle);
-				HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str0, sizeof(str0), 100);
 			}
 				break;
 		}
 	}else{
 		// Indicate that there was no data in the I2C buffer.
-		HAL_UART_Transmit(uartDebugHandle,(uint8_t *) strF, sizeof(strF), 10);
+		// HAL_UART_Transmit(uartDebugHandle,(uint8_t *) strF, sizeof(strF), 10);
 
 		// Have to reset I2C if there was no message available...
+		osKernelLock();
 		HAL_I2C_Init(hi2cHandle);
-
+		osKernelUnlock();
 	}
 
 }
 
 
 
-uint32_t I2CTransmitHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *uartDebugHandle )
+uint32_t I2CTransmitHandle( I2C_HandleTypeDef *hi2cHandle )
 {
 	// This function handles the I2C transmition to other controllers.
 	// It sends the sensor/motor values and status of the gripper.
@@ -177,45 +215,49 @@ uint32_t I2CTransmitHandle( I2C_HandleTypeDef *hi2cHandle, UART_HandleTypeDef *u
 	// Indicate status of I2C transmition.
 	int transStatus;
 
-	// Debug messages.
-	const char str1[] = "Transmit Success.\n\r";
-	const char str2[] = "Transmit Failure.\n\r";
-	const char str3[] = "About to transmit.\n\r";
-
 	// Is to debug communication with receiver.
-	messageFormNucleo.motorStatus[0] = 1;
-	messageFormNucleo.motorStatus[1] = 3;
-	messageFormNucleo.motorStatus[2] = 3;
-	messageFormNucleo.motorStatus[3] = 7;
 
+	int i;
+
+	for( i=0;i<NUMBER_OF_MOTORS;i++)
+	{
+		messageFormNucleo.motorStatus[i] = i;
+	}
+
+	for( i=0;i<NUMBER_OF_PROXIMITY_SENSORS;i++)
+	{
+		messageFormNucleo.proximitySensor[i] = i;
+	}
+
+
+	for( i=0;i<NUMBER_OF_MOUSE_SESNORS;i++)
+	{
+		messageFormNucleo.mouseSensor[i].XMagnitud = i;
+		messageFormNucleo.mouseSensor[i].YMagnitud = i;
+	}
+
+	messageFormNucleo.statusOfNucelo = 1;
 
 	// Suspend all other task from interrupt, while transmitting..
-	osKernelLock();
-	// Indicate that a I2C transimtion is about to happen.
-	HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str3, sizeof(str1), 150);
-	osKernelUnlock();
-
-	// Need to reset I2C before transmition, don't know why...
-
 	// Transmit the data from Nucleo.
+	osKernelLock();
 	transStatus = HAL_I2C_Slave_Transmit(hi2cHandle,(uint8_t *) &messageFormNucleo, sizeof(messageStructFromNucleo), 100);
+	osKernelUnlock();
 
 	//Print transmit status.
 	if(transStatus == 0)
 	{
-		// Transmit gripper information.
-		HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str1, sizeof(str1), 50);
-
-		// Toggle orange led to see transmition.
-		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_1);
-
 		// Return the latest transmit time.
 		return osKernelGetTickCount();
 
 	}else{
 
+		// osKernelLock();
+		// HAL_I2C_Init(hi2cHandle);
+		// osKernelUnlock();
+
 		// Transmit debug message.
-		HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str2, sizeof(str2), 50);
+		// HAL_UART_Transmit(uartDebugHandle,(uint8_t *) str2, sizeof(str2), 50);
 		// Return error value.
 		return 0;
 	}

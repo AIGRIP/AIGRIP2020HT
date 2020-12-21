@@ -140,6 +140,16 @@ int MotorSetPunch(UART_HandleTypeDef *huart, uint8_t *id, uint16_t *minCurrentTh
 	return status;
 }
 
+// Set motor baudrate
+int MotorSetBaudRate(UART_HandleTypeDef *huart, uint8_t *id, uint8_t *baudRate)
+{
+	int status;
+	uint8_t frame[9] = {0xFF, 0xFF, *id, 5, MOTOR_WRITE, ADDR_BAUD_RATE, (uint8_t)(*baudRate), 0};
+	frame[8] = MotorInstrChecksum(frame, 1);
+	status = HAL_UART_Transmit(huart, frame, sizeof(frame), 50);
+	return status;
+}
+
 // Calculate checksum for instruction packages, bytesToSend is interpreted as parameters after the register address, ~( ID + Length + Instruction + Parameter1 + … Parameter N )
 int MotorInstrChecksum(uint8_t *frame, uint8_t bytesToSend)
 {
@@ -212,7 +222,7 @@ uint16_t MotorConvertShortToDegree (uint16_t ushort)
 // Initialize and configure startup values for the motor
 int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *motor)
 {
-	osKernelLock();
+//	osKernelLock();
 	// Write to ROM area to reset initial configuration
 	if (ROM_WRITE || FAILURE)
 	{
@@ -265,7 +275,7 @@ int MotorInitConfig (UART_HandleTypeDef *huart,uint8_t *id, motorConfiguration *
 	{
 		return 6;
 	}
-	osKernelUnlock();
+//	osKernelUnlock();
 
 	return 0;
 }

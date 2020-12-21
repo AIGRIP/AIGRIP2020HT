@@ -14,6 +14,6 @@
 #include "motorControl.h"
 
 
-void IfSlipIncreaseForce(motorPair thumb, motorPair finger1, motorPair finger2, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART);
+void IfSlipIncreaseForce(motorPair* thumb, motorPair* finger1, motorPair* finger2, osMessageQueueId_t opticalSensorQueue);
 
 #endif /* SRC_SIMPLENOSLIP_H_ */

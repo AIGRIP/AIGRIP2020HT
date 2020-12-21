@@ -10,9 +10,11 @@
 
 #include "stm32h7xx_hal.h"
 #include "cmsis_os.h"
+
 //#include "stm32h7xx_hal_rcc.h"
 
 #include "AX_12A_API.h"
+#include "typedefsGripperNucleo.h"
 
 // Struct for storing all motor values
 struct gripperStruct
@@ -81,8 +83,8 @@ struct motorValues
 
 uint16_t MotorConvertPosToShort (uint16_t pos);
 void GripperStartupConfiguration (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, gripperStruct *finger);
-void MotorControlThread (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, osMessageQueueId_t nanoMsgQueue, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART);
-void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors);
+void MotorControlThread (UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart_DynamicGrasp, UART_HandleTypeDef *uart_Finger1, UART_HandleTypeDef *uart_Finger2, osMessageQueueId_t nanoMsgQueue, osMessageQueueId_t opticalSensorQueue, osSemaphoreId_t semaforMotorCommand);
+void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions *positions, motorPair *thumb, motorPair *finger1, motorPair *finger2, motorPair *dynamicGrasp, gripperStruct *motors, osSemaphoreId_t semaforMotorCommand);
 
 
 

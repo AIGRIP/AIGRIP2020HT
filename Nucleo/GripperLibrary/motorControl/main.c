@@ -62,12 +62,13 @@
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c2;
-DMA_HandleTypeDef hdma_i2c1_rx;
 
 SPI_HandleTypeDef hspi4;
 
 UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart7;
+UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
@@ -91,8 +92,8 @@ const osThreadAttr_t CommBoard_attributes = {
 osThreadId_t SensorReadHandle;
 const osThreadAttr_t SensorRead_attributes = {
   .name = "SensorRead",
-  .priority = (osPriority_t) osPriorityLow,
-  .stack_size = 128 * 4
+  .priority = (osPriority_t) osPriorityHigh,
+  .stack_size = 1024 * 4
 };
 /* Definitions for Safety */
 osThreadId_t SafetyHandle;
@@ -111,6 +112,11 @@ osMessageQueueId_t opticalSensorQueueHandle;
 const osMessageQueueAttr_t opticalSensorQueue_attributes = {
   .name = "opticalSensorQueue"
 };
+/* Definitions for motorControlSem */
+osSemaphoreId_t motorControlSemHandle;
+const osSemaphoreAttr_t motorControlSem_attributes = {
+  .name = "motorControlSem"
+};
 /* USER CODE BEGIN PV */
 
 
@@ -119,7 +125,6 @@ const osMessageQueueAttr_t opticalSensorQueue_attributes = {
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI4_Init(void);
@@ -128,6 +133,8 @@ static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_UART4_Init(void);
+static void MX_UART5_Init(void);
+static void MX_USART1_UART_Init(void);
 void StartControlTask(void *argument);
 void StartCommBoard(void *argument);
 void StartSensorRead(void *argument);
@@ -175,7 +182,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI4_Init();
@@ -184,13 +190,20 @@ int main(void)
   MX_I2C1_Init();
   MX_I2C2_Init();
   MX_UART4_Init();
+  MX_UART5_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   // Insert a I2C handle to the drivers for the proximity sensors.
   initI2CPointer(&hi2c2);
 
   // Is to ISP is to make the SlaveSelect high so to indicate that there is no communication.
-  HAL_GPIO_WritePin(GPIOE,GPIO_PIN_4,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_2,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_4,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_5,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOG,GPIO_PIN_13,GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -200,6 +213,10 @@ int main(void)
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of motorControlSem */
+  motorControlSemHandle = osSemaphoreNew(1, 1, &motorControlSem_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -310,10 +327,12 @@ void SystemClock_Config(void)
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3|RCC_PERIPHCLK_USART2
                               |RCC_PERIPHCLK_UART4|RCC_PERIPHCLK_UART7
+                              |RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_UART5
                               |RCC_PERIPHCLK_SPI4|RCC_PERIPHCLK_I2C2
                               |RCC_PERIPHCLK_I2C1|RCC_PERIPHCLK_USB;
   PeriphClkInitStruct.Spi45ClockSelection = RCC_SPI45CLKSOURCE_D2PCLK1;
   PeriphClkInitStruct.Usart234578ClockSelection = RCC_USART234578CLKSOURCE_D2PCLK1;
+  PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_D2PCLK2;
   PeriphClkInitStruct.I2c123ClockSelection = RCC_I2C123CLKSOURCE_D2PCLK1;
   PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
@@ -481,7 +500,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 1000000;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -514,6 +533,54 @@ static void MX_UART4_Init(void)
 }
 
 /**
+  * @brief UART5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART5_Init(void)
+{
+
+  /* USER CODE BEGIN UART5_Init 0 */
+
+  /* USER CODE END UART5_Init 0 */
+
+  /* USER CODE BEGIN UART5_Init 1 */
+
+  /* USER CODE END UART5_Init 1 */
+  huart5.Instance = UART5;
+  huart5.Init.BaudRate = 1000000;
+  huart5.Init.WordLength = UART_WORDLENGTH_8B;
+  huart5.Init.StopBits = UART_STOPBITS_1;
+  huart5.Init.Parity = UART_PARITY_NONE;
+  huart5.Init.Mode = UART_MODE_TX_RX;
+  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart5.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart5.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart5.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart5, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart5, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART5_Init 2 */
+
+  /* USER CODE END UART5_Init 2 */
+
+}
+
+/**
   * @brief UART7 Initialization Function
   * @param None
   * @retval None
@@ -539,7 +606,7 @@ static void MX_UART7_Init(void)
   huart7.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart7.Init.ClockPrescaler = UART_PRESCALER_DIV1;
   huart7.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_HalfDuplex_Init(&huart7) != HAL_OK)
+  if (HAL_UART_Init(&huart7) != HAL_OK)
   {
     Error_Handler();
   }
@@ -562,6 +629,54 @@ static void MX_UART7_Init(void)
 }
 
 /**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 9600;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -577,7 +692,7 @@ static void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 1000000;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -587,7 +702,7 @@ static void MX_USART2_UART_Init(void)
   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart2.Init.ClockPrescaler = UART_PRESCALER_DIV1;
   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_HalfDuplex_Init(&huart2) != HAL_OK)
+  if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -625,7 +740,7 @@ static void MX_USART3_UART_Init(void)
 
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
-  huart3.Init.BaudRate = 115200;
+  huart3.Init.BaudRate = 9600;
   huart3.Init.WordLength = UART_WORDLENGTH_8B;
   huart3.Init.StopBits = UART_STOPBITS_1;
   huart3.Init.Parity = UART_PARITY_NONE;
@@ -694,22 +809,6 @@ static void MX_USB_OTG_FS_PCD_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -732,13 +831,19 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1|GPIO_PIN_2, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_13|LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(USB_OTG_FS_PWR_EN_GPIO_Port, USB_OTG_FS_PWR_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_7|GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PE4 LD2_Pin */
   GPIO_InitStruct.Pin = GPIO_PIN_4|LD2_Pin;
@@ -755,14 +860,13 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PC1 PC4 PC5 */
   GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  /*Configure GPIO pins : PA1 PA2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -776,19 +880,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB0 LD3_Pin */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|LD3_Pin;
+  /*Configure GPIO pins : PB0 PB13 LD3_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_13|LD3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_OTG_FS_PWR_EN_Pin */
@@ -798,14 +894,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(USB_OTG_FS_PWR_EN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : USB_OTG_FS_OVCR_Pin */
-  GPIO_InitStruct.Pin = USB_OTG_FS_OVCR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  /*Configure GPIO pins : PG7 PG13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(USB_OTG_FS_OVCR_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PG11 PG13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_13;
+  /*Configure GPIO pin : PG11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -833,14 +930,35 @@ static void MX_GPIO_Init(void)
 void StartControlTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	uint8_t id1 = 1;
+	uint8_t id2 = 2;
+	uint8_t torqueOn = 1;
+	uint16_t goalPos1 = 450;
+	uint16_t goalPos2 = 560;
+
+	uint8_t baudRate = 207;
+
   /* Infinite loop */
   for(;;)
   {
+//	  MotorControlThread(&huart4, &huart1, &huart3, &huart2, nanoMotorPositionsHandle, opticalSensorQueueHandle, &huart3);
+
+//	  MotorSetGoalPosition(&huart3, &id1, &goalPos1);
+//	  MotorSetTorqueEnable(&huart3, &id1, &torqueOn);
+//
+//	  MotorSetGoalPosition(&huart3, &id2, &goalPos2);
+//	  MotorSetTorqueEnable(&huart3, &id2, &torqueOn);
+
+//	  MotorSetBaudRate(&huart3, &id1, &baudRate);
+//	  MotorSetBaudRate(&huart3, &id2, &baudRate);
+
+	  // CORRECT SETTING
+	  MotorControlThread(&huart4, &huart1, &huart3, &huart2, nanoMotorPositionsHandle, opticalSensorQueueHandle, motorControlSemHandle);
 
 
-	  MotorControlThread(&huart4, &huart4, &huart4, &huart4, nanoMotorPositionsHandle, opticalSensorQueueHandle, &huart3);
-	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
-	  //osDelay(100);
+	  //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+//	  MotorControlThread(&huart1, &huart1, &huart1, &huart1, nanoMotorPositionsHandle, opticalSensorQueueHandle, &huart3);
+	  osDelay(1000);
   }
 
   osThreadTerminate(NULL);
@@ -861,11 +979,11 @@ void StartCommBoard(void *argument)
   /* Infinite loop */
 
 
+
   for(;;)
   {
-
-	  I2CCommunicationHandle(&hi2c1, &huart3, nanoMotorPositionsHandle );
-	  osDelay(10000);
+	  // Run the communication forever.
+	  I2CCommunicationHandle(&hi2c1, motorControlSemHandle, nanoMotorPositionsHandle );
   }
 
   osThreadTerminate(NULL);
@@ -891,9 +1009,6 @@ void StartSensorRead(void *argument)
   {
 
 	readSensors( opticalSensorQueueHandle, &hspi4,&huart3);
-
-
-	osDelay(1000);
 
   }
 
