@@ -2,7 +2,7 @@
 #ifndef typedefsGripperNano_h
 #define typedefsGripperNano_h
 
-// This file should contain all general definitions that are 
+// This file should contain all general definitions that are
 // needed for more than one of the project libraries.
 
 
@@ -12,14 +12,24 @@
 #define NUMBER_OF_MOUSE_SESNORS 6
 /* ----------------------------------------- */
 
+/* ----------- Control Parameters ---------- */
+
+// Number of recommended motorvalues that can
+// be buffered. Need at least one.
+#define PRE_SHAPE_BUFFER 2
+// The number of messages that is allowed in the 
+// buffer for control data.
+#define CONTROL_DATA_BUFFER_SIZE 2
+/* ----------------------------------------- */
+
 
 /* ----------- Info of mailslots ---------- */
 
-// General mailslot to indicate an event to 
+// General mailslot to indicate an event to the command handler.
 #define messageMainQueueName "/message_main_nano"
 #define messageMainQueueSize sizeof(int)
 
-// Send the recommended motor position from control thread. 
+// Send the recommended motor position from control thread.
 #define messageQueueMotorName "/message_motors"
 
 // Sends the measured distance to the object for pre-shape.
@@ -34,8 +44,8 @@
     * Handles all the communication, between other devices.
     *
     *   1.  Send motor commands to Nucleo.
-    *   2. 
-    *   3.  
+    *   2.
+    *   3.
     *   4.  Received data from Nucleo.
     *   5.  Send gripper status to bluetooth device.
     *   6.  Received start command from bluetooth.

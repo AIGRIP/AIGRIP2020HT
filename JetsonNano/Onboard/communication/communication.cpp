@@ -43,7 +43,7 @@ void communicationHandler()
     int mainMessageBuffer;
     messageMotorStruct motorMessage;
     mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
-
+    struct mq_attr tempMQAttribute;
     // Create all message queues.
     CreateMessageQueues(&messageQueueMain, &messageQueueMotors, &messageQueueDistance, &messageQueueNucleo );
 
@@ -143,15 +143,30 @@ void communicationHandler()
                 mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), &msgNucleoPrio);
 
                 // Copy the data for the control task.
-                memcpy(&dataToControlThread.motorData.motorAngle[0],&messageFromNucleo.motorStatus.motorAngle[0],sizeof(messageMotorStruct) );
-                memcpy(&dataToControlThread.distanceData.proximitySensor[0],&messageFromNucleo.proximitySensors.proximitySensor[0],sizeof(messageMotorStruct) );
+		for(int i=0; i<NUMBER_OF_MOTORS;i++)
+		{
+		    dataToControlThread.distanceData.proximitySensor[i] = messageFromNucleo.proximitySensors.proximitySensor[i];
+		}
 
-                // Send proximity data to control node.
-                if( mq_send(messageQueueDistance, (char*) &dataToControlThread, sizeof(controlData),1) != 0 )
-                {
-                    printf("Failed to send data info to control thread.\n");
-                }
+		for(int i=0; i<NUMBER_OF_PROXIMITY_SENSORS;i++)
+		{
+		    dataToControlThread.motorData.motorAngle[i] = messageFromNucleo.motorStatus.motorAngle[i];
+		}
 
+		for(int i=0; i<NUMBER_OF_MOTORS;i++)
+			printf("%hu\n",dataToControlThread.motorData.motorAngle[i]);
+		printf("\n");
+
+		// Check the number of messages thats in the message buffer.
+		mq_getattr(messageQueueDistance, &tempMQAttribute);
+		if(tempMQAttribute.mq_curmsgs < CONTROL_DATA_BUFFER_SIZE)
+		{
+                    // Send proximity data to control node.
+                    if( mq_send(messageQueueDistance, (char*) &dataToControlThread, sizeof(controlData),1) != 0 )
+                    {
+                        printf("Failed to send data info to control thread.\n");
+                    }
+		}
                 // Check if the gripper has received a new state.
                 if(stateOfGripper != messageFromNucleo.statusOfNucelo)
                 {

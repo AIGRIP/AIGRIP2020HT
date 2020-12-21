@@ -111,7 +111,7 @@ void* controlThread(void* arg)
     controlData controlDataMessage;
     mqd_t messageQueueControlData;
     messageQueueControlData = mq_open(messageQueueControlDataName, O_RDWR);
-
+    struct mq_attr attributeControlData;
 
     // Takew time on the algorithms.
     struct timeval startTimeStruct;
@@ -154,47 +154,22 @@ void* controlThread(void* arg)
 
     while(1)
     {
-
-        /*
+	// Check if there are new messages.
+        mq_getattr(messageQueueControlData, &attributeControlData);
 
         // Recive current distance to obejct. If there is posible to wait for data, add some time to messageDeadline.
-        clock_gettime(CLOCK_REALTIME, &messageDeadline);
-        messageQueueReturnValue = mq_timedreceive(messageQueueControlData,(char *) &controlDataMessage, sizeof(proximitySensorMessage), 1, messageDeadline);
-        if(messageQueueReturnValue > 0)
+        if(attributeControlData.mq_curmsgs > 0)
         {
-            distanceToObject = controlDataMessage.proximitySensor[0];
+            distanceToObject = controlDataMessage.distanceData.proximitySensor[0];
 
             for(int motorIndex=0; motorIndex<NUMBER_OF_MOTORS;motorIndex++)
             {
-                currentMotorPosition.motorAngle[i] = controlDataMessage.motorData.motorAngle[i];
+		printf("Motor %d is: %hu",motorIndex,controlDataMessage.motorData.motorAngle[motorIndex]);
+                currentMotorPosition.motorAngle[motorIndex] = controlDataMessage.motorData.motorAngle[motorIndex];
             }
-
-
-            // Check if it is time to switch state.
-            if( distanceToObject < 20 && gripperState == 1 )
-            {
-                gripperState = 2;
-
-                // Tell communication handle that Nucleo should go to slipNot mode.
-                mainMessageBuffer = 1;
-                if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-                {
-                    printf("Failed to reach main MQ in pre-shape.\n");
-                }
-            }
-
-
-            if(1)
-            {
-                // Tell communication handle that Nucleo should go to slipNot mode.
-                mainMessageBuffer = 1;
-                if( mq_send(messageQueueMain, (char*) &mainMessageBuffer, messageMainQueueSize,1) !=0 )
-                {
-                    printf("Failed to reach main MQ in pre-shape.\n");
-                }
-            }
+	    printf("\n");
         }
-        */
+
 
         // Debug, test state
         gripperState = 1;
@@ -384,7 +359,7 @@ void* controlThread(void* arg)
                         mq_getattr(messageQueueMotors, &attributeMotorQueue);
                         mq_getattr(messageQueueMain, &attributeMainQueue);
 
-                        if( (attributeMotorQueue.mq_curmsgs < attributeMotorQueue.mq_maxmsg) && (attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg) )
+                        if( (attributeMotorQueue.mq_curmsgs < PRE_SHAPE_BUFFER) && (attributeMainQueue.mq_curmsgs < attributeMainQueue.mq_maxmsg) )
                         {
                             mainMessageBuffer = SEND_MOTOR_COMMAND;
                             // Send motor values.
