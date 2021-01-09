@@ -77,8 +77,8 @@ struct motorValues
 #define GRIPPER_STOP 	2
 #define GRIPPER_PAUSE 	3
 #define GRIPPER_RELEASE	4
-#define GRIPPER_DEFAULT 5
 #define GRIPPER_SLIPNOT 6
+#define GRIPPER_DEFAULT 7
 
 
 uint16_t MotorConvertPosToShort (uint16_t pos);

@@ -15,7 +15,11 @@
 #include "math.h"
 #include "PMW3360Drivers.h"
 
-void covarianceBasedSlipPrevention (motorPair thumb, motorPair finger1, motorPair finger2, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART);
+
+/****************************************************************
+ * THE SENSOR NUMBERS NEED TO BE VALIDATED FOR CORRECT FINGERS
+ ****************************************************************/
+void covarianceBasedSlipPrevention (motorPair *thumb, motorPair *finger1, motorPair *finger2, osMessageQueueId_t opticalSensorQueue, UART_HandleTypeDef *debugUART);
 
 
 #endif /* SRC_COVARIANCENOSLIP_H_ */
