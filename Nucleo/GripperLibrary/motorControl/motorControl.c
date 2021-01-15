@@ -295,7 +295,7 @@ void MotorReadMsgQueueFromNano (osMessageQueueId_t nanoMsgQueue, motorPositions 
 		{
 			// controlCommand : 1 indicates start command
 			case 1:
-				motors->gripperState = GRIPPER_SLIPNOT;
+				motors->gripperState = GRIPPER_START;
 				break;
 			// controlCommand : 2 indicates stop command
 			case 2:
@@ -472,8 +472,8 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			// SECTION FOR STOP
 			case GRIPPER_STOP:
 				// FOR TESTING, STOP COMMAND RETURNS MOTORS TO STARTUP POSITIONS AND CONFIGURATION
-				GripperStartupConfiguration(thumb.huart, dynamicGrasp.huart, finger1.huart, finger2.huart, &gripper);
-/*
+//				GripperStartupConfiguration(thumb.huart, dynamicGrasp.huart, finger1.huart, finger2.huart, &gripper);
+
 				// INVESTIGATE REQUIRED DELAY FOR SUCCESSFUL DATA TRANSFER, AVOID OVERFLOW
 				osKernelLock();
 				MotorSendStop(thumb.huart, &thumb.motor1->id);
@@ -492,7 +492,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 				HAL_Delay(5);
 				MotorSendStop(finger2.huart, &finger2.motor2->id);
 				osKernelUnlock();
-*/
+
 				break;
 			// SECTION FOR DEFAULT
 			case GRIPPER_DEFAULT:
@@ -512,7 +512,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(thumb.huart, &thumb.motor1->id, positions.posThumbMotor1);
 			osKernelUnlock();
 			thumb.changedPosMotor1 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (thumb.changedPosMotor2)
@@ -521,7 +521,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(thumb.huart, &thumb.motor2->id, positions.posThumbMotor2);
 			osKernelUnlock();
 			thumb.changedPosMotor2 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (finger1.changedPosMotor1)
@@ -530,7 +530,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(finger1.huart, &finger1.motor1->id, positions.posFinger1Motor1);
 			osKernelUnlock();
 			finger1.changedPosMotor1 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (finger1.changedPosMotor2)
@@ -539,7 +539,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(finger1.huart, &finger1.motor2->id, positions.posFinger1Motor2);
 			osKernelUnlock();
 			finger1.changedPosMotor2 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (finger2.changedPosMotor1)
@@ -548,7 +548,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(finger2.huart, &finger2.motor1->id, positions.posFinger2Motor1);
 			osKernelUnlock();
 			finger2.changedPosMotor1 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (finger2.changedPosMotor2)
@@ -557,7 +557,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(finger2.huart, &finger2.motor2->id, positions.posFinger2Motor2);
 			osKernelUnlock();
 			finger2.changedPosMotor2 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (dynamicGrasp.changedPosMotor1)
@@ -566,7 +566,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor1->id, positions.posFinger1Motor0);
 			osKernelUnlock();
 			dynamicGrasp.changedPosMotor1 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		if (dynamicGrasp.changedPosMotor2)
@@ -575,14 +575,18 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 			MotorSetGoalPosition(dynamicGrasp.huart, &dynamicGrasp.motor2->id, positions.posFinger2Motor0);
 			osKernelUnlock();
 			dynamicGrasp.changedPosMotor2 = 0;
-			osDelay(2);
+			osDelay(10);
 		}
 
 		currTick2 = osKernelGetTickCount();
-		executionTicks = currTick2 - currTick1;
+
+		if ((currTick2 - currTick1) > executionTicks)
+		{
+			executionTicks = currTick2 - currTick1;
+		}
 
 
-		osDelay(100);
+		osDelay(200);
 		//osDelay(1000);
 
 
@@ -654,7 +658,7 @@ void MotorControlThread(UART_HandleTypeDef *uart_Thumb, UART_HandleTypeDef *uart
 
 			switchPos = 0;
 		}
-		/**/
+		*/
 
   }
 	osThreadExit();
