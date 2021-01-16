@@ -4,7 +4,7 @@ function [colourBalancedImage] = ColourBalance(originalImage)
 %lightnings will not have that big effect.
 
 %Input:
-%originalImage          - RGB image 984x740x3
+%originalImage          - BGR image 984x740x3
 
 %Output:
 %colourBalancedImage    - RGB image 984x740x3
