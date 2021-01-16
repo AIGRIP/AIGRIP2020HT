@@ -1,4 +1,4 @@
-function [colourSegmentationMask] = colourSegmentation(colourBalancedImage, centerOfObjectX, centerOfObjectY)
+function [colourSegmentationMask] = ColourSegmentation(colourBalancedImage, centerOfObjectX, centerOfObjectY)
 
 %The function takes in a image and a rough postion of the object in the
 %image that should be segmented. and it outputs a a bitmask of the the

@@ -1,4 +1,9 @@
-close all; clear; clc;
+close all; 
+clear; 
+clc;
+
+%add required functions and images
+addpath('laserScripts','images/testImagesLaser');
 
 % Load image with laser line
 imgOriginal = importdata('laserImage.jpg');

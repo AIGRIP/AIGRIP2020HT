@@ -1,10 +1,8 @@
 clear all;
 clc;
 
-% addpath('..\A4.2');
-% addpath('..\A7.1');
-% addpath('..\A7.1\testImages\');
-% addpath('..\getRealDistance\');
+%add required functions and images
+addpath('images/binaryImagesDifferentLengths','getGripPositions','segmentation','getRealSize','kinematics');
 
 % originalImage = imread("CUDATest.jpg");
 

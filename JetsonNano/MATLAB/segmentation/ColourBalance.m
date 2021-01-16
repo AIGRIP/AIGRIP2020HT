@@ -1,4 +1,4 @@
-function [colourBalancedImage] = colourBalance(originalImage)
+function [colourBalancedImage] = ColourBalance(originalImage)
 
 %The function takes in a image and balances the colours. So that different
 %lightnings will not have that big effect.

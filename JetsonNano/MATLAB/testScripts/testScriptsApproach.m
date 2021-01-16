@@ -1,6 +1,10 @@
 clc
 clear all
 close all
+
+%add required functions and images
+addpath('approach','kinematics');
+
 %Set length values for all links in model
 linkLengtha = 25;
 linkLengthb = 95;

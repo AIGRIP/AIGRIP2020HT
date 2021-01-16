@@ -2,7 +2,8 @@ clear all
 clc
 close all
 
-
+%add required functions and images
+addpath('getRealSize');
 
 distanceToObject = 200;
 centerPointPixel = [0 0];

@@ -1,36 +1,38 @@
 clc
 clear all
 close all
-originalImage = imread("testImages\Test1.jpg");   
-% originalImage = imresize(originalImage,[3280,2464]);
+
+%add required functions and images
+addpath('images/testImagesSegmentation','segmentation');
+
+originalImage = imread("testImagesSegmentation/Test1.jpg");   
+originalImage = imresize(originalImage,[3280,2464]);
 originalImage = imresize(originalImage,0.3);
 
 
 
 %% 
 clc
+%Change the image to BGR
+originalImageBGR = cat(3, originalImage(:,:,3), originalImage(:,:,2), originalImage(:,:,1));
 
-colourBalancedImage = colourBalance(originalImage);
+colourBalancedImage = ColourBalance(originalImageBGR);
 
-% figure;
-% imshow(colourBalancedImage)
-% title('Colour balanced image');
-% impixelinfo
-% roi = drawcrosshair('Color','r'); 
-% 
-% centerOfObjectX = round(roi.Position(2));
-% centerOfObjectY = round(roi.Position(1));
-% 
-% 
-% tic
-% 
-% colourSegmentationMask = colourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
-% 
-% segmentationMask = morphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
-% 
-% toc
-% 
-% figure;
-% imshow(segmentationMask)
-% title('Colour balanced image');
+%Choose where hte object is
+figure;
+imshow(colourBalancedImage)
+title('Colour balanced image');
+impixelinfo
+roi = drawcrosshair('Color','r'); 
+
+centerOfObjectX = round(roi.Position(2));
+centerOfObjectY = round(roi.Position(1));
+
+colourSegmentationMask = ColourSegmentation(colourBalancedImage,centerOfObjectX,centerOfObjectY);
+
+[errorNoImage,segmentationMask] = MorphologicalFilters(colourSegmentationMask, centerOfObjectX, centerOfObjectY);
+
+figure;
+imshow(segmentationMask)
+title('Colour balanced image');
 
