@@ -4,10 +4,10 @@ function [colourBalancedImage] = colourBalance(originalImage)
 %lightnings will not have that big effect.
 
 %Input:
-%originalImage = RGB image 984x740x3
+%originalImage          - RGB image 984x740x3
 
 %Output:
-%colourBalancedImage = RGB image 984x740x3
+%colourBalancedImage    - RGB image 984x740x3
 
 %Calculate number of pixales in te image
 [imageHeight,imageWidth,~] = size(originalImage);

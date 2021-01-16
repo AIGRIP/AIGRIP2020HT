@@ -5,18 +5,18 @@ function [motorAngles] = ApproachObject(linkLengths,currentMotorM0Steps, current
     %being parallel to the palm of the gripper
 
     %Input:
-    %linkLengths = 1x5 array with the lengths of all five links in the order
-    %a,b,c,d,e
-
-    %currentmotorM1Steps =  Current postion of the motor angle. This angle
-    %is measured in steps of the motor. 
-    
-    %distanceToObject = Distance from the finger to the object. distance is
-    %in mm.
+    %linkLengths            - 1x5 array with the lengths of all five links 
+    %                           in the order a,b,c,d,e
+    %currentmotorM1Steps    -  Current postion of the motor angle. This angle
+    %                           is measured in steps of the motor.  
+    %distanceToObject       - Distance from the finger to the object. 
+    %                           distance is in mm.
 
     %Output:
-    %motorAngles = 1X3 array with three motor angles one for each motro in a
-    %finger. The order of the motors in the array is M0,M1,M2.
+    %motorAngles            - 1X3 array with three motor angles one for 
+    %                           each motor in a finger. The order of the 
+    %                           motors in the array is M0,M1,M2.
+    
     
     motorAngles = uint16(zeros(1,3));
     currentMotorM1Degrees = double(currentMotorM1Steps *(300/65535) - 150);

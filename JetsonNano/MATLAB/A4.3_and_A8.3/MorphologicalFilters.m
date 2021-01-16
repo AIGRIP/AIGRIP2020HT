@@ -5,12 +5,12 @@ function[errorNoImage,segmentationMask] = MorphologicalFilters(colourSegmentatio
 %and it outputs a a bitmask of the the object.
 
 %Input:
-%colourBalancedImage = Binary map 984x740
-%centerOfObjectX = Objects center postion in the x-axis
-%centerOfObjectY = Objects center postion in the y-axis
+%colourBalancedImage    - Binary map 984x740
+%centerOfObjectX        - Objects center postion in the x-axis
+%centerOfObjectY        - Objects center postion in the y-axis
 
 %Output:
-%SegmentationMask = Binary map 984x740 of the object
+%SegmentationMask       - Binary map 984x740 of the object
 
 errorNoImage = 0;
 

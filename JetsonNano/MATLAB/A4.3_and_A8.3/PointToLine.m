@@ -6,22 +6,20 @@ function [positionReachable]  = PointToLine(singularityPoint, possiblePosition, 
     %reachable or not.
 
     %Input:
-    %singularityPoint = 1x2 array with the x and y coordinates of the point
-    %where the finger is rotating around. The coordinates are relative 
-    %to the palm center
-    
-    %possiblePosition =  1x2 array with the x and y coordinates of a 
-    %possible point for the gripper . The coordinates are 
-    %relative to the palm center
-
-    %normalStableLine = 1x2 array with the x and y coordinates that together
-    %with the possiblePosition creates the line which represents the 
-    %direction the finger should be facing. The coordinates are 
-    %relative to the palm center
+    %singularityPoint       - 1x2 array with the x and y coordinates of the point
+    %                           where the finger is rotating around. The coordinates are relative 
+    %                           to the palm center 
+    %possiblePosition       - 1x2 array with the x and y coordinates of a 
+    %                           possible point for the gripper . The coordinates are 
+    %                           relative to the palm center
+    %normalStableLine       - 1x2 array with the x and y coordinates that together
+    %                           with the possiblePosition creates the line which represents the 
+    %                           direction the finger should be facing. The coordinates are 
+    %                           relative to the palm center
     
     %Output:
-    % positionReachable = Zero if possiblePosition is not reachable.
-    % Non_zero if possiblePosition is reachable
+    % positionReachable     - Zero if possiblePosition is not reachable.
+    %                           Non_zero if possiblePosition is reachable
 
     %Set value of error margin
     errorMargin = 6;

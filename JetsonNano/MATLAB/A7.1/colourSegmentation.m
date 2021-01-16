@@ -5,12 +5,12 @@ function [colourSegmentationMask] = colourSegmentation(colourBalancedImage, cent
 %object.
 
 %Input:
-%colourBalancedImage = RGB image 984x740x3
-%centerOfObjectX = Objects center postion in the x-axis
-%centerOfObjectY = Objects center postion in the y-axis
+%colourBalancedImage        - RGB image 984x740x3
+%centerOfObjectX            - Objects center postion in the x-axis
+%centerOfObjectY            - Objects center postion in the y-axis
 
 %Output:
-%colourSegmentationMask = bitmask of the segmented object
+%colourSegmentationMask     - bitmask of the segmented object
 
 
 

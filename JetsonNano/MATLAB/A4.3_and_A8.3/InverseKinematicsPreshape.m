@@ -5,27 +5,23 @@ function [motorAngles] = InverseKinematicsPreshape(linkLengths, desiredPosition,
     %being parallel to the palm of the gripper
 
     %Input:
-    %linkLengths = 1x5 array with the lengths of all five links in the order
-    %a,b,c,d,e
-
-    %desiredPosition =  1x2 array with the x and y coordinates of the point
-    %that the gripper should reach. The coordinates are relative to the palm
-    %center
-
-    %normalStableLine = 1x2 array with the x and y coordinates that together
-    %with the possiblePosition creates the line which represents the 
-    %direction the finger should be facing. The coordinates are 
-    %relative to the palm center
-
-    %fingerNum = number to determine what finger is getting calculated. 
-    %The number is between 0-2. 0 is for the stationary finger and 
-    %then the sequense countines clockwise  
-    
-    %offset = distance the motor should move back. offset is in mm
+    %linkLengths        - 1x5 array with the lengths of all five links in the order
+    %                       a,b,c,d,e
+    %desiredPosition    - 1x2 array with the x and y coordinates of the point
+    %                       that the gripper should reach. The coordinates 
+    %                       are relative to the palm center
+    %normalStableLine   - 1x2 array with the x and y coordinates that together
+    %                       with the possiblePosition creates the line which represents the 
+    %                       direction the finger should be facing. The coordinates are 
+    %                       relative to the palm center
+    %fingerNum          - number to determine what finger is getting calculated. 
+    %                       The number is between 0-2. 0 is for the stationary finger and 
+    %                       then the sequense countines clockwise  
+    %offset             - distance the motor should move back. offset is in mm
     
     %Output:
-    %motorAngles = 1X3 array with three motor angles one for each motor in a
-    %finger. The order of the motors in the array is M0,M1,M2. 
+    %motorAngles        - 1X3 array with three motor angles one for each motor in a
+    %                       finger. The order of the motors in the array is M0,M1,M2. 
 
     motorAngles = zeros(1,3);
     if fingerNum ~= 0 

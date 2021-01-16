@@ -3,22 +3,19 @@ function [jointPostions , opticalSensorPosition] = ForwardKinematics(linkLengths
     %This function Caluclates the forward kinematics of the gripper.
     
     %Input:
-    %linkLengths = 1x5 array with the lengths of all five links in the order
-    %a,b,c,d,e. The lengths are in mm;
-    
-    %motorPositionM1 =  1x2 array with the x and y coordinates of motor M1.
-    %The coordinates are relative to the palm center
-    
-    %motorAnglet1 = Angle of motor M1 in rad
-    
-    %motorAnglet2 = Angle of motor M1 in rad
+    %linkLengths                - 1x5 array with the lengths of all five links in the order
+    %                               a,b,c,d,e. The lengths are in mm;
+    %motorPositionM1            - 1x2 array with the x and y coordinates of motor M1.
+    %                               The coordinates are relative to the palm center
+    %motorAnglet1               - Angle of motor M1 in rad
+    %motorAnglet2               - Angle of motor M1 in rad
 
     %Output:
-    %jointPostions =  1x8 array with the postions of all four joints in the order
-    %Ax,Ay,Bx,By,Cx,Cy,Ex,Ey
-    
-    %opticalSensorPosition = 1x2 array with the x and y coordinates of
-    %optical sensor. The coordinates are relative to the palm center
+    %jointPostions              - 1x8 array with the postions of all four joints in the order
+    %                               Ax,Ay,Bx,By,Cx,Cy,Ex,Ey           
+    %opticalSensorPosition      - 1x2 array with the x and y coordinates of
+    %                               optical sensor. The coordinates are relative to the palm center
+   
     
     %Calculate the postion of motor M2 relative to motor M1
     
