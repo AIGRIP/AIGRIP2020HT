@@ -1,7 +1,7 @@
 function [edgePointsmm] = GetPixelLength( centerPointPixel  ,edgePointsPixel ,distanceToObject )
 
     %This function will calculate the length of one pixel of an object.
-    %Then convert pixel postions into real world coordinates in mm.
+    %Then convert pixel positions into real world coordinates in mm.
     
     %Input:
     %centerPointPixel   - Center of the pixel area. x and y postion. 
