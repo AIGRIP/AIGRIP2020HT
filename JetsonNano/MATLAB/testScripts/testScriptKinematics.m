@@ -25,19 +25,8 @@ if PointToLine([-23,36], desiredPosition, desiredAngle) == 1
 
     motorAngles = motorAngles * (1023/65535);
 end
-% % 
-% % % [jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
-% % % 
-% 
-%% 
-% clc
-% clear all
-% close all
-% pt = [30,30];
-% v1 = [1,3];
-% v2 = [1,5];
-% 
-%  d = PointToLine(pt, v1, v2);
+% [jointPositions , opticalSensorPosition] = ForwardKinematics(linkLengths,[20,10],motorAngles(2),motorAngles(3));
+
 
 
 %%
