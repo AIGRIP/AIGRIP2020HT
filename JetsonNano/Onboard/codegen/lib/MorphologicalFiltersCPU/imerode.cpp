@@ -1,25 +1,21 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: imerode.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  imerode.cpp
+//
+//  Code generation for function 'imerode'
 //
 
-// Include Files
+
+// Include files
 #include "imerode.h"
 #include "NeighborhoodProcessor.h"
 #include "rt_nonfinite.h"
 #include <cstring>
 
 // Function Definitions
-//
-// Arguments    : const bool A[728160]
-//                bool B[728160]
-// Return Type  : void
-//
 namespace coder
 {
   void imerode(const bool A[728160], bool B[728160])
@@ -54,8 +50,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for imerode.cpp
-//
-// [EOF]
-//
+// End of code generation (imerode.cpp)

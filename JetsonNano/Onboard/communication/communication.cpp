@@ -21,6 +21,7 @@
 
 #include <cstring>
 
+#include "control.h"
 #include "communication.h"
 #include "communicationI2C.h"
 
@@ -30,7 +31,7 @@ extern "C" {
 
 
 
-// Private (local function).
+// Local function.
 int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqd_t *messageQueueNucleo );
 
 
@@ -40,8 +41,9 @@ void communicationHandler()
 
     // Initate message queues.
     int mainMessageBuffer;
+    messageMotorStruct motorMessage;
     mqd_t messageQueueMain,messageQueueMotors,messageQueueDistance,messageQueueNucleo;
-
+    struct mq_attr tempMQAttribute;
     // Create all message queues.
     CreateMessageQueues(&messageQueueMain, &messageQueueMotors, &messageQueueDistance, &messageQueueNucleo );
 
@@ -50,6 +52,8 @@ void communicationHandler()
 
     // Set up I2C
     setupI2C();
+
+    // The communication handle can manage the following threads on the gripper.
 
     // Startup bluetooth receive thread.
     pthread_attr_t attrBluetooth;
@@ -66,6 +70,13 @@ void communicationHandler()
     pthread_create(&threadIDI2C, &attrI2C, I2CReceiveHandler, (void*) NULL);
 
 
+    // Startup control thread on Nano.
+    pthread_attr_t attrControl;
+    pthread_t threadIDControl;
+
+    pthread_attr_init(&attrControl);
+    pthread_create(&threadIDControl, &attrControl, controlThread, (void*) NULL);
+
     // Communication setup done.
 
     char I2CBufferToSend[1024];
@@ -75,50 +86,88 @@ void communicationHandler()
     unsigned char stateOfGripper = 0xFF;
     messageStructFromNucleo messageFromNucleo;
 
+    controlData dataToControlThread;
+
     //messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
 
     /*
-    * Defines each command on the Jetson Nano.
-    * Handles all the communication, between other devices.
+    * Here is the command handle, it handles all the internal device.
+    * Those commands below are the 
     *
-    *   1. Send motor commands to Nucleo.
-    *   2. Send start command to Nucleo.
-    *   3. Send stop command to Nucleo.
-    *   4. Received data from Nucleo.
-    *   5. Send gripper status to bluetooth device.
-    *   6. Received start command from bluetooth.
-    *   7. Received stop command from bluetooth.
-    *   8. User is disconnected from bluetooth.
     */
+    int bytesReceived;
+    unsigned int msgMainPrio = 1;
+    unsigned int msgMotorPrio = 1;
+    unsigned int msgNucleoPrio = 1;
+    
 
     while(1)
     {
-
+        mainMessageBuffer = -1;
         // Receive command from message main queue.
-        mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,NULL);
+        bytesReceived = mq_receive(messageQueueMain, (char *) &mainMessageBuffer, messageMainQueueSize,&msgMainPrio);
 
-        printf("Communication handle received a state.\n");
+	    printf("\n\nCommunication handle received state %d \n",mainMessageBuffer);
         fflush(stdout);
         switch( mainMessageBuffer )
         {
-            case 1:
+            case SEND_MOTOR_COMMAND:
             {
+                printf("Sending motor command from command handle.\n");
 
+                // Send motor data to Nucleo.
+                mq_receive(messageQueueMotors, (char *) &motorMessage, sizeof(messageMotorStruct),&msgMotorPrio);
+
+                // Send command to Nucleo.
+                I2CHeaderToNucleo.frameType = 5;
+                I2CHeaderToNucleo.frameLength = sizeof(messageMotorStruct);
+                writeI2C((unsigned char*) &I2CHeaderToNucleo, sizeof(messageStructHeaderFromNano) );
+                // Send motorvalues to Nucleo.
+                writeI2C((unsigned char*) &motorMessage, sizeof(messageMotorStruct) );
+
+		printf("Motor values sent to I2C.\n");
+
+		for(int i=0;i<NUMBER_OF_MOTORS;i++)
+		{
+		    printf("%hu\n",motorMessage.motorAngle[i]);
+		}
+		fflush(stdout);
             }
             break;
 
-            case 4:
+            // Received data package from Nucleo.
+            case RECEIVED_DATA_FROM_NUCLEO:
             {
-                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), NULL);
+                printf("Received data from Nucleo in command handle.\n");
+                // Handle received message from Nucleo.
+                mq_receive(messageQueueNucleo, (char *) &messageFromNucleo, sizeof(messageStructFromNucleo), &msgNucleoPrio);
 
-                /*
-                * Send proximity data to pre-shape.
-                if( mq_send(messageQueueDistance, (char*) &mainMessageBuffer, NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char),1) != 0 )
-                {
-                    printf("Failed to send distance info to pre-shape.\n");
-                }
-                */
+                // Copy the data for the control task.
+		for(int i=0; i<NUMBER_OF_MOTORS;i++)
+		{
+		    dataToControlThread.distanceData.proximitySensor[i] = messageFromNucleo.proximitySensors.proximitySensor[i];
+		}
 
+		for(int i=0; i<NUMBER_OF_PROXIMITY_SENSORS;i++)
+		{
+		    dataToControlThread.motorData.motorAngle[i] = messageFromNucleo.motorStatus.motorAngle[i];
+		}
+
+		for(int i=0; i<NUMBER_OF_MOTORS;i++)
+			printf("%hu\n",dataToControlThread.motorData.motorAngle[i]);
+		printf("\n");
+
+		// Check the number of messages thats in the message buffer.
+		mq_getattr(messageQueueDistance, &tempMQAttribute);
+		if(tempMQAttribute.mq_curmsgs < CONTROL_DATA_BUFFER_SIZE)
+		{
+                    // Send proximity data to control node.
+                    if( mq_send(messageQueueDistance, (char*) &dataToControlThread, sizeof(controlData),1) != 0 )
+                    {
+                        printf("Failed to send data info to control thread.\n");
+                    }
+		}
+                // Check if the gripper has received a new state.
                 if(stateOfGripper != messageFromNucleo.statusOfNucelo)
                 {
                     // Change current state of gripper.
@@ -131,7 +180,7 @@ void communicationHandler()
             }
             break;
 
-            case 6:
+            case RECEIVED_START_COMMAND_BLUETOOTH:
             {
                 // Start the Gripper
 
@@ -147,7 +196,7 @@ void communicationHandler()
             }
             break;
 
-            case 7:
+            case RECEIVED_STOP_COMMAND_BLUETOOTH:
             {
                 // Stop the Gripper
 
@@ -164,7 +213,7 @@ void communicationHandler()
             break;
 
 
-            case 8:
+            case USER_DISCONNECTED_BLUETOOTH:
             {
                 // If user is disconnected stop gripper and reset bluetooth.
                 // Send command to Nucleo.
@@ -207,42 +256,63 @@ void communicationHandler()
             }
             break;
 
+            case SEND_PRESHAPE_BLUETOOTH:
+            {
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Gripper is in pre-shape state.\n");
+                sendBluetoothMessage( I2CBufferToSend );
+            }
+            break;
+
+            case SEND_APPROACH_BLUETOOTH:
+            {
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Gripper is in approach state.\n");
+                sendBluetoothMessage( I2CBufferToSend );
+            }
+            break;
+
+            case SEND_SLIPNOT_BLUETOOTH:
+            {
+                memset(I2CBufferToSend, 0, sizeof(I2CBufferToSend));
+                strcat(I2CBufferToSend,"Gripper is in slipnot state.\n");
+                sendBluetoothMessage( I2CBufferToSend );
+            }
+            break;
+
             default:{
 
             }
             break;
-       }
+        }
 
-
-
-	    usleep(10000);
+	usleep(10000);
 
     }
-
 }
 
 
 
 
 
-int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueDistance, mqd_t *messageQueueNucleo )
+int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_t *messageQueueControlData, mqd_t *messageQueueNucleo )
 {
     // Creates a mailslot with the specified name. Return 0 on success and 1 on failure.
 
     // Set size and number of messages properties.
-	struct mq_attr mainAttr;
+    struct mq_attr mainAttr;
     struct mq_attr motorAttr;
-    struct mq_attr distanceAttr;
+    struct mq_attr controlAttr;
     struct mq_attr nucleoAttr;
 
 	mainAttr.mq_maxmsg = 10;
 	mainAttr.mq_msgsize = messageMainQueueSize;
 
     motorAttr.mq_maxmsg = 10;
-	motorAttr.mq_msgsize = sizeof(messageI2CToNucleoMotor);
+	motorAttr.mq_msgsize = sizeof(messageMotorStruct);
 
-    distanceAttr.mq_maxmsg = 10;
-	distanceAttr.mq_msgsize = NUMBER_OF_PROXIMITY_SENSORS*sizeof(unsigned char); /* Change to the correct size of the proximity sensor. */
+    controlAttr.mq_maxmsg = 10;
+	controlAttr.mq_msgsize = sizeof(controlData);
 
     nucleoAttr.mq_maxmsg = 10;
 	nucleoAttr.mq_msgsize = sizeof(messageStructFromNucleo);
@@ -254,12 +324,12 @@ int CreateMessageQueues(mqd_t *messageQueueMain, mqd_t *messageQueueMotors, mqd_
 	*messageQueueMotors = mq_open(messageQueueMotorName, O_CREAT , 0666, &motorAttr);
 
     // Open distance message queue.
-	*messageQueueDistance = mq_open(messageQueueDistanceName, O_CREAT , 0666, &distanceAttr);
+	*messageQueueControlData = mq_open(messageQueueControlDataName, O_CREAT , 0666, &controlAttr);
 
     // Open distance message queue.
 	*messageQueueNucleo = mq_open(messageQueueNucleoName, O_CREAT , 0666, &nucleoAttr);
 
-	if( (*messageQueueMain == (mqd_t)-1) || (*messageQueueMotors == (mqd_t)-1) || (*messageQueueDistance == (mqd_t)-1) || (*messageQueueNucleo == (mqd_t)-1) )
+	if( (*messageQueueMain == (mqd_t)-1) || (*messageQueueMotors == (mqd_t)-1) || (*messageQueueControlData == (mqd_t)-1) || (*messageQueueNucleo == (mqd_t)-1) )
         {
 		printf("Fail to create message queues. \n");
 		return 1;

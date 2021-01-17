@@ -21,14 +21,11 @@ target_link_libraries(RUN_AIGRIP_NANO StableLineCPU)
 target_link_libraries(RUN_AIGRIP_NANO GetSignatureCPU)
 target_link_libraries(RUN_AIGRIP_NANO GetValidGripPointsCPU)
 
-# Library to get an image from camera.
-target_link_libraries(RUN_AIGRIP_NANO imageCapture)
+# Library for external communication.
+target_link_libraries(RUN_AIGRIP_NANO controlGriperNano)
 
 # Library for external communication.
 target_link_libraries(RUN_AIGRIP_NANO communicationBT_I2C)
-
-# Library for external communication.
-target_link_libraries(RUN_AIGRIP_NANO controlGriperNano)
 
 # Set CUDA properties to the executable.
 set_target_properties(RUN_AIGRIP_NANO PROPERTIES CUDA_SEPARABLE_COMPILATION ON)

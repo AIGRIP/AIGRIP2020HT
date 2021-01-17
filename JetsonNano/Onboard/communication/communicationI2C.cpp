@@ -41,15 +41,16 @@ void setupI2C()
         printf("Open I2C file successfully.\n");
         fflush(stdout);
     }
-
-    FD_ZERO(&set); /* clear the set */
-    FD_SET(i2cfd, &set); /* add our file descriptor to the set */
+/*
+    // To set time out while receiving I2C massages.
+    FD_ZERO(&set); // clear the set 
+    FD_SET(i2cfd, &set); // add the file descriptor to the set 
 
     // Set timeout for I2C.
     timeout.tv_sec = 0;
     timeout.tv_usec = 100000;
     rv = select(i2cfd + 1, &set, NULL, NULL, &timeout);
-
+*/
     // Control timeout setting.
     if(rv == -1)
     {
@@ -116,27 +117,9 @@ void *I2CReceiveHandler(void *arg)
     // Get how many bytes that was received.
     int readSize;
 
-    // Save last time for communication and get current time.
-    struct timeval lastTimeCheckI2CMessage,currentTimeHandle;
-
-    // Check received message every 25 milli-second
-    const long checkTimming = 25000;
-
-    // Sleeps 10 milli-seconds between each reading.
-    const long sleepTime = 10000;
-
-    // Fill a time value.
-    gettimeofday(&lastTimeCheckI2CMessage, NULL);
-    // To store time values.
-    unsigned long long currentTime;
-    unsigned long long lastTime;
-
-    // Need to get the whole time.
-    lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
-
 
     // Connect to main message queue.
-    int mainMessageBuffer = 4;
+    int mainMessageBuffer = RECEIVED_DATA_FROM_NUCLEO;
     mqd_t messageQueueMain;
     messageQueueMain = mq_open(messageMainQueueName, O_RDWR);
 
@@ -149,30 +132,13 @@ void *I2CReceiveHandler(void *arg)
     while(1)
     {
 
-        // Check if it is time to read data from Nucleo. Check if there is commands to send.
-        // ToDo make a trigger to send messages.
-	    gettimeofday(&currentTimeHandle, NULL);
-	    currentTime = currentTimeHandle.tv_sec*1000000 + currentTimeHandle.tv_usec;
-
-        if( (lastTime + checkTimming) <= currentTime )
-        {
 
             // Check if I2C data is available, if so read the data.
             readSize = readI2C( &messageFromNucleo );
 
-            // Indicate that it tried to read message.
-            gettimeofday(&lastTimeCheckI2CMessage, NULL);
-            lastTime = lastTimeCheckI2CMessage.tv_sec*1000000 + lastTimeCheckI2CMessage.tv_usec;
-
             // If there was data received send it to the command handle.
-	        if(readSize > 0)
+	    if(readSize > 0)
             {
-		/*
-                printf("ReadSize %d\n",readSize);
-                printf("%d %d %d %d \n",messageFromNucleo.motorStatus[0],messageFromNucleo.motorStatus[1],messageFromNucleo.motorStatus[2],messageFromNucleo.motorStatus[3] );
-                printf("Read %llu in between.\n",(currentTime - lastTime));
-                fflush(stdout);
-		*/
                 // Check if a false I2C message was received.
                 if( messageFromNucleo.statusOfNucelo != 0xFF )
                 {
@@ -190,10 +156,7 @@ void *I2CReceiveHandler(void *arg)
 
                     }
                 }
-            }
-        }
-        
-        // Sleep 10 ms.
-        usleep(sleepTime);
+	    }
+
     }
 }

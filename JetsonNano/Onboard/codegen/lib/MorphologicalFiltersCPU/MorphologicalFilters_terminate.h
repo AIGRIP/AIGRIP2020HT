@@ -1,16 +1,18 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: MorphologicalFilters_terminate.h
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  MorphologicalFilters_terminate.h
 //
+//  Code generation for function 'MorphologicalFilters_terminate'
+//
+
+
 #ifndef MORPHOLOGICALFILTERS_TERMINATE_H
 #define MORPHOLOGICALFILTERS_TERMINATE_H
 
-// Include Files
+// Include files
 #include "rtwtypes.h"
 #include "omp.h"
 #include <cstddef>
@@ -21,8 +23,4 @@ extern void MorphologicalFilters_terminate();
 
 #endif
 
-//
-// File trailer for MorphologicalFilters_terminate.h
-//
-// [EOF]
-//
+// End of code generation (MorphologicalFilters_terminate.h)

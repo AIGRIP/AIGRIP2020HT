@@ -14,11 +14,10 @@ std::string gstreamer_pipeline (int capture_width, int capture_height, int displ
            std::to_string(display_height) + ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink";
 }
 
+
 // image capturing function
 int imageCaptureFunc(unsigned char *outputImg){
 
-    
-    
 
     int capture_width = 740 ;
     int capture_height = 984 ;
@@ -26,30 +25,34 @@ int imageCaptureFunc(unsigned char *outputImg){
     int display_height = 984 ;
     int framerate = 20 ;
     int flip_method = 1 ;
+
     std::string pipeline = gstreamer_pipeline(capture_width, // call to gstream func
 	capture_height,
 	display_width,
 	display_height,
 	framerate,
 	flip_method);
-    std::cout << "Using pipeline: \n\t" << pipeline << "\n";
- 
+
     cv::VideoCapture cap(pipeline, cv::CAP_GSTREAMER); //Opening camera
+
+
     if(!cap.isOpened()) {
 	std::cout<<"Failed to open camera."<<std::endl;
 	return 0;
     }
+
+
+
     cv::Mat img;
     std::vector<cv::Mat> channels;
-    std::cout << "Hit ESC to exit" << "\n" ;
-  
-    	if (!cap.read(img)) {                                   //image capture every frame
-		std::cout<<"Capture read error"<<std::endl;
 
-	}
+    // if (!cap.read(img)) {                                   //image capture every frame
+	// 	std::cout<<"Capture read error"<<std::endl;
 
-	
-	
+	// }
+
+	cap.grab();
+	cap.retrieve(img);
 
 cv::Vec3b tempVar;
 int count = 0;
@@ -60,16 +63,10 @@ for(int k=0; k<3; k++){
 			tempVar = img.at<cv::Vec3b>(j,i);
 			outputImg[count] = tempVar[2-k];   //Create output image
 			count++;
-			
-			
 		}
 	}
 }
 	cap.release();
 	return 1;
 }
-
-
-
-
 

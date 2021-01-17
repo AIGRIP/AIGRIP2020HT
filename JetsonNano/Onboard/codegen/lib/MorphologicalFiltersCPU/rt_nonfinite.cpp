@@ -1,19 +1,20 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: rt_nonfinite.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  rt_nonfinite.cpp
 //
+//  Code generation for function 'MorphologicalFilters'
+//
+
 
 //
 //  Abstract:
 //       MATLAB for code generation function to initialize non-finites,
 //       (Inf, NaN and -Inf).
 
-// Include Files
+// Include files
 #include "rt_nonfinite.h"
 #include <cmath>
 #include <limits>
@@ -61,8 +62,4 @@ boolean_T rtIsNaNF(real32_T value)
   return ((value!=value) ? true : false);
 }
 
-//
-// File trailer for rt_nonfinite.cpp
-//
-// [EOF]
-//
+// End of code generation (rt_nonfinite.cpp)

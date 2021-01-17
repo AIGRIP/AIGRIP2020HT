@@ -1,16 +1,18 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: MorphologicalFilters.h
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  MorphologicalFilters.h
 //
+//  Code generation for function 'MorphologicalFilters'
+//
+
+
 #ifndef MORPHOLOGICALFILTERS_H
 #define MORPHOLOGICALFILTERS_H
 
-// Include Files
+// Include files
 #include "rtwtypes.h"
 #include "omp.h"
 #include <cstddef>
@@ -18,12 +20,9 @@
 
 // Function Declarations
 extern void MorphologicalFilters(const bool colourSegmentationMask[728160],
-  double centerOfObjectX, double centerOfObjectY, bool segmentationMask[728160]);
+  double centerOfObjectX, double centerOfObjectY, double *errorNoImage, bool
+  segmentationMask[728160]);
 
 #endif
 
-//
-// File trailer for MorphologicalFilters.h
-//
-// [EOF]
-//
+// End of code generation (MorphologicalFilters.h)

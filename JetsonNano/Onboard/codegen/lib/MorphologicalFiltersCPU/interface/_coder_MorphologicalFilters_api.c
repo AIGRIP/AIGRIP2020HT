@@ -2,13 +2,14 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_MorphologicalFilters_api.c
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 03-Dec-2020 08:29:52
+ * _coder_MorphologicalFilters_api.c
+ *
+ * Code generation for function 'MorphologicalFilters'
+ *
  */
 
-/* Include Files */
+/* Include files */
 #include "_coder_MorphologicalFilters_api.h"
 #include "_coder_MorphologicalFilters_mex.h"
 
@@ -28,6 +29,7 @@ emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
 /* Function Declarations */
 static boolean_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   const emlrtMsgIdentifier *parentId))[728160];
+static const mxArray *b_emlrt_marshallOut(const boolean_T u[728160]);
 static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *centerOfObjectX, const char_T *identifier);
 static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
@@ -36,17 +38,11 @@ static boolean_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId))[728160];
 static boolean_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *colourSegmentationMask, const char_T *identifier))[728160];
-static const mxArray *emlrt_marshallOut(const boolean_T u[728160]);
+static const mxArray *emlrt_marshallOut(const real_T u);
 static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 
 /* Function Definitions */
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *u
- *                const emlrtMsgIdentifier *parentId
- * Return Type  : boolean_T (*)[728160]
- */
 static boolean_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   const emlrtMsgIdentifier *parentId))[728160]
 {
@@ -55,81 +51,7 @@ static boolean_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   emlrtDestroyArray(&u);
   return y;
 }
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *centerOfObjectX
- *                const char_T *identifier
- * Return Type  : real_T
- */
-  static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
-  *centerOfObjectX, const char_T *identifier)
-{
-  emlrtMsgIdentifier thisId;
-  real_T y;
-  thisId.fIdentifier = (const char_T *)identifier;
-  thisId.fParent = NULL;
-  thisId.bParentIsCell = false;
-  y = d_emlrt_marshallIn(sp, emlrtAlias(centerOfObjectX), &thisId);
-  emlrtDestroyArray(&centerOfObjectX);
-  return y;
-}
-
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *u
- *                const emlrtMsgIdentifier *parentId
- * Return Type  : real_T
- */
-static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
-  emlrtMsgIdentifier *parentId)
-{
-  real_T y;
-  y = f_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
-  emlrtDestroyArray(&u);
-  return y;
-}
-
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *src
- *                const emlrtMsgIdentifier *msgId
- * Return Type  : boolean_T (*)[728160]
- */
-static boolean_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
-  const emlrtMsgIdentifier *msgId))[728160]
-{
-  static const int32_T dims[2] = { 984, 740 };
-
-  boolean_T (*ret)[728160];
-  emlrtCheckBuiltInR2012b(sp, msgId, src, "logical", false, 2U, dims);
-  ret = (boolean_T (*)[728160])emlrtMxGetData(src);
-  emlrtDestroyArray(&src);
-  return ret;
-}
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *colourSegmentationMask
- *                const char_T *identifier
- * Return Type  : boolean_T (*)[728160]
- */
-  static boolean_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
-  *colourSegmentationMask, const char_T *identifier))[728160]
-{
-  emlrtMsgIdentifier thisId;
-  boolean_T (*y)[728160];
-  thisId.fIdentifier = (const char_T *)identifier;
-  thisId.fParent = NULL;
-  thisId.bParentIsCell = false;
-  y = b_emlrt_marshallIn(sp, emlrtAlias(colourSegmentationMask), &thisId);
-  emlrtDestroyArray(&colourSegmentationMask);
-  return y;
-}
-
-/*
- * Arguments    : const boolean_T u[728160]
- * Return Type  : const mxArray *
- */
-static const mxArray *emlrt_marshallOut(const boolean_T u[728160])
+  static const mxArray *b_emlrt_marshallOut(const boolean_T u[728160])
 {
   static const int32_T iv[2] = { 0, 0 };
 
@@ -145,12 +67,62 @@ static const mxArray *emlrt_marshallOut(const boolean_T u[728160])
   return y;
 }
 
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *src
- *                const emlrtMsgIdentifier *msgId
- * Return Type  : real_T
- */
+static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  *centerOfObjectX, const char_T *identifier)
+{
+  emlrtMsgIdentifier thisId;
+  real_T y;
+  thisId.fIdentifier = (const char_T *)identifier;
+  thisId.fParent = NULL;
+  thisId.bParentIsCell = false;
+  y = d_emlrt_marshallIn(sp, emlrtAlias(centerOfObjectX), &thisId);
+  emlrtDestroyArray(&centerOfObjectX);
+  return y;
+}
+
+static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+  emlrtMsgIdentifier *parentId)
+{
+  real_T y;
+  y = f_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  emlrtDestroyArray(&u);
+  return y;
+}
+
+static boolean_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId))[728160]
+{
+  static const int32_T dims[2] = { 984, 740 };
+
+  boolean_T (*ret)[728160];
+  emlrtCheckBuiltInR2012b(sp, msgId, src, "logical", false, 2U, dims);
+  ret = (boolean_T (*)[728160])emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+  return ret;
+}
+  static boolean_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  *colourSegmentationMask, const char_T *identifier))[728160]
+{
+  emlrtMsgIdentifier thisId;
+  boolean_T (*y)[728160];
+  thisId.fIdentifier = (const char_T *)identifier;
+  thisId.fParent = NULL;
+  thisId.bParentIsCell = false;
+  y = b_emlrt_marshallIn(sp, emlrtAlias(colourSegmentationMask), &thisId);
+  emlrtDestroyArray(&colourSegmentationMask);
+  return y;
+}
+
+static const mxArray *emlrt_marshallOut(const real_T u)
+{
+  const mxArray *m;
+  const mxArray *y;
+  y = NULL;
+  m = emlrtCreateDoubleScalar(u);
+  emlrtAssign(&y, m);
+  return y;
+}
+
 static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId)
 {
@@ -162,13 +134,8 @@ static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   return ret;
 }
 
-/*
- * Arguments    : const mxArray * const prhs[3]
- *                const mxArray *plhs[1]
- * Return Type  : void
- */
-void MorphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
-  plhs[1])
+void MorphologicalFilters_api(const mxArray * const prhs[3], int32_T nlhs, const
+  mxArray *plhs[2])
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -177,6 +144,7 @@ void MorphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
 
   real_T centerOfObjectX;
   real_T centerOfObjectY;
+  real_T errorNoImage;
   boolean_T (*colourSegmentationMask)[728160];
   boolean_T (*segmentationMask)[728160];
   st.tls = emlrtRootTLSGlobal;
@@ -192,16 +160,15 @@ void MorphologicalFilters_api(const mxArray * const prhs[3], const mxArray *
 
   /* Invoke the target function */
   MorphologicalFilters(*colourSegmentationMask, centerOfObjectX, centerOfObjectY,
-                       *segmentationMask);
+                       &errorNoImage, *segmentationMask);
 
   /* Marshall function outputs */
-  plhs[0] = emlrt_marshallOut(*segmentationMask);
+  plhs[0] = emlrt_marshallOut(errorNoImage);
+  if (nlhs > 1) {
+    plhs[1] = b_emlrt_marshallOut(*segmentationMask);
+  }
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void MorphologicalFilters_atexit(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -219,10 +186,6 @@ void MorphologicalFilters_atexit(void)
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void MorphologicalFilters_initialize(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -237,10 +200,6 @@ void MorphologicalFilters_initialize(void)
   emlrtFirstTimeR2012b(emlrtRootTLSGlobal);
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void MorphologicalFilters_terminate(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -253,8 +212,4 @@ void MorphologicalFilters_terminate(void)
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
 }
 
-/*
- * File trailer for _coder_MorphologicalFilters_api.c
- *
- * [EOF]
- */
+/* End of code generation (_coder_MorphologicalFilters_api.c) */

@@ -1,12 +1,13 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: main.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  main.cpp
 //
+//  Code generation for function 'main'
+//
+
 
 //***********************************************************************
 // This automatically generated example C++ main file shows how to call
@@ -33,7 +34,7 @@
 //
 //***********************************************************************
 
-// Include Files
+// Include files
 #include "main.h"
 #include "MorphologicalFilters.h"
 #include "MorphologicalFilters_terminate.h"
@@ -46,10 +47,6 @@ static double argInit_real_T();
 static void main_MorphologicalFilters();
 
 // Function Definitions
-//
-// Arguments    : bool result[728160]
-// Return Type  : void
-//
 static void argInit_984x740_boolean_T(bool result[728160])
 {
   // Loop over the array to initialize each element.
@@ -62,33 +59,22 @@ static void argInit_984x740_boolean_T(bool result[728160])
   }
 }
 
-//
-// Arguments    : void
-// Return Type  : bool
-//
 static bool argInit_boolean_T()
 {
   return false;
 }
 
-//
-// Arguments    : void
-// Return Type  : double
-//
 static double argInit_real_T()
 {
   return 0.0;
 }
 
-//
-// Arguments    : void
-// Return Type  : void
-//
 static void main_MorphologicalFilters()
 {
   static bool bv[728160];
   static bool segmentationMask[728160];
   double centerOfObjectX_tmp;
+  double errorNoImage;
 
   // Initialize function 'MorphologicalFilters' input arguments.
   // Initialize function input argument 'colourSegmentationMask'.
@@ -97,14 +83,9 @@ static void main_MorphologicalFilters()
   // Call the entry-point 'MorphologicalFilters'.
   argInit_984x740_boolean_T(bv);
   MorphologicalFilters(bv, centerOfObjectX_tmp, centerOfObjectX_tmp,
-                       segmentationMask);
+                       &errorNoImage, segmentationMask);
 }
 
-//
-// Arguments    : int argc
-//                const char * const argv[]
-// Return Type  : int
-//
 int main(int, const char * const [])
 {
   // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
@@ -118,8 +99,4 @@ int main(int, const char * const [])
   return 0;
 }
 
-//
-// File trailer for main.cpp
-//
-// [EOF]
-//
+// End of code generation (main.cpp)

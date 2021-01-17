@@ -2,16 +2,17 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_MorphologicalFilters_mex.h
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 03-Dec-2020 08:29:52
+ * _coder_MorphologicalFilters_mex.h
+ *
+ * Code generation for function 'MorphologicalFilters'
+ *
  */
 
 #ifndef _CODER_MORPHOLOGICALFILTERS_MEX_H
 #define _CODER_MORPHOLOGICALFILTERS_MEX_H
 
-/* Include Files */
+/* Include files */
 #include "emlrt.h"
 #include "mex.h"
 #include "tmwtypes.h"
@@ -22,7 +23,7 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T
+  void MorphologicalFilters_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T
     nrhs, const mxArray *prhs[3]);
   MEXFUNCTION_LINKAGE void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T
     nrhs, const mxArray *prhs[]);
@@ -34,8 +35,4 @@ extern "C" {
 #endif
 #endif
 
-/*
- * File trailer for _coder_MorphologicalFilters_mex.h
- *
- * [EOF]
- */
+/* End of code generation (_coder_MorphologicalFilters_mex.h) */

@@ -1,16 +1,18 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: bsxfun.h
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  bsxfun.h
 //
+//  Code generation for function 'bsxfun'
+//
+
+
 #ifndef BSXFUN_H
 #define BSXFUN_H
 
-// Include Files
+// Include files
 #include "rtwtypes.h"
 #include "coder_array.h"
 #include "omp.h"
@@ -26,8 +28,4 @@ namespace coder
 
 #endif
 
-//
-// File trailer for bsxfun.h
-//
-// [EOF]
-//
+// End of code generation (bsxfun.h)

@@ -1,14 +1,15 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: regionprops.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  regionprops.cpp
+//
+//  Code generation for function 'regionprops'
 //
 
-// Include Files
+
+// Include files
 #include "regionprops.h"
 #include "MorphologicalFilters_internal_types.h"
 #include "bwconncomp.h"
@@ -47,11 +48,6 @@ struct b_struct_T
 };
 
 // Function Definitions
-//
-// Arguments    : const bool varargin_1[728160]
-//                ::coder::array<struct_T, 1U> &outstats
-// Return Type  : void
-//
 namespace coder
 {
   void regionprops(const bool varargin_1[728160], ::coder::array<struct_T, 1U>
@@ -236,8 +232,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for regionprops.cpp
-//
-// [EOF]
-//
+// End of code generation (regionprops.cpp)

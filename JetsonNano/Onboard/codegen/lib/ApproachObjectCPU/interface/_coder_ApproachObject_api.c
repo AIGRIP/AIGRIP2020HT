@@ -2,13 +2,14 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_ApproachObject_api.c
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 04-Dec-2020 11:28:08
+ * _coder_ApproachObject_api.c
+ *
+ * Code generation for function '_coder_ApproachObject_api'
+ *
  */
 
-/* Include Files */
+/* Include files */
 #include "_coder_ApproachObject_api.h"
 #include "_coder_ApproachObject_mex.h"
 
@@ -16,7 +17,7 @@
 emlrtCTX emlrtRootTLSGlobal = NULL;
 emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
   false,                               /* bInitialized */
-  131595U,                             /* fVersionInfo */
+  131594U,                             /* fVersionInfo */
   NULL,                                /* fErrorFunction */
   "ApproachObject",                    /* fFunctionName */
   NULL,                                /* fRTCallStack */
@@ -28,45 +29,39 @@ emlrtContext emlrtContextGlobal = { true,/* bFirstTime */
 /* Function Declarations */
 static real_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId))[5];
-static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+static uint16_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *currentMotorM0Steps, const char_T *identifier);
-static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+static uint16_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId);
-static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
-  const emlrtMsgIdentifier *msgId))[5];
+static real_T e_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  *distanceToObject, const char_T *identifier);
 static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *linkLengths, const char_T *identifier))[5];
-static const mxArray *emlrt_marshallOut(const real_T u[3]);
-static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
+static const mxArray *emlrt_marshallOut(const uint16_T u[3]);
+static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+  emlrtMsgIdentifier *parentId);
+static real_T (*g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId))[5];
+static uint16_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId);
+static real_T i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 
 /* Function Definitions */
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *u
- *                const emlrtMsgIdentifier *parentId
- * Return Type  : real_T (*)[5]
- */
 static real_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId))[5]
 {
   real_T (*y)[5];
-  y = e_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  y = g_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
   emlrtDestroyArray(&u);
   return y;
 }
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *currentMotorM0Steps
- *                const char_T *identifier
- * Return Type  : real_T
- */
-  static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  static uint16_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *currentMotorM0Steps, const char_T *identifier)
 {
+  uint16_T y;
   emlrtMsgIdentifier thisId;
-  real_T y;
-  thisId.fIdentifier = (const char_T *)identifier;
+  thisId.fIdentifier = (const char *)identifier;
   thisId.fParent = NULL;
   thisId.bParentIsCell = false;
   y = d_emlrt_marshallIn(sp, emlrtAlias(currentMotorM0Steps), &thisId);
@@ -74,113 +69,114 @@ static real_T (*b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   return y;
 }
 
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *u
- *                const emlrtMsgIdentifier *parentId
- * Return Type  : real_T
- */
-static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+static uint16_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId)
 {
-  real_T y;
-  y = f_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  uint16_T y;
+  y = h_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
   emlrtDestroyArray(&u);
   return y;
 }
 
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *src
- *                const emlrtMsgIdentifier *msgId
- * Return Type  : real_T (*)[5]
- */
-static real_T (*e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
-  const emlrtMsgIdentifier *msgId))[5]
+static real_T e_emlrt_marshallIn(const emlrtStack *sp, const mxArray
+  *distanceToObject, const char_T *identifier)
 {
-  static const int32_T dims[2] = { 1, 5 };
-
-  real_T (*ret)[5];
-  emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 2U, dims);
-  ret = (real_T (*)[5])emlrtMxGetData(src);
-  emlrtDestroyArray(&src);
-  return ret;
+  real_T y;
+  emlrtMsgIdentifier thisId;
+  thisId.fIdentifier = (const char *)identifier;
+  thisId.fParent = NULL;
+  thisId.bParentIsCell = false;
+  y = f_emlrt_marshallIn(sp, emlrtAlias(distanceToObject), &thisId);
+  emlrtDestroyArray(&distanceToObject);
+  return y;
 }
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *linkLengths
- *                const char_T *identifier
- * Return Type  : real_T (*)[5]
- */
-  static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
+
+static real_T (*emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *linkLengths, const char_T *identifier))[5]
 {
-  emlrtMsgIdentifier thisId;
   real_T (*y)[5];
-  thisId.fIdentifier = (const char_T *)identifier;
+  emlrtMsgIdentifier thisId;
+  thisId.fIdentifier = (const char *)identifier;
   thisId.fParent = NULL;
   thisId.bParentIsCell = false;
   y = b_emlrt_marshallIn(sp, emlrtAlias(linkLengths), &thisId);
   emlrtDestroyArray(&linkLengths);
   return y;
 }
-
-/*
- * Arguments    : const real_T u[3]
- * Return Type  : const mxArray *
- */
-static const mxArray *emlrt_marshallOut(const real_T u[3])
+  static const mxArray *emlrt_marshallOut(const uint16_T u[3])
 {
+  const mxArray *y;
+  const mxArray *m;
   static const int32_T iv[2] = { 0, 0 };
 
   static const int32_T iv1[2] = { 1, 3 };
 
-  const mxArray *m;
-  const mxArray *y;
   y = NULL;
-  m = emlrtCreateNumericArray(2, &iv[0], mxDOUBLE_CLASS, mxREAL);
+  m = emlrtCreateNumericArray(2, &iv[0], mxUINT16_CLASS, mxREAL);
   emlrtMxSetData((mxArray *)m, (void *)&u[0]);
-  emlrtSetDimensions((mxArray *)m, iv1, 2);
+  emlrtSetDimensions((mxArray *)m, *(int32_T (*)[2])&iv1[0], 2);
   emlrtAssign(&y, m);
   return y;
 }
 
-/*
- * Arguments    : const emlrtStack *sp
- *                const mxArray *src
- *                const emlrtMsgIdentifier *msgId
- * Return Type  : real_T
- */
-static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
+static real_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
+  emlrtMsgIdentifier *parentId)
+{
+  real_T y;
+  y = i_emlrt_marshallIn(sp, emlrtAlias(u), parentId);
+  emlrtDestroyArray(&u);
+  return y;
+}
+
+static real_T (*g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId))[5]
+{
+  real_T (*ret)[5];
+  static const int32_T dims[2] = { 1, 5 };
+
+  emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 2U, dims);
+  ret = (real_T (*)[5])emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+  return ret;
+}
+  static uint16_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+  const emlrtMsgIdentifier *msgId)
+{
+  uint16_T ret;
+  static const int32_T dims = 0;
+  emlrtCheckBuiltInR2012b(sp, msgId, src, "uint16", false, 0U, &dims);
+  ret = *(uint16_T *)emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+  return ret;
+}
+
+static real_T i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId)
 {
-  static const int32_T dims = 0;
   real_T ret;
+  static const int32_T dims = 0;
   emlrtCheckBuiltInR2012b(sp, msgId, src, "double", false, 0U, &dims);
   ret = *(real_T *)emlrtMxGetData(src);
   emlrtDestroyArray(&src);
   return ret;
 }
 
-/*
- * Arguments    : const mxArray * const prhs[4]
- *                const mxArray *plhs[1]
- * Return Type  : void
- */
-void ApproachObject_api(const mxArray * const prhs[4], const mxArray *plhs[1])
+void ApproachObject_api(const mxArray * const prhs[4], int32_T nlhs, const
+  mxArray *plhs[1])
 {
+  uint16_T (*motorAngles)[3];
+  real_T (*linkLengths)[5];
+  uint16_T currentMotorM0Steps;
+  uint16_T currentMotorM1Steps;
+  real_T distanceToObject;
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
     NULL                               /* prev */
   };
 
-  real_T (*linkLengths)[5];
-  real_T (*motorAngles)[3];
-  real_T currentMotorM0Steps;
-  real_T currentMotorM1Steps;
-  real_T distanceToObject;
+  (void)nlhs;
   st.tls = emlrtRootTLSGlobal;
-  motorAngles = (real_T (*)[3])mxMalloc(sizeof(real_T [3]));
+  motorAngles = (uint16_T (*)[3])mxMalloc(sizeof(uint16_T [3]));
 
   /* Marshall function inputs */
   linkLengths = emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "linkLengths");
@@ -188,7 +184,7 @@ void ApproachObject_api(const mxArray * const prhs[4], const mxArray *plhs[1])
     "currentMotorM0Steps");
   currentMotorM1Steps = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[2]),
     "currentMotorM1Steps");
-  distanceToObject = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]),
+  distanceToObject = e_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]),
     "distanceToObject");
 
   /* Invoke the target function */
@@ -199,10 +195,6 @@ void ApproachObject_api(const mxArray * const prhs[4], const mxArray *plhs[1])
   plhs[0] = emlrt_marshallOut(*motorAngles);
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void ApproachObject_atexit(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -220,10 +212,6 @@ void ApproachObject_atexit(void)
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void ApproachObject_initialize(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -238,10 +226,6 @@ void ApproachObject_initialize(void)
   emlrtFirstTimeR2012b(emlrtRootTLSGlobal);
 }
 
-/*
- * Arguments    : void
- * Return Type  : void
- */
 void ApproachObject_terminate(void)
 {
   emlrtStack st = { NULL,              /* site */
@@ -254,8 +238,4 @@ void ApproachObject_terminate(void)
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
 }
 
-/*
- * File trailer for _coder_ApproachObject_api.c
- *
- * [EOF]
- */
+/* End of code generation (_coder_ApproachObject_api.c) */

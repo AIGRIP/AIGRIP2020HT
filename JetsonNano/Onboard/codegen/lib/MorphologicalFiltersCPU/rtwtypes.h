@@ -2,16 +2,17 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: rtwtypes.h
  *
- * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 03-Dec-2020 08:29:52
+ * rtwtypes.h
+ *
+ * Code generation for function 'MorphologicalFilters'
+ *
  */
 
 #ifndef RTWTYPES_H
 #define RTWTYPES_H
 
-/* Include Files */
+/* Include files */
 #ifndef __cplusplus
 #include <stdbool.h>
 #endif
@@ -162,8 +163,4 @@ extern "C" {
 #endif
 #endif
 
-/*
- * File trailer for rtwtypes.h
- *
- * [EOF]
- */
+/* End of code generation (rtwtypes.h) */

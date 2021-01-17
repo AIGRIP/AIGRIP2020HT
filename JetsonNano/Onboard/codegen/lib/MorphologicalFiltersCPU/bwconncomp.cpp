@@ -1,28 +1,20 @@
 //
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-// File: bwconncomp.cpp
+//  Academic License - for use in teaching, academic research, and meeting
+//  course requirements at degree granting institutions only.  Not for
+//  government, commercial, or other organizational use.
 //
-// MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 03-Dec-2020 08:29:52
+//  bwconncomp.cpp
+//
+//  Code generation for function 'bwconncomp'
 //
 
-// Include Files
+
+// Include files
 #include "bwconncomp.h"
 #include "rt_nonfinite.h"
 #include "coder_array.h"
 
 // Function Definitions
-//
-// Arguments    : const bool varargin_1[728160]
-//                double *CC_Connectivity
-//                double CC_ImageSize[2]
-//                double *CC_NumObjects
-//                ::coder::array<double, 1U> &CC_RegionIndices
-//                ::coder::array<int, 1U> &CC_RegionLengths
-// Return Type  : void
-//
 namespace coder
 {
   void bwconncomp(const bool varargin_1[728160], double *CC_Connectivity, double
@@ -260,8 +252,4 @@ namespace coder
   }
 }
 
-//
-// File trailer for bwconncomp.cpp
-//
-// [EOF]
-//
+// End of code generation (bwconncomp.cpp)
