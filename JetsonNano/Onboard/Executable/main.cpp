@@ -1,67 +1,42 @@
 
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <stdint.h>
-//extern "cBalance"
-
-//#include "testFuncHardwareGPU.h"
-#include "ParallelMotorAnglet2.h"
-#include "InverseKinematicsPreshape.h"
-#include "ForwardKinematics.h"
-#include "PointToLine.h"
-#include "colourSegmentation.h"
-#include "colourBalance.h"
-#include "morphologicalFilters.h"
 #include "communication.h"
+#include "control.h"
 
+#include "GetValidGripPoints.h"
 
-int main(void)
+int main()
 {
+	unsigned short motorSteps[3];
 
+	double bestTargetPointX;
+	double bestTargetPointY;
+	double bestNormalPointY;
+	double bestNormalPointX;
 
-	const double linkLengths[] = {25,95,60,35,50};
-	double desiredPosition[] = {5,10};
-	double desiredAngle[] = {9,10};
-	int16_t motorAngles[3];  
+	double tpY[] = {38,51,65,81,146,144,99,144,119,143,141};
+	double tpX[] = {132,132,133,135,65,80,136,97,137,116,136};
+	double tNY[] = {182,181.6,182.7,184.8,70.5,80,185.8,97,186.9,124.9,185.9};
+	double tNX[] = {38,44.8,59.5,76,195.7,194,94.8,194,115.2,192.2,144.8};
 
-	InverseKinematicsPreshape(linkLengths,desiredPosition,desiredAngle,motorAngles);
-	printf("%u,%u,%u \n",motorAngles[0],motorAngles[1],motorAngles[2]);	
-	
+	const int ts = 11;
 
-	double pt[] = {30,30};
-	double v1[] = {1,3};
-	double v2[] = {1,5};
-	bool positionReachable = PointToLine(pt,v1,v2);
+	GetValidGripPoints( tpY,&ts,tpX,&ts,tNY,&ts,tNX,&ts,(double) 300.0, 1,(int)10, motorSteps, &bestTargetPointY, &bestTargetPointX, &bestNormalPointY, &bestNormalPointX);
 
-	if(positionReachable == 1)
-	{
-		printf("1\n");
-	}
-	else
-	{
-		printf("0\n");
-	}
-
-
-	double motorAnglet1 = (float) 3/4;
-	double motorAnglet2 = (float) 1.2829;
-	const double motorPositionM1[] = {0,0};
-	double motorPositionM2[] = {-29,-38};
-	double jointPositions [8];
-	double opticalSensorPosition [2];
-	ForwardKinematics(linkLengths, motorPositionM1,motorAnglet1,motorAnglet2,jointPositions,opticalSensorPosition);
-
-	for(int i = 0 ; i<8 ; i++)
-	{
-		printf("%f,",jointPositions[i]);
-	}
+	for(int i=0;i<3;i++)
+		printf("%hu    ",motorSteps[i]);
 	printf("\n");
-
-	printf("%f,%f\n",opticalSensorPosition[0],opticalSensorPosition[1]);
-
+	fflush(stdout);
+	// Communication handle for Nano.
 	communicationHandler();
 
-	return 0;
+    return 0;
 }
+
+
+

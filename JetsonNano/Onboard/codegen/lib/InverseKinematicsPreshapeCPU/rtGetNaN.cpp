@@ -5,7 +5,7 @@
 // File: rtGetNaN.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2020 08:59:29
+// C/C++ source code generated on  : 26-Nov-2020 14:36:02
 //
 
 //
