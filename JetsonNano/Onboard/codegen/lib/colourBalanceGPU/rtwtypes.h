@@ -5,7 +5,7 @@
  * File: rtwtypes.h
  *
  * GPU Coder version                    : 2.0
- * CUDA/C/C++ source code generated on  : 06-Nov-2020 10:02:26
+ * CUDA/C/C++ source code generated on  : 19-Nov-2020 17:09:04
  */
 
 #ifndef RTWTYPES_H
